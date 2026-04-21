@@ -11,17 +11,19 @@
 <img width="1000" height="400" alt="image" src="https://github.com/user-attachments/assets/e5a5adc8-6e60-498f-ab9e-4f709a0e02a7" />  
 
 其中，市场数据发布器的内部架构和订单服务器的内部架构如下图  
-
+市场数据发布器内部有增量多播和快照多播
 <img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/2678a2c7-ce22-47f7-bb51-ab4e721bc292" />
 
 <img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/bb3d7ab3-a239-426e-8848-f6a3e7004ecf" />
 
 ### 客户端架构  
-#### 市场数据接收器
+#### 市场数据接收器  
+市场数据接收器内部接收增量多播，在丢包时切换成恢复状态，接收快照多播
 <img width="1000" height="580" alt="image" src="https://github.com/user-attachments/assets/dc5b59bc-1977-40d0-bce6-821b0683eb24" />
 
 #### 订单网关
 <img width="1000" height="580" alt="image" src="https://github.com/user-attachments/assets/9b3c39eb-5742-4cb2-9602-90a071631387" />
 
-### 核心的交易引擎
+### 核心的交易引擎  
+内部有多个模块：订单簿、头寸追踪器、特征引擎、算法策略、订单管理器、风控引擎
 <img width="900" height="460" alt="image" src="https://github.com/user-attachments/assets/bbac8da4-d3c0-40aa-8bce-38ec28069bc0" />
