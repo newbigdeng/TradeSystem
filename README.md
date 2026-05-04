@@ -3,7 +3,7 @@
 **交易所端：** 撮合引擎、行情发布器（增量 + 快照）、订单服务器  
 **客户端：** 行情消费者、本地订单簿维护、策略引擎、订单网关、风控与头寸追踪  
 整个系统在 Linux 环境 下运行，模块间通过无锁队列解耦，可一键启动多客户端联合压测，并输出端到端延迟分析图表。  
-项目原型来自Sourav Ghosh的《Building Low Latency Applications with C++》，在啃完此书后，对其中一部分代码进行了优化，如无锁队列的代码，优化了逻辑，并新增了acquire/release内存序。  
+  
 ## 项目架构图
 <img width="1000" height="800" alt="image" src="https://github.com/user-attachments/assets/50439269-08c6-458d-9cef-94da2b6dc0ba" />
 
