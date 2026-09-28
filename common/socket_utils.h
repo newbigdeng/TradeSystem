@@ -43,10 +43,10 @@ namespace Common {
     }
   };
 
-  /// 最大TCP服务器回退日志大小
+  /// Represents the maximum number of pending / unaccepted TCP connections.
   constexpr int MaxTCPServerBacklog = 1024;
 
-  /// 将接口名称"eth0"转换为IP地址"123.123.123.123"
+  /// Convert interface name "eth0" to ip "123.123.123.123".
   inline auto getIfaceIP(const std::string &iface) -> std::string {
     char buf[NI_MAXHOST] = {'\0'};
     ifaddrs *ifaddr = nullptr;
@@ -64,7 +64,7 @@ namespace Common {
     return buf;
   }
 
-  /// 设置套接字为非阻塞模式
+  /// Sockets will not block on read, but instead return immediately if data is not available.
   inline auto setNonBlocking(int fd) -> bool {
     const auto flags = fcntl(fd, F_GETFL, 0);
     if (flags & O_NONBLOCK)
@@ -72,25 +72,25 @@ namespace Common {
     return (fcntl(fd, F_SETFL, flags | O_NONBLOCK) != -1);
   }
 
-  /// 禁用Nagle算法和关联的延迟
+  /// Disable Nagle's algorithm and associated delays.
   inline auto disableNagle(int fd) -> bool {
     int one = 1;
     return (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, reinterpret_cast<void *>(&one), sizeof(one)) != -1);
   }
 
-  /// 设置套接字选项，允许软件接收入站数据包的时间戳
+  /// Allow software receive timestamps on incoming packets.
   inline auto setSOTimestamp(int fd) -> bool {
     int one = 1;
     return (setsockopt(fd, SOL_SOCKET, SO_TIMESTAMP, reinterpret_cast<void *>(&one), sizeof(one)) != -1);
   }
 
-  /// 加入多播组，监听指定接口的多播流
+  /// Add / Join membership / subscription to the multicast stream specified and on the interface specified.
   inline auto join(int fd, const std::string &ip) -> bool {
     const ip_mreq mreq{{inet_addr(ip.c_str())}, {htonl(INADDR_ANY)}};
     return (setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreq, sizeof(mreq)) != -1);
   }
 
-  /// 创建TCP/UDP套接字，用于连接或监听指定接口和IP:端口信息
+  /// Create a TCP / UDP socket to either connect to or listen for data on or listen for connections on the specified interface and IP:port information.
   [[nodiscard]] inline auto createSocket(Logger &logger, const SocketCfg& socket_cfg) -> int {
     std::string time_str;
 
@@ -112,32 +112,30 @@ namespace Common {
       ASSERT((socket_fd = socket(rp->ai_family, rp->ai_socktype, rp->ai_protocol)) != -1, "socket() failed. errno:" + std::string(strerror(errno)));
 
       ASSERT(setNonBlocking(socket_fd), "setNonBlocking() failed. errno:" + std::string(strerror(errno)));
-      // 不是UDP套接字，禁用Nagle算法和关联的延迟
-      if (!socket_cfg.is_udp_) { // 禁用Nagle算法和关联的延迟
+
+      if (!socket_cfg.is_udp_) { // disable Nagle for TCP sockets.
         ASSERT(disableNagle(socket_fd), "disableNagle() failed. errno:" + std::string(strerror(errno)));
       }
-      //不是监听套接字，连接到指定地址
-      if (!socket_cfg.is_listening_) {
+
+      if (!socket_cfg.is_listening_) { // establish connection to specified address.
         ASSERT(connect(socket_fd, rp->ai_addr, rp->ai_addrlen) != 1, "connect() failed. errno:" + std::string(strerror(errno)));
       }
-      // 允许在绑定时重用地址
-      if (socket_cfg.is_listening_) { 
+
+      if (socket_cfg.is_listening_) { // allow re-using the address in the call to bind()
         ASSERT(setsockopt(socket_fd, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char *>(&one), sizeof(one)) == 0, "setsockopt() SO_REUSEADDR failed. errno:" + std::string(strerror(errno)));
       }
 
       if (socket_cfg.is_listening_) {
-        // 绑定到指定端口号
+        // bind to the specified port number.
         const sockaddr_in addr{AF_INET, htons(socket_cfg.port_), {htonl(INADDR_ANY)}, {}};
         ASSERT(bind(socket_fd, socket_cfg.is_udp_ ? reinterpret_cast<const struct sockaddr *>(&addr) : rp->ai_addr, sizeof(addr)) == 0, "bind() failed. errno:%" + std::string(strerror(errno)));
       }
 
-      // 不是UDP套接字，监听入站TCP连接
-      if (!socket_cfg.is_udp_ && socket_cfg.is_listening_) { 
+      if (!socket_cfg.is_udp_ && socket_cfg.is_listening_) { // listen for incoming TCP connections.
         ASSERT(listen(socket_fd, MaxTCPServerBacklog) == 0, "listen() failed. errno:" + std::string(strerror(errno)));
       }
-      
-      // 允许软件接收入站数据包的时间戳
-      if (socket_cfg.needs_so_timestamp_) { 
+
+      if (socket_cfg.needs_so_timestamp_) { // enable software receive timestamps.
         ASSERT(setSOTimestamp(socket_fd), "setSOTimestamp() failed. errno:" + std::string(strerror(errno)));
       }
     }

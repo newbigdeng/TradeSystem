@@ -8,7 +8,7 @@
 using namespace Common;
 
 namespace Exchange {
-  /// 由交易所发送给交易客户端的订单响应类型。
+  /// Type of the order response sent by the exchange to the trading client.
   enum class ClientResponseType : uint8_t {
     INVALID = 0,
     ACCEPTED = 1,
@@ -33,10 +33,10 @@ namespace Exchange {
     return "UNKNOWN";
   }
 
-  /// 这些结构通过网络传输，所以二进制结构被压缩以去除系统相关的额外填充。
+  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
 #pragma pack(push, 1)
 
-  /// 匹配引擎内部使用的客户端响应结构。
+  /// Client response structure used internally by the matching engine.
   struct MEClientResponse {
     ClientResponseType type_ = ClientResponseType::INVALID;
     ClientId client_id_ = ClientId_INVALID;
@@ -66,7 +66,7 @@ namespace Exchange {
     }
   };
 
-  /// 订单服务器通过网络发布的客户端响应结构。
+  /// Client response structure published over the network by the order server.
   struct OMClientResponse {
     size_t seq_num_ = 0;
     MEClientResponse me_client_response_;
@@ -82,8 +82,8 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // 撤消后续的压缩二进制结构指令。
+#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
-  /// 匹配引擎客户端订单响应消息的无锁队列。
+  /// Lock free queues of matching engine client order response messages.
   typedef LFQueue<MEClientResponse> ClientResponseLFQueue;
 }

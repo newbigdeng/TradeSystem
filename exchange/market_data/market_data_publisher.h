@@ -21,7 +21,7 @@ namespace Exchange {
       snapshot_synthesizer_ = nullptr;
     }
 
-    /// 启动和停止市场数据发布主进程，以及内部快照合成器进程。
+    /// Start and stop the market data publisher main thread, as well as the internal snapshot synthesizer thread.
     auto start() {
       run_ = true;
 
@@ -36,7 +36,7 @@ namespace Exchange {
       snapshot_synthesizer_->stop();
     }
 
-    /// 此线程的主运行循环 - 从匹配引擎的无锁队列消费市场更新，将它们发布到增量多播流并转发给快照合成器。
+    /// Main run loop for this thread - consumes market updates from the lock free queue from the matching engine, publishes them on the incremental multicast stream and forwards them to the snapshot synthesizer.
     auto run() noexcept -> void;
 
     // Deleted default, copy & move constructors and assignment-operators.
@@ -51,13 +51,13 @@ namespace Exchange {
     MarketDataPublisher &operator=(const MarketDataPublisher &&) = delete;
 
   private:
-    /// 增量市场数据流上的序列号跟踪器。
+    /// Sequencer number tracker on the incremental market data stream.
     size_t next_inc_seq_num_ = 1;
 
-    /// 无锁队列，我们从中消费匹配引擎发送的市场数据更新。
+    /// Lock free queue from which we consume market data updates sent by the matching engine.
     MEMarketUpdateLFQueue *outgoing_md_updates_ = nullptr;
 
-    /// 无锁队列，我们将增量市场数据更新转发到快照合成器。
+    /// Lock free queue on which we forward the incremental market data updates to send to the snapshot synthesizer.
     MDPMarketUpdateLFQueue snapshot_md_updates_;
 
     volatile bool run_ = false;

@@ -21,28 +21,33 @@ namespace Exchange {
 
     ~SnapshotSynthesizer();
 
-    /// 启动和停止快照合成器线程。
+    /// Start and stop the snapshot synthesizer thread.
     auto start() -> void;
 
     auto stop() -> void;
 
-    /// 处理增量市场更新并更新限价订单簿快照。
+    /// Process an incremental market update and update the limit order book snapshot.
     auto addToSnapshot(const MDPMarketUpdate *market_update);
 
-    /// 在快照多播流上发布完整的快照周期。
+    /// Publish a full snapshot cycle on the snapshot multicast stream.
     auto publishSnapshot();
 
-    /// 此线程的主方法 - 处理由市场数据发布者发送的增量更新，更新快照并定期发布快照。
+    /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
     auto run() -> void;
 
-    
+    /// Deleted default, copy & move constructors and assignment-operators.
     SnapshotSynthesizer() = delete;
+
     SnapshotSynthesizer(const SnapshotSynthesizer &) = delete;
+
     SnapshotSynthesizer(const SnapshotSynthesizer &&) = delete;
+
     SnapshotSynthesizer &operator=(const SnapshotSynthesizer &) = delete;
+
     SnapshotSynthesizer &operator=(const SnapshotSynthesizer &&) = delete;
+
   private:
-    /// 包含来自市场数据发布者的增量市场数据更新的无锁队列。
+    /// Lock free queue containing incremental market data updates coming in from the market data publisher.
     MDPMarketUpdateLFQueue *snapshot_md_updates_ = nullptr;
 
     Logger logger_;

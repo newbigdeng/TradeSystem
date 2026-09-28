@@ -19,9 +19,9 @@ namespace Exchange {
     }
   }
 
-  /// 将具有提供参数的新主动订单与bid_itr对象中持有的被动订单进行匹配，并为匹配生成客户端响应和市场更新。
-  /// 它将根据匹配更新被动订单(bid_itr)，如果完全匹配则可能移除它。
-  /// 它将在leaves_qty参数中返回主动订单的剩余数量。
+  /// Match a new aggressive order with the provided parameters against a passive order held in the bid_itr object and generate client responses and market updates for the match.
+  /// It will update the passive order (bid_itr) based on the match and possibly remove it if fully matched.
+  /// It will return remaining quantity on the aggressive order in the leaves_qty parameter.
   auto MEOrderBook::match(TickerId ticker_id, ClientId client_id, Side side, OrderId client_order_id, OrderId new_market_order_id, MEOrder* itr, Qty* leaves_qty) noexcept {
     const auto order = itr;
     const auto order_qty = order->qty_;
@@ -56,8 +56,8 @@ namespace Exchange {
     }
   }
 
-  /// 检查具有提供属性的新订单是否会与订单簿另一侧的现有被动订单匹配。
-  /// 如果有匹配要执行，这将调用match()方法来执行匹配，并返回此新订单上剩余的数量（如果有）。
+  /// Check if a new order with the provided attributes would match against existing passive orders on the other side of the order book.
+  /// This will call the match() method to perform the match if there is a match to be made and return the quantity remaining if any on this new order.
   auto MEOrderBook::checkForMatch(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty, Qty new_market_order_id) noexcept {
     auto leaves_qty = qty;
 
@@ -89,8 +89,8 @@ namespace Exchange {
     return leaves_qty;
   }
 
-  /// 使用提供的属性在订单簿中创建并添加新订单。
-  /// 它将检查此新订单是否与具有相反方向的现有被动订单匹配，如果是，则执行匹配。
+  /// Create and add a new order in the order book with provided attributes.
+  /// It will check to see if this new order matches an existing passive order with opposite side, and perform the matching if that is the case.
   auto MEOrderBook::add(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty) noexcept -> void {
     const auto new_market_order_id = generateNewMarketOrderId();
     client_response_ = {ClientResponseType::ACCEPTED, client_id, ticker_id, client_order_id, new_market_order_id, side, price, 0, qty};
@@ -114,7 +114,7 @@ namespace Exchange {
     }
   }
 
-  /// 尝试取消订单簿中的订单，如果订单不存在则发出取消拒绝。
+  /// Attempt to cancel an order in the order book, issue a cancel-rejection if order does not exist.
   auto MEOrderBook::cancel(ClientId client_id, OrderId order_id, TickerId ticker_id) noexcept -> void {
     auto is_cancelable = (client_id < cid_oid_to_order_.size());
     MEOrder *exchange_order = nullptr;

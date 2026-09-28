@@ -24,7 +24,7 @@ namespace Trading {
       std::this_thread::sleep_for(5s);
     }
 
-    /// 启动和停止市场数据消费者主线程。
+    /// Start and stop the market data consumer main thread.
     auto start() {
       run_ = true;
       ASSERT(Common::createAndStartThread(-1, "Trading/MarketDataConsumer", [this]() { run(); }) != nullptr, "Failed to start MarketData thread.");
@@ -34,17 +34,22 @@ namespace Trading {
       run_ = false;
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     MarketDataConsumer() = delete;
+
     MarketDataConsumer(const MarketDataConsumer &) = delete;
+
     MarketDataConsumer(const MarketDataConsumer &&) = delete;
+
     MarketDataConsumer &operator=(const MarketDataConsumer &) = delete;
+
     MarketDataConsumer &operator=(const MarketDataConsumer &&) = delete;
+
   private:
-    /// 跟踪增量市场数据流中的下一个预期序列号，用于检测间隔/丢包。
+    /// Track the next expected sequence number on the incremental market data stream, used to detect gaps / drops.
     size_t next_exp_inc_seq_num_ = 1;
 
-    /// 解码后的市场数据更新推送至的无锁队列，由交易引擎消费。
+    /// Lock free queue on which decoded market data updates are pushed to, to be consumed by the trade engine.
     Exchange::MEMarketUpdateLFQueue *incoming_md_updates_ = nullptr;
 
     volatile bool run_ = false;
@@ -52,34 +57,34 @@ namespace Trading {
     std::string time_str_;
     Logger logger_;
 
-    /// 增量和市场数据流的多播订阅套接字。
+    /// Multicast subscriber sockets for the incremental and market data streams.
     Common::McastSocket incremental_mcast_socket_, snapshot_mcast_socket_;
 
-    /// 跟踪我们是否正在进行快照市场数据流的恢复/同步，可能是因为我们刚刚启动或丢包了。
+    /// Tracks if we are currently in the process of recovering / synchronizing with the snapshot market data stream either because we just started up or we dropped a packet.
     bool in_recovery_ = false;
 
-    /// 快照多播流的信息。
+    /// Information for the snapshot multicast stream.
     const std::string iface_, snapshot_ip_;
     const int snapshot_port_;
 
-    /// 用于从快照和增量通道排队市场数据更新的容器，按序列号递增顺序排队。
+    /// Containers to queue up market data updates from the snapshot and incremental channels, queued up in order of increasing sequence numbers.
     typedef std::map<size_t, Exchange::MEMarketUpdate> QueuedMarketUpdates;
     QueuedMarketUpdates snapshot_queued_msgs_, incremental_queued_msgs_;
 
   private:
-    /// 此线程的主循环 - 从多播套接字读取和处理消息 - 主要工作在recvCallback()和checkSnapshotSync()方法中。
+    /// Main loop for this thread - reads and processes messages from the multicast sockets - the heavy lifting is in the recvCallback() and checkSnapshotSync() methods.
     auto run() noexcept -> void;
 
-    /// 处理市场数据更新，消费者需要使用套接字参数来确定这是来自快照还是增量流。
+    /// Process a market data update, the consumer needs to use the socket parameter to figure out whether this came from the snapshot or the incremental stream.
     auto recvCallback(McastSocket *socket) noexcept -> void;
 
-    /// 在*_queued_msgs_容器中排队消息，第一个参数指定此更新是来自快照还是增量流。
+    /// Queue up a message in the *_queued_msgs_ containers, first parameter specifies if this update came from the snapshot or the incremental streams.
     auto queueMessage(bool is_snapshot, const Exchange::MDPMarketUpdate *request);
 
-    /// 通过订阅快照多播流来启动快照同步过程。
+    /// Start the process of snapshot synchronization by subscribing to the snapshot multicast stream.
     auto startSnapshotSync() -> void;
 
-    /// 检查是否可以从快照和增量市场数据流排队的市场数据更新中进行恢复/同步。
+    /// Check if a recovery / synchronization is possible from the queued up market data updates from the snapshot and incremental market data streams.
     auto checkSnapshotSync() -> void;
   };
 }

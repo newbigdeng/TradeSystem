@@ -7,7 +7,7 @@
 using namespace Common;
 
 namespace Trading {
-  /// 交易引擎用于表示限价订单簿中的单个订单。
+  /// Used by the trade engine to represent a single order in the limit order book.
   struct MarketOrder {
     OrderId order_id_ = OrderId_INVALID;
     Side side_ = Side::INVALID;
@@ -15,11 +15,11 @@ namespace Trading {
     Qty qty_ = Qty_INVALID;
     Priority priority_ = Priority_INVALID;
 
-    /// MarketOrder也作为按FIFO顺序排列的价格水平上所有订单的双向链表中的节点。
+    /// MarketOrder also serves as a node in a doubly linked list of all orders at price level arranged in FIFO order.
     MarketOrder *prev_order_ = nullptr;
     MarketOrder *next_order_ = nullptr;
 
-    /// 仅在与MemPool一起使用时需要。
+    /// Only needed for use with MemPool.
     MarketOrder() = default;
 
     MarketOrder(OrderId order_id, Side side, Price price, Qty qty, Priority priority, MarketOrder *prev_order, MarketOrder *next_order) noexcept
@@ -31,19 +31,19 @@ namespace Trading {
   /// Hash map from OrderId -> MarketOrder.
   typedef std::array<MarketOrder *, ME_MAX_ORDER_IDS> OrderHashMap;
 
-  /// 交易引擎用于表示限价订单簿中的价格水平。
-  /// 内部维护按FIFO顺序排列的MarketOrder对象列表。
+  /// Used by the trade engine to represent a price level in the limit order book.
+  /// Internally maintains a list of MarketOrder objects arranged in FIFO order.
   struct MarketOrdersAtPrice {
     Side side_ = Side::INVALID;
     Price price_ = Price_INVALID;
 
     MarketOrder *first_mkt_order_ = nullptr;
 
-    /// MarketOrdersAtPrice也作为按最激进到最不激进价格顺序排列的价格水平双向链表中的节点。
+    /// MarketOrdersAtPrice also serves as a node in a doubly linked list of price levels arranged in order from most aggressive to least aggressive price.
     MarketOrdersAtPrice *prev_entry_ = nullptr;
     MarketOrdersAtPrice *next_entry_ = nullptr;
 
-    /// 仅在与MemPool一起使用时需要。
+    /// Only needed for use with MemPool.
     MarketOrdersAtPrice() = default;
 
     MarketOrdersAtPrice(Side side, Price price, MarketOrder *first_mkt_order, MarketOrdersAtPrice *prev_entry, MarketOrdersAtPrice *next_entry)
@@ -65,7 +65,7 @@ namespace Trading {
   /// Hash map from Price -> MarketOrdersAtPrice.
   typedef std::array<MarketOrdersAtPrice *, ME_MAX_PRICE_LEVELS> OrdersAtPriceHashMap;
 
-  /// 为只需要簿记顶部价格和流动性的小结而不是完整订单簿的组件表示最佳买价卖价(BBO)抽象。
+  /// Represents a Best Bid Offer (BBO) abstraction for components which only need a small summary of top of book price and liquidity instead of the full order book.
   struct BBO {
     Price bid_price_ = Price_INVALID, ask_price_ = Price_INVALID;
     Qty bid_qty_ = Qty_INVALID, ask_qty_ = Qty_INVALID;

@@ -8,38 +8,32 @@ namespace Common {
         : listener_socket_(logger), logger_(logger) {
     }
 
-    /// 监听指定接口和端口的连接
+    /// Start listening for connections on the provided interface and port.
     auto listen(const std::string &iface, int port) -> void;
 
-    /// 检查是否有新的连接或死连接并更新套接字容器
+    /// Check for new connections or dead connections and update containers that track the sockets.
     auto poll() noexcept -> void;
 
-    /// 发送和接收数据
+    /// Publish outgoing data from the send buffer and read incoming data from the receive buffer.
     auto sendAndRecv() noexcept -> void;
 
   private:
-    /// 添加到EPOLL列表中
+    /// Add and remove socket file descriptors to and from the EPOLL list.
     auto addToEpollList(TCPSocket *socket);
-    /// 从EPOLL列表中移除
-    auto deleteFromEpollList(TCPSocket *socket);
-    /// 删除套接字
-    auto del(TCPSocket* socket);
 
   public:
-    /// 监听套接字文件描述符
+    /// Socket on which this server is listening for new connections on.
     int epoll_fd_ = -1;
     TCPSocket listener_socket_;
 
-    epoll_event events_[1024];// EPOLL事件数组
+    epoll_event events_[1024];
 
-    /// 接收数据套接字容器
-    std::vector<TCPSocket *> receive_sockets_;
-    /// 发送数据套接字容器
+    /// Collection of all sockets, sockets for incoming data, sockets for outgoing data and dead connections.
     std::vector<TCPSocket *> receive_sockets_, send_sockets_;
 
-    /// 接收数据回调函数
+    /// Function wrapper to call back when data is available.
     std::function<void(TCPSocket *s, Nanos rx_time)> recv_callback_ = nullptr;
-    /// 接收数据完成回调函数
+    /// Function wrapper to call back when all data across all TCPSockets has been read and dispatched this round.
     std::function<void()> recv_finished_callback_ = nullptr;
 
     std::string time_str_;

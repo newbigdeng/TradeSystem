@@ -7,7 +7,7 @@
 #include "logging.h"
 
 namespace Common {
-  /// 缓冲区大小，64MB
+  /// Size of send and receive buffers in bytes.
   constexpr size_t McastBufferSize = 64 * 1024 * 1024;
 
   struct McastSocket {
@@ -17,32 +17,31 @@ namespace Common {
       inbound_data_.resize(McastBufferSize);
     }
 
-    /// 初始化多播Socket，用于读取或发布多播流
-    /// 暂时不加入多播组
+    /// Initialize multicast socket to read from or publish to a stream.
+    /// Does not join the multicast stream yet.
     auto init(const std::string &ip, const std::string &iface, int port, bool is_listening) -> int;
 
-    /// 加入多播组
+    /// Add / Join membership / subscription to a multicast stream.
     auto join(const std::string &ip) -> bool;
 
-    /// 退出多播组
+    /// Remove / Leave membership / subscription to a multicast stream.
     auto leave(const std::string &ip, int port) -> void;
 
-    /// 发送和接收多播数据
+    /// Publish outgoing data and read incoming data.
     auto sendAndRecv() noexcept -> bool;
 
-    /// 复制数据到send缓冲区 - 不立即发送
+    /// Copy data to send buffers - does not send them out yet.
     auto send(const void *data, size_t len) noexcept -> void;
 
     int socket_fd_ = -1;
 
-    /// 发送数据的缓冲区，接收数据的缓冲区
-    /// 通常情况下只需要一个缓冲区
+    /// Send and receive buffers, typically only one or the other is needed, not both.
     std::vector<char> outbound_data_;
-    size_t next_send_valid_index_ = 0; // 下一个有效发送索引
+    size_t next_send_valid_index_ = 0;
     std::vector<char> inbound_data_;
-    size_t next_rcv_valid_index_ = 0; // 下一个有效接收索引
+    size_t next_rcv_valid_index_ = 0;
 
-    /// 接收数据的回调函数，当有数据接收时调用
+    /// Function wrapper for the method to call when data is read.
     std::function<void(McastSocket *s)> recv_callback_ = nullptr;
 
     std::string time_str_;

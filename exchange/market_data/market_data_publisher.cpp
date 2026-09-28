@@ -11,32 +11,30 @@ namespace Exchange {
     snapshot_synthesizer_ = new SnapshotSynthesizer(&snapshot_md_updates_, iface, snapshot_ip, snapshot_port);
   }
 
-  /// 此线程的主运行循环 - 从匹配引擎的无锁队列消费市场更新，将它们发布到增量多播流并转发给快照合成器。
+  /// Main run loop for this thread - consumes market updates from the lock free queue from the matching engine, publishes them on the incremental multicast stream and forwards them to the snapshot synthesizer.
   auto MarketDataPublisher::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
-      MEMarketUpdate market_update;
-      while (outgoing_md_updates_->try_pop(market_update)) {
+      for (auto market_update = outgoing_md_updates_->getNextToRead();
+           outgoing_md_updates_->size() && market_update; market_update = outgoing_md_updates_->getNextToRead()) {
         TTT_MEASURE(T5_MarketDataPublisher_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Sending seq:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), next_inc_seq_num_,
-                    market_update.toString().c_str());
+                    market_update->toString().c_str());
 
         START_MEASURE(Exchange_McastSocket_send);
         incremental_socket_.send(&next_inc_seq_num_, sizeof(next_inc_seq_num_));
-        incremental_socket_.send(&market_update, sizeof(MEMarketUpdate));
+        incremental_socket_.send(market_update, sizeof(MEMarketUpdate));
         END_MEASURE(Exchange_McastSocket_send, logger_);
 
-        //outgoing_md_updates_->updateReadIndex();
+        outgoing_md_updates_->updateReadIndex();
         TTT_MEASURE(T6_MarketDataPublisher_UDP_write, logger_);
 
         // Forward this incremental market data update the snapshot synthesizer.
-        MDPMarketUpdate mdp_market_update{next_inc_seq_num_, market_update};
-        while(!snapshot_md_updates_.try_push(std::move(mdp_market_update)));
-        //auto next_write = snapshot_md_updates_.getNextToWriteTo();
-        //next_write->seq_num_ = next_inc_seq_num_;
-        //next_write->me_market_update_ = *market_update;
-        //snapshot_md_updates_.updateWriteIndex();
+        auto next_write = snapshot_md_updates_.getNextToWriteTo();
+        next_write->seq_num_ = next_inc_seq_num_;
+        next_write->me_market_update_ = *market_update;
+        snapshot_md_updates_.updateWriteIndex();
 
         ++next_inc_seq_num_;
       }

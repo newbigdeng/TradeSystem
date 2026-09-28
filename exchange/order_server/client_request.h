@@ -8,7 +8,7 @@
 using namespace Common;
 
 namespace Exchange {
-  /// 由交易客户端发送给交易所的订单请求类型。
+  /// Type of the order request sent by the trading client to the exchange.
   enum class ClientRequestType : uint8_t {
     INVALID = 0,
     NEW = 1,
@@ -27,10 +27,10 @@ namespace Exchange {
     return "UNKNOWN";
   }
 
-  /// 这些结构通过网络传输，所以二进制结构被压缩以去除系统相关的额外填充。
+  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
 #pragma pack(push, 1)
 
-  /// 匹配引擎内部使用的客户端请求结构。
+  /// Client request structure used internally by the matching engine.
   struct MEClientRequest {
     ClientRequestType type_ = ClientRequestType::INVALID;
 
@@ -57,7 +57,7 @@ namespace Exchange {
     }
   };
 
-  /// 订单网关客户端通过网络发布的客户端请求结构。
+  /// Client request structure published over the network by the order gateway client.
   struct OMClientRequest {
     size_t seq_num_ = 0;
     MEClientRequest me_client_request_;
@@ -73,8 +73,8 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // 撤消后续的压缩二进制结构指令。
+#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
-  /// 匹配引擎客户端订单请求消息的无锁队列。
+  /// Lock free queues of matching engine client order request messages.
   typedef LFQueue<MEClientRequest> ClientRequestLFQueue;
 }

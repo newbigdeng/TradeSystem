@@ -24,7 +24,7 @@ namespace Trading {
       std::this_thread::sleep_for(5s);
     }
 
-    /// 启动和停止订单网关主线程。
+    /// Start and stop the order gateway main thread.
     auto start() {
       run_ = true;
       ASSERT(tcp_socket_.connect(ip_, iface_, port_, false) >= 0,
@@ -36,7 +36,7 @@ namespace Trading {
       run_ = false;
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     OrderGateway() = delete;
 
     OrderGateway(const OrderGateway &) = delete;
@@ -50,15 +50,15 @@ namespace Trading {
   private:
     const ClientId client_id_;
 
-    /// 交易所订单服务器的TCP服务器地址。
+    /// Exchange's order server's TCP server address.
     std::string ip_;
     const std::string iface_;
     const int port_ = 0;
 
-    /// 我们从中消费交易引擎的客户端请求并将其转发到交易所订单服务器的无锁队列。
+    /// Lock free queue on which we consume client requests from the trade engine and forward them to the exchange's order server.
     Exchange::ClientRequestLFQueue *outgoing_requests_ = nullptr;
 
-    /// 我们将从交易所读取和处理的客户端响应写入的无锁队列，供交易引擎消费。
+    /// Lock free queue on which we write client responses which we read and processed from the exchange, to be consumed by the trade engine.
     Exchange::ClientResponseLFQueue *incoming_responses_ = nullptr;
 
     volatile bool run_ = false;
@@ -66,18 +66,18 @@ namespace Trading {
     std::string time_str_;
     Logger logger_;
 
-    /// 序列号，用于跟踪要设置在传出客户端请求上的序列号和在传入客户端响应上期望的序列号。
+    /// Sequence numbers to track the sequence number to set on outgoing client requests and expected on incoming client responses.
     size_t next_outgoing_seq_num_ = 1;
     size_t next_exp_seq_num_ = 1;
 
-    /// 到交易所订单服务器的TCP连接。
+    /// TCP connection to the exchange's order server.
     Common::TCPSocket tcp_socket_;
 
   private:
-    /// 主线程循环 - 向交易所发送客户端请求并读取和分发传入的客户端响应。
+    /// Main thread loop - sends out client requests to the exchange and reads and dispatches incoming client responses.
     auto run() noexcept -> void;
 
-    /// 读取传入客户端响应时的回调，我们执行一些检查并将其转发到连接到交易引擎的无锁队列。
+    /// Callback when an incoming client response is read, we perform some checks and forward it to the lock free queue connected to the trade engine.
     auto recvCallback(TCPSocket *socket, Nanos rx_time) noexcept -> void;
   };
 }

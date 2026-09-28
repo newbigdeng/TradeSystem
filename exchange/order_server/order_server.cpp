@@ -19,7 +19,7 @@ namespace Exchange {
     std::this_thread::sleep_for(1s);
   }
 
-  /// 启动和停止订单服务器主线程。
+  /// Start and stop the order server main thread.
   auto OrderServer::start() -> void {
     run_ = true;
     tcp_server_.listen(iface_, port_);

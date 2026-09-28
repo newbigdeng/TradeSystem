@@ -9,55 +9,53 @@
 namespace Common {
   template<typename T>
   class LFQueue final {
-  private:
-    // 底层容器，按FIFO顺序访问数据
-    std::vector<T> store_;
-
-    // 写索引和读索引，用于跟踪下一个要写入和读取的索引
-    alignas(64) std::atomic<size_t> write_index_ = {0};
-    alignas(64) std::atomic<size_t> read_index_ = {0};
   public:
     explicit LFQueue(std::size_t num_elems) :
-        store_(num_elems, T()) /* 预分配 */ {
+        store_(num_elems, T()) /* pre-allocation of vector storage. */ {
     }
 
-    // 生产者：尝试写入
-    bool try_push(const T& item) {
-      size_t w = write_index_.load(std::memory_order_relaxed);
-      size_t r = read_index_.load(std::memory_order_acquire);  // 获取最新读索引
-      if (w - r >= store_.size()) return false; // 队列满
-      store_[w % store_.size()] = item; //写入
-      write_index_.store(w + 1, std::memory_order_release);   // 发布数据
-      return true;
-  }
-  // 新增移动版本
-  bool try_push(T&& item) {
-      size_t w = write_index_.load(std::memory_order_relaxed);
-      size_t r = read_index_.load(std::memory_order_acquire);
-      if (w - r >= store_.size()) return false;
-      store_[w % store_.size()] = std::move(item);   // 调用移动赋值
-      write_index_.store(w + 1, std::memory_order_release);
-      return true;
-  }
+    auto getNextToWriteTo() noexcept {
+      return &store_[next_write_index_];
+    }
 
-  // 消费者：尝试读取
-  bool try_pop(T& item) {
-      size_t r = read_index_.load(std::memory_order_relaxed);
-      size_t w = write_index_.load(std::memory_order_acquire); // 获取最新写索引
-      if (r == w) return false; // 队列空
-      item = std::move(store_[r % store_.size()]); // 读取
-      read_index_.store(r + 1, std::memory_order_release);    // 释放槽位
-      return true;
-  }
-  size_t size() const {
-    return write_index_.load(std::memory_order_relaxed) - read_index_.load(std::memory_order_relaxed);
-  }
+    auto updateWriteIndex() noexcept {
+      next_write_index_ = (next_write_index_ + 1) % store_.size();
+      num_elements_++;
+    }
 
-    // 禁用默认构造函数、复制构造函数、移动构造函数和赋值运算符
+    auto getNextToRead() const noexcept -> const T * {
+      return (size() ? &store_[next_read_index_] : nullptr);
+    }
+
+    auto updateReadIndex() noexcept {
+      next_read_index_ = (next_read_index_ + 1) % store_.size(); // wrap around at the end of container size.
+      ASSERT(num_elements_ != 0, "Read an invalid element in:" + std::to_string(pthread_self()));
+      num_elements_--;
+    }
+
+    auto size() const noexcept {
+      return num_elements_.load();
+    }
+
+    /// Deleted default, copy & move constructors and assignment-operators.
     LFQueue() = delete;
+
     LFQueue(const LFQueue &) = delete;
+
     LFQueue(const LFQueue &&) = delete;
+
     LFQueue &operator=(const LFQueue &) = delete;
+
     LFQueue &operator=(const LFQueue &&) = delete;
+
+  private:
+    /// Underlying container of data accessed in FIFO order.
+    std::vector<T> store_;
+
+    /// Atomic trackers for next index to write new data to and read new data from.
+    std::atomic<size_t> next_write_index_ = {0};
+    std::atomic<size_t> next_read_index_ = {0};
+
+    std::atomic<size_t> num_elements_ = {0};
   };
 }

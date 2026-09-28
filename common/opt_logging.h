@@ -49,40 +49,41 @@ namespace OptCommon {
     /// Consumes from the lock free queue of log entries and writes to the output log file.
     auto flushQueue() noexcept {
       while (running_) {
-        LogElement next;
-        while (!queue_.try_pop(next)) ;
-          switch (next.type_) {
+
+        for (auto next = queue_.getNextToRead(); queue_.size() && next; next = queue_.getNextToRead()) {
+          switch (next->type_) {
             case LogType::CHAR:
-              file_ << next.u_.c;
+              file_ << next->u_.c;
               break;
             case LogType::INTEGER:
-              file_ << next.u_.i;
+              file_ << next->u_.i;
               break;
             case LogType::LONG_INTEGER:
-              file_ << next.u_.l;
+              file_ << next->u_.l;
               break;
             case LogType::LONG_LONG_INTEGER:
-              file_ << next.u_.ll;
+              file_ << next->u_.ll;
               break;
             case LogType::UNSIGNED_INTEGER:
-              file_ << next.u_.u;
+              file_ << next->u_.u;
               break;
             case LogType::UNSIGNED_LONG_INTEGER:
-              file_ << next.u_.ul;
+              file_ << next->u_.ul;
               break;
             case LogType::UNSIGNED_LONG_LONG_INTEGER:
-              file_ << next.u_.ull;
+              file_ << next->u_.ull;
               break;
             case LogType::FLOAT:
-              file_ << next.u_.f;
+              file_ << next->u_.f;
               break;
             case LogType::DOUBLE:
-              file_ << next.u_.d;
+              file_ << next->u_.d;
               break;
             case LogType::STRING:
-              file_ << next.u_.s;
+              file_ << next->u_.s;
               break;
           }
+          queue_.updateReadIndex();
         }
         file_.flush();
 
@@ -117,7 +118,8 @@ namespace OptCommon {
     /// Overloaded methods to write different log entry types to the lock free queue.
     /// Creates a LogElement of the correct type and writes it to the lock free queue.
     auto pushValue(const LogElement &log_element) noexcept {
-      while (!queue_.try_push(log_element)) ;
+      *(queue_.getNextToWriteTo()) = log_element;
+      queue_.updateWriteIndex();
     }
 
     auto pushValue(const char value) noexcept {
@@ -201,10 +203,15 @@ namespace OptCommon {
 
     /// Deleted default, copy & move constructors and assignment-operators.
     OptLogger() = delete;
+
     OptLogger(const OptLogger &) = delete;
+
     OptLogger(const OptLogger &&) = delete;
+
     OptLogger &operator=(const OptLogger &) = delete;
+
     OptLogger &operator=(const OptLogger &&) = delete;
+
   private:
     /// File to which the log entries will be written.
     const std::string file_name_;

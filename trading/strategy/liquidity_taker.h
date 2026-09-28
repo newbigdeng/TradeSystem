@@ -15,14 +15,14 @@ namespace Trading {
                    OrderManager *order_manager,
                    const TradeEngineCfgHashMap &ticker_cfg);
 
-    /// 处理订单簿更新，对于流动性获取算法来说没有实际处理。
+    /// Process order book updates, which for the liquidity taking algorithm is none.
     auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *) noexcept -> void {
       logger_->log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
                    Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
                    Common::sideToString(side).c_str());
     }
 
-    /// 处理交易事件，从特征引擎获取激进交易比率，对照交易阈值检查并发送激进订单。
+    /// Process trade events, fetch the aggressive trade ratio from the feature engine, check against the trading threshold and send aggressive orders.
     auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void {
       logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                    market_update->toString().c_str());
@@ -49,7 +49,7 @@ namespace Trading {
       }
     }
 
-    /// 处理策略订单的客户端响应。
+    /// Process client responses for the strategy's orders.
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
       logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                    client_response->toString().c_str());
@@ -58,7 +58,7 @@ namespace Trading {
       END_MEASURE(Trading_OrderManager_onOrderUpdate, (*logger_));
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     LiquidityTaker() = delete;
 
     LiquidityTaker(const LiquidityTaker &) = delete;
@@ -70,16 +70,16 @@ namespace Trading {
     LiquidityTaker &operator=(const LiquidityTaker &&) = delete;
 
   private:
-    /// 驱动流动性获取算法的特征引擎。
+    /// The feature engine that drives the liquidity taking algorithm.
     const FeatureEngine *feature_engine_ = nullptr;
 
-    /// 流动性获取算法用于发送激进订单。
+    /// Used by the liquidity taking algorithm to send aggressive orders.
     OrderManager *order_manager_ = nullptr;
 
     std::string time_str_;
     Common::Logger *logger_ = nullptr;
 
-    /// 保存流动性获取算法的交易配置。
+    /// Holds the trading configuration for the liquidity taking algorithm.
     const TradeEngineCfgHashMap ticker_cfg_;
   };
 }

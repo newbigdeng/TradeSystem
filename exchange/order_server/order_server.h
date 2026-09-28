@@ -17,33 +17,34 @@ namespace Exchange {
 
     ~OrderServer();
 
-    /// 启动和停止订单服务器主线程。
+    /// Start and stop the order server main thread.
     auto start() -> void;
 
     auto stop() -> void;
 
-    /// 此线程的主运行循环 - 接受新的客户端连接，从中接收客户端请求并向其发送客户端响应。
+    /// Main run loop for this thread - accepts new client connections, receives client requests from them and sends client responses to them.
     auto run() noexcept {
       logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
       while (run_) {
         tcp_server_.poll();
 
         tcp_server_.sendAndRecv();
-        MEClientResponse client_response;
-        while(!outgoing_responses_->try_pop(client_response)){
+
+        for (auto client_response = outgoing_responses_->getNextToRead(); outgoing_responses_->size() && client_response; client_response = outgoing_responses_->getNextToRead()) {
           TTT_MEASURE(T5t_OrderServer_LFQueue_read, logger_);
 
-          auto &next_outgoing_seq_num = cid_next_outgoing_seq_num_[client_response.client_id_];
+          auto &next_outgoing_seq_num = cid_next_outgoing_seq_num_[client_response->client_id_];
           logger_.log("%:% %() % Processing cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
-                      client_response.client_id_, next_outgoing_seq_num, client_response.toString());
+                      client_response->client_id_, next_outgoing_seq_num, client_response->toString());
 
-          ASSERT(cid_tcp_socket_[client_response.client_id_] != nullptr,
-                 "Dont have a TCPSocket for ClientId:" + std::to_string(client_response.client_id_));
+          ASSERT(cid_tcp_socket_[client_response->client_id_] != nullptr,
+                 "Dont have a TCPSocket for ClientId:" + std::to_string(client_response->client_id_));
           START_MEASURE(Exchange_TCPSocket_send);
-          cid_tcp_socket_[client_response.client_id_]->send(&next_outgoing_seq_num, sizeof(next_outgoing_seq_num));
-          cid_tcp_socket_[client_response.client_id_]->send(client_response, sizeof(MEClientResponse));
+          cid_tcp_socket_[client_response->client_id_]->send(&next_outgoing_seq_num, sizeof(next_outgoing_seq_num));
+          cid_tcp_socket_[client_response->client_id_]->send(client_response, sizeof(MEClientResponse));
           END_MEASURE(Exchange_TCPSocket_send, logger_);
 
+          outgoing_responses_->updateReadIndex();
           TTT_MEASURE(T6t_OrderServer_TCP_write, logger_);
 
           ++next_outgoing_seq_num;
@@ -51,7 +52,7 @@ namespace Exchange {
       }
     }
 
-    /// 从TCP接收缓冲区读取客户端请求，检查序列间隙并将其转发到FIFO排序器。
+    /// Read client request from the TCP receive buffer, check for sequence gaps and forward it to the FIFO sequencer.
     auto recvCallback(TCPSocket *socket, Nanos rx_time) noexcept {
       TTT_MEASURE(T1_OrderServer_TCP_read, logger_);
       logger_.log("%:% %() % Received socket:% len:% rx:%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
@@ -92,14 +93,14 @@ namespace Exchange {
       }
     }
 
-    /// 结束从所有TCP连接读取传入消息，排序并将客户端请求发布到匹配引擎。
+    /// End of reading incoming messages across all the TCP connections, sequence and publish the client requests to the matching engine.
     auto recvFinishedCallback() noexcept {
       START_MEASURE(Exchange_FIFOSequencer_sequenceAndPublish);
       fifo_sequencer_.sequenceAndPublish();
       END_MEASURE(Exchange_FIFOSequencer_sequenceAndPublish, logger_);
     }
 
-    /// 删除默认、复制和移动构造函数以及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     OrderServer() = delete;
 
     OrderServer(const OrderServer &) = delete;
@@ -114,7 +115,7 @@ namespace Exchange {
     const std::string iface_;
     const int port_ = 0;
 
-    /// 发送给连接客户端的传出客户端响应的无锁队列。
+    /// Lock free queue of outgoing client responses to be sent out to connected clients.
     ClientResponseLFQueue *outgoing_responses_ = nullptr;
 
     volatile bool run_ = false;
@@ -122,19 +123,19 @@ namespace Exchange {
     std::string time_str_;
     Logger logger_;
 
-    /// 从客户端ID到传出客户端响应上要发送的下一个序列号的哈希映射。
+    /// Hash map from ClientId -> the next sequence number to be sent on outgoing client responses.
     std::array<size_t, ME_MAX_NUM_CLIENTS> cid_next_outgoing_seq_num_;
 
-    /// 从客户端ID到传入客户端请求上期望的下一个序列号的哈希映射。
+    /// Hash map from ClientId -> the next sequence number expected on incoming client requests.
     std::array<size_t, ME_MAX_NUM_CLIENTS> cid_next_exp_seq_num_;
 
-    /// 从客户端ID到TCP套接字/客户端连接的哈希映射。
+    /// Hash map from ClientId -> TCP socket / client connection.
     std::array<Common::TCPSocket *, ME_MAX_NUM_CLIENTS> cid_tcp_socket_;
 
-    /// 监听新客户端连接的TCP服务器实例。
+    /// TCP server instance listening for new client connections.
     Common::TCPServer tcp_server_;
 
-    /// FIFO排序器负责确保传入的客户端请求按照接收顺序进行处理。
+    /// FIFO sequencer responsible for making sure incoming client requests are processed in the order in which they were received.
     FIFOSequencer fifo_sequencer_;
   };
 }

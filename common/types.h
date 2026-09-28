@@ -8,21 +8,21 @@
 #include "common/macros.h"
 
 namespace Common {
-  /// 在整个生态系统中使用的常量，用于表示各种容器的上限。
-  /// 交易工具/交易品种ID从 [0, ME_MAX_TICKERS]。
+  /// Constants used across the ecosystem to represent upper bounds on various containers.
+  /// Trading instruments / TickerIds from [0, ME_MAX_TICKERS].
   constexpr size_t ME_MAX_TICKERS = 8;
 
-  /// 无锁队列的最大大小，用于在组件之间传输客户端请求、客户端响应和市场更新。
+  /// Maximum size of lock free queues used to transfer client requests, client responses and market updates between components.
   constexpr size_t ME_MAX_CLIENT_UPDATES = 256 * 1024;
   constexpr size_t ME_MAX_MARKET_UPDATES = 256 * 1024;
 
-  /// 最大交易客户数量。
+  /// Maximum trading clients.
   constexpr size_t ME_MAX_NUM_CLIENTS = 256;
 
-  /// 每个交易客户的最大订单数。
+  /// Maximum number of orders per trading client.
   constexpr size_t ME_MAX_ORDER_IDS = 1024 * 1024;
 
-  /// 订单簿中的最大价格层级深度。
+  /// Maximum price level depth in the order books.
   constexpr size_t ME_MAX_PRICE_LEVELS = 256;
 
   typedef uint64_t OrderId;
@@ -80,7 +80,7 @@ namespace Common {
     return std::to_string(qty);
   }
 
-  /// 优先级表示具有相同方向和价格属性的所有订单在FIFO队列中的位置。
+  /// Priority represents position in the FIFO queue for all orders with the same side and price attributes.
   typedef uint64_t Priority;
   constexpr auto Priority_INVALID = std::numeric_limits<Priority>::max();
 
@@ -114,17 +114,17 @@ namespace Common {
     return "UNKNOWN";
   }
 
-  /// 将Side转换为可用于索引std::array的索引。
+  /// Convert Side to an index which can be used to index into a std::array.
   inline constexpr auto sideToIndex(Side side) noexcept {
     return static_cast<size_t>(side) + 1;
   }
 
-  /// 转换Side::BUY=1 和 Side::SELL=-1。
+  /// Convert Side::BUY=1 and Side::SELL=-1.
   inline constexpr auto sideToValue(Side side) noexcept {
     return static_cast<int>(side);
   }
 
-  /// 交易算法类型。
+  /// Type of trading algorithm.
   enum class AlgoType : int8_t {
     INVALID = 0,
     RANDOM = 1,
@@ -160,7 +160,7 @@ namespace Common {
     return AlgoType::INVALID;
   }
 
-  /// 风险配置，包含风险管理器的风险参数限制。
+  /// Risk configuration containing limits on risk parameters for the RiskManager.
   struct RiskCfg {
     Qty max_order_size_ = 0;
     Qty max_position_ = 0;
@@ -179,7 +179,7 @@ namespace Common {
     }
   };
 
-  /// 顶级配置，用于配置交易引擎、交易算法和风险管理器。
+  /// Top level configuration to configure the TradeEngine, trading algorithm and RiskManager.
   struct TradeEngineCfg {
     Qty clip_ = 0;
     double threshold_ = 0;
@@ -197,6 +197,6 @@ namespace Common {
     }
   };
 
-  /// 从TickerId到TradeEngineCfg的哈希映射。
+  /// Hash map from TickerId -> TradeEngineCfg.
   typedef std::array<TradeEngineCfg, ME_MAX_TICKERS> TradeEngineCfgHashMap;
 }

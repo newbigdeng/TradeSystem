@@ -1,0 +1,6 @@
+cmake-build-*/
+build/
+*.log
+*.html
+.ipynb_checkpoints/
+__pycache__/

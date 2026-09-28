@@ -14,7 +14,7 @@ namespace Exchange {
     stop();
   }
 
-  /// 启动和停止快照合成器线程。
+  /// Start and stop the snapshot synthesizer thread.
   void SnapshotSynthesizer::start() {
     run_ = true;
     ASSERT(Common::createAndStartThread(-1, "Exchange/SnapshotSynthesizer", [this]() { run(); }) != nullptr,
@@ -25,7 +25,7 @@ namespace Exchange {
     run_ = false;
   }
 
-  /// 处理增量市场更新并更新限价订单簿快照。
+  /// Process an incremental market update and update the limit order book snapshot.
   auto SnapshotSynthesizer::addToSnapshot(const MDPMarketUpdate *market_update) {
     const auto &me_market_update = market_update->me_market_update_;
     auto *orders = &ticker_orders_.at(me_market_update.ticker_id_);
@@ -68,7 +68,7 @@ namespace Exchange {
     last_inc_seq_num_ = market_update->seq_num_;
   }
 
-  /// 在快照多播流上发布完整的快照周期。
+  /// Publish a full snapshot cycle on the snapshot multicast stream.
   auto SnapshotSynthesizer::publishSnapshot() {
     size_t snapshot_size = 0;
 
@@ -110,18 +110,17 @@ namespace Exchange {
     logger_.log("%:% %() % Published snapshot of % orders.\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), snapshot_size - 1);
   }
 
-  /// 此线程的主方法 - 处理由市场数据发布者发送的增量更新，更新快照并定期发布快照。
+  /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
   void SnapshotSynthesizer::run() {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_));
     while (run_) {
-      MDPMarketUpdate market_update;
-      while(snapshot_md_updates_.try_pop(market_update)) {
+      for (auto market_update = snapshot_md_updates_->getNextToRead(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->getNextToRead()) {
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_),
-                    market_update.toString().c_str());
+                    market_update->toString().c_str());
 
-        addToSnapshot(&market_update);
+        addToSnapshot(market_update);
 
-        //snapshot_md_updates_->updateReadIndex();
+        snapshot_md_updates_->updateReadIndex();
       }
 
       if (getCurrentNanos() - last_snapshot_time_ > 60 * NANOS_TO_SECS) {

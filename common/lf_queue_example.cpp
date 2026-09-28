@@ -11,12 +11,14 @@ auto consumeFunction(LFQueue<MyStruct>* lfq) {
   using namespace std::literals::chrono_literals;
   std::this_thread::sleep_for(5s);
 
-  MyStruct d;
-  while(!lfq->try_pop(d)) ;
+  while(lfq->size()) {
+    const auto d = lfq->getNextToRead();
+    lfq->updateReadIndex();
 
-    std::cout << "consumeFunction read elem:" << d.d_[0] << "," << d.d_[1] << "," << d.d_[2] << " lfq-size:" << lfq->size() << std::endl;
+    std::cout << "consumeFunction read elem:" << d->d_[0] << "," << d->d_[1] << "," << d->d_[2] << " lfq-size:" << lfq->size() << std::endl;
 
     std::this_thread::sleep_for(1s);
+  }
 
   std::cout << "consumeFunction exiting." << std::endl;
 }
@@ -28,7 +30,9 @@ int main(int, char **) {
 
   for(auto i = 0; i < 50; ++i) {
     const MyStruct d{i, i * 10, i * 100};
-    while(!lfq.try_push(d));
+    *(lfq.getNextToWriteTo()) = d;
+    lfq.updateWriteIndex();
+
     std::cout << "main constructed elem:" << d.d_[0] << "," << d.d_[1] << "," << d.d_[2] << " lfq-size:" << lfq.size() << std::endl;
 
     using namespace std::literals::chrono_literals;

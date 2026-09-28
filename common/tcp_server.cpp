@@ -1,25 +1,13 @@
 #include "tcp_server.h"
 
 namespace Common {
-  /// 将TCPSocket添加到EPOLL列表中
+  /// Add and remove socket file descriptors to and from the EPOLL list.
   auto TCPServer::addToEpollList(TCPSocket *socket) {
     epoll_event ev{EPOLLET | EPOLLIN, {reinterpret_cast<void *>(socket)}};
     return !epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, socket->socket_fd_, &ev);
   }
-  auto TCPServer::deleteFromEpollList(TCPSocket *socket)
-  {
-    return (epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, socket->socket_fd_,nullptr) != -1);
-  }
-  auto TCPServer::del(TCPSocket* socket)
-  {
-    deleteFromEpollList(socket);
-    receive_sockets_.erase(std::remove(receive_sockets_.begin(), 
-      receive_sockets_.end(),socket), receive_sockets_.end());
-    send_sockets_.erase(std::remove(send_sockets_.begin(),
-        send_sockets_.end(), socket), send_sockets_.end());
-  }
 
-  /// 监听指定接口和端口的连接
+  /// Start listening for connections on the provided interface and port.
   auto TCPServer::listen(const std::string &iface, int port) -> void {
     epoll_fd_ = epoll_create(1);
     ASSERT(epoll_fd_ >= 0, "epoll_create() failed error:" + std::string(std::strerror(errno)));
@@ -31,26 +19,23 @@ namespace Common {
     ASSERT(addToEpollList(&listener_socket_), "epoll_ctl() failed. error:" + std::string(std::strerror(errno)));
   }
 
-  /// 发送和接收数据
+  /// Publish outgoing data from the send buffer and read incoming data from the receive buffer.
   auto TCPServer::sendAndRecv() noexcept -> void {
     auto recv = false;
-    
-    // 遍历所有有事件的接收套接字，发送和接收数据
+
     std::for_each(receive_sockets_.begin(), receive_sockets_.end(), [&recv](auto socket) {
       recv |= socket->sendAndRecv();
     });
 
-    if (recv) // 调用接收完成回调函数
+    if (recv) // There were some events and they have all been dispatched, inform listener.
       recv_finished_callback_();
-
-      receive_sockets_.clear();// 清空接收套接字容器
 
     std::for_each(send_sockets_.begin(), send_sockets_.end(), [](auto socket) {
       socket->sendAndRecv();
     });
   }
 
-  /// 检查是否有新的连接或死连接，并更新套接字容器
+  /// Check for new connections or dead connections and update containers that track the sockets.
   auto TCPServer::poll() noexcept -> void {
     const int max_events = 1 + send_sockets_.size() + receive_sockets_.size();
 
@@ -60,7 +45,7 @@ namespace Common {
       const auto &event = events_[i];
       auto socket = reinterpret_cast<TCPSocket *>(event.data.ptr);
 
-      // 检查是否有新的连接
+      // Check for new connections.
       if (event.events & EPOLLIN) {
         if (socket == &listener_socket_) {
           logger_.log("%:% %() % EPOLLIN listener_socket:%\n", __FILE__, __LINE__, __FUNCTION__,
@@ -81,20 +66,15 @@ namespace Common {
           send_sockets_.push_back(socket);
       }
 
-      // 检查是否有错误或挂断连接
       if (event.events & (EPOLLERR | EPOLLHUP)) {
         logger_.log("%:% %() % EPOLLERR socket:%\n", __FILE__, __LINE__, __FUNCTION__,
                     Common::getCurrentTimeStr(&time_str_), socket->socket_fd_);
         if (std::find(receive_sockets_.begin(), receive_sockets_.end(), socket) == receive_sockets_.end())
           receive_sockets_.push_back(socket);
-          // 从EPOLL列表中移除套接字
-          del(socket);
-          close(socket->socket_fd_);
-          delete socket;
       }
     }
 
-    // 接受新的连接
+    // Accept a new connection, create a TCPSocket and add it to our containers.
     while (have_new_connection) {
       logger_.log("%:% %() % have_new_connection\n", __FILE__, __LINE__, __FUNCTION__,
                   Common::getCurrentTimeStr(&time_str_));

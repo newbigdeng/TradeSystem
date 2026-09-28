@@ -7,23 +7,23 @@
 #include "perf_utils.h"
 
 namespace Common {
-  /// 表示纳秒时间戳。
+  /// Represent a nanosecond timestamp.
   typedef int64_t Nanos;
 
-  /// 在纳秒、微秒、毫秒和秒之间进行转换。
+  /// Convert between nanos, micros, millis and secs.
   constexpr Nanos NANOS_TO_MICROS = 1000;
   constexpr Nanos MICROS_TO_MILLIS = 1000;
   constexpr Nanos MILLIS_TO_SECS = 1000;
   constexpr Nanos NANOS_TO_MILLIS = NANOS_TO_MICROS * MICROS_TO_MILLIS;
   constexpr Nanos NANOS_TO_SECS = NANOS_TO_MILLIS * MILLIS_TO_SECS;
 
-  /// 获取当前纳秒时间戳。
+  /// Get current nanosecond timestamp.
   inline auto getCurrentNanos() noexcept {
     return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
   }
 
-  /// 将当前时间戳格式化为人类可读的字符串。
-  /// 字符串格式化效率较低。
+  /// Format current timestamp to a human readable string.
+  /// String formatting is inefficient.
   inline auto& getCurrentTimeStr(std::string* time_str) {
     const auto clock = std::chrono::system_clock::now();
     const auto time = std::chrono::system_clock::to_time_t(clock);

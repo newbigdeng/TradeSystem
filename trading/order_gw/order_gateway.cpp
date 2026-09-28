@@ -10,22 +10,22 @@ namespace Trading {
     tcp_socket_.recv_callback_ = [this](auto socket, auto rx_time) { recvCallback(socket, rx_time); };
   }
 
-  /// 主线程循环 - 向交易所发送客户端请求并读取和分发传入的客户端响应。
+  /// Main thread loop - sends out client requests to the exchange and reads and dispatches incoming client responses.
   auto OrderGateway::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
       tcp_socket_.sendAndRecv();
-      MEClientRequest client_request;
-      while(outgoing_requests_->try_pop(client_request)) {
+
+      for(auto client_request = outgoing_requests_->getNextToRead(); client_request; client_request = outgoing_requests_->getNextToRead()) {
         TTT_MEASURE(T11_OrderGateway_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Sending cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__,
                     Common::getCurrentTimeStr(&time_str_), client_id_, next_outgoing_seq_num_, client_request->toString());
         START_MEASURE(Trading_TCPSocket_send);
         tcp_socket_.send(&next_outgoing_seq_num_, sizeof(next_outgoing_seq_num_));
-        tcp_socket_.send(&client_request, sizeof(Exchange::MEClientRequest));
+        tcp_socket_.send(client_request, sizeof(Exchange::MEClientRequest));
         END_MEASURE(Trading_TCPSocket_send, logger_);
-        //utgoing_requests_->updateReadIndex();
+        outgoing_requests_->updateReadIndex();
         TTT_MEASURE(T12_OrderGateway_TCP_write, logger_);
 
         next_outgoing_seq_num_++;
@@ -33,7 +33,7 @@ namespace Trading {
     }
   }
 
-  /// 读取传入客户端响应时的回调，我们执行一些检查并将其转发到连接到交易引擎的无锁队列。
+  /// Callback when an incoming client response is read, we perform some checks and forward it to the lock free queue connected to the trade engine.
   auto OrderGateway::recvCallback(TCPSocket *socket, Nanos rx_time) noexcept -> void {
     TTT_MEASURE(T7t_OrderGateway_TCP_read, logger_);
 
@@ -58,10 +58,10 @@ namespace Trading {
         }
 
         ++next_exp_seq_num_;
-        while(!incoming_responses_->try_push(std::move(response->me_client_response_)));
-        //auto next_write = incoming_responses_->getNextToWriteTo();
-        //*next_write = std::move(response->me_client_response_);
-        //incoming_responses_->updateWriteIndex();
+
+        auto next_write = incoming_responses_->getNextToWriteTo();
+        *next_write = std::move(response->me_client_response_);
+        incoming_responses_->updateWriteIndex();
         TTT_MEASURE(T8t_OrderGateway_LFQueue_write, logger_);
       }
       memcpy(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);

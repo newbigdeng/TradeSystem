@@ -13,14 +13,14 @@ using namespace Common;
 namespace Trading {
   class TradeEngine;
 
-  /// 管理交易算法的订单，隐藏订单管理的复杂性以简化交易策略。
+  /// Manages orders for a trading algorithm, hides the complexity of order management to simplify trading strategies.
   class OrderManager {
   public:
     OrderManager(Common::Logger *logger, TradeEngine *trade_engine, RiskManager& risk_manager)
         : trade_engine_(trade_engine), risk_manager_(risk_manager), logger_(logger) {
     }
 
-    /// 处理由客户端响应的订单更新并更新被管理订单的状态。
+    /// Process an order update from a client response and update the state of the orders being managed.
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
       logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                    client_response->toString().c_str());
@@ -50,14 +50,14 @@ namespace Trading {
       }
     }
 
-    /// 发送具有指定属性的新订单，并更新此处传递的OMOrder对象。
+    /// Send a new order with specified attribute, and update the OMOrder object passed here.
     auto newOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept -> void;
 
-    /// 发送指定订单的取消，并更新此处传递的OMOrder对象。
+    /// Send a cancel for the specified order, and update the OMOrder object passed here.
     auto cancelOrder(OMOrder *order) noexcept -> void;
 
-    /// 移动指定一侧的单个订单，使其具有指定的价格和数量。
-    /// 这将在发送订单之前执行风险检查，并更新此处传递的OMOrder对象。
+    /// Move a single order on the specified side so that it has the specified price and quantity.
+    /// This will perform risk checks prior to sending the order, and update the OMOrder object passed here.
     auto moveOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept {
       switch (order->order_state_) {
         case OMOrderState::LIVE: {
@@ -92,10 +92,10 @@ namespace Trading {
       }
     }
 
-    /// 使数量为clip的订单位于指定的买入和卖出价格。
-    /// 如果没有订单，这可能导致发送新订单。
-    /// 如果现有订单不在指定价格或不是指定数量，这可能导致取消现有订单。
-    /// 为买入或卖出价格指定Price_INVALID表示我们不希望在那里有订单。
+    /// Have orders of quantity clip at the specified buy and sell prices.
+    /// This can result in new orders being sent if there are none.
+    /// This can result in existing orders being cancelled if they are not at the specified price or of the specified quantity.
+    /// Specifying Price_INVALID for the buy or sell prices indicates that we do not want an order there.
     auto moveOrders(TickerId ticker_id, Price bid_price, Price ask_price, Qty clip) noexcept {
       {
         auto bid_order = &(ticker_side_order_.at(ticker_id).at(sideToIndex(Side::BUY)));
@@ -112,22 +112,27 @@ namespace Trading {
       }
     }
 
-    /// 辅助方法，获取指定交易品种ID的买入和卖出OMOrder。
+    /// Helper method to fetch the buy and sell OMOrders for the specified TickerId.
     auto getOMOrderSideHashMap(TickerId ticker_id) const {
       return &(ticker_side_order_.at(ticker_id));
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     OrderManager() = delete;
+
     OrderManager(const OrderManager &) = delete;
+
     OrderManager(const OrderManager &&) = delete;
+
     OrderManager &operator=(const OrderManager &) = delete;
+
     OrderManager &operator=(const OrderManager &&) = delete;
+
   private:
-    /// 父交易引擎对象，用于发送客户端请求。
+    /// The parent trade engine object, used to send out client requests.
     TradeEngine *trade_engine_ = nullptr;
 
-    /// 风险管理器，执行交易前风险检查。
+    /// Risk manager to perform pre-trade risk checks.
     const RiskManager& risk_manager_;
 
     std::string time_str_;

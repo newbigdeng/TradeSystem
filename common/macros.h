@@ -3,11 +3,11 @@
 #include <cstring>
 #include <iostream>
 
-/// 分支预测提示
+/// Branch prediction hints.
 #define LIKELY(x) __builtin_expect(!!(x), 1)
 #define UNLIKELY(x) __builtin_expect(!!(x), 0)
 
-/// 断言宏，用于检查条件是否为真
+/// Check condition and exit if not true.
 inline auto ASSERT(bool cond, const std::string &msg) noexcept {
   if (UNLIKELY(!cond)) {
     std::cerr << "ASSERT : " << msg << std::endl;
@@ -16,7 +16,6 @@ inline auto ASSERT(bool cond, const std::string &msg) noexcept {
   }
 }
 
-/// 致命错误宏，用于在程序运行时发生严重错误时退出
 inline auto FATAL(const std::string &msg) noexcept {
   std::cerr << "FATAL : " << msg << std::endl;
 

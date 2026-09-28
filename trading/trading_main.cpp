@@ -6,13 +6,13 @@
 
 #include "common/logging.h"
 
-/// 主要组件。
+/// Main components.
 Common::Logger *logger = nullptr;
 Trading::TradeEngine *trade_engine = nullptr;
 Trading::MarketDataConsumer *market_data_consumer = nullptr;
 Trading::OrderGateway *order_gateway = nullptr;
 
-/// ./trading_main 客户端ID 算法类型 [限价_1 阈值_1 最大订单大小_1 最大仓位_1 最大损失_1] [限价_2 阈值_2 最大订单大小_2 最大仓位_2 最大损失_2] ...
+/// ./trading_main CLIENT_ID ALGO_TYPE [CLIP_1 THRESH_1 MAX_ORDER_SIZE_1 MAX_POS_1 MAX_LOSS_1] [CLIP_2 THRESH_2 MAX_ORDER_SIZE_2 MAX_POS_2 MAX_LOSS_2] ...
 int main(int argc, char **argv) {
   if(argc < 3) {
     FATAL("USAGE trading_main CLIENT_ID ALGO_TYPE [CLIP_1 THRESH_1 MAX_ORDER_SIZE_1 MAX_POS_1 MAX_LOSS_1] [CLIP_2 THRESH_2 MAX_ORDER_SIZE_2 MAX_POS_2 MAX_LOSS_2] ...");
@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 
   const int sleep_time = 20 * 1000;
 
-  // 无锁队列，用于促进订单网关<->交易引擎和市场数据消费者->交易引擎之间的通信。
+  // The lock free queues to facilitate communication between order gateway <-> trade engine and market data consumer -> trade engine.
   Exchange::ClientRequestLFQueue client_requests(ME_MAX_CLIENT_UPDATES);
   Exchange::ClientResponseLFQueue client_responses(ME_MAX_CLIENT_UPDATES);
   Exchange::MEMarketUpdateLFQueue market_updates(ME_MAX_MARKET_UPDATES);
@@ -36,8 +36,8 @@ int main(int argc, char **argv) {
 
   TradeEngineCfgHashMap ticker_cfg;
 
-  // 解析并初始化上述TradeEngineCfgHashMap，从命令行参数获取。
-  // [限价_1 阈值_1 最大订单大小_1 最大仓位_1 最大损失_1] [限价_2 阈值_2 最大订单大小_2 最大仓位_2 最大损失_2] ...
+  // Parse and initialize the TradeEngineCfgHashMap above from the command line arguments.
+  // [CLIP_1 THRESH_1 MAX_ORDER_SIZE_1 MAX_POS_1 MAX_LOSS_1] [CLIP_2 THRESH_2 MAX_ORDER_SIZE_2 MAX_POS_2 MAX_LOSS_2] ...
   size_t next_ticker_id = 0;
   for (int i = 3; i < argc; i += 5, ++next_ticker_id) {
     ticker_cfg.at(next_ticker_id) = {static_cast<Qty>(std::atoi(argv[i])), std::atof(argv[i + 1]),
@@ -76,8 +76,8 @@ int main(int argc, char **argv) {
 
   trade_engine->initLastEventTime();
 
-  // 对于随机交易算法，我们直接在这里实现，而不是创建一个新的交易算法（这也是另一种可能性）。
-  // 生成具有随机属性的随机订单并随机取消其中一些。
+  // For the random trading algorithm, we simply implement it here instead of creating a new trading algorithm which is another possibility.
+  // Generate random orders with random attributes and randomly cancel some of them.
   if (algo_type == AlgoType::RANDOM) {
     Common::OrderId order_id = client_id * 1000;
     std::vector<Exchange::MEClientRequest> client_requests_vec;

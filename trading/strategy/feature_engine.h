@@ -6,7 +6,7 @@
 using namespace Common;
 
 namespace Trading {
-  /// 哨兵值，表示无效/未初始化的特征值。
+  /// Sentinel value to represent invalid / uninitialized feature value.
   constexpr auto Feature_INVALID = std::numeric_limits<double>::quiet_NaN();
 
   class FeatureEngine {
@@ -15,7 +15,7 @@ namespace Trading {
         : logger_(logger) {
     }
 
-    /// 处理订单簿的变化，在这种情况下计算公平市场价格。
+    /// Process a change in order book and in this case compute the fair market price.
     auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook* book) noexcept -> void {
       const auto bbo = book->getBBO();
       if(LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID)) {
@@ -27,7 +27,7 @@ namespace Trading {
                    Common::sideToString(side).c_str(), mkt_price_, agg_trade_qty_ratio_);
     }
 
-    /// 处理交易事件，在这种情况下计算特征以捕获相对于BBO数量的激进交易数量比率。
+    /// Process a trade event and in this case compute the feature to capture aggressive trade quantity ratio against the BBO quantity.
     auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook* book) noexcept -> void {
       const auto bbo = book->getBBO();
       if(LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID)) {
@@ -47,7 +47,7 @@ namespace Trading {
       return agg_trade_qty_ratio_;
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     FeatureEngine() = delete;
 
     FeatureEngine(const FeatureEngine &) = delete;
@@ -62,7 +62,7 @@ namespace Trading {
     std::string time_str_;
     Common::Logger *logger_ = nullptr;
 
-    /// 我们在特征引擎中计算的两个特征。
+    /// The two features we compute in our feature engine.
     double mkt_price_ = Feature_INVALID, agg_trade_qty_ratio_ = Feature_INVALID;
   };
 }

@@ -11,7 +11,7 @@
 using namespace Common;
 
 namespace Trading {
-  /// PositionInfo跟踪单个交易工具的持仓、盈亏（已实现和未实现）和成交量。
+  /// PositionInfo tracks the position, pnl (realized and unrealized) and volume for a single trading instrument.
   struct PositionInfo {
     int32_t position_ = 0;
     double real_pnl_ = 0, unreal_pnl_ = 0, total_pnl_ = 0;
@@ -35,7 +35,7 @@ namespace Trading {
       return ss.str();
     }
 
-    /// 处理成交并更新持仓、盈亏和成交量。
+    /// Process an execution and update the position, pnl and volume.
     auto addFill(const Exchange::MEClientResponse *client_response, Logger *logger) noexcept {
       const auto old_position = position_;
       const auto side_index = sideToIndex(client_response->side_);
@@ -78,7 +78,7 @@ namespace Trading {
                   toString(), client_response->toString().c_str());
     }
 
-    /// 处理簿记顶部价格（BBO）的变化，如果有开仓，则更新未实现盈亏。
+    /// Process a change in top-of-book prices (BBO), and update unrealized pnl if there is an open position.
     auto updateBBO(const BBO *bbo, Logger *logger) noexcept {
       std::string time_str;
       bbo_ = bbo;
@@ -104,19 +104,24 @@ namespace Trading {
     }
   };
 
-  /// 顶层持仓管理类，计算所有交易工具的持仓、盈亏和成交量。
+  /// Top level position keeper class to compute position, pnl and volume for all trading instruments.
   class PositionKeeper {
   public:
     PositionKeeper(Common::Logger *logger)
         : logger_(logger) {
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     PositionKeeper() = delete;
+
     PositionKeeper(const PositionKeeper &) = delete;
+
     PositionKeeper(const PositionKeeper &&) = delete;
+
     PositionKeeper &operator=(const PositionKeeper &) = delete;
+
     PositionKeeper &operator=(const PositionKeeper &&) = delete;
+
   private:
     std::string time_str_;
     Common::Logger *logger_ = nullptr;

@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Common {
-  /// 从TSC寄存器读取一个uint64_t值，代表已用的CPU时钟周期数
+  /// Read from the TSC register and return a uint64_t value to represent elapsed CPU clock cycles.
   inline auto rdtsc() noexcept {
     unsigned int lo, hi;
     __asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
@@ -9,17 +9,17 @@ namespace Common {
   }
 }
 
-/// 开始测量延迟，创建一个名为TAG的本地变量
+/// Start latency measurement using rdtsc(). Creates a variable called TAG in the local scope.
 #define START_MEASURE(TAG) const auto TAG = Common::rdtsc()
 
-/// 结束测量延迟，记录延迟时间，并打印到日志
+/// End latency measurement using rdtsc(). Expects a variable called TAG to already exist in the local scope.
 #define END_MEASURE(TAG, LOGGER)                                                              \
       do {                                                                                    \
         const auto end = Common::rdtsc();                                                     \
         LOGGER.log("% RDTSC "#TAG" %\n", Common::getCurrentTimeStr(&time_str_), (end - TAG)); \
       } while(false)
 
-/// 记录当前时间戳，用于测量不同模块的延迟
+/// Log a current timestamp at the time this macro is invoked.
 #define TTT_MEASURE(TAG, LOGGER)                                                              \
       do {                                                                                    \
         const auto TAG = Common::getCurrentNanos();                                           \

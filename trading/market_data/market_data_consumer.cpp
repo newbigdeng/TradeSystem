@@ -23,7 +23,7 @@ namespace Trading {
     snapshot_mcast_socket_.recv_callback_ = recv_callback;
   }
 
-  /// 此线程的主循环 - 从多播套接字读取和处理消息 - 主要工作在recvCallback()和checkSnapshotSync()方法中。
+  /// Main loop for this thread - reads and processes messages from the multicast sockets - the heavy lifting is in the recvCallback() and checkSnapshotSync() methods.
   auto MarketDataConsumer::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
@@ -32,7 +32,7 @@ namespace Trading {
     }
   }
 
-  /// 通过订阅快照多播流来启动快照同步过程。
+  /// Start the process of snapshot synchronization by subscribing to the snapshot multicast stream.
   auto MarketDataConsumer::startSnapshotSync() -> void {
     snapshot_queued_msgs_.clear();
     incremental_queued_msgs_.clear();
@@ -43,7 +43,7 @@ namespace Trading {
            "Join failed on:" + std::to_string(snapshot_mcast_socket_.socket_fd_) + " error:" + std::string(std::strerror(errno)));
   }
 
-  /// 检查是否可以从快照和增量市场数据流排队的市场数据更新中进行恢复/同步。
+  /// Check if a recovery / synchronization is possible from the queued up market data updates from the snapshot and incremental market data streams.
   auto MarketDataConsumer::checkSnapshotSync() -> void {
     if (snapshot_queued_msgs_.empty()) {
       return;
@@ -128,10 +128,9 @@ namespace Trading {
     }
 
     for (const auto &itr: final_events) {
-      while(!incoming_md_updates_->try_push(std::move(itr)));
-      //auto next_write = incoming_md_updates_->getNextToWriteTo();
-      //*next_write = itr;
-      //incoming_md_updates_->updateWriteIndex();
+      auto next_write = incoming_md_updates_->getNextToWriteTo();
+      *next_write = itr;
+      incoming_md_updates_->updateWriteIndex();
     }
 
     logger_.log("%:% %() % Recovered % snapshot and % incremental orders.\n", __FILE__, __LINE__, __FUNCTION__,
@@ -144,7 +143,7 @@ namespace Trading {
     snapshot_mcast_socket_.leave(snapshot_ip_, snapshot_port_);;
   }
 
-  /// 在*_queued_msgs_容器中排队消息，第一个参数指定此更新是来自快照还是增量流。
+  /// Queue up a message in the *_queued_msgs_ containers, first parameter specifies if this update came from the snapshot or the incremental streams.
   auto MarketDataConsumer::queueMessage(bool is_snapshot, const Exchange::MDPMarketUpdate *request) {
     if (is_snapshot) {
       if (snapshot_queued_msgs_.find(request->seq_num_) != snapshot_queued_msgs_.end()) {
@@ -163,7 +162,7 @@ namespace Trading {
     checkSnapshotSync();
   }
 
-  /// 处理市场数据更新，消费者需要使用套接字参数来确定这是来自快照还是增量流。
+  /// Process a market data update, the consumer needs to use the socket parameter to figure out whether this came from the snapshot or the incremental stream.
   auto MarketDataConsumer::recvCallback(McastSocket *socket) noexcept -> void {
     TTT_MEASURE(T7_MarketDataConsumer_UDP_read, logger_);
 
@@ -202,11 +201,10 @@ namespace Trading {
                       Common::getCurrentTimeStr(&time_str_), request->toString());
 
           ++next_exp_inc_seq_num_;
-          
-          while(!incoming_md_updates_->try_push(std::move(request->me_market_update_)));
-          //auto next_write = incoming_md_updates_->getNextToWriteTo();
-          //*next_write = std::move(request->me_market_update_);
-          //incoming_md_updates_->updateWriteIndex();
+
+          auto next_write = incoming_md_updates_->getNextToWriteTo();
+          *next_write = std::move(request->me_market_update_);
+          incoming_md_updates_->updateWriteIndex();
           TTT_MEASURE(T8_MarketDataConsumer_LFQueue_write, logger_);
         }
       }

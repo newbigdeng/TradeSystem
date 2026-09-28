@@ -19,16 +19,16 @@ namespace Exchange {
 
     ~MEOrderBook();
 
-    /// 使用提供的属性在订单簿中创建并添加新订单。
-    /// 它将检查此新订单是否与具有相反方向的现有被动订单匹配，如果是，则执行匹配。
+    /// Create and add a new order in the order book with provided attributes.
+    /// It will check to see if this new order matches an existing passive order with opposite side, and perform the matching if that is the case.
     auto add(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty) noexcept -> void;
 
-    /// 尝试取消订单簿中的订单，如果订单不存在则发出取消拒绝。
+    /// Attempt to cancel an order in the order book, issue a cancel-rejection if order does not exist.
     auto cancel(ClientId client_id, OrderId order_id, TickerId ticker_id) noexcept -> void;
 
     auto toString(bool detailed, bool validity_check) const -> std::string;
 
-    /// 删除默认、拷贝和移动构造函数及赋值运算符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     MEOrderBook() = delete;
 
     MEOrderBook(const MEOrderBook &) = delete;
@@ -42,23 +42,23 @@ namespace Exchange {
   private:
     TickerId ticker_id_ = TickerId_INVALID;
 
-    /// 父匹配引擎实例，用于发布市场数据和客户端响应。
+    /// The parent matching engine instance, used to publish market data and client responses.
     MatchingEngine *matching_engine_ = nullptr;
 
-    /// 从客户端ID到订单ID再到MEOrder的哈希映射。
+    /// Hash map from ClientId -> OrderId -> MEOrder.
     ClientOrderHashMap cid_oid_to_order_;
 
-    /// 内存池用于管理MEOrdersAtPrice对象。
+    /// Memory pool to manage MEOrdersAtPrice objects.
     MemPool<MEOrdersAtPrice> orders_at_price_pool_;
 
-    /// 指向买卖价格水平的起始/最佳价格/订单簿顶部的指针。
+    /// Pointers to beginning / best prices / top of book of buy and sell price levels.
     MEOrdersAtPrice *bids_by_price_ = nullptr;
     MEOrdersAtPrice *asks_by_price_ = nullptr;
 
-    /// 从价格到MEOrdersAtPrice的哈希映射。
+    /// Hash map from Price -> MEOrdersAtPrice.
     OrdersAtPriceHashMap price_orders_at_price_;
 
-    /// 内存池用于管理MEOrder对象。
+    /// Memory pool to manage MEOrder objects.
     MemPool<MEOrder> order_pool_;
 
     /// These are used to publish client responses and market updates.
@@ -79,12 +79,12 @@ namespace Exchange {
       return (price % ME_MAX_PRICE_LEVELS);
     }
 
-    /// 获取并返回与提供价格对应的MEOrdersAtPrice。
+    /// Fetch and return the MEOrdersAtPrice corresponding to the provided price.
     auto getOrdersAtPrice(Price price) const noexcept -> MEOrdersAtPrice * {
       return price_orders_at_price_.at(priceToIndex(price));
     }
 
-    /// 在正确价格处将新的MEOrdersAtPrice添加到容器中 - 哈希映射和价格水平的双向链表。
+    /// Add a new MEOrdersAtPrice at the correct price into the containers - the hash map and the doubly linked list of price levels.
     auto addOrdersAtPrice(MEOrdersAtPrice *new_orders_at_price) noexcept {
       price_orders_at_price_.at(priceToIndex(new_orders_at_price->price_)) = new_orders_at_price;
 
@@ -131,7 +131,7 @@ namespace Exchange {
       }
     }
 
-    /// 从容器中移除MEOrdersAtPrice - 哈希映射和价格水平的双向链表。
+    /// Remove the MEOrdersAtPrice from the containers - the hash map and the doubly linked list of price levels.
     auto removeOrdersAtPrice(Side side, Price price) noexcept {
       const auto best_orders_by_price = (side == Side::BUY ? bids_by_price_ : asks_by_price_);
       auto orders_at_price = getOrdersAtPrice(price);
@@ -162,16 +162,16 @@ namespace Exchange {
       return orders_at_price->first_me_order_->prev_order_->priority_ + 1;
     }
 
-    /// 将具有提供参数的新主动订单与bid_itr对象中持有的被动订单进行匹配，并为匹配生成客户端响应和市场更新。
-    /// 它将根据匹配更新被动订单(bid_itr)，如果完全匹配则可能移除它。
-    /// 它将在leaves_qty参数中返回主动订单的剩余数量。
+    /// Match a new aggressive order with the provided parameters against a passive order held in the bid_itr object and generate client responses and market updates for the match.
+    /// It will update the passive order (bid_itr) based on the match and possibly remove it if fully matched.
+    /// It will return remaining quantity on the aggressive order in the leaves_qty parameter.
     auto match(TickerId ticker_id, ClientId client_id, Side side, OrderId client_order_id, OrderId new_market_order_id, MEOrder* bid_itr, Qty* leaves_qty) noexcept;
 
-    /// 检查具有提供属性的新订单是否会与订单簿另一侧的现有被动订单匹配。
-    /// 如果有匹配要执行，这将调用match()方法来执行匹配，并返回此新订单上剩余的数量（如果有）。
+    /// Check if a new order with the provided attributes would match against existing passive orders on the other side of the order book.
+    /// This will call the match() method to perform the match if there is a match to be made and return the quantity remaining if any on this new order.
     auto checkForMatch(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty, Qty new_market_order_id) noexcept;
 
-    /// 从容器中移除并释放提供的订单。
+    /// Remove and de-allocate provided order from the containers.
     auto removeOrder(MEOrder *order) noexcept {
       auto orders_at_price = getOrdersAtPrice(order->price_);
 
@@ -194,7 +194,7 @@ namespace Exchange {
       order_pool_.deallocate(order);
     }
 
-    /// 在此订单所属的价格水平的FIFO队列末尾添加单个订单。
+    /// Add a single order at the end of the FIFO queue at the price level that this order belongs in.
     auto addOrder(MEOrder *order) noexcept {
       const auto orders_at_price = getOrdersAtPrice(order->price_);
 

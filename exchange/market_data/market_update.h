@@ -8,7 +8,7 @@
 using namespace Common;
 
 namespace Exchange {
-  /// 表示市场更新消息中的类型/操作。
+  /// Represents the type / action in the market update message.
   enum class MarketUpdateType : uint8_t {
     INVALID = 0,
     CLEAR = 1,
@@ -42,10 +42,10 @@ namespace Exchange {
     return "UNKNOWN";
   }
 
-  /// 这些结构通过网络传输，因此二进制结构被打包以删除系统依赖的额外填充。
+  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
 #pragma pack(push, 1)
 
-  /// 匹配引擎内部使用的市场更新结构。
+  /// Market update structure used internally by the matching engine.
   struct MEMarketUpdate {
     MarketUpdateType type_ = MarketUpdateType::INVALID;
 
@@ -72,7 +72,7 @@ namespace Exchange {
     }
   };
 
-  /// 市场数据发布者通过网络发布的市场更新结构。
+  /// Market update structure published over the network by the market data publisher.
   struct MDPMarketUpdate {
     size_t seq_num_ = 0;
     MEMarketUpdate me_market_update_;
@@ -88,9 +88,9 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // 撤销后续的打包二进制结构指令。
+#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
-  /// 匹配引擎市场更新消息和市场数据发布者市场更新消息的无锁队列。
+  /// Lock free queues of matching engine market update messages and market data publisher market updates messages respectively.
   typedef Common::LFQueue<Exchange::MEMarketUpdate> MEMarketUpdateLFQueue;
   typedef Common::LFQueue<Exchange::MDPMarketUpdate> MDPMarketUpdateLFQueue;
 }

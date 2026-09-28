@@ -1,28 +1,28 @@
 #include "mcast_socket.h"
 
 namespace Common {
-  /// 初始化多播Socket，用于读取或发布多播流
-  /// 暂时不加入多播组
+  /// Initialize multicast socket to read from or publish to a stream.
+  /// Does not join the multicast stream yet.
   auto McastSocket::init(const std::string &ip, const std::string &iface, int port, bool is_listening) -> int {
     const SocketCfg socket_cfg{ip, iface, port, true, is_listening, false};
     socket_fd_ = createSocket(logger_, socket_cfg);
     return socket_fd_;
   }
 
-  /// 加入多播组
+  /// Add / Join membership / subscription to a multicast stream.
   bool McastSocket::join(const std::string &ip) {
     return Common::join(socket_fd_, ip);
   }
 
-  /// 退出多播组
+  /// Remove / Leave membership / subscription to a multicast stream.
   auto McastSocket::leave(const std::string &, int) -> void {
     close(socket_fd_);
     socket_fd_ = -1;
   }
 
-  /// 发送和接收多播数据
+  /// Publish outgoing data and read incoming data.
   auto McastSocket::sendAndRecv() noexcept -> bool {
-    // 接收多播数据，非阻塞模式，并调用接收回调函数处理
+    // Read data and dispatch callbacks if data is available - non blocking.
     const ssize_t n_rcv = recv(socket_fd_, inbound_data_.data() + next_rcv_valid_index_, McastBufferSize - next_rcv_valid_index_, MSG_DONTWAIT);
     if (n_rcv > 0) {
       next_rcv_valid_index_ += n_rcv;
@@ -31,7 +31,7 @@ namespace Common {
       recv_callback_(this);
     }
 
-    // 将send缓冲区中的数据发送到多播组
+    // Publish market data in the send buffer to the multicast stream.
     if (next_send_valid_index_ > 0) {
       ssize_t n = ::send(socket_fd_, outbound_data_.data(), next_send_valid_index_, MSG_DONTWAIT | MSG_NOSIGNAL);
 
@@ -42,7 +42,7 @@ namespace Common {
     return (n_rcv > 0);
   }
 
-  /// 复制数据到send缓冲区 - 不立即发送
+  /// Copy data to send buffers - does not send them out yet.
   auto McastSocket::send(const void *data, size_t len) noexcept -> void {
     memcpy(outbound_data_.data() + next_send_valid_index_, data, len);
     next_send_valid_index_ += len;

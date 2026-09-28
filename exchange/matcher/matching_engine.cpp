@@ -26,7 +26,7 @@ namespace Exchange {
     }
   }
 
-  /// 启动和停止匹配引擎主线程。
+  /// Start and stop the matching engine main thread.
   auto MatchingEngine::start() -> void {
     run_ = true;
     ASSERT(Common::createAndStartThread(-1, "Exchange/MatchingEngine", [this]() { run(); }) != nullptr, "Failed to start MatchingEngine thread.");

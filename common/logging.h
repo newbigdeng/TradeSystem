@@ -10,10 +10,10 @@
 #include "time_utils.h"
 
 namespace Common {
-  /// 队列可容纳的最大元素数，8MB
+  /// Maximum size of the lock free queue of data to be logged.
   constexpr size_t LOG_QUEUE_SIZE = 8 * 1024 * 1024;
 
-  /// 日志元素类型
+  /// Type of LogElement message.
   enum class LogType : int8_t {
     CHAR = 0,
     INTEGER = 1,
@@ -26,10 +26,10 @@ namespace Common {
     DOUBLE = 8
   };
 
-  /// 日志元素结构体
+  /// Represents a single and primitive log entry.
   struct LogElement {
     LogType type_ = LogType::CHAR;
-    union { // 日志元素数据联合体
+    union {
       char c;
       int i;
       long l;
@@ -44,40 +44,41 @@ namespace Common {
 
   class Logger final {
   public:
-    /// 从日志队列中读取日志元素并写入输出日志文件
+    /// Consumes from the lock free queue of log entries and writes to the output log file.
     auto flushQueue() noexcept {
       while (running_) {
-        LogElement next;
-        while (!queue_.try_pop(next)) ;
-          switch (next.type_) {
+
+        for (auto next = queue_.getNextToRead(); queue_.size() && next; next = queue_.getNextToRead()) {
+          switch (next->type_) {
             case LogType::CHAR:
-              file_ << next.u_.c;
+              file_ << next->u_.c;
               break;
             case LogType::INTEGER:
-              file_ << next.u_.i;
+              file_ << next->u_.i;
               break;
             case LogType::LONG_INTEGER:
-              file_ << next.u_.l;
+              file_ << next->u_.l;
               break;
             case LogType::LONG_LONG_INTEGER:
-              file_ << next.u_.ll;
+              file_ << next->u_.ll;
               break;
             case LogType::UNSIGNED_INTEGER:
-              file_ << next.u_.u;
+              file_ << next->u_.u;
               break;
             case LogType::UNSIGNED_LONG_INTEGER:
-              file_ << next.u_.ul;
+              file_ << next->u_.ul;
               break;
             case LogType::UNSIGNED_LONG_LONG_INTEGER:
-              file_ << next.u_.ull;
+              file_ << next->u_.ull;
               break;
             case LogType::FLOAT:
-              file_ << next.u_.f;
+              file_ << next->u_.f;
               break;
             case LogType::DOUBLE:
-              file_ << next.u_.d;
+              file_ << next->u_.d;
               break;
           }
+          queue_.updateReadIndex();
         }
         file_.flush();
 
@@ -109,9 +110,11 @@ namespace Common {
       std::cerr << Common::getCurrentTimeStr(&time_str) << " Logger for " << file_name_ << " exiting." << std::endl;
     }
 
-    /// 重载方法，将不同日志元素写入队列
+    /// Overloaded methods to write different log entry types to the lock free queue.
+    /// Creates a LogElement of the correct type and writes it to the lock free queue.
     auto pushValue(const LogElement &log_element) noexcept {
-      while (!queue_.try_push(log_element)) ;
+      *(queue_.getNextToWriteTo()) = log_element;
+      queue_.updateWriteIndex();
     }
 
     auto pushValue(const char value) noexcept {
@@ -161,17 +164,16 @@ namespace Common {
       pushValue(value.c_str());
     }
 
-    /// 解析格式字符串，将变量数量替换为实际值并写入队列
-    // 变参模板递归实现
+    /// Parse the format string, substitute % with the variable number of arguments passed and write the string to the lock free queue.
     template<typename T, typename... A>
     auto log(const char *s, const T &value, A... args) noexcept {
       while (*s) {
         if (*s == '%') {
-          if (UNLIKELY(*(s + 1) == '%')) { // 允许%%表示实际%
+          if (UNLIKELY(*(s + 1) == '%')) { // to allow %% -> % escape character.
             ++s;
           } else {
-            pushValue(value); // 替换%为实际值
-            log(s + 1, args...); // 消去一个参数，递归处理剩余参数
+            pushValue(value); // substitute % with the value specified in the arguments.
+            log(s + 1, args...); // pop an argument and call self recursively.
             return;
           }
         }
@@ -180,11 +182,12 @@ namespace Common {
       FATAL("extra arguments provided to log()");
     }
 
-    /// 重载方法，处理字符串中没有替换的%的情况
-       auto log(const char *s) noexcept {
+    /// Overload for case where no substitution in the string is necessary.
+    /// Note that this is overloading not specialization. gcc does not allow inline specializations.
+    auto log(const char *s) noexcept {
       while (*s) {
         if (*s == '%') {
-          if (UNLIKELY(*(s + 1) == '%')) { // 允许%%表示实际%
+          if (UNLIKELY(*(s + 1) == '%')) { // to allow %% -> % escape character.
             ++s;
           } else {
             FATAL("missing arguments to log()");
@@ -194,18 +197,23 @@ namespace Common {
       }
     }
 
-    /// 禁用默认构造函数、复制构造函数、移动构造函数和赋值运算符
+    /// Deleted default, copy & move constructors and assignment-operators.
     Logger() = delete;
+
     Logger(const Logger &) = delete;
+
     Logger(const Logger &&) = delete;
+
     Logger &operator=(const Logger &) = delete;
+
     Logger &operator=(const Logger &&) = delete;
+
   private:
-    /// 日志文件名
+    /// File to which the log entries will be written.
     const std::string file_name_;
     std::ofstream file_;
 
-    /// 日志队列，用于存储日志元素，并在后台线程中格式化和写入文件
+    /// Lock free queue of log elements from main logging thread to background formatting and disk writer thread.
     LFQueue<LogElement> queue_;
     std::atomic<bool> running_ = {true};
 

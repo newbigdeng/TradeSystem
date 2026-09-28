@@ -60,48 +60,45 @@ namespace Trading {
     incoming_md_updates_ = nullptr;
   }
 
-  /// 将客户端请求写入无锁队列，供订单服务器消费并发送到交易所。
+  /// Write a client request to the lock free queue for the order server to consume and send to the exchange.
   auto TradeEngine::sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> void {
     logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 client_request->toString().c_str());
-    while(!outgoing_ogw_requests_->try_push(std::move(*client_request)));
-    //auto next_write = outgoing_ogw_requests_->getNextToWriteTo();
-    //*next_write = std::move(*client_request);
-    //outgoing_ogw_requests_->updateWriteIndex();
+    auto next_write = outgoing_ogw_requests_->getNextToWriteTo();
+    *next_write = std::move(*client_request);
+    outgoing_ogw_requests_->updateWriteIndex();
     TTT_MEASURE(T10_TradeEngine_LFQueue_write, logger_);
   }
 
-  /// 此线程的主循环 - 处理传入的客户端响应和市场数据更新，这反过来可能会生成客户端请求。
+  /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
   auto TradeEngine::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
-      MEClientResponse client_response;
-      while(incoming_ogw_responses_->try_pop(client_response)) {
+      for (auto client_response = incoming_ogw_responses_->getNextToRead(); client_response; client_response = incoming_ogw_responses_->getNextToRead()) {
         TTT_MEASURE(T9t_TradeEngine_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                     client_response->toString().c_str());
-        onOrderUpdate(&client_response);
-        //incoming_ogw_responses_->updateReadIndex();
+        onOrderUpdate(client_response);
+        incoming_ogw_responses_->updateReadIndex();
         last_event_time_ = Common::getCurrentNanos();
       }
 
-      MEMarketUpdate market_update;
-      while(incoming_md_updates_->try_pop(market_update)) {
+      for (auto market_update = incoming_md_updates_->getNextToRead(); market_update; market_update = incoming_md_updates_->getNextToRead()) {
         TTT_MEASURE(T9_TradeEngine_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                     market_update->toString().c_str());
         ASSERT(market_update->ticker_id_ < ticker_order_book_.size(),
                "Unknown ticker-id on update:" + market_update->toString());
-        ticker_order_book_[market_update->ticker_id_]->onMarketUpdate(&market_update);
-        //incoming_md_updates_->updateReadIndex();
+        ticker_order_book_[market_update->ticker_id_]->onMarketUpdate(market_update);
+        incoming_md_updates_->updateReadIndex();
         last_event_time_ = Common::getCurrentNanos();
       }
     }
   }
 
-  /// 处理订单簿的变化 - 更新持仓管理器、特征引擎并告知交易算法有关更新的信息。
+  /// Process changes to the order book - updates the position keeper, feature engine and informs the trading algorithm about the update.
   auto TradeEngine::onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *book) noexcept -> void {
     logger_.log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
                 Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
@@ -122,7 +119,7 @@ namespace Trading {
     END_MEASURE(Trading_TradeEngine_algoOnOrderBookUpdate_, logger_);
   }
 
-  /// 处理交易事件 - 更新特征引擎并告知交易算法有关交易事件的信息。
+  /// Process trade events - updates the  feature engine and informs the trading algorithm about the trade event.
   auto TradeEngine::onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void {
     logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 market_update->toString().c_str());
@@ -136,7 +133,7 @@ namespace Trading {
     END_MEASURE(Trading_TradeEngine_algoOnTradeUpdate_, logger_);
   }
 
-  /// 处理客户端响应 - 更新持仓管理器并告知交易算法有关响应的信息。
+  /// Process client responses - updates the position keeper and informs the trading algorithm about the response.
   auto TradeEngine::onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
     logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 client_response->toString().c_str());

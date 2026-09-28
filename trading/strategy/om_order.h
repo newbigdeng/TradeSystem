@@ -7,7 +7,7 @@
 using namespace Common;
 
 namespace Trading {
-  /// 表示订单管理器中订单结构的类型/动作。
+  /// Represents the type / action in the order structure in the order manager.
   enum class OMOrderState : int8_t {
     INVALID = 0,
     PENDING_NEW = 1,
@@ -33,7 +33,7 @@ namespace Trading {
     return "UNKNOWN";
   }
 
-  /// 订单管理器用于表示单个策略订单的内部结构。
+  /// Internal structure used by the order manager to represent a single strategy order.
   struct OMOrder {
     TickerId ticker_id_ = TickerId_INVALID;
     OrderId order_id_ = OrderId_INVALID;
@@ -56,9 +56,9 @@ namespace Trading {
     }
   };
 
-  /// 从方向到OMOrder的哈希映射。
+  /// Hash map from Side -> OMOrder.
   typedef std::array<OMOrder, sideToIndex(Side::MAX) + 1> OMOrderSideHashMap;
 
-  /// 从交易品种ID到方向到OMOrder的哈希映射。
+  /// Hash map from TickerId -> Side -> OMOrder.
   typedef std::array<OMOrderSideHashMap, ME_MAX_TICKERS> OMOrderTickerSideHashMap;
 }

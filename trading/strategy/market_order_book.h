@@ -16,14 +16,14 @@ namespace Trading {
 
     ~MarketOrderBook();
 
-    /// 处理市场数据更新并更新限价订单簿。
+    /// Process market data update and update the limit order book.
     auto onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept -> void;
 
     auto setTradeEngine(TradeEngine *trade_engine) {
       trade_engine_ = trade_engine;
     }
 
-    /// 更新BBO抽象，两个布尔参数表示买方或卖方（或两者）是否需要更新。
+    /// Update the BBO abstraction, the two boolean parameters represent if the buy or the sekk (or both) sides or both need to be updated.
     auto updateBBO(bool update_bid, bool update_ask) noexcept {
       if(update_bid) {
         if(bids_by_price_) {
@@ -58,7 +58,7 @@ namespace Trading {
 
     auto toString(bool detailed, bool validity_check) const -> std::string;
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     MarketOrderBook() = delete;
 
     MarketOrderBook(const MarketOrderBook &) = delete;
@@ -72,23 +72,23 @@ namespace Trading {
   private:
     const TickerId ticker_id_;
 
-    /// 拥有此限价订单簿的父交易引擎，用于在订单簿变化或交易发生时发送通知。
+    /// Parent trade engine that owns this limit order book, used to send notifications when book changes or trades occur.
     TradeEngine *trade_engine_ = nullptr;
 
-    /// 从订单ID到市场订单的哈希映射。
+    /// Hash map from OrderId -> MarketOrder.
     OrderHashMap oid_to_order_;
 
-    /// 内存池用于管理MarketOrdersAtPrice对象。
+    /// Memory pool to manage MarketOrdersAtPrice objects.
     MemPool<MarketOrdersAtPrice> orders_at_price_pool_;
 
-    /// 指向买卖价格水平开始/最佳价格/订单簿顶部的指针。
+    /// Pointers to beginning / best prices / top of book of buy and sell price levels.
     MarketOrdersAtPrice *bids_by_price_ = nullptr;
     MarketOrdersAtPrice *asks_by_price_ = nullptr;
 
-    /// 从价格到MarketOrdersAtPrice的哈希映射。
+    /// Hash map from Price -> MarketOrdersAtPrice.
     OrdersAtPriceHashMap price_orders_at_price_;
 
-    /// 内存池用于管理MarketOrder对象。
+    /// Memory pool to manage MarketOrder objects.
     MemPool<MarketOrder> order_pool_;
 
     BBO bbo_;
@@ -101,12 +101,12 @@ namespace Trading {
       return (price % ME_MAX_PRICE_LEVELS);
     }
 
-    /// 获取并返回与提供价格对应的MarketOrdersAtPrice。
+    /// Fetch and return the MarketOrdersAtPrice corresponding to the provided price.
     auto getOrdersAtPrice(Price price) const noexcept -> MarketOrdersAtPrice * {
       return price_orders_at_price_.at(priceToIndex(price));
     }
 
-    /// 在正确价格处将新的MarketOrdersAtPrice添加到容器中 - 哈希映射和价格水平的双向链表。
+    /// Add a new MarketOrdersAtPrice at the correct price into the containers - the hash map and the doubly linked list of price levels.
     auto addOrdersAtPrice(MarketOrdersAtPrice *new_orders_at_price) noexcept {
       price_orders_at_price_.at(priceToIndex(new_orders_at_price->price_)) = new_orders_at_price;
 
@@ -155,7 +155,7 @@ namespace Trading {
       }
     }
 
-    /// 从容器中移除MarketOrdersAtPrice - 哈希映射和价格水平的双向链表。
+    /// Remove the MarketOrdersAtPrice from the containers - the hash map and the doubly linked list of price levels.
     auto removeOrdersAtPrice(Side side, Price price) noexcept {
       const auto best_orders_by_price = (side == Side::BUY ? bids_by_price_ : asks_by_price_);
       auto orders_at_price = getOrdersAtPrice(price);
@@ -178,7 +178,7 @@ namespace Trading {
       orders_at_price_pool_.deallocate(orders_at_price);
     }
 
-    /// 从容器中移除并释放提供的订单。
+    /// Remove and de-allocate provided order from the containers.
     auto removeOrder(MarketOrder *order) noexcept -> void {
       auto orders_at_price = getOrdersAtPrice(order->price_);
 
@@ -201,7 +201,7 @@ namespace Trading {
       order_pool_.deallocate(order);
     }
 
-    /// 在此订单所属的价格水平的FIFO队列末尾添加单个订单。
+    /// Add a single order at the end of the FIFO queue at the price level that this order belongs in.
     auto addOrder(MarketOrder *order) noexcept -> void {
       const auto orders_at_price = getOrdersAtPrice(order->price_);
 

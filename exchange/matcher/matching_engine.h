@@ -19,12 +19,12 @@ namespace Exchange {
 
     ~MatchingEngine();
 
-    /// 启动和停止匹配引擎主线程。
+    /// Start and stop the matching engine main thread.
     auto start() -> void;
 
     auto stop() -> void;
 
-    /// 用于处理从订单服务器发送的无锁队列中读取的客户端请求。
+    /// Called to process a client request read from the lock free queue sent by the order server.
     auto processClientRequest(const MEClientRequest *client_request) noexcept {
       auto order_book = ticker_order_book_[client_request->ticker_id_];
       switch (client_request->type_) {
@@ -50,61 +50,61 @@ namespace Exchange {
       }
     }
 
-    /// 将客户端响应写入无锁队列供订单服务器消费。
+    /// Write client responses to the lock free queue for the order server to consume.
     auto sendClientResponse(const MEClientResponse *client_response) noexcept {
       logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), client_response->toString());
-      while(!outgoing_ogw_responses_->try_push(std::move(*client_response)));
-      //auto next_write = outgoing_ogw_responses_->getNextToWriteTo();
-      // *next_write = std::move(*client_response);
-      // outgoing_ogw_responses_->updateWriteIndex();
+      auto next_write = outgoing_ogw_responses_->getNextToWriteTo();
+      *next_write = std::move(*client_response);
+      outgoing_ogw_responses_->updateWriteIndex();
       TTT_MEASURE(T4t_MatchingEngine_LFQueue_write, logger_);
     }
 
-    /// 将市场数据更新写入无锁队列供市场数据发布者消费。
+    /// Write market data update to the lock free queue for the market data publisher to consume.
     auto sendMarketUpdate(const MEMarketUpdate *market_update) noexcept {
       logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), market_update->toString());
-      
-      while(!outgoing_md_updates_->try_push(std::move(*market_update)));
-      //auto next_write = outgoing_md_updates_->getNextToWriteTo();
-      // *next_write = std::move(*market_update);
-      // outgoing_md_updates_->updateWriteIndex();
+      auto next_write = outgoing_md_updates_->getNextToWriteTo();
+      *next_write = *market_update;
+      outgoing_md_updates_->updateWriteIndex();
       TTT_MEASURE(T4_MatchingEngine_LFQueue_write, logger_);
     }
 
-    /// 此线程的主循环 - 处理传入的客户端请求，进而生成客户端响应和市场更新。
+    /// Main loop for this thread - processes incoming client requests which in turn generates client responses and market updates.
     auto run() noexcept {
       logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
       while (run_) {
-        MEClientRequest me_client_request;
-        while(!incoming_requests_->try_pop(me_client_request));
-
+        const auto me_client_request = incoming_requests_->getNextToRead();
         if (LIKELY(me_client_request)) {
           TTT_MEASURE(T3_MatchingEngine_LFQueue_read, logger_);
 
           logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
-                      me_client_request.toString());
+                      me_client_request->toString());
           START_MEASURE(Exchange_MatchingEngine_processClientRequest);
-          processClientRequest(&me_client_request);
+          processClientRequest(me_client_request);
           END_MEASURE(Exchange_MatchingEngine_processClientRequest, logger_);
-          //incoming_requests_->updateReadIndex();
+          incoming_requests_->updateReadIndex();
         }
       }
     }
 
-    /// 删除默认、拷贝和移动构造函数及赋值运算符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     MatchingEngine() = delete;
+
     MatchingEngine(const MatchingEngine &) = delete;
+
     MatchingEngine(const MatchingEngine &&) = delete;
+
     MatchingEngine &operator=(const MatchingEngine &) = delete;
+
     MatchingEngine &operator=(const MatchingEngine &&) = delete;
+
   private:
-    /// 从交易品种ID到匹配引擎订单簿的哈希映射容器。
+    /// Hash map container from TickerId -> MEOrderBook.
     OrderBookHashMap ticker_order_book_;
 
-    /// 无锁队列。
-    /// 第一个用于消费订单服务器发送的传入客户端请求。
-    /// 第二个用于发布传出的客户端响应供订单服务器消费。
-    /// 第三个用于发布传出的市场更新供市场数据发布者消费。
+    /// Lock free queues.
+    /// One to consume incoming client requests sent by the order server.
+    /// Second to publish outgoing client responses to be consumed by the order server.
+    /// Third to publish outgoing market updates to be consumed by the market data publisher.
     ClientRequestLFQueue *incoming_requests_ = nullptr;
     ClientResponseLFQueue *outgoing_ogw_responses_ = nullptr;
     MEMarketUpdateLFQueue *outgoing_md_updates_ = nullptr;

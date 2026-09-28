@@ -11,7 +11,7 @@ using namespace Common;
 namespace Trading {
   class OrderManager;
 
-  /// 枚举捕获风险检查的结果 - ALLOWED表示通过了所有风险检查，其他值表示失败原因。
+  /// Enumeration that captures the result of a risk check - ALLOWED means it passed all risk checks, the other values represent the failure reason.
   enum class RiskCheckResult : int8_t {
     INVALID = 0,
     ORDER_TOO_LARGE = 1,
@@ -37,14 +37,14 @@ namespace Trading {
     return "";
   }
 
-  /// 表示单个交易工具风险检查所需信息的结构。
+  /// Structure that represents the information needed for risk checks for a single trading instrument.
   struct RiskInfo {
     const PositionInfo *position_info_ = nullptr;
 
     RiskCfg risk_cfg_;
 
-    /// 检查风险，看我们是否被允许在指定方向上发送指定数量的订单。
-    /// 将返回一个RiskCheckResult值来传达风险检查的输出。
+    /// Check risk to see if we are allowed to send an order of the specified quantity on the specified side.
+    /// Will return a RiskCheckResult value to convey the output of the risk check.
     auto checkPreTradeRisk(Side side, Qty qty) const noexcept {
       // check order-size
       if (UNLIKELY(qty > risk_cfg_.max_order_size_))
@@ -68,10 +68,10 @@ namespace Trading {
     }
   };
 
-  /// 从交易品种ID到风险信息的哈希映射。
+  /// Hash map from TickerId -> RiskInfo.
   typedef std::array<RiskInfo, ME_MAX_TICKERS> TickerRiskInfoHashMap;
 
-  /// 顶层风险管理类，在所有交易工具中计算和检查风险。
+  /// Top level risk manager class to compute and check risk across all trading instruments.
   class RiskManager {
   public:
     RiskManager(Common::Logger *logger, const PositionKeeper *position_keeper, const TradeEngineCfgHashMap &ticker_cfg);
@@ -80,7 +80,7 @@ namespace Trading {
       return ticker_risk_.at(ticker_id).checkPreTradeRisk(side, qty);
     }
 
-    /// 删除默认、复制和移动构造函数及赋值操作符。
+    /// Deleted default, copy & move constructors and assignment-operators.
     RiskManager() = delete;
 
     RiskManager(const RiskManager &) = delete;

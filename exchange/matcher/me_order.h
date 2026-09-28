@@ -7,7 +7,7 @@
 using namespace Common;
 
 namespace Exchange {
-  /// 匹配引擎用来表示限价订单簿中的单个订单。
+  /// Used by the matching engine to represent a single order in the limit order book.
   struct MEOrder {
     TickerId ticker_id_ = TickerId_INVALID;
     ClientId client_id_ = ClientId_INVALID;
@@ -18,11 +18,11 @@ namespace Exchange {
     Qty qty_ = Qty_INVALID;
     Priority priority_ = Priority_INVALID;
 
-    /// MEOrder还用作按FIFO顺序排列的价格水平上所有订单的双向链表中的节点。
+    /// MEOrder also serves as a node in a doubly linked list of all orders at price level arranged in FIFO order.
     MEOrder *prev_order_ = nullptr;
     MEOrder *next_order_ = nullptr;
 
-    /// 仅在与MemPool一起使用时需要。
+    /// Only needed for use with MemPool.
     MEOrder() = default;
 
     MEOrder(TickerId ticker_id, ClientId client_id, OrderId client_order_id, OrderId market_order_id, Side side, Price price,
@@ -39,19 +39,19 @@ namespace Exchange {
   /// Hash map from ClientId -> OrderId -> MEOrder.
   typedef std::array<OrderHashMap, ME_MAX_NUM_CLIENTS> ClientOrderHashMap;
 
-  /// 匹配引擎用来表示限价订单簿中的价格水平。
-  /// 内部维护按FIFO顺序排列的MEOrder对象列表。
+  /// Used by the matching engine to represent a price level in the limit order book.
+  /// Internally maintains a list of MEOrder objects arranged in FIFO order.
   struct MEOrdersAtPrice {
     Side side_ = Side::INVALID;
     Price price_ = Price_INVALID;
 
     MEOrder *first_me_order_ = nullptr;
 
-    /// MEOrdersAtPrice还用作按最积极到最不积极价格顺序排列的价格水平双向链表中的节点。
+    /// MEOrdersAtPrice also serves as a node in a doubly linked list of price levels arranged in order from most aggressive to least aggressive price.
     MEOrdersAtPrice *prev_entry_ = nullptr;
     MEOrdersAtPrice *next_entry_ = nullptr;
 
-    /// 仅在与MemPool一起使用时需要。
+    /// Only needed for use with MemPool.
     MEOrdersAtPrice() = default;
 
     MEOrdersAtPrice(Side side, Price price, MEOrder *first_me_order, MEOrdersAtPrice *prev_entry, MEOrdersAtPrice *next_entry)
