@@ -8,7 +8,8 @@
 
 namespace Common {
   /// Size of send and receive buffers in bytes.
-  constexpr size_t McastBufferSize = 64 * 1024 * 1024;
+  constexpr size_t McastBufferSize = 65536;
+  constexpr size_t MaxMcastDatagram=1400;
 
   struct McastSocket {
     McastSocket(Logger &logger)
@@ -16,6 +17,8 @@ namespace Common {
       outbound_data_.resize(McastBufferSize);
       inbound_data_.resize(McastBufferSize);
     }
+    ~McastSocket(){if(socket_fd_>=0)::close(socket_fd_);}
+    McastSocket(const McastSocket&)=delete;McastSocket& operator=(const McastSocket&)=delete;
 
     /// Initialize multicast socket to read from or publish to a stream.
     /// Does not join the multicast stream yet.
@@ -31,7 +34,7 @@ namespace Common {
     auto sendAndRecv() noexcept -> bool;
 
     /// Copy data to send buffers - does not send them out yet.
-    auto send(const void *data, size_t len) noexcept -> void;
+    auto send(const void *data, size_t len) noexcept -> bool;
 
     int socket_fd_ = -1;
 
@@ -49,5 +52,7 @@ namespace Common {
 
     std::string time_str_;
     Logger &logger_;
+    bool receive_fault_=false;
+    uint64_t truncated_datagrams_=0,send_retries_=0,sent_bytes_=0,received_bytes_=0;
   };
 }

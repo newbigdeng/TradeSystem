@@ -61,7 +61,8 @@ namespace Exchange {
 
     /// Hash map from TickerId -> Full limit order book snapshot containing information for every live order.
     std::array<std::array<MEMarketUpdate *, ME_MAX_ORDER_IDS>, ME_MAX_TICKERS> ticker_orders_;
-    size_t last_inc_seq_num_ = 0;
+    uint64_t last_inc_seq_num_ = 0;
+    uint64_t snapshot_cycle_=Common::getCurrentNanos();
     Nanos last_snapshot_time_ = 0;
 
     /// Memory pool to manage MEMarketUpdate messages for the orders in the snapshot limit order books.

@@ -17,7 +17,8 @@ namespace Exchange {
     CANCEL = 4,
     TRADE = 5,
     SNAPSHOT_START = 6,
-    SNAPSHOT_END = 7
+    SNAPSHOT_END = 7,
+    RECOVERY_COMMIT = 8
   };
 
   inline std::string marketUpdateTypeToString(MarketUpdateType type) {
@@ -38,6 +39,8 @@ namespace Exchange {
         return "SNAPSHOT_END";
       case MarketUpdateType::INVALID:
         return "INVALID";
+      case MarketUpdateType::RECOVERY_COMMIT:
+        return "RECOVERY_COMMIT";
     }
     return "UNKNOWN";
   }
@@ -54,6 +57,7 @@ namespace Exchange {
     Price price_ = Price_INVALID;
     Qty qty_ = Qty_INVALID;
     Priority priority_ = Priority_INVALID;
+    uint64_t state_hash_=0;
 
     auto toString() const {
       std::stringstream ss;
@@ -75,6 +79,7 @@ namespace Exchange {
   struct MDPMarketUpdate {
     uint64_t seq_num_ = 0;
     MEMarketUpdate me_market_update_;
+    uint64_t snapshot_cycle_=0,watermark_=0,state_hash_=0;
 
     auto toString() const {
       std::stringstream ss;

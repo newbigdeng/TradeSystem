@@ -66,6 +66,7 @@ namespace Trading {
         bids_by_price_ = asks_by_price_ = nullptr;
       }
         break;
+      case Exchange::MarketUpdateType::RECOVERY_COMMIT:
       case Exchange::MarketUpdateType::INVALID:
       case Exchange::MarketUpdateType::SNAPSHOT_START:
       case Exchange::MarketUpdateType::SNAPSHOT_END:

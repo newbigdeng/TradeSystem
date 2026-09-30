@@ -1,6 +1,7 @@
 #pragma once
 #include <mutex>
 #include "common/order_protocol.h"
+#include "common/book_hash.h"
 
 #include <functional>
 
@@ -87,6 +88,7 @@ namespace Trading {
 
     void setMarketTrusted(bool trusted) noexcept {market_trusted_.store(trusted,std::memory_order_release);}
     std::atomic<bool>& marketTrust() noexcept {return market_trusted_;}
+    std::atomic<uint64_t>& marketGeneration() noexcept {return market_generation_;}
     void setOrderSession(std::atomic<bool>* state) noexcept {order_session_=state;}
     const PositionInfo* positionInfo(TickerId ticker) const {return position_keeper_.getPositionInfo(ticker);}
     auto clientId() const {
@@ -123,6 +125,7 @@ namespace Trading {
     volatile bool run_ = false;
     std::mutex state_mutex_;
     std::atomic<bool> market_trusted_{false};
+    std::atomic<uint64_t> market_generation_{0};
     std::atomic<bool>* order_session_=nullptr;
     bool reconciled_=true;
     uint64_t last_response_id_=0,accepted_requests_=0,rejected_requests_=0,duplicate_responses_=0;

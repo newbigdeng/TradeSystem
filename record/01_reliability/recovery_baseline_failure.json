@@ -1,0 +1,6 @@
+{
+  "commit": "e10708417f917fcae3a6594ca6a70b6e8c02f41d",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "FAIL snapshot without any CLEAR was accepted as complete\n"
+}

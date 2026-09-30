@@ -95,9 +95,22 @@ namespace Trading {
 
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                     market_update->toString().c_str());
+        if(market_update->type_==Exchange::MarketUpdateType::RECOVERY_COMMIT) {
+          std::vector<Exchange::MEMarketUpdate> orders;
+          for(const auto* book:ticker_order_book_) {const auto live=book->liveOrders();orders.insert(orders.end(),live.begin(),live.end());}
+          const auto hash=Common::bookHash(orders);
+          const bool verified=hash==market_update->state_hash_ && market_update->priority_==market_generation_.load(std::memory_order_acquire);
+          market_trusted_.store(verified,std::memory_order_release);
+          logger_.log("RECOVERY VERIFIED:% watermark:% hash:% expected:% generation:%\n",verified,market_update->order_id_,hash,market_update->state_hash_,market_update->priority_);
+          if(!verified)market_generation_.fetch_add(1,std::memory_order_acq_rel);
+          incoming_md_updates_->pop();continue;
+        }
         ASSERT(market_update->ticker_id_ < ticker_order_book_.size(),
                "Unknown ticker-id on update:" + market_update->toString());
-        ticker_order_book_[market_update->ticker_id_]->onMarketUpdate(market_update);
+        if(!ticker_order_book_[market_update->ticker_id_]->onMarketUpdate(market_update)) {
+          market_trusted_.store(false,std::memory_order_release);market_generation_.fetch_add(1,std::memory_order_acq_rel);
+          logger_.log("MARKET STALE: invalid order-book transition\n");
+        }
         incoming_md_updates_->pop();
         last_event_time_ = Common::getCurrentNanos();
       }

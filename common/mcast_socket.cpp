@@ -1,52 +1,34 @@
 #include "mcast_socket.h"
-
 namespace Common {
-  /// Initialize multicast socket to read from or publish to a stream.
-  /// Does not join the multicast stream yet.
-  auto McastSocket::init(const std::string &ip, const std::string &iface, int port, bool is_listening) -> int {
-    iface_ = iface;
-    const SocketCfg socket_cfg{ip, iface, port, true, is_listening, false};
-    socket_fd_ = createSocket(logger_, socket_cfg);
-    return socket_fd_;
+int McastSocket::init(const std::string& ip,const std::string& iface,int port,bool listening) {
+  if(socket_fd_>=0)::close(socket_fd_);
+  iface_=iface;socket_fd_=createSocket(logger_,SocketCfg{ip,iface,port,true,listening,false});return socket_fd_;
+}
+bool McastSocket::join(const std::string& ip){return Common::join(socket_fd_,ip,iface_);}
+void McastSocket::leave(const std::string&,int){if(socket_fd_>=0)::close(socket_fd_);socket_fd_=-1;}
+bool McastSocket::sendAndRecv() noexcept {
+  if(socket_fd_<0)return false;
+  if(next_send_valid_index_) {
+    const auto n=::send(socket_fd_,outbound_data_.data(),next_send_valid_index_,MSG_DONTWAIT|MSG_NOSIGNAL);
+    if(n==static_cast<ssize_t>(next_send_valid_index_)) {sent_bytes_+=n;next_send_valid_index_=0;}
+    else if(n<0 && (errno==EAGAIN || errno==EWOULDBLOCK || errno==EINTR))++send_retries_;
+    else FATAL("multicast send failure: "+std::string(strerror(errno)));
   }
-
-  /// Add / Join membership / subscription to a multicast stream.
-  bool McastSocket::join(const std::string &ip) {
-    return Common::join(socket_fd_, ip, iface_);
+  iovec iov{inbound_data_.data(),inbound_data_.size()};msghdr message{};message.msg_iov=&iov;message.msg_iovlen=1;
+  const auto n=recvmsg(socket_fd_,&message,MSG_DONTWAIT|MSG_TRUNC);
+  if(n>0) {
+    receive_fault_=(message.msg_flags&MSG_TRUNC) || size_t(n)>inbound_data_.size();
+    next_rcv_valid_index_=receive_fault_?0:size_t(n);
+    if(receive_fault_)++truncated_datagrams_;else received_bytes_+=n;
+    if(recv_callback_)recv_callback_(this);
+    return true;
   }
-
-  /// Remove / Leave membership / subscription to a multicast stream.
-  auto McastSocket::leave(const std::string &, int) -> void {
-    close(socket_fd_);
-    socket_fd_ = -1;
-  }
-
-  /// Publish outgoing data and read incoming data.
-  auto McastSocket::sendAndRecv() noexcept -> bool {
-    // Read data and dispatch callbacks if data is available - non blocking.
-    const ssize_t n_rcv = recv(socket_fd_, inbound_data_.data() + next_rcv_valid_index_, McastBufferSize - next_rcv_valid_index_, MSG_DONTWAIT);
-    if (n_rcv > 0) {
-      next_rcv_valid_index_ += n_rcv;
-      logger_.log("%:% %() % read socket:% len:%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), socket_fd_,
-                  next_rcv_valid_index_);
-      recv_callback_(this);
-    }
-
-    // Publish market data in the send buffer to the multicast stream.
-    if (next_send_valid_index_ > 0) {
-      ssize_t n = ::send(socket_fd_, outbound_data_.data(), next_send_valid_index_, MSG_DONTWAIT | MSG_NOSIGNAL);
-
-      logger_.log("%:% %() % send socket:% len:%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), socket_fd_, n);
-    }
-    next_send_valid_index_ = 0;
-
-    return (n_rcv > 0);
-  }
-
-  /// Copy data to send buffers - does not send them out yet.
-  auto McastSocket::send(const void *data, size_t len) noexcept -> void {
-    memcpy(outbound_data_.data() + next_send_valid_index_, data, len);
-    next_send_valid_index_ += len;
-    ASSERT(next_send_valid_index_ < McastBufferSize, "Mcast socket buffer filled up and sendAndRecv() not called.");
-  }
+  return false;
+}
+bool McastSocket::send(const void* data,size_t length) noexcept {
+  if(!data || !length || length>MaxMcastDatagram)return false;
+  if(next_send_valid_index_+length>MaxMcastDatagram)sendAndRecv();
+  if(next_send_valid_index_+length>MaxMcastDatagram)return false;
+  memcpy(outbound_data_.data()+next_send_valid_index_,data,length);next_send_valid_index_+=length;return true;
+}
 }

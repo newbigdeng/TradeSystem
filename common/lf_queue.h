@@ -27,6 +27,16 @@ template<class T> class LFQueue final {
     if(head==tail_.load(std::memory_order_acquire)) return false;
     value=store_[head%store_.size()]; head_.store(next(head),std::memory_order_release); return true;
   }
+  bool try_push_batch(const std::vector<T>& values) noexcept {
+    const auto tail=tail_.load(std::memory_order_relaxed);
+    const auto used=distance(tail,head_.load(std::memory_order_acquire));
+    if(values.size()>store_.size()-used) {full_count_.fetch_add(1,std::memory_order_relaxed);return false;}
+    auto write=tail;
+    for(const auto& value:values) {store_[write%store_.size()]=value;write=next(write);}
+    tail_.store(write,std::memory_order_release);
+    if(used+values.size()>high_watermark_.load(std::memory_order_relaxed))high_watermark_.store(used+values.size(),std::memory_order_relaxed);
+    return true;
+  }
   // Consumer-only peek/commit retains a frame when an output buffer is full.
   const T *peek() const noexcept {
     const auto head=head_.load(std::memory_order_relaxed);

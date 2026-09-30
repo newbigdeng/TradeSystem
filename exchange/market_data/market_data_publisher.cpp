@@ -1,4 +1,5 @@
 #include "market_data_publisher.h"
+#include "common/market_protocol.h"
 
 namespace Exchange {
   MarketDataPublisher::MarketDataPublisher(MEMarketUpdateLFQueue *market_updates, const std::string &iface,
@@ -23,8 +24,8 @@ namespace Exchange {
                     market_update->toString().c_str());
 
         START_MEASURE(Exchange_McastSocket_send);
-        incremental_socket_.send(&next_inc_seq_num_, sizeof(next_inc_seq_num_));
-        incremental_socket_.send(market_update, sizeof(MEMarketUpdate));
+        const auto bytes=Common::Wire::encode(MDPMarketUpdate{next_inc_seq_num_,*market_update});
+        if(!incremental_socket_.send(bytes.data(),bytes.size()))break;
         END_MEASURE(Exchange_McastSocket_send, logger_);
 
         const auto update_copy=*market_update;

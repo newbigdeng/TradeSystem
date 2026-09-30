@@ -1,0 +1,46 @@
+{
+  "commit": "e10708417f917fcae3a6594ca6a70b6e8c02f41d",
+  "samples": [
+    {
+      "mode": "recovery",
+      "operations": 1000,
+      "elapsed_ns": 1066276182,
+      "ns_per_operation": 1066280.0,
+      "checksum": 72000
+    },
+    {
+      "mode": "recovery",
+      "operations": 1000,
+      "elapsed_ns": 996569783,
+      "ns_per_operation": 996570,
+      "checksum": 72000
+    },
+    {
+      "mode": "recovery",
+      "operations": 1000,
+      "elapsed_ns": 881714648,
+      "ns_per_operation": 881715,
+      "checksum": 72000
+    },
+    {
+      "mode": "recovery",
+      "operations": 1000,
+      "elapsed_ns": 1007446080,
+      "ns_per_operation": 1007450.0,
+      "checksum": 72000
+    },
+    {
+      "mode": "recovery",
+      "operations": 1000,
+      "elapsed_ns": 1004678235,
+      "ns_per_operation": 1004680.0,
+      "checksum": 72000
+    }
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "cpu_affinity": [
+    0
+  ],
+  "median_ns_per_operation": 1004680.0
+}

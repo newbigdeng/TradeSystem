@@ -1,4 +1,6 @@
 #include "snapshot_synthesizer.h"
+#include "common/book_hash.h"
+#include "common/market_protocol.h"
 
 namespace Exchange {
   SnapshotSynthesizer::SnapshotSynthesizer(MDPMarketUpdateLFQueue *market_updates, const std::string &iface,
@@ -28,12 +30,15 @@ namespace Exchange {
   /// Process an incremental market update and update the limit order book snapshot.
   auto SnapshotSynthesizer::addToSnapshot(const MDPMarketUpdate *market_update) {
     const auto &me_market_update = market_update->me_market_update_;
+    ASSERT(me_market_update.ticker_id_<ME_MAX_TICKERS,"invalid ticker in snapshot input");
+    if(me_market_update.type_==MarketUpdateType::ADD || me_market_update.type_==MarketUpdateType::MODIFY || me_market_update.type_==MarketUpdateType::CANCEL)ASSERT(me_market_update.order_id_>0 && me_market_update.order_id_<ME_MAX_ORDER_IDS,"invalid market order ID");
     auto *orders = &ticker_orders_.at(me_market_update.ticker_id_);
     switch (me_market_update.type_) {
       case MarketUpdateType::ADD: {
         auto order = orders->at(me_market_update.order_id_);
         ASSERT(order == nullptr, "Received:" + me_market_update.toString() + " but order already exists:" + (order ? order->toString() : ""));
         orders->at(me_market_update.order_id_) = order_pool_.allocate(me_market_update);
+        ASSERT(orders->at(me_market_update.order_id_)!=nullptr,"snapshot pool exhausted");
       }
         break;
       case MarketUpdateType::MODIFY: {
@@ -56,6 +61,7 @@ namespace Exchange {
         orders->at(me_market_update.order_id_) = nullptr;
       }
         break;
+      case MarketUpdateType::RECOVERY_COMMIT:
       case MarketUpdateType::SNAPSHOT_START:
       case MarketUpdateType::CLEAR:
       case MarketUpdateType::SNAPSHOT_END:
@@ -70,49 +76,30 @@ namespace Exchange {
 
   /// Publish a full snapshot cycle on the snapshot multicast stream.
   auto SnapshotSynthesizer::publishSnapshot() {
-    size_t snapshot_size = 0;
-
-    // The snapshot cycle starts with a SNAPSHOT_START message and order_id_ contains the last sequence number from the incremental market data stream used to build this snapshot.
-    const MDPMarketUpdate start_market_update{snapshot_size++, {MarketUpdateType::SNAPSHOT_START, last_inc_seq_num_}};
-    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), start_market_update.toString());
-    snapshot_socket_.send(&start_market_update, sizeof(MDPMarketUpdate));
-
-    // Publish order information for each order in the limit order book for each instrument.
-    for (size_t ticker_id = 0; ticker_id < ticker_orders_.size(); ++ticker_id) {
-      const auto &orders = ticker_orders_.at(ticker_id);
-
-      MEMarketUpdate me_market_update;
-      me_market_update.type_ = MarketUpdateType::CLEAR;
-      me_market_update.ticker_id_ = ticker_id;
-
-      // We start order information for each instrument by first publishing a CLEAR message so the downstream consumer can clear the order book.
-      const MDPMarketUpdate clear_market_update{snapshot_size++, me_market_update};
-      logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), clear_market_update.toString());
-      snapshot_socket_.send(&clear_market_update, sizeof(MDPMarketUpdate));
-
-      // Publish each order.
-      for (const auto order: orders) {
-        if (order) {
-          const MDPMarketUpdate market_update{snapshot_size++, *order};
-          logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), market_update.toString());
-          snapshot_socket_.send(&market_update, sizeof(MDPMarketUpdate));
-          snapshot_socket_.sendAndRecv();
-        }
-      }
+    std::vector<MEMarketUpdate> live;
+    for(const auto& orders:ticker_orders_)for(const auto* order:orders)if(order)live.push_back(*order);
+    const auto hash=Common::bookHash(live);const auto cycle=++snapshot_cycle_;uint64_t sequence=0;
+    auto publish=[&](const MEMarketUpdate& event) {
+      const auto bytes=Common::Wire::encode(MDPMarketUpdate{sequence++,event,cycle,last_inc_seq_num_,hash});
+      ASSERT(snapshot_socket_.send(bytes.data(),bytes.size()),"snapshot UDP output congested; fail closed instead of publishing an incomplete cycle");
+      snapshot_socket_.sendAndRecv();
+    };
+    publish({MarketUpdateType::SNAPSHOT_START,last_inc_seq_num_});
+    for(TickerId ticker=0;ticker<ME_MAX_TICKERS;++ticker) {
+      publish({MarketUpdateType::CLEAR,OrderId_INVALID,ticker});
+      for(const auto* order:ticker_orders_[ticker])if(order)publish(*order);
     }
-
-    // The snapshot cycle ends with a SNAPSHOT_END message and order_id_ contains the last sequence number from the incremental market data stream used to build this snapshot.
-    const MDPMarketUpdate end_market_update{snapshot_size++, {MarketUpdateType::SNAPSHOT_END, last_inc_seq_num_}};
-    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), end_market_update.toString());
-    snapshot_socket_.send(&end_market_update, sizeof(MDPMarketUpdate));
-    snapshot_socket_.sendAndRecv();
-
-    logger_.log("%:% %() % Published snapshot of % orders.\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_), snapshot_size - 1);
+    publish({MarketUpdateType::SNAPSHOT_END,last_inc_seq_num_});snapshot_socket_.sendAndRecv();
+    logger_.log("SNAPSHOT cycle:% watermark:% hash:% orders:%\n",cycle,last_inc_seq_num_,hash,live.size());
   }
 
   /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
   void SnapshotSynthesizer::run() {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_));
+    const auto* configured=std::getenv("TRADE_SNAPSHOT_MS");
+    const auto milliseconds=configured?std::strtoll(configured,nullptr,10):60000;
+    ASSERT(milliseconds>0 && milliseconds<=3600000,"TRADE_SNAPSHOT_MS out of bounds");
+    const auto period=milliseconds*NANOS_TO_MILLIS;
     while (run_) {
       for (auto market_update = snapshot_md_updates_->peek(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->peek()) {
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_),
@@ -123,7 +110,7 @@ namespace Exchange {
         snapshot_md_updates_->pop();
       }
 
-      if (getCurrentNanos() - last_snapshot_time_ > 60 * NANOS_TO_SECS) {
+      if (getCurrentNanos() - last_snapshot_time_ > period) {
         last_snapshot_time_ = getCurrentNanos();
         publishSnapshot();
       }
