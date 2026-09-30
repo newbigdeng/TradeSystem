@@ -35,6 +35,9 @@ namespace Common {
 
     int socket_fd_ = -1;
 
+    /// Preserve the configured interface for initial and snapshot subscriptions.
+    std::string iface_;
+
     /// Send and receive buffers, typically only one or the other is needed, not both.
     std::vector<char> outbound_data_;
     size_t next_send_valid_index_ = 0;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cerrno>
 #include <iostream>
 #include <string>
 #include <unordered_set>
@@ -85,8 +86,19 @@ namespace Common {
   }
 
   /// Add / Join membership / subscription to the multicast stream specified and on the interface specified.
-  inline auto join(int fd, const std::string &ip) -> bool {
-    const ip_mreq mreq{{inet_addr(ip.c_str())}, {htonl(INADDR_ANY)}};
+  inline auto join(int fd, const std::string &ip, const std::string &iface) -> bool {
+    const auto iface_ip = getIfaceIP(iface);
+    if (iface_ip.empty()) {
+      errno = ENODEV;
+      return false;
+    }
+    ip_mreq mreq{};
+    if (inet_pton(AF_INET, ip.c_str(), &mreq.imr_multiaddr) != 1 ||
+        !IN_MULTICAST(ntohl(mreq.imr_multiaddr.s_addr))) {
+      errno = EINVAL;
+      return false;
+    }
+    inet_pton(AF_INET, iface_ip.c_str(), &mreq.imr_interface);
     return (setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreq, sizeof(mreq)) != -1);
   }
 
@@ -115,6 +127,20 @@ namespace Common {
 
       if (!socket_cfg.is_udp_) { // disable Nagle for TCP sockets.
         ASSERT(disableNagle(socket_fd), "disableNagle() failed. errno:" + std::string(strerror(errno)));
+      }
+
+      // Multicast destination addresses do not select the local interface.
+      // Set the configured IPv4 interface before connect() chooses a route.
+      const auto *ipv4_addr = reinterpret_cast<const sockaddr_in *>(rp->ai_addr);
+      if (socket_cfg.is_udp_ && !socket_cfg.is_listening_ &&
+          IN_MULTICAST(ntohl(ipv4_addr->sin_addr.s_addr))) {
+        const auto iface_ip = getIfaceIP(socket_cfg.iface_);
+        ASSERT(!iface_ip.empty(), "No IPv4 address for multicast interface: " + socket_cfg.iface_);
+        in_addr iface_addr{};
+        ASSERT(inet_pton(AF_INET, iface_ip.c_str(), &iface_addr) == 1,
+               "Invalid multicast interface address: " + iface_ip);
+        ASSERT(setsockopt(socket_fd, IPPROTO_IP, IP_MULTICAST_IF, &iface_addr, sizeof(iface_addr)) == 0,
+               "setsockopt() IP_MULTICAST_IF failed. errno:" + std::string(strerror(errno)));
       }
 
       if (!socket_cfg.is_listening_) { // establish connection to specified address.

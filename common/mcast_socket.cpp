@@ -4,6 +4,7 @@ namespace Common {
   /// Initialize multicast socket to read from or publish to a stream.
   /// Does not join the multicast stream yet.
   auto McastSocket::init(const std::string &ip, const std::string &iface, int port, bool is_listening) -> int {
+    iface_ = iface;
     const SocketCfg socket_cfg{ip, iface, port, true, is_listening, false};
     socket_fd_ = createSocket(logger_, socket_cfg);
     return socket_fd_;
@@ -11,7 +12,7 @@ namespace Common {
 
   /// Add / Join membership / subscription to a multicast stream.
   bool McastSocket::join(const std::string &ip) {
-    return Common::join(socket_fd_, ip);
+    return Common::join(socket_fd_, ip, iface_);
   }
 
   /// Remove / Leave membership / subscription to a multicast stream.
