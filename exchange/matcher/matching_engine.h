@@ -61,7 +61,7 @@ namespace Exchange {
 
     /// Write client responses to the lock free queue for the order server to consume.
     auto sendClientResponse(const MEClientResponse *client_response) noexcept -> void {
-      logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), client_response->toString());
+      logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(), client_response->toString());
       auto response=*client_response;
       response.response_id_=next_response_id_++;
       if(response.client_id_<ME_MAX_NUM_CLIENTS && response.ticker_id_<ME_MAX_TICKERS) {
@@ -77,20 +77,20 @@ namespace Exchange {
 
     /// Write market data update to the lock free queue for the market data publisher to consume.
     auto sendMarketUpdate(const MEMarketUpdate *market_update) noexcept {
-      logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), market_update->toString());
+      logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(), market_update->toString());
       ASSERT(outgoing_md_updates_->try_push(*market_update), "critical queue full; stop instead of overwriting");
       TTT_MEASURE(T4_MatchingEngine_LFQueue_write, logger_);
     }
 
     /// Main loop for this thread - processes incoming client requests which in turn generates client responses and market updates.
     auto run() noexcept {
-      logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
+      logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr());
       while(run_ || incoming_requests_->peek()) {
         const auto me_client_request = incoming_requests_->peek();
         if (LIKELY(me_client_request)) {
           TTT_MEASURE(T3_MatchingEngine_LFQueue_read, logger_);
 
-          logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+          logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                       me_client_request->toString());
           START_MEASURE(Exchange_MatchingEngine_processClientRequest);
           processClientRequest(me_client_request);

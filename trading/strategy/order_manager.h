@@ -22,7 +22,7 @@ namespace Trading {
 
     /// Process an order update from a client response and update the state of the orders being managed.
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                    client_response->toString().c_str());
       if(client_response->ticker_id_>=ME_MAX_TICKERS)return;
       OMOrder *order=nullptr;

@@ -16,12 +16,12 @@ namespace Common {
 #define END_MEASURE(TAG, LOGGER)                                                              \
       do {                                                                                    \
         const auto end = Common::rdtsc();                                                     \
-        LOGGER.log("% RDTSC "#TAG" %\n", Common::getCurrentTimeStr(&time_str_), (end - TAG)); \
+        LOGGER.log("% RDTSC "#TAG" %\n", Common::getCurrentTimeStr(), (end - TAG)); \
       } while(false)
 
 /// Log a current timestamp at the time this macro is invoked.
 #define TTT_MEASURE(TAG, LOGGER)                                                              \
       do {                                                                                    \
         const auto TAG = Common::getCurrentNanos();                                           \
-        LOGGER.log("% TTT "#TAG" %\n", Common::getCurrentTimeStr(&time_str_), TAG);           \
+        LOGGER.log("% TTT "#TAG" %\n", Common::getCurrentTimeStr(), TAG);           \
       } while(false)

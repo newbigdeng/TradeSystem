@@ -32,14 +32,14 @@ namespace Exchange {
       if (UNLIKELY(!pending_size_))
         return;
 
-      logger_->log("%:% %() % Processing % requests.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), pending_size_);
+      logger_->log("%:% %() % Processing % requests.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(), pending_size_);
 
       std::stable_sort(pending_client_requests_.begin(), pending_client_requests_.begin() + pending_size_);
 
       for (size_t i = 0; i < pending_size_; ++i) {
         const auto &client_request = pending_client_requests_.at(i);
 
-        logger_->log("%:% %() % Writing RX:% Req:% to FIFO.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+        logger_->log("%:% %() % Writing RX:% Req:% to FIFO.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                      client_request.recv_time_, client_request.request_.toString());
 
         if(!incoming_requests_->try_push(client_request.request_)) {

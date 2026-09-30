@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-import json,os,statistics,subprocess,sys
+import hashlib,json,os,statistics,subprocess,sys
 from pathlib import Path
 root=Path(__file__).resolve().parents[2];os.chdir(root)
 phase=sys.argv[1];flags=['-std=c++20','-O3','-DNDEBUG']
 if '--baseline' in sys.argv:flags+=['-DTRADE_CONTROL_BASELINE']
 elif '--feature-baseline' in sys.argv:flags+=['-DTRADE_FEATURE_BASELINE']
 binary='build/reliability-measure/control_probe'
+Path(binary).parent.mkdir(parents=True,exist_ok=True)
 subprocess.run(['g++',*flags,'-I.','-Iexchange','-Itrading','record/01_reliability/control_probe.cpp','build/reliability-release/trading/liblibtrading.a','build/reliability-release/exchange/liblibexchange.a','build/reliability-release/common/liblibcommon.a','-pthread','-o',binary],check=True)
 cpu=min(os.sched_getaffinity(0));commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
 if '--baseline' in sys.argv:
@@ -21,5 +22,5 @@ for mode in [x for x in sys.argv[2:] if not x.startswith('--')] or ['admission_b
         sample=json.loads([x for x in r.stdout.splitlines() if x.startswith('{')][-1])
         if i:samples.append(sample)
     if len({x['checksum'] for x in samples})!=1:raise RuntimeError('checksum mismatch')
-    data={'commit':commit,'compiler_flags':' '.join(flags),'cpu_affinity':[cpu],'warmups':1,'repetitions':5,'samples':samples,'median_ns_per_operation':statistics.median(x['ns_per_operation'] for x in samples)}
+    data={'commit':commit,'dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True)),'binary_sha256':hashlib.sha256(Path(binary).read_bytes()).hexdigest(),'compiler_flags':' '.join(flags),'cpu_affinity':[cpu],'warmups':1,'repetitions':5,'samples':samples,'median_ns_per_operation':statistics.median(x['ns_per_operation'] for x in samples)}
     (root/'record/01_reliability'/('perf_'+mode+'_'+phase+'.json')).write_text(json.dumps(data,indent=2)+'\n');print(mode,phase,data['median_ns_per_operation'],flush=True)

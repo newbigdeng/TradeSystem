@@ -1,0 +1,8 @@
+{
+  "profile": "tsan",
+  "optimization": "unoptimized Debug",
+  "test": "real-process integration",
+  "result": "client initialization exceeded driver wait of 25 seconds; processes owned by this test were terminated",
+  "evidence_directory": "/tmp/trade-integration-0ahuvj3a",
+  "sanitizer_reports_seen": false
+}

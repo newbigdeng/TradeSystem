@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Serial NEW/CANCEL latency with exact response validation, one warmup + five runs."""
-import json,os,signal,socket,statistics,struct,subprocess,sys,tempfile,time
+import hashlib,json,os,signal,socket,statistics,struct,subprocess,sys,tempfile,time
 from pathlib import Path
 root=Path(__file__).resolve().parents[2];phase=sys.argv[1];binary=root/'build/reliability-release/exchange_main'
 request=struct.Struct('!2sBBQQBIIQbqI');response=struct.Struct('!2sBBQQBIIQQbqIIBQq')
@@ -45,10 +45,11 @@ for run in range(6):
         process.send_signal(signal.SIGTERM)
         try:sample['stop_exit_code']=process.wait(timeout=10)
         except subprocess.TimeoutExpired:process.kill();process.wait();sample['stop_exit_code']=process.returncode
+        if phase!='before' and sample['stop_exit_code']!=0:raise RuntimeError(('orderly stop failed',sample,directory))
         peer.close()
     finally:
         if process.poll() is None:process.kill();process.wait()
         output.close()
-data={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),'cpu_affinity':cpus,'warmups':1,'repetitions':5,'new_orders_per_run':200,'cancel_orders_per_run':200,'input':'client96,ticker0,order1..200,BUY,price100,qty1; serial ACKs','samples':samples,'median_p50_ns':statistics.median(s['p50_ns'] for s in samples),'median_p99_ns':statistics.median(s['p99_ns'] for s in samples),'evidence_directories':directories}
+data={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),'dirty':bool(subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True)),'binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'cpu_affinity':cpus,'warmups':1,'repetitions':5,'new_orders_per_run':200,'cancel_orders_per_run':200,'input':'client96,ticker0,order1..200,BUY,price100,qty1; serial ACKs','samples':samples,'median_p50_ns':statistics.median(s['p50_ns'] for s in samples),'median_p99_ns':statistics.median(s['p99_ns'] for s in samples),'evidence_directories':directories}
 (root/'record/01_reliability'/('perf_e2e_'+phase+'.json')).write_text(json.dumps(data,indent=2)+'\n')
 print('MEDIAN',phase,data['median_p50_ns'],data['median_p99_ns'],flush=True)

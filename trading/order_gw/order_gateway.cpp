@@ -12,7 +12,7 @@ namespace Trading {
 
   /// Main thread loop - sends out client requests to the exchange and reads and dispatches incoming client responses.
   auto OrderGateway::run() noexcept -> void {
-    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
+    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr());
     while(run_ || outgoing_requests_->peek() || tcp_socket_.pending_bytes() || pending_requests_ || Common::getMonotonicNanos()-Nanos(last_receive_)<50*NANOS_TO_MILLIS) {
       if(!run_ && Common::getMonotonicNanos()>stop_deadline_.load()) {session_healthy_=false;logger_.log("ORDER SESSION UNKNOWN: shutdown deadline pending:% unsent_bytes:%\n",pending_requests_,tcp_socket_.pending_bytes());break;}
       tcp_socket_.sendAndRecv();
@@ -25,7 +25,7 @@ namespace Trading {
         TTT_MEASURE(T11_OrderGateway_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Sending cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__,
-                    Common::getCurrentTimeStr(&time_str_), client_id_, next_outgoing_seq_num_, client_request->toString());
+                    Common::getCurrentTimeStr(), client_id_, next_outgoing_seq_num_, client_request->toString());
         START_MEASURE(Trading_TCPSocket_send);
         const auto frame=Common::Wire::encode(Exchange::OMClientRequest{next_outgoing_seq_num_,*client_request,session_epoch_});
         const auto status=tcp_socket_.send(frame.data(),frame.size());
@@ -46,7 +46,7 @@ namespace Trading {
     TTT_MEASURE(T7t_OrderGateway_TCP_read, logger_);
 
     START_MEASURE(Trading_OrderGateway_recvCallback);
-    logger_.log("%:% %() % Received socket:% len:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), socket->socket_fd_, socket->next_rcv_valid_index_, rx_time);
+    logger_.log("%:% %() % Received socket:% len:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(), socket->socket_fd_, socket->next_rcv_valid_index_, rx_time);
 
     size_t consumed=0;
     while(consumed+Common::Wire::ResponseSize<=socket->next_rcv_valid_index_) {

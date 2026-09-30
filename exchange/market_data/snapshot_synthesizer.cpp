@@ -95,14 +95,14 @@ namespace Exchange {
 
   /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
   void SnapshotSynthesizer::run() {
-    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_));
+    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr());
     const auto* configured=std::getenv("TRADE_SNAPSHOT_MS");
     const auto milliseconds=configured?std::strtoll(configured,nullptr,10):60000;
     ASSERT(milliseconds>0 && milliseconds<=3600000,"TRADE_SNAPSHOT_MS out of bounds");
     const auto period=milliseconds*NANOS_TO_MILLIS;
     while(run_ || snapshot_md_updates_->peek()) {
       for (auto market_update = snapshot_md_updates_->peek(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->peek()) {
-        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_),
+        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(),
                     market_update->toString().c_str());
 
         addToSnapshot(market_update);

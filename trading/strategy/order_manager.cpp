@@ -12,7 +12,7 @@ namespace Trading {
     ++next_order_id_;
 
     logger_->log("%:% %() % Sent new order % for %\n", __FILE__, __LINE__, __FUNCTION__,
-                 Common::getCurrentTimeStr(&time_str_),
+                 Common::getCurrentTimeStr(),
                  new_request.toString().c_str(), order->toString().c_str());
   }
 
@@ -26,7 +26,7 @@ namespace Trading {
     order->order_state_ = OMOrderState::PENDING_CANCEL;
 
     logger_->log("%:% %() % Sent cancel % for %\n", __FILE__, __LINE__, __FUNCTION__,
-                 Common::getCurrentTimeStr(&time_str_),
+                 Common::getCurrentTimeStr(),
                  cancel_request.toString().c_str(), order->toString().c_str());
   }
 }

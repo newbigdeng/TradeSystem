@@ -18,13 +18,13 @@ namespace Trading {
     /// Process order book updates, which for the liquidity taking algorithm is none.
     auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *) noexcept -> void {
       logger_->log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
-                   Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
+                   Common::getCurrentTimeStr(), ticker_id, Common::priceToString(price).c_str(),
                    Common::sideToString(side).c_str());
     }
 
     /// Process trade events, fetch the aggressive trade ratio from the feature engine, check against the trading threshold and send aggressive orders.
     auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void {
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                    market_update->toString().c_str());
 
       const auto bbo = book->getBBO();
@@ -32,7 +32,7 @@ namespace Trading {
 
       if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && std::isfinite(agg_qty_ratio))) {
         logger_->log("%:% %() % % agg-qty-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
-                     Common::getCurrentTimeStr(&time_str_),
+                     Common::getCurrentTimeStr(),
                      bbo->toString().c_str(), agg_qty_ratio);
 
         const auto clip = ticker_cfg_.at(market_update->ticker_id_).clip_;
@@ -51,7 +51,7 @@ namespace Trading {
 
     /// Process client responses for the strategy's orders.
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                    client_response->toString().c_str());
       START_MEASURE(Trading_OrderManager_onOrderUpdate);
       order_manager_->onOrderUpdate(client_response);

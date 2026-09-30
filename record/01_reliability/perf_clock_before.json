@@ -1,0 +1,43 @@
+{
+  "commit": "701007c7a618eef93bf9ca1a5db0b231041c36ea",
+  "source_sha256": "383d0d0598250b0e827a107102ca591aabe67234e28c72b6da2b401e8aad4ebf",
+  "flags": "-std=c++20 -O3 -DNDEBUG",
+  "cpu_affinity": [
+    0
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "samples": [
+    {
+      "operations": 100000,
+      "elapsed_ns": 580590114,
+      "ns_per_operation": 5805.9,
+      "checksum": 1800000
+    },
+    {
+      "operations": 100000,
+      "elapsed_ns": 569956803,
+      "ns_per_operation": 5699.57,
+      "checksum": 1800000
+    },
+    {
+      "operations": 100000,
+      "elapsed_ns": 570105056,
+      "ns_per_operation": 5701.05,
+      "checksum": 1800000
+    },
+    {
+      "operations": 100000,
+      "elapsed_ns": 554639251,
+      "ns_per_operation": 5546.39,
+      "checksum": 1800000
+    },
+    {
+      "operations": 100000,
+      "elapsed_ns": 576671939,
+      "ns_per_operation": 5766.72,
+      "checksum": 1800000
+    }
+  ],
+  "median_ns_per_operation": 5701.05
+}

@@ -1,6 +1,8 @@
 {
   "commit": "701007c7a618eef93bf9ca1a5db0b231041c36ea",
-  "evidence_directory": "/tmp/trade-integration-hkbu93zp",
+  "profile": "asan",
+  "sanitizer_errors": [],
+  "evidence_directory": "/tmp/trade-integration-xqfu1dk3",
   "protocol_cases": [
     {
       "name": "valid_new",
@@ -99,14 +101,14 @@
       "recovery_verifications": [
         "1"
       ],
-      "gateway_log": "/tmp/trade-integration-hkbu93zp/client1/trading_order_gateway_1.log",
-      "accepted": 830,
-      "admission_rejected": 6,
+      "gateway_log": "/tmp/trade-integration-xqfu1dk3/client1/trading_order_gateway_1.log",
+      "accepted": 211,
+      "admission_rejected": 2,
       "duplicate_responses": 0,
       "outgoing_queue_full": 0,
-      "request_high_watermark": 30,
-      "gateway_sent": 830,
-      "gateway_received_frames": 1336,
+      "request_high_watermark": 6,
+      "gateway_sent": 211,
+      "gateway_received_frames": 299,
       "gateway_response_queue_full": 0,
       "checkpoint_healthy": true,
       "checkpoint_unresolved": 0
@@ -116,90 +118,90 @@
       "recovery_verifications": [
         "1"
       ],
-      "gateway_log": "/tmp/trade-integration-hkbu93zp/client2/trading_order_gateway_2.log",
-      "accepted": 864,
-      "admission_rejected": 6,
+      "gateway_log": "/tmp/trade-integration-xqfu1dk3/client2/trading_order_gateway_2.log",
+      "accepted": 222,
+      "admission_rejected": 0,
       "duplicate_responses": 0,
       "outgoing_queue_full": 0,
-      "request_high_watermark": 44,
-      "gateway_sent": 864,
-      "gateway_received_frames": 1336,
+      "request_high_watermark": 7,
+      "gateway_sent": 222,
+      "gateway_received_frames": 328,
       "gateway_response_queue_full": 0,
       "checkpoint_healthy": true,
       "checkpoint_unresolved": 0
     }
   ],
   "audit": {
-    "journal": "/tmp/trade-integration-hkbu93zp/exchange/exchange_orders.journal",
+    "journal": "/tmp/trade-integration-xqfu1dk3/exchange/exchange_orders.journal",
     "counts": {
-      "RECEIVED": 1701,
-      "APPLY": 1701,
-      "RESPONSE": 2690
+      "RECEIVED": 440,
+      "APPLY": 440,
+      "RESPONSE": 645
     },
-    "distinct_response_ids": 2679,
-    "received_count": 1701,
-    "applied_count": 1701,
+    "distinct_response_ids": 634,
+    "received_count": 440,
+    "applied_count": 440,
     "client_received_requests": {
       "90": 7,
-      "1": 830,
-      "2": 864
+      "1": 211,
+      "2": 222
     },
     "client_matching_responses": {
       "90": 7,
-      "1": 1336,
-      "2": 1336
+      "1": 299,
+      "2": 328
     },
     "unapplied_requests": [],
     "live_orders": [],
     "positions": {
-      "1:0": -31,
-      "1:1": 387,
-      "1:2": -363,
-      "1:3": -205,
-      "1:4": 192,
-      "1:5": -3,
-      "1:6": 380,
-      "1:7": 148,
-      "2:0": 31,
-      "2:1": -387,
-      "2:2": 363,
-      "2:3": 205,
-      "2:4": -192,
-      "2:5": 3,
-      "2:6": -380,
-      "2:7": -148,
+      "1:0": -90,
+      "1:1": 6,
+      "1:2": -89,
+      "1:3": -22,
+      "1:4": 138,
+      "1:5": -9,
+      "1:6": 15,
+      "1:7": 2,
+      "2:0": 90,
+      "2:1": -6,
+      "2:2": 89,
+      "2:3": 22,
+      "2:4": -138,
+      "2:5": 9,
+      "2:6": -15,
+      "2:7": -2,
       "90:0": 0
     },
     "volume": {
-      "1:0": 1501,
-      "1:1": 2151,
-      "1:2": 2363,
-      "1:3": 1889,
-      "1:4": 1788,
-      "1:5": 1333,
-      "1:6": 1574,
-      "1:7": 1454,
-      "2:0": 1013,
-      "2:1": 2065,
-      "2:2": 2239,
-      "2:3": 1757,
-      "2:4": 1758,
-      "2:5": 1751,
-      "2:6": 1308,
-      "2:7": 1114
+      "1:0": 198,
+      "1:1": 358,
+      "1:2": 439,
+      "1:3": 322,
+      "1:4": 554,
+      "1:5": 339,
+      "1:6": 177,
+      "1:7": 2,
+      "2:0": 178,
+      "2:1": 498,
+      "2:2": 701,
+      "2:3": 688,
+      "2:4": 670,
+      "2:5": 205,
+      "2:6": 55,
+      "2:7": 160
     },
     "checkpoints": [
       {
         "client": 1,
         "healthy": true,
         "unresolved": 0,
-        "path": "/tmp/trade-integration-hkbu93zp/client1/trading_account_1.journal"
+        "path": "/tmp/trade-integration-xqfu1dk3/client1/trading_account_1.journal"
       },
       {
         "client": 2,
         "healthy": true,
         "unresolved": 0,
-        "path": "/tmp/trade-integration-hkbu93zp/client2/trading_account_2.journal"
+        "path": "/tmp/trade-integration-xqfu1dk3/client2/trading_account_2.journal"
       }
     ],
     "errors": [],

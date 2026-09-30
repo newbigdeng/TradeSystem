@@ -9,7 +9,7 @@ namespace Trading {
 
   MarketOrderBook::~MarketOrderBook() {
     logger_->log("%:% %() % OrderBook\n%\n", __FILE__, __LINE__, __FUNCTION__,
-                 Common::getCurrentTimeStr(&time_str_), toString(false, true));
+                 Common::getCurrentTimeStr(), toString(false, true));
 
     trade_engine_ = nullptr;
     bids_by_price_ = asks_by_price_ = nullptr;
@@ -78,7 +78,7 @@ namespace Trading {
     END_MEASURE(Trading_MarketOrderBook_updateBBO, (*logger_));
 
     logger_->log("%:% %() % % %", __FILE__, __LINE__, __FUNCTION__,
-                 Common::getCurrentTimeStr(&time_str_), market_update->toString(), bbo_.toString());
+                 Common::getCurrentTimeStr(), market_update->toString(), bbo_.toString());
 
     if(trade_engine_) trade_engine_->onOrderBookUpdate(market_update->ticker_id_, market_update->price_, market_update->side_, this);
     return true;

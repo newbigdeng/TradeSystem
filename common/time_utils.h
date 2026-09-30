@@ -27,14 +27,16 @@ namespace Common {
 
   /// Format current timestamp to a human readable string.
   /// String formatting is inefficient.
-  inline auto& getCurrentTimeStr(std::string* time_str) {
+  inline std::string getCurrentTimeStr() {
     const auto clock = std::chrono::system_clock::now();
     const auto time = std::chrono::system_clock::to_time_t(clock);
 
-    char nanos_str[24];
-    sprintf(nanos_str, "%.8s.%09ld", ctime(&time) + 11, std::chrono::duration_cast<std::chrono::nanoseconds>(clock.time_since_epoch()).count() % NANOS_TO_SECS);
-    time_str->assign(nanos_str);
-
-    return *time_str;
+    char calendar[26],nanos_str[24];
+    ctime_r(&time,calendar);
+    snprintf(nanos_str,sizeof(nanos_str),"%.8s.%09lld",calendar+11,
+             static_cast<long long>(std::chrono::duration_cast<std::chrono::nanoseconds>(clock.time_since_epoch()).count()%NANOS_TO_SECS));
+    return nanos_str;
   }
+  // Compatibility for single-owner examples and preserved measurement probes.
+  inline auto& getCurrentTimeStr(std::string* time_str) {*time_str=getCurrentTimeStr();return *time_str;}
 }

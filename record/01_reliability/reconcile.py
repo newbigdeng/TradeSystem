@@ -16,6 +16,9 @@ def reconcile(path, checkpoints=()):
     positions, volume = collections.defaultdict(int), collections.defaultdict(int)
     live, seen, errors = {}, set(), []
     counts = collections.Counter()
+    client_requests,client_responses=collections.Counter(),collections.Counter()
+    execution_balance=collections.defaultdict(int)
+    actions,acknowledgements=collections.Counter(),collections.Counter()
     for number, line in enumerate(lines[1:], 2):
         fields = line.split()
         if not fields: continue
@@ -23,10 +26,14 @@ def reconcile(path, checkpoints=()):
         if kind in ('RECEIVED', 'APPLY'):
             if len(fields) != 10: raise ValueError(f'bad request line {number}')
             (received if kind == 'RECEIVED' else applied)[tuple(map(int, fields[1:]))] += 1
+            if kind=='RECEIVED': client_requests[int(fields[1])]+=1
+            if kind=='APPLY': actions[(int(fields[1]),int(fields[5]),int(fields[6]))]+=1
         elif kind == 'RESPONSE':
             if len(fields) != 13: raise ValueError(f'bad response line {number}')
             rid,cid,ticker,oid,moid,typ,side,price,executed,leaves,reason,pos = map(int,fields[1:])
             if not rid: continue # Transport rejections are not matching events.
+            client_responses[cid]+=1
+            if typ!=3: acknowledgements[(cid,ticker,oid)]+=1
             if rid in seen: errors.append(f'duplicate response ID {rid}')
             seen.add(rid); key=(cid,ticker,oid); account=(cid,ticker)
             if typ == 1:
@@ -37,6 +44,7 @@ def reconcile(path, checkpoints=()):
                 if old is None or old['side']!=side or executed<=0 or executed+leaves!=old['leaves']:
                     errors.append(f'fill conservation mismatch at response {rid}')
                 positions[account]+=side*executed; volume[account]+=executed
+                execution_balance[ticker]+=side*executed
                 if leaves and old is not None: old['leaves']=leaves
                 else: live.pop(key,None)
             elif typ == 2: live.pop(key,None)
@@ -44,6 +52,8 @@ def reconcile(path, checkpoints=()):
         else: raise ValueError(f'unknown exchange record at line {number}: {kind}')
     missing = received-applied; extra=applied-received
     if extra: errors.append('applied requests without matching durable RECEIVED records')
+    if actions!=acknowledgements: errors.append('processing intents and matching acknowledgements do not balance')
+    if any(execution_balance.values()): errors.append('buy and sell executed quantities do not balance')
     checkpoint_results=[]
     for path in checkpoints:
         rows=Path(path).read_text().splitlines()
@@ -64,6 +74,7 @@ def reconcile(path, checkpoints=()):
     return {'journal':journal_path,
             'counts':dict(counts),'distinct_response_ids':len(seen),
             'received_count':sum(received.values()),'applied_count':sum(applied.values()),
+            'client_received_requests':dict(client_requests),'client_matching_responses':dict(client_responses),
             'unapplied_requests':[{'request':list(k),'count':v} for k,v in missing.items()],
             'live_orders':[{'client':k[0],'ticker':k[1],'order':k[2],**v} for k,v in sorted(live.items())],
             'positions':{f'{k[0]}:{k[1]}':v for k,v in sorted(positions.items())},

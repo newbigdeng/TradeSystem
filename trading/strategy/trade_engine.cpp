@@ -35,7 +35,7 @@ namespace Trading {
 
     for (TickerId i = 0; i < ticker_cfg.size(); ++i) {
       logger_.log("%:% %() % Initialized % Ticker:% %.\n", __FILE__, __LINE__, __FUNCTION__,
-                  Common::getCurrentTimeStr(&time_str_),
+                  Common::getCurrentTimeStr(),
                   algoTypeToString(algo_type), i,
                   ticker_cfg.at(i).toString());
     }
@@ -59,7 +59,7 @@ delete mm_algo_; mm_algo_ = nullptr;
 
   /// Write a client request to the lock free queue for the order server to consume and send to the exchange.
   auto TradeEngine::sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> bool {
-    logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+    logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                 client_request->toString().c_str());
     std::lock_guard<std::mutex> lock(state_mutex_);
     if((!admitting_.load(std::memory_order_acquire) && client_request->type_==Exchange::ClientRequestType::NEW) || Wire::validate(*client_request)!=Exchange::RejectReason::NONE || client_request->client_id_!=client_id_ || !reconciled_ || (order_session_ && !order_session_->load(std::memory_order_acquire)) || (client_request->type_==Exchange::ClientRequestType::NEW && !market_trusted_.load(std::memory_order_acquire))) {
@@ -75,12 +75,12 @@ delete mm_algo_; mm_algo_ = nullptr;
 
   /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
   auto TradeEngine::run() noexcept -> void {
-    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
+    logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr());
     while(run_ || incoming_ogw_responses_->peek() || incoming_md_updates_->peek()) {
       for (auto client_response = incoming_ogw_responses_->peek(); client_response; client_response = incoming_ogw_responses_->peek()) {
         TTT_MEASURE(T9t_TradeEngine_LFQueue_read, logger_);
 
-        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                     client_response->toString().c_str());
         onOrderUpdate(client_response);
         incoming_ogw_responses_->pop();
@@ -90,7 +90,7 @@ delete mm_algo_; mm_algo_ = nullptr;
       for (auto market_update = incoming_md_updates_->peek(); market_update; market_update = incoming_md_updates_->peek()) {
         TTT_MEASURE(T9_TradeEngine_LFQueue_read, logger_);
 
-        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+        logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                     market_update->toString().c_str());
         if(market_update->type_==Exchange::MarketUpdateType::RECOVERY_COMMIT) {
           std::vector<Exchange::MEMarketUpdate> orders;
@@ -117,7 +117,7 @@ delete mm_algo_; mm_algo_ = nullptr;
   /// Process changes to the order book - updates the position keeper, feature engine and informs the trading algorithm about the update.
   auto TradeEngine::onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *book) noexcept -> void {
     logger_.log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
-                Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
+                Common::getCurrentTimeStr(), ticker_id, Common::priceToString(price).c_str(),
                 Common::sideToString(side).c_str());
 
     auto bbo = book->getBBO();
@@ -137,7 +137,7 @@ delete mm_algo_; mm_algo_ = nullptr;
 
   /// Process trade events - updates the  feature engine and informs the trading algorithm about the trade event.
   auto TradeEngine::onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void {
-    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                 market_update->toString().c_str());
 
     START_MEASURE(Trading_FeatureEngine_onTradeUpdate);
@@ -151,7 +151,7 @@ delete mm_algo_; mm_algo_ = nullptr;
 
   /// Process client responses - updates the position keeper and informs the trading algorithm about the response.
   auto TradeEngine::onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
-    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+    logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                 client_response->toString().c_str());
 
     {

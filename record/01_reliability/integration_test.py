@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Real processes: two clients, late recovery, protocol faults, query and stop."""
-import json, os, re, signal, socket, struct, subprocess, tempfile, time
+import json, os, re, signal, socket, struct, subprocess, sys, tempfile, time
 from pathlib import Path
 from reconcile import reconcile
 ROOT=Path(__file__).resolve().parents[2]
-BUILD=ROOT/'build/reliability-release'
+PROFILE=sys.argv[1] if len(sys.argv)>1 else 'release'
+assert PROFILE in ('release','debug','asan','tsan')
+BUILD=ROOT/f'build/reliability-{PROFILE}'
 REQ=struct.Struct('!2sBBQQBIIQbqI'); RESP=struct.Struct('!2sBBQQBIIQQbqIIBQq')
 
 def connect(process):
@@ -77,10 +79,10 @@ def run():
         clients=[];client_dirs=[]
         for cid in (1,2):
             directory=evidence/f'client{cid}';directory.mkdir();client_dirs.append(directory)
-            client_env=env.copy();client_env.update(TRADE_RUN_SECONDS='4',TRADE_RANDOM_ORDERS='400',TRADE_RANDOM_DELAY_US='1000')
+            client_env=env.copy();client_env.update(TRADE_RUN_SECONDS='4' if PROFILE=='release' else '12',TRADE_RANDOM_ORDERS='400' if PROFILE=='release' else '100',TRADE_RANDOM_DELAY_US='1000')
             clients.append(start('trading_main',[str(cid),'RANDOM'],directory,client_env))
             if cid==1: time.sleep(1) # The second client must rebuild an already active book.
-        for p in clients: assert p.wait(timeout=25)==0,('client exit',p.returncode,evidence)
+        for p in clients: assert p.wait(timeout=25 if PROFILE=='release' else 120)==0,('client exit',p.returncode,evidence)
         exchange.send_signal(signal.SIGTERM);assert exchange.wait(timeout=15)==0,('exchange exit',exchange.returncode,evidence)
         checkpoints=[d/f'trading_account_{i+1}.journal' for i,d in enumerate(client_dirs)]
         audit=reconcile(exchange_dir/'exchange_orders.journal',checkpoints)
@@ -94,17 +96,31 @@ def run():
             verified=re.findall(r'RECOVERY VERIFIED:(\d+)',engine)
             assert verified and '1' in verified,('no verified recovery',d)
             assert 'request_queue:0 response_queue:0 md_queue:0 session_healthy:1' in main,('undrained',main)
+            accepted,rejected,duplicates,full,high=map(int,re.findall(r'TRADE STATS accepted:(\d+) rejected:(\d+) duplicates:(\d+) queue_full:(\d+) high_watermark:(\d+)',engine)[-1])
+            sent,frames,pending,unsent,healthy,gateway_full=map(int,re.findall(r'GATEWAY STATS sent:(\d+) received_frames:(\d+) pending:(\d+) unsent_bytes:(\d+) healthy:(\d+) response_queue_full:(\d+)',gw.read_text())[-1])
+            assert accepted==sent==audit['client_received_requests'][i]
+            assert frames==audit['client_matching_responses'][i] and pending==unsent==0 and healthy==1
             stats.append({'client':i,'recovery_verifications':verified,'gateway_log':str(gw),
+                          'accepted':accepted,'admission_rejected':rejected,'duplicate_responses':duplicates,
+                          'outgoing_queue_full':full,'request_high_watermark':high,'gateway_sent':sent,
+                          'gateway_received_frames':frames,'gateway_response_queue_full':gateway_full,
                           'checkpoint_healthy':audit['checkpoints'][i-1]['healthy'],
                           'checkpoint_unresolved':audit['checkpoints'][i-1]['unresolved']})
         before=(exchange_dir/'exchange_orders.journal').read_bytes()
         restart=subprocess.run([str(BUILD/'exchange_main')],cwd=exchange_dir,capture_output=True,text=True,timeout=10)
         assert restart.returncode!=0 and (exchange_dir/'exchange_orders.journal').read_bytes()==before
+        sanitizer_errors=[]
+        for directory in [exchange_dir,*client_dirs]:
+            text=(directory/'process_output.log').read_text()
+            for marker in ('WARNING: ThreadSanitizer','ERROR: AddressSanitizer','runtime error:'):
+                if marker in text:sanitizer_errors.append(str(directory)+': '+marker)
+        assert not sanitizer_errors,sanitizer_errors
         result={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                'evidence_directory':str(evidence),'protocol_cases':cases,'clients':stats,
+                'profile':PROFILE,'sanitizer_errors':sanitizer_errors,'evidence_directory':str(evidence),'protocol_cases':cases,'clients':stats,
                 'audit':audit,'exchange_exit':exchange.returncode,'client_exits':[p.returncode for p in clients],
                 'restart_refused_exit':restart.returncode,'existing_journal_unchanged':True}
-        (ROOT/'record/01_reliability/integration_result.json').write_text(json.dumps(result,indent=2)+'\n')
+        name='integration_result.json' if PROFILE=='release' else f'integration_{PROFILE}_result.json'
+        (ROOT/'record/01_reliability'/name).write_text(json.dumps(result,indent=2)+'\n')
         print(json.dumps(result,indent=2),flush=True)
     finally:
         for peer in peers: peer.close()

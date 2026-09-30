@@ -9,7 +9,7 @@ namespace Exchange {
   }
 
   UnorderedMapMEOrderBook::~UnorderedMapMEOrderBook() {
-    logger_->log("%:% %() % OrderBook\n%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+    logger_->log("%:% %() % OrderBook\n%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                 toString(false, true));
 
     matching_engine_ = nullptr;

@@ -18,7 +18,7 @@ namespace Trading {
     /// Process order book updates, fetch the fair market price from the feature engine, check against the trading threshold and modify the passive orders.
     auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, const MarketOrderBook *book) noexcept -> void {
       logger_->log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
-                   Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
+                   Common::getCurrentTimeStr(), ticker_id, Common::priceToString(price).c_str(),
                    Common::sideToString(side).c_str());
 
       const auto bbo = book->getBBO();
@@ -26,7 +26,7 @@ namespace Trading {
 
       if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && std::isfinite(fair_price))) {
         logger_->log("%:% %() % % fair-price:%\n", __FILE__, __LINE__, __FUNCTION__,
-                     Common::getCurrentTimeStr(&time_str_),
+                     Common::getCurrentTimeStr(),
                      bbo->toString().c_str(), fair_price);
 
         const auto clip = ticker_cfg_.at(ticker_id).clip_;
@@ -44,13 +44,13 @@ namespace Trading {
 
     /// Process trade events, which for the market making algorithm is none.
     auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook * /* book */) noexcept -> void {
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                    market_update->toString().c_str());
     }
 
     /// Process client responses for the strategy's orders.
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                    client_response->toString().c_str());
 
       START_MEASURE(Trading_OrderManager_onOrderUpdate);

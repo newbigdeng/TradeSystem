@@ -34,7 +34,7 @@ namespace Exchange {
     }
     /// Main run loop for this thread - accepts new client connections, receives client requests from them and sends client responses to them.
     auto run() noexcept {
-      logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
+      logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr());
       while(run_ || outgoing_responses_->peek() || tcp_server_.pendingBytes()) {
         if(!run_ && Common::getMonotonicNanos()>stop_deadline_.load())FATAL("shutdown has unacknowledged exchange output; reconciliation required");
         if(accepting_.load(std::memory_order_acquire))tcp_server_.poll();
@@ -47,7 +47,7 @@ namespace Exchange {
 
           ASSERT(client_response->client_id_<ME_MAX_NUM_CLIENTS,"response has invalid client ID");
           auto &next_outgoing_seq_num = cid_next_outgoing_seq_num_[client_response->client_id_];
-          logger_.log("%:% %() % Processing cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
+          logger_.log("%:% %() % Processing cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
                       client_response->client_id_, next_outgoing_seq_num, client_response->toString());
 
           ASSERT(cid_tcp_socket_[client_response->client_id_] != nullptr,

@@ -15,6 +15,7 @@ sources={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest()
          for directory in ['common','exchange','trading'] for p in sorted((root/directory).rglob('*'))
          if p.suffix in ['.h','.cpp']}
 environment={'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True)),
              'source_sha256':sources,'kernel':platform.release(),
              'compiler':subprocess.check_output(['g++','--version'],text=True).splitlines()[0],
              'cpu_affinity':[cpu],'warmups':1,'repetitions':5,'compiler_flags':' '.join(flags),
