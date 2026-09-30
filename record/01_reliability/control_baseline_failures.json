@@ -1,0 +1,20 @@
+{
+  "commit": "cd36235dee36ec5704dcc5a8bfc324383b8471c3",
+  "cases": {
+    "state": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL cancel rejection left order pending\n"
+    },
+    "admission": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL RANDOM bypassed the final risk gate\n"
+    },
+    "feature": {
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "FAIL features leaked across tickers\n"
+    }
+  }
+}

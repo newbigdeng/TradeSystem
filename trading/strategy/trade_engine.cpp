@@ -61,11 +61,19 @@ namespace Trading {
   }
 
   /// Write a client request to the lock free queue for the order server to consume and send to the exchange.
-  auto TradeEngine::sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> void {
+  auto TradeEngine::sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> bool {
     logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 client_request->toString().c_str());
-    ASSERT(outgoing_ogw_requests_->try_push(std::move(*client_request)), "critical queue full; stop instead of overwriting");
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    if(Wire::validate(*client_request)!=Exchange::RejectReason::NONE || client_request->client_id_!=client_id_ || !reconciled_ || (order_session_ && !order_session_->load(std::memory_order_acquire)) || (client_request->type_==Exchange::ClientRequestType::NEW && !market_trusted_.load(std::memory_order_acquire))) {
+      ++rejected_requests_;logger_.log("ADMISSION REJECTED: invalid/stale/unreconciled/session-unknown\n");return false;
+    }
+    const auto risk=risk_manager_.reserve(*client_request);
+    if(risk!=RiskCheckResult::ALLOWED) {++rejected_requests_;logger_.log("ADMISSION REJECTED: risk:%\n",riskCheckResultToString(risk));return false;}
+    if(!outgoing_ogw_requests_->try_push(*client_request)) {risk_manager_.rollback(*client_request);++rejected_requests_;logger_.log("ADMISSION REJECTED: outgoing queue full\n");return false;}
+    ++accepted_requests_;
     TTT_MEASURE(T10_TradeEngine_LFQueue_write, logger_);
+    return true;
   }
 
   /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
@@ -105,7 +113,7 @@ namespace Trading {
     auto bbo = book->getBBO();
 
     START_MEASURE(Trading_PositionKeeper_updateBBO);
-    position_keeper_.updateBBO(ticker_id, bbo);
+    {std::lock_guard<std::mutex> lock(state_mutex_);position_keeper_.updateBBO(ticker_id,bbo);}
     END_MEASURE(Trading_PositionKeeper_updateBBO, logger_);
 
     START_MEASURE(Trading_FeatureEngine_onOrderBookUpdate);
@@ -113,7 +121,7 @@ namespace Trading {
     END_MEASURE(Trading_FeatureEngine_onOrderBookUpdate, logger_);
 
     START_MEASURE(Trading_TradeEngine_algoOnOrderBookUpdate_);
-    algoOnOrderBookUpdate_(ticker_id, price, side, book);
+    if(market_trusted_.load(std::memory_order_acquire))algoOnOrderBookUpdate_(ticker_id,price,side,book);
     END_MEASURE(Trading_TradeEngine_algoOnOrderBookUpdate_, logger_);
   }
 
@@ -127,7 +135,7 @@ namespace Trading {
     END_MEASURE(Trading_FeatureEngine_onTradeUpdate, logger_);
 
     START_MEASURE(Trading_TradeEngine_algoOnTradeUpdate_);
-    algoOnTradeUpdate_(market_update, book);
+    if(market_trusted_.load(std::memory_order_acquire))algoOnTradeUpdate_(market_update,book);
     END_MEASURE(Trading_TradeEngine_algoOnTradeUpdate_, logger_);
   }
 
@@ -136,10 +144,18 @@ namespace Trading {
     logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 client_response->toString().c_str());
 
-    if (UNLIKELY(client_response->type_ == Exchange::ClientResponseType::FILLED)) {
-      START_MEASURE(Trading_PositionKeeper_addFill);
-      position_keeper_.addFill(client_response);
-      END_MEASURE(Trading_PositionKeeper_addFill, logger_);
+    {
+      std::lock_guard<std::mutex> lock(state_mutex_);
+      if(client_response->client_id_!=client_id_ || client_response->ticker_id_>=ME_MAX_TICKERS) {reconciled_=false;return;}
+      if(client_response->response_id_) {
+        if(client_response->response_id_<=last_response_id_) {++duplicate_responses_;return;}
+        last_response_id_=client_response->response_id_;
+      } else if(client_response->type_==Exchange::ClientResponseType::FILLED) {reconciled_=false;return;}
+      if(!risk_manager_.onResponse(*client_response)) {reconciled_=false;logger_.log("RECONCILIATION REQUIRED: fill/reservation mismatch\n");return;}
+      if(client_response->type_==Exchange::ClientResponseType::FILLED) position_keeper_.addFill(client_response);
+      if(client_response->type_==Exchange::ClientResponseType::STATE && client_response->position_!=position_keeper_.getPositionInfo(client_response->ticker_id_)->position_) {
+        reconciled_=false;logger_.log("RECONCILIATION REQUIRED: exchange/local position mismatch\n");return;
+      }
     }
 
     START_MEASURE(Trading_TradeEngine_algoOnOrderUpdate_);

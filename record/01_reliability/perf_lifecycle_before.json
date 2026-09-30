@@ -1,0 +1,47 @@
+{
+  "commit": "cd36235dee36ec5704dcc5a8bfc324383b8471c3",
+  "compiler_flags": "-std=c++20 -O3 -DNDEBUG -DTRADE_CONTROL_BASELINE",
+  "cpu_affinity": [
+    0
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "samples": [
+    {
+      "mode": "thread_start_join",
+      "operations": 1,
+      "elapsed_ns": 1000519496,
+      "ns_per_operation": 1000519496,
+      "checksum": 42
+    },
+    {
+      "mode": "thread_start_join",
+      "operations": 1,
+      "elapsed_ns": 1001665249,
+      "ns_per_operation": 1001665249,
+      "checksum": 42
+    },
+    {
+      "mode": "thread_start_join",
+      "operations": 1,
+      "elapsed_ns": 1000574868,
+      "ns_per_operation": 1000574868,
+      "checksum": 42
+    },
+    {
+      "mode": "thread_start_join",
+      "operations": 1,
+      "elapsed_ns": 1000534210,
+      "ns_per_operation": 1000534210,
+      "checksum": 42
+    },
+    {
+      "mode": "thread_start_join",
+      "operations": 1,
+      "elapsed_ns": 1000580738,
+      "ns_per_operation": 1000580738,
+      "checksum": 42
+    }
+  ],
+  "median_ns_per_operation": 1000574868
+}

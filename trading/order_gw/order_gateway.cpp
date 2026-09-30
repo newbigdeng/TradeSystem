@@ -15,9 +15,9 @@ namespace Trading {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
       tcp_socket_.sendAndRecv();
-      if(!tcp_socket_.healthy()) {
+      if(!tcp_socket_.healthy() || !session_healthy_.load(std::memory_order_acquire)) {
         logger_.log("ORDER SESSION UNKNOWN: disconnect; stop new sends and reconcile before restart\n");
-        run_=false; break;
+        session_healthy_.store(false,std::memory_order_release);run_=false; break;
       }
 
       for(auto client_request = outgoing_requests_->peek(); client_request; client_request = outgoing_requests_->peek()) {
@@ -26,8 +26,8 @@ namespace Trading {
         logger_.log("%:% %() % Sending cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__,
                     Common::getCurrentTimeStr(&time_str_), client_id_, next_outgoing_seq_num_, client_request->toString());
         START_MEASURE(Trading_TCPSocket_send);
-        const Exchange::OMClientRequest frame{next_outgoing_seq_num_,*client_request};
-        const auto status=tcp_socket_.send(&frame,sizeof(frame));
+        const auto frame=Common::Wire::encode(Exchange::OMClientRequest{next_outgoing_seq_num_,*client_request,session_epoch_});
+        const auto status=tcp_socket_.send(frame.data(),frame.size());
         if(status==Common::SendResult::Full) break;
         ASSERT(status==Common::SendResult::Accepted,"order session unknown: cannot queue complete frame");
         END_MEASURE(Trading_TCPSocket_send, logger_);
@@ -46,30 +46,24 @@ namespace Trading {
     START_MEASURE(Trading_OrderGateway_recvCallback);
     logger_.log("%:% %() % Received socket:% len:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), socket->socket_fd_, socket->next_rcv_valid_index_, rx_time);
 
-    if (socket->next_rcv_valid_index_ >= sizeof(Exchange::OMClientResponse)) {
-      size_t i = 0;
-      for (; i + sizeof(Exchange::OMClientResponse) <= socket->next_rcv_valid_index_; i += sizeof(Exchange::OMClientResponse)) {
-        auto response = reinterpret_cast<const Exchange::OMClientResponse *>(socket->inbound_data_.data() + i);
-        logger_.log("%:% %() % Received %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), response->toString());
-
-        if(response->me_client_response_.client_id_ != client_id_) { // this should never happen unless there is a bug at the exchange.
-          logger_.log("%:% %() % ERROR Incorrect client id. ClientId expected:% received:%.\n", __FILE__, __LINE__, __FUNCTION__,
-                      Common::getCurrentTimeStr(&time_str_), client_id_, response->me_client_response_.client_id_);
-          socket->state_=Common::ConnectionState::Error; break;
-        }
-        if(response->seq_num_ != next_exp_seq_num_) { // this should never happen since we use a reliable TCP protocol, unless there is a bug at the exchange.
-          logger_.log("%:% %() % ERROR Incorrect sequence number. ClientId:%. SeqNum expected:% received:%.\n", __FILE__, __LINE__, __FUNCTION__,
-                      Common::getCurrentTimeStr(&time_str_), client_id_, next_exp_seq_num_, response->seq_num_);
-          socket->state_=Common::ConnectionState::Error; break;
-        }
-
-        if(!incoming_responses_->try_push(response->me_client_response_)) break;
-        ++next_exp_seq_num_;
-        TTT_MEASURE(T8t_OrderGateway_LFQueue_write, logger_);
+    size_t consumed=0;
+    while(consumed+Common::Wire::ResponseSize<=socket->next_rcv_valid_index_) {
+      Exchange::OMClientResponse response;
+      if(!Common::Wire::decode(reinterpret_cast<const uint8_t*>(socket->inbound_data_.data()+consumed),response) || response.session_epoch_!=session_epoch_ || response.me_client_response_.client_id_!=client_id_) {
+        session_healthy_.store(false,std::memory_order_release);socket->state_=Common::ConnectionState::Error;break;
       }
-      memmove(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
-      socket->next_rcv_valid_index_ -= i;
+      if(response.seq_num_<next_exp_seq_num_) {consumed+=Common::Wire::ResponseSize;continue;} // already applied transport frame
+      if(response.seq_num_!=next_exp_seq_num_) {session_healthy_.store(false,std::memory_order_release);socket->state_=Common::ConnectionState::Error;break;}
+      const auto &r=response.me_client_response_;
+      if(r.type_<Exchange::ClientResponseType::ACCEPTED || r.type_>Exchange::ClientResponseType::STATE ||
+         (r.type_==Exchange::ClientResponseType::FILLED && (r.ticker_id_>=ME_MAX_TICKERS || (r.side_!=Side::BUY && r.side_!=Side::SELL) || !r.exec_qty_ || !r.response_id_ || r.exec_qty_>INT32_MAX || r.price_<=0 || r.price_==Price_INVALID))) {
+        session_healthy_.store(false,std::memory_order_release);socket->state_=Common::ConnectionState::Error;break;
+      }
+      if(!incoming_responses_->try_push(r))break; // keep complete frame, retry after downstream drains
+      if(r.reject_reason_==Exchange::RejectReason::IDENTITY || r.reject_reason_==Exchange::RejectReason::SEQUENCE || r.reject_reason_==Exchange::RejectReason::SESSION || r.reject_reason_==Exchange::RejectReason::VERSION)session_healthy_.store(false,std::memory_order_release);
+      ++next_exp_seq_num_;consumed+=Common::Wire::ResponseSize;
     }
+    if(consumed) {memmove(socket->inbound_data_.data(),socket->inbound_data_.data()+consumed,socket->next_rcv_valid_index_-consumed);socket->next_rcv_valid_index_-=consumed;}
     END_MEASURE(Trading_OrderGateway_recvCallback, logger_);
   }
 }

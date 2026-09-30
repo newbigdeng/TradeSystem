@@ -1,0 +1,51 @@
+{
+  "commit": "cd36235dee36ec5704dcc5a8bfc324383b8471c3",
+  "samples": [
+    {
+      "mode": "protocol",
+      "operations": 1000000,
+      "elapsed_ns": 32313442,
+      "ns_per_operation": 32.3134,
+      "checksum": 500000500000,
+      "frame_bytes": 38
+    },
+    {
+      "mode": "protocol",
+      "operations": 1000000,
+      "elapsed_ns": 36630773,
+      "ns_per_operation": 36.6308,
+      "checksum": 500000500000,
+      "frame_bytes": 38
+    },
+    {
+      "mode": "protocol",
+      "operations": 1000000,
+      "elapsed_ns": 32908167,
+      "ns_per_operation": 32.9082,
+      "checksum": 500000500000,
+      "frame_bytes": 38
+    },
+    {
+      "mode": "protocol",
+      "operations": 1000000,
+      "elapsed_ns": 33163936,
+      "ns_per_operation": 33.1639,
+      "checksum": 500000500000,
+      "frame_bytes": 38
+    },
+    {
+      "mode": "protocol",
+      "operations": 1000000,
+      "elapsed_ns": 31667383,
+      "ns_per_operation": 31.6674,
+      "checksum": 500000500000,
+      "frame_bytes": 38
+    }
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "cpu_affinity": [
+    0
+  ],
+  "median_ns_per_operation": 32.9082
+}

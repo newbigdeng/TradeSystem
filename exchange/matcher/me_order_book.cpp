@@ -225,11 +225,26 @@ namespace Exchange {
 
 namespace Exchange {
 void MEOrderBook::emitResponse(const MEClientResponse& response) {
+  if(response.client_id_<ME_MAX_NUM_CLIENTS && response.type_!=ClientResponseType::REJECTED && response.type_!=ClientResponseType::CANCEL_REJECTED && response.type_!=ClientResponseType::STATE)
+    last_order_response_[response.client_id_][response.client_order_id_]=response;
   if(response_sink_) response_sink_(response);
   else if(matching_engine_) matching_engine_->sendClientResponse(&response);
 }
 void MEOrderBook::emitMarket(const MEMarketUpdate& update) {
   if(market_sink_) market_sink_(update);
   else if(matching_engine_) matching_engine_->sendMarketUpdate(&update);
+}
+}
+
+namespace Exchange {
+void MEOrderBook::query(ClientId client_id,OrderId order_id) {
+  if(client_id>=ME_MAX_NUM_CLIENTS)return;
+  if(!order_id) {emitResponse({ClientResponseType::STATE,client_id,ticker_id_,0,OrderId_INVALID,Side::INVALID,Price_INVALID,0,0});return;}
+  const auto found=last_order_response_[client_id].find(order_id);
+  if(found==last_order_response_[client_id].end()) {
+    emitResponse({ClientResponseType::REJECTED,client_id,ticker_id_,order_id,OrderId_INVALID,Side::INVALID,Price_INVALID,0,0,RejectReason::INVALID_ID});return;
+  }
+  auto response=found->second;response.type_=ClientResponseType::STATE;response.exec_qty_=0;
+  emitResponse(response);
 }
 }

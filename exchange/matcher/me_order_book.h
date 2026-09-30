@@ -38,6 +38,7 @@ namespace Exchange {
       std::sort(result.begin(),result.end(),[](const auto& a,const auto& b){return a.order_id_<b.order_id_;});return result;
     }
 
+    void query(ClientId client_id,OrderId order_id);
     auto toString(bool detailed, bool validity_check) const -> std::string;
 
     /// Deleted default, copy & move constructors and assignment-operators.
@@ -77,6 +78,7 @@ namespace Exchange {
     MEClientResponse client_response_;
     MEMarketUpdate market_update_;
 
+    std::array<std::unordered_map<OrderId,MEClientResponse>,ME_MAX_NUM_CLIENTS> last_order_response_{};
     OrderId next_market_order_id_ = 1;
     std::array<std::unordered_set<OrderId>,ME_MAX_NUM_CLIENTS> used_client_order_ids_{};
     void emitResponse(const MEClientResponse& response);

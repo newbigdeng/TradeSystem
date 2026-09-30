@@ -1,4 +1,6 @@
 #pragma once
+#include <mutex>
+#include "common/order_protocol.h"
 
 #include <functional>
 
@@ -59,7 +61,7 @@ namespace Trading {
     auto run() noexcept -> void;
 
     /// Write a client request to the lock free queue for the order server to consume and send to the exchange.
-    auto sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> void;
+    auto sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> bool;
 
     /// Process changes to the order book - updates the position keeper, feature engine and informs the trading algorithm about the update.
     auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *book) noexcept -> void;
@@ -80,9 +82,13 @@ namespace Trading {
     }
 
     auto silentSeconds() {
-      return (Common::getCurrentNanos() - last_event_time_) / NANOS_TO_SECS;
+      return (Common::getCurrentNanos() - last_event_time_.load()) / NANOS_TO_SECS;
     }
 
+    void setMarketTrusted(bool trusted) noexcept {market_trusted_.store(trusted,std::memory_order_release);}
+    std::atomic<bool>& marketTrust() noexcept {return market_trusted_;}
+    void setOrderSession(std::atomic<bool>* state) noexcept {order_session_=state;}
+    const PositionInfo* positionInfo(TickerId ticker) const {return position_keeper_.getPositionInfo(ticker);}
     auto clientId() const {
       return client_id_;
     }
@@ -113,8 +119,13 @@ namespace Trading {
     Exchange::ClientResponseLFQueue *incoming_ogw_responses_ = nullptr;
     Exchange::MEMarketUpdateLFQueue *incoming_md_updates_ = nullptr;
 
-    Nanos last_event_time_ = 0;
+    std::atomic<Nanos> last_event_time_{0};
     volatile bool run_ = false;
+    std::mutex state_mutex_;
+    std::atomic<bool> market_trusted_{false};
+    std::atomic<bool>* order_session_=nullptr;
+    bool reconciled_=true;
+    uint64_t last_response_id_=0,accepted_requests_=0,rejected_requests_=0,duplicate_responses_=0;
 
     std::string time_str_;
     Logger logger_;

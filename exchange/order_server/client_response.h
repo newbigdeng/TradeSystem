@@ -15,7 +15,8 @@ namespace Exchange {
     CANCELED = 2,
     FILLED = 3,
     CANCEL_REJECTED = 4,
-    REJECTED = 5
+    REJECTED = 5,
+    STATE = 6
   };
 
   inline std::string clientResponseTypeToString(ClientResponseType type) {
@@ -30,6 +31,8 @@ namespace Exchange {
         return "CANCEL_REJECTED";
       case ClientResponseType::REJECTED:
         return "REJECTED";
+      case ClientResponseType::STATE:
+        return "STATE";
       case ClientResponseType::INVALID:
         return "INVALID";
     }
@@ -38,8 +41,7 @@ namespace Exchange {
 
   enum class RejectReason : uint8_t { NONE, INVALID_ID, INVALID_TYPE, INVALID_SIDE, INVALID_PRICE, INVALID_QTY, DUPLICATE_ID, CAPACITY, IDENTITY, SEQUENCE, SESSION, VERSION };
 
-  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
-#pragma pack(push, 1)
+  /// Internal aligned messages. The transport uses explicit versioned big-endian encoders.
 
   /// Client response structure used internally by the matching engine.
   struct MEClientResponse {
@@ -53,6 +55,8 @@ namespace Exchange {
     Qty exec_qty_ = Qty_INVALID;
     Qty leaves_qty_ = Qty_INVALID;
     RejectReason reject_reason_=RejectReason::NONE;
+    uint64_t response_id_=0;
+    int64_t position_=0;
 
     auto toString() const {
       std::stringstream ss;
@@ -75,8 +79,9 @@ namespace Exchange {
 
   /// Client response structure published over the network by the order server.
   struct OMClientResponse {
-    size_t seq_num_ = 0;
+    uint64_t seq_num_ = 0;
     MEClientResponse me_client_response_;
+    uint64_t session_epoch_=0;
 
     auto toString() const {
       std::stringstream ss;
@@ -89,7 +94,6 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
   /// Lock free queues of matching engine client order response messages.
   typedef LFQueue<MEClientResponse> ClientResponseLFQueue;

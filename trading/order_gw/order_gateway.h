@@ -1,4 +1,5 @@
 #pragma once
+#include "common/order_protocol.h"
 
 #include <functional>
 
@@ -47,8 +48,12 @@ namespace Trading {
 
     OrderGateway &operator=(const OrderGateway &&) = delete;
 
+    std::atomic<bool>& sessionHealthy() noexcept {return session_healthy_;}
+    uint64_t sessionEpoch() const noexcept {return session_epoch_;}
   private:
     const ClientId client_id_;
+    const uint64_t session_epoch_=Common::getCurrentNanos();
+    std::atomic<bool> session_healthy_{true};
 
     /// Exchange's order server's TCP server address.
     std::string ip_;

@@ -1,4 +1,6 @@
 #pragma once
+#include <unordered_map>
+#include "common/order_protocol.h"
 
 #include <functional>
 
@@ -33,6 +35,7 @@ namespace Exchange {
         for (auto client_response = outgoing_responses_->peek(); outgoing_responses_->size() && client_response; client_response = outgoing_responses_->peek()) {
           TTT_MEASURE(T5t_OrderServer_LFQueue_read, logger_);
 
+          ASSERT(client_response->client_id_<ME_MAX_NUM_CLIENTS,"response has invalid client ID");
           auto &next_outgoing_seq_num = cid_next_outgoing_seq_num_[client_response->client_id_];
           logger_.log("%:% %() % Processing cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                       client_response->client_id_, next_outgoing_seq_num, client_response->toString());
@@ -40,8 +43,8 @@ namespace Exchange {
           ASSERT(cid_tcp_socket_[client_response->client_id_] != nullptr,
                  "Dont have a TCPSocket for ClientId:" + std::to_string(client_response->client_id_));
           START_MEASURE(Exchange_TCPSocket_send);
-          const OMClientResponse frame{next_outgoing_seq_num,*client_response};
-          const auto status=cid_tcp_socket_[client_response->client_id_]->send(&frame,sizeof(frame));
+          const auto frame=Common::Wire::encode(OMClientResponse{next_outgoing_seq_num,*client_response,cid_session_epoch_[client_response->client_id_]});
+          const auto status=cid_tcp_socket_[client_response->client_id_]->send(frame.data(),frame.size());
           if(status==Common::SendResult::Full) break;
           ASSERT(status==Common::SendResult::Accepted,"response delivery unknown; matching must stop for reconciliation");
           END_MEASURE(Exchange_TCPSocket_send, logger_);
@@ -55,46 +58,56 @@ namespace Exchange {
     }
 
     /// Read client request from the TCP receive buffer, check for sequence gaps and forward it to the FIFO sequencer.
-    auto recvCallback(TCPSocket *socket, Nanos rx_time) noexcept {
-      TTT_MEASURE(T1_OrderServer_TCP_read, logger_);
-      logger_.log("%:% %() % Received socket:% len:% rx:%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
-                  socket->socket_fd_, socket->next_rcv_valid_index_, rx_time);
-
-      if (socket->next_rcv_valid_index_ >= sizeof(OMClientRequest)) {
-        size_t i = 0;
-        for (; i + sizeof(OMClientRequest) <= socket->next_rcv_valid_index_; i += sizeof(OMClientRequest)) {
-          auto request = reinterpret_cast<const OMClientRequest *>(socket->inbound_data_.data() + i);
-          logger_.log("%:% %() % Received %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), request->toString());
-
-          if(request->me_client_request_.client_id_>=ME_MAX_NUM_CLIENTS) {
-            socket->state_=Common::ConnectionState::Error;break;
+    bool reject(TCPSocket *socket,const OMClientRequest& request,RejectReason reason) noexcept {
+      const auto &r=request.me_client_request_;
+      auto &sequence=(r.client_id_<ME_MAX_NUM_CLIENTS && cid_tcp_socket_[r.client_id_]==socket)?cid_next_outgoing_seq_num_[r.client_id_]:anonymous_sequences_.try_emplace(socket,1).first->second;
+      MEClientResponse response{ClientResponseType::REJECTED,r.client_id_,r.ticker_id_,r.order_id_,OrderId_INVALID,r.side_,r.price_,0,0,reason};
+      const auto bytes=Common::Wire::encode(OMClientResponse{sequence,response,request.session_epoch_});
+      const auto result=socket->send(bytes.data(),bytes.size());
+      if(result==Common::SendResult::Full)return false;
+      ASSERT(result==Common::SendResult::Accepted,"cannot send explicit protocol rejection");
+      ++sequence;++rejected_frames_;return true;
+    }
+    auto recvCallback(TCPSocket *socket,Nanos rx_time) noexcept {
+      size_t consumed=0;
+      while(consumed+Common::Wire::RequestSize<=socket->next_rcv_valid_index_) {
+        OMClientRequest request;
+        auto reason=RejectReason::NONE;
+        if(!Common::Wire::decode(reinterpret_cast<const uint8_t*>(socket->inbound_data_.data()+consumed),request))reason=RejectReason::VERSION;
+        const auto &r=request.me_client_request_;
+        if(reason==RejectReason::NONE) {
+          if(r.client_id_>=ME_MAX_NUM_CLIENTS)reason=RejectReason::INVALID_ID;
+          else {
+            auto *owner=cid_tcp_socket_[r.client_id_];
+            if(owner && owner!=socket) {
+              // A disconnected account can reconnect only for read-only queries
+              // using its previous epoch. New economic intent stays blocked.
+              if(!owner->healthy() && r.type_==ClientRequestType::QUERY && request.session_epoch_==cid_session_epoch_[r.client_id_]) {
+                cid_tcp_socket_[r.client_id_]=socket;cid_session_unknown_[r.client_id_]=true;
+                cid_next_exp_seq_num_[r.client_id_]=request.seq_num_;cid_next_outgoing_seq_num_[r.client_id_]=1;
+              } else reason=RejectReason::IDENTITY;
+            }
+            if(reason==RejectReason::NONE && cid_tcp_socket_[r.client_id_] && request.session_epoch_!=cid_session_epoch_[r.client_id_])reason=RejectReason::SESSION;
+            if(reason==RejectReason::NONE && !request.session_epoch_)reason=RejectReason::SESSION;
+            if(reason==RejectReason::NONE && request.seq_num_!=cid_next_exp_seq_num_[r.client_id_])reason=RejectReason::SEQUENCE;
+            if(reason==RejectReason::NONE && cid_session_unknown_[r.client_id_] && r.type_!=ClientRequestType::QUERY)reason=RejectReason::SESSION;
           }
-          if (UNLIKELY(cid_tcp_socket_[request->me_client_request_.client_id_] == nullptr)) { // first message from this ClientId.
-            cid_tcp_socket_[request->me_client_request_.client_id_] = socket;
-          }
-
-          if (cid_tcp_socket_[request->me_client_request_.client_id_] != socket) { // TODO - change this to send a reject back to the client.
-            logger_.log("%:% %() % Received ClientRequest from ClientId:% on different socket:% expected:%\n", __FILE__, __LINE__, __FUNCTION__,
-                        Common::getCurrentTimeStr(&time_str_), request->me_client_request_.client_id_, socket->socket_fd_,
-                        cid_tcp_socket_[request->me_client_request_.client_id_]->socket_fd_);
-            continue;
-          }
-
-          auto &next_exp_seq_num = cid_next_exp_seq_num_[request->me_client_request_.client_id_];
-          if (request->seq_num_ != next_exp_seq_num) { // TODO - change this to send a reject back to the client.
-            logger_.log("%:% %() % Incorrect sequence number. ClientId:% SeqNum expected:% received:%\n", __FILE__, __LINE__, __FUNCTION__,
-                        Common::getCurrentTimeStr(&time_str_), request->me_client_request_.client_id_, next_exp_seq_num, request->seq_num_);
-            continue;
-          }
-
-          START_MEASURE(Exchange_FIFOSequencer_addClientRequest);
-          if(!fifo_sequencer_.addClientRequest(rx_time, request->me_client_request_)) break;
-          ++next_exp_seq_num;
-          END_MEASURE(Exchange_FIFOSequencer_addClientRequest, logger_);
         }
-        memmove(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
-        socket->next_rcv_valid_index_ -= i;
+        const auto invalid=Common::Wire::validate(r);
+        if(reason==RejectReason::NONE && invalid!=RejectReason::NONE) {
+          if(!cid_tcp_socket_[r.client_id_]) {cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;}
+          if(!reject(socket,request,invalid))break;
+          ++cid_next_exp_seq_num_[r.client_id_];
+        } else if(reason!=RejectReason::NONE) {
+          if(!reject(socket,request,reason))break;
+        } else {
+          if(!fifo_sequencer_.addClientRequest(rx_time,r))break;
+          if(!cid_tcp_socket_[r.client_id_]) {cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;}
+          ++cid_next_exp_seq_num_[r.client_id_];++accepted_frames_;
+        }
+        consumed+=Common::Wire::RequestSize;
       }
+      if(consumed) {memmove(socket->inbound_data_.data(),socket->inbound_data_.data()+consumed,socket->next_rcv_valid_index_-consumed);socket->next_rcv_valid_index_-=consumed;}
     }
 
     /// End of reading incoming messages across all the TCP connections, sequence and publish the client requests to the matching engine.
@@ -135,6 +148,10 @@ namespace Exchange {
 
     /// Hash map from ClientId -> TCP socket / client connection.
     std::array<Common::TCPSocket *, ME_MAX_NUM_CLIENTS> cid_tcp_socket_;
+    std::array<uint64_t,ME_MAX_NUM_CLIENTS> cid_session_epoch_{};
+    std::array<bool,ME_MAX_NUM_CLIENTS> cid_session_unknown_{};
+    std::unordered_map<TCPSocket*,uint64_t> anonymous_sequences_;
+    uint64_t accepted_frames_=0,rejected_frames_=0;
 
     /// TCP server instance listening for new client connections.
     Common::TCPServer tcp_server_;

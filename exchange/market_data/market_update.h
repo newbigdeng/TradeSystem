@@ -42,8 +42,7 @@ namespace Exchange {
     return "UNKNOWN";
   }
 
-  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
-#pragma pack(push, 1)
+  /// Internal aligned messages. The transport uses explicit versioned big-endian encoders.
 
   /// Market update structure used internally by the matching engine.
   struct MEMarketUpdate {
@@ -74,7 +73,7 @@ namespace Exchange {
 
   /// Market update structure published over the network by the market data publisher.
   struct MDPMarketUpdate {
-    size_t seq_num_ = 0;
+    uint64_t seq_num_ = 0;
     MEMarketUpdate me_market_update_;
 
     auto toString() const {
@@ -88,7 +87,6 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
   /// Lock free queues of matching engine market update messages and market data publisher market updates messages respectively.
   typedef Common::LFQueue<Exchange::MEMarketUpdate> MEMarketUpdateLFQueue;

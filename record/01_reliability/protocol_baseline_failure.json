@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "FAIL wire lacks a versioned big-endian header\n"
+}

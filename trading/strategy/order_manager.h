@@ -24,30 +24,28 @@ namespace Trading {
     auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
       logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                    client_response->toString().c_str());
-      auto order = &(ticker_side_order_.at(client_response->ticker_id_).at(sideToIndex(client_response->side_)));
-      logger_->log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
-                   order->toString().c_str());
-
-      switch (client_response->type_) {
-        case Exchange::ClientResponseType::ACCEPTED: {
-          order->order_state_ = OMOrderState::LIVE;
-        }
+      if(client_response->ticker_id_>=ME_MAX_TICKERS)return;
+      OMOrder *order=nullptr;
+      for(auto &candidate:ticker_side_order_[client_response->ticker_id_])
+        if(candidate.order_id_==client_response->client_order_id_ && candidate.order_id_!=OrderId_INVALID) {order=&candidate;break;}
+      if(!order)return;
+      switch(client_response->type_) {
+        case Exchange::ClientResponseType::ACCEPTED:
+          if(order->order_state_==OMOrderState::PENDING_NEW)order->order_state_=OMOrderState::LIVE;
           break;
-        case Exchange::ClientResponseType::CANCELED: {
-          order->order_state_ = OMOrderState::DEAD;
-        }
+        case Exchange::ClientResponseType::FILLED:
+          if(client_response->leaves_qty_<order->qty_)order->qty_=client_response->leaves_qty_;
+          if(!order->qty_)order->order_state_=OMOrderState::DEAD;
           break;
-        case Exchange::ClientResponseType::FILLED: {
-          order->qty_ = client_response->leaves_qty_;
-          if(!order->qty_)
-            order->order_state_ = OMOrderState::DEAD;
-        }
-          break;
+        case Exchange::ClientResponseType::CANCELED:
         case Exchange::ClientResponseType::REJECTED:
+          order->qty_=0;order->order_state_=OMOrderState::DEAD;break;
         case Exchange::ClientResponseType::CANCEL_REJECTED:
-        case Exchange::ClientResponseType::INVALID: {
-        }
+          if(order->order_state_==OMOrderState::PENDING_CANCEL)order->order_state_=client_response->leaves_qty_?OMOrderState::LIVE:OMOrderState::DEAD;
           break;
+        case Exchange::ClientResponseType::STATE:
+          order->qty_=client_response->leaves_qty_;order->order_state_=order->qty_?OMOrderState::LIVE:OMOrderState::DEAD;break;
+        case Exchange::ClientResponseType::INVALID:break;
       }
     }
 
@@ -72,18 +70,7 @@ namespace Trading {
         case OMOrderState::INVALID:
         case OMOrderState::DEAD: {
           if(LIKELY(price != Price_INVALID)) {
-            START_MEASURE(Trading_RiskManager_checkPreTradeRisk);
-            const auto risk_result = risk_manager_.checkPreTradeRisk(ticker_id, side, qty);
-            END_MEASURE(Trading_RiskManager_checkPreTradeRisk, (*logger_));
-            if(LIKELY(risk_result == RiskCheckResult::ALLOWED)) {
-              START_MEASURE(Trading_OrderManager_newOrder);
-              newOrder(order, ticker_id, price, side, qty);
-              END_MEASURE(Trading_OrderManager_newOrder, (*logger_));
-            } else
-              logger_->log("%:% %() % Ticker:% Side:% Qty:% RiskCheckResult:%\n", __FILE__, __LINE__, __FUNCTION__,
-                           Common::getCurrentTimeStr(&time_str_),
-                           tickerIdToString(ticker_id), sideToString(side), qtyToString(qty),
-                           riskCheckResultToString(risk_result));
+            newOrder(order,ticker_id,price,side,qty);
           }
         }
           break;

@@ -1,4 +1,5 @@
 #pragma once
+#include "common/order_protocol.h"
 
 #include "common/thread_utils.h"
 #include "common/lf_queue.h"
@@ -26,6 +27,10 @@ namespace Exchange {
 
     /// Called to process a client request read from the lock free queue sent by the order server.
     auto processClientRequest(const MEClientRequest *client_request) noexcept {
+      const auto invalid=Common::Wire::validate(*client_request);
+      if(invalid!=RejectReason::NONE) {
+        const MEClientResponse reject{ClientResponseType::REJECTED,client_request->client_id_,client_request->ticker_id_,client_request->order_id_,OrderId_INVALID,client_request->side_,client_request->price_,0,0,invalid};sendClientResponse(&reject);return;
+      }
       auto order_book = ticker_order_book_[client_request->ticker_id_];
       switch (client_request->type_) {
         case ClientRequestType::NEW: {
@@ -43,17 +48,27 @@ namespace Exchange {
         }
           break;
 
-        default: {
-          FATAL("Received invalid client-request-type:" + clientRequestTypeToString(client_request->type_));
+        case ClientRequestType::QUERY: {
+          order_book->query(client_request->client_id_,client_request->order_id_);
         }
+          break;
+        default: break;
           break;
       }
     }
 
     /// Write client responses to the lock free queue for the order server to consume.
-    auto sendClientResponse(const MEClientResponse *client_response) noexcept {
+    auto sendClientResponse(const MEClientResponse *client_response) noexcept -> void {
       logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), client_response->toString());
-      ASSERT(outgoing_ogw_responses_->try_push(std::move(*client_response)), "critical queue full; stop instead of overwriting");
+      auto response=*client_response;
+      response.response_id_=next_response_id_++;
+      if(response.client_id_<ME_MAX_NUM_CLIENTS && response.ticker_id_<ME_MAX_TICKERS) {
+        auto &position=client_positions_[response.client_id_][response.ticker_id_];
+        if(response.type_==ClientResponseType::FILLED) position+=int64_t(response.exec_qty_)*sideToValue(response.side_);
+        response.position_=position;
+      }
+      ASSERT(outgoing_ogw_responses_->try_push(response), "response queue full: matching fail-closed; reconciliation required");
+      ++response_count_;
       TTT_MEASURE(T4t_MatchingEngine_LFQueue_write, logger_);
     }
 
@@ -106,6 +121,8 @@ namespace Exchange {
     MEMarketUpdateLFQueue *outgoing_md_updates_ = nullptr;
 
     volatile bool run_ = false;
+    uint64_t next_response_id_=1,response_count_=0;
+    std::array<std::array<int64_t,ME_MAX_TICKERS>,ME_MAX_NUM_CLIENTS> client_positions_{};
 
     std::string time_str_;
     Logger logger_;

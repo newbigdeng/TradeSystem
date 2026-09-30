@@ -12,7 +12,8 @@ namespace Exchange {
   enum class ClientRequestType : uint8_t {
     INVALID = 0,
     NEW = 1,
-    CANCEL = 2
+    CANCEL = 2,
+    QUERY = 3
   };
 
   inline std::string clientRequestTypeToString(ClientRequestType type) {
@@ -21,14 +22,15 @@ namespace Exchange {
         return "NEW";
       case ClientRequestType::CANCEL:
         return "CANCEL";
+      case ClientRequestType::QUERY:
+        return "QUERY";
       case ClientRequestType::INVALID:
         return "INVALID";
     }
     return "UNKNOWN";
   }
 
-  /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
-#pragma pack(push, 1)
+  /// Internal aligned messages. The transport uses explicit versioned big-endian encoders.
 
   /// Client request structure used internally by the matching engine.
   struct MEClientRequest {
@@ -59,8 +61,9 @@ namespace Exchange {
 
   /// Client request structure published over the network by the order gateway client.
   struct OMClientRequest {
-    size_t seq_num_ = 0;
+    uint64_t seq_num_ = 0;
     MEClientRequest me_client_request_;
+    uint64_t session_epoch_=0;
 
     auto toString() const {
       std::stringstream ss;
@@ -73,7 +76,6 @@ namespace Exchange {
     }
   };
 
-#pragma pack(pop) // Undo the packed binary structure directive moving forward.
 
   /// Lock free queues of matching engine client order request messages.
   typedef LFQueue<MEClientRequest> ClientRequestLFQueue;
