@@ -4,3 +4,6 @@ build/
 *.html
 .ipynb_checkpoints/
 __pycache__/
+
+# Durable runtime state is local; reports and reproducible tests live in record/.
+*.journal

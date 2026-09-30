@@ -21,6 +21,9 @@ namespace Common {
   inline auto getCurrentNanos() noexcept {
     return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
   }
+  inline auto getMonotonicNanos() noexcept {
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now().time_since_epoch()).count();
+  }
 
   /// Format current timestamp to a human readable string.
   /// String formatting is inefficient.

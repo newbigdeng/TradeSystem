@@ -34,7 +34,7 @@ inline bool decode(const uint8_t* p,Exchange::OMClientRequest& message) noexcept
   if(!header(p,1,message.seq_num_,message.session_epoch_))return false;
   auto &r=message.me_client_request_;r.type_=static_cast<Exchange::ClientRequestType>(get<uint8_t>(p));
   r.client_id_=get<uint32_t>(p);r.ticker_id_=get<uint32_t>(p);r.order_id_=get<uint64_t>(p);
-  r.side_=static_cast<Side>(get<int8_t>(p));r.price_=get<int64_t>(p);r.qty_=get<uint32_t>(p);return true;
+  r.side_=static_cast<Side>(get<int8_t>(p));r.price_=get<int64_t>(p);r.qty_=get<uint32_t>(p);r.session_epoch_=message.session_epoch_;r.request_seq_=message.seq_num_;return true;
 }
 inline Bytes<ResponseSize> encode(const Exchange::OMClientResponse& message) noexcept {
   Bytes<ResponseSize> bytes{};auto *p=bytes.data();header(p,2,message.seq_num_,message.session_epoch_);

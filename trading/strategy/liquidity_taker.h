@@ -28,9 +28,9 @@ namespace Trading {
                    market_update->toString().c_str());
 
       const auto bbo = book->getBBO();
-      const auto agg_qty_ratio = feature_engine_->getAggTradeQtyRatio();
+      const auto agg_qty_ratio = feature_engine_->getAggTradeQtyRatio(market_update->ticker_id_);
 
-      if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && agg_qty_ratio != Feature_INVALID)) {
+      if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && std::isfinite(agg_qty_ratio))) {
         logger_->log("%:% %() % % agg-qty-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
                      Common::getCurrentTimeStr(&time_str_),
                      bbo->toString().c_str(), agg_qty_ratio);

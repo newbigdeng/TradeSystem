@@ -42,12 +42,9 @@ namespace Trading {
   }
 
   TradeEngine::~TradeEngine() {
-    run_ = false;
+    stop();
 
-    using namespace std::literals::chrono_literals;
-    std::this_thread::sleep_for(1s);
-
-    delete mm_algo_; mm_algo_ = nullptr;
+delete mm_algo_; mm_algo_ = nullptr;
     delete taker_algo_; taker_algo_ = nullptr;
 
     for (auto &order_book: ticker_order_book_) {
@@ -65,7 +62,7 @@ namespace Trading {
     logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                 client_request->toString().c_str());
     std::lock_guard<std::mutex> lock(state_mutex_);
-    if(Wire::validate(*client_request)!=Exchange::RejectReason::NONE || client_request->client_id_!=client_id_ || !reconciled_ || (order_session_ && !order_session_->load(std::memory_order_acquire)) || (client_request->type_==Exchange::ClientRequestType::NEW && !market_trusted_.load(std::memory_order_acquire))) {
+    if((!admitting_.load(std::memory_order_acquire) && client_request->type_==Exchange::ClientRequestType::NEW) || Wire::validate(*client_request)!=Exchange::RejectReason::NONE || client_request->client_id_!=client_id_ || !reconciled_ || (order_session_ && !order_session_->load(std::memory_order_acquire)) || (client_request->type_==Exchange::ClientRequestType::NEW && !market_trusted_.load(std::memory_order_acquire))) {
       ++rejected_requests_;logger_.log("ADMISSION REJECTED: invalid/stale/unreconciled/session-unknown\n");return false;
     }
     const auto risk=risk_manager_.reserve(*client_request);
@@ -79,7 +76,7 @@ namespace Trading {
   /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
   auto TradeEngine::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
-    while (run_) {
+    while(run_ || incoming_ogw_responses_->peek() || incoming_md_updates_->peek()) {
       for (auto client_response = incoming_ogw_responses_->peek(); client_response; client_response = incoming_ogw_responses_->peek()) {
         TTT_MEASURE(T9t_TradeEngine_LFQueue_read, logger_);
 
@@ -175,4 +172,27 @@ namespace Trading {
     algoOnOrderUpdate_(client_response);
     END_MEASURE(Trading_TradeEngine_algoOnOrderUpdate_, logger_);
   }
+}
+
+namespace Trading {
+void TradeEngine::quiesce() {
+  admitting_.store(false,std::memory_order_release);
+  std::vector<Exchange::MEClientRequest> cancels;
+  {std::lock_guard<std::mutex> lock(state_mutex_);cancels=risk_manager_.cancellations(client_id_);}
+  const auto deadline=std::chrono::steady_clock::now()+std::chrono::seconds(5);
+  for(const auto& request:cancels) {
+    while(!sendClientRequest(&request)) {
+      if((order_session_ && !order_session_->load()) || std::chrono::steady_clock::now()>deadline) {logger_.log("ORDER SESSION UNKNOWN: outstanding cancellations need reconciliation\n");return;}
+      std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+  }
+}
+void TradeEngine::writeCheckpoint(Common::CriticalJournal& audit,uint64_t epoch,bool healthy) {
+  audit.append("ACCOUNT "+std::to_string(client_id_)+" "+std::to_string(epoch)+" "+std::to_string(healthy));
+  for(TickerId ticker=0;ticker<ME_MAX_TICKERS;++ticker) {
+    const auto* position=position_keeper_.getPositionInfo(ticker);
+    audit.append("POSITION "+std::to_string(ticker)+" "+std::to_string(position->position_)+" "+std::to_string(position->volume_));
+  }
+  for(const auto& request:risk_manager_.cancellations(client_id_))audit.request("UNRESOLVED",request);
+}
 }

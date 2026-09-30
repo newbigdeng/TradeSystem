@@ -15,7 +15,7 @@ namespace Exchange {
   /// Main run loop for this thread - consumes market updates from the lock free queue from the matching engine, publishes them on the incremental multicast stream and forwards them to the snapshot synthesizer.
   auto MarketDataPublisher::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
-    while (run_) {
+    while(run_ || outgoing_md_updates_->peek()) {
       for (auto market_update = outgoing_md_updates_->peek();
            outgoing_md_updates_->size() && market_update; market_update = outgoing_md_updates_->peek()) {
         TTT_MEASURE(T5_MarketDataPublisher_LFQueue_read, logger_);
@@ -41,6 +41,10 @@ namespace Exchange {
 
       // Publish to the multicast stream.
       incremental_socket_.sendAndRecv();
+    }
+    const auto deadline=std::chrono::steady_clock::now()+std::chrono::seconds(5);
+    while(incremental_socket_.next_send_valid_index_) {
+      ASSERT(std::chrono::steady_clock::now()<deadline,"multicast output not drained at shutdown");incremental_socket_.sendAndRecv();std::this_thread::yield();
     }
   }
 }

@@ -53,6 +53,8 @@ namespace Exchange {
       pending_size_ = 0;
     }
 
+    size_t pending() const noexcept {return pending_size_;} // sequencer owner only
+    bool canAccept() const noexcept {return pending_size_<pending_client_requests_.size();}
     /// Deleted default, copy & move constructors and assignment-operators.
     FIFOSequencer() = delete;
 

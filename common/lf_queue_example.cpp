@@ -11,13 +11,10 @@ auto consumeFunction(LFQueue<MyStruct>* lfq) {
   using namespace std::literals::chrono_literals;
   std::this_thread::sleep_for(5s);
 
-  while(lfq->size()) {
-    const auto d = lfq->peek();
-    lfq->pop();
-
-    std::cout << "consumeFunction read elem:" << d->d_[0] << "," << d->d_[1] << "," << d->d_[2] << " lfq-size:" << lfq->size() << std::endl;
-
-    std::this_thread::sleep_for(1s);
+  for(int i=0;i<50;++i) {
+    MyStruct value{};
+    while(!lfq->try_pop(value))std::this_thread::yield();
+    std::cout<<"consumeFunction read elem:"<<value.d_[0]<<std::endl;
   }
 
   std::cout << "consumeFunction exiting." << std::endl;
@@ -38,7 +35,7 @@ int main(int, char **) {
     std::this_thread::sleep_for(1s);
   }
 
-  ct->join();
+  ct->join();delete ct;
 
   std::cout << "main exiting." << std::endl;
 

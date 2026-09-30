@@ -21,20 +21,19 @@ namespace Trading {
     ~OrderGateway() {
       stop();
 
-      using namespace std::literals::chrono_literals;
-      std::this_thread::sleep_for(5s);
-    }
+  }
 
     /// Start and stop the order gateway main thread.
     auto start() {
       run_ = true;
       ASSERT(tcp_socket_.connect(ip_, iface_, port_, false) >= 0,
              "Unable to connect to ip:" + ip_ + " port:" + std::to_string(port_) + " on iface:" + iface_ + " error:" + std::string(std::strerror(errno)));
-      ASSERT(Common::createAndStartThread(-1, "Trading/OrderGateway", [this]() { run(); }) != nullptr, "Failed to start OrderGateway thread.");
+      worker_.reset(Common::createAndStartThread(-1, "Trading/OrderGateway", [this]() { run(); }));
     }
 
     auto stop() -> void {
-      run_ = false;
+      stop_deadline_=Common::getMonotonicNanos()+5*NANOS_TO_SECS;run_=false;
+      if(worker_ && worker_->joinable())worker_->join();
     }
 
     /// Deleted default, copy & move constructors and assignment-operators.
@@ -66,7 +65,8 @@ namespace Trading {
     /// Lock free queue on which we write client responses which we read and processed from the exchange, to be consumed by the trade engine.
     Exchange::ClientResponseLFQueue *incoming_responses_ = nullptr;
 
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
 
     std::string time_str_;
     Logger logger_;
@@ -77,6 +77,8 @@ namespace Trading {
 
     /// TCP connection to the exchange's order server.
     Common::TCPSocket tcp_socket_;
+    uint64_t pending_requests_=0,last_receive_=0;
+    std::atomic<Nanos> stop_deadline_{INT64_MAX};
 
   private:
     /// Main thread loop - sends out client requests to the exchange and reads and dispatches incoming client responses.

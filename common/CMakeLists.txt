@@ -1,5 +1,6 @@
 
 file(GLOB SOURCES "*.cpp")
+list(FILTER SOURCES EXCLUDE REGEX "_example\\.cpp$")
 
 include_directories(${PROJECT_SOURCE_DIR})
 

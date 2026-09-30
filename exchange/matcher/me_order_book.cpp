@@ -244,7 +244,9 @@ void MEOrderBook::query(ClientId client_id,OrderId order_id) {
   if(found==last_order_response_[client_id].end()) {
     emitResponse({ClientResponseType::REJECTED,client_id,ticker_id_,order_id,OrderId_INVALID,Side::INVALID,Price_INVALID,0,0,RejectReason::INVALID_ID});return;
   }
-  auto response=found->second;response.type_=ClientResponseType::STATE;response.exec_qty_=0;
+  auto response=found->second;
+  if(response.type_==ClientResponseType::CANCELED)response.leaves_qty_=0;
+  response.type_=ClientResponseType::STATE;response.exec_qty_=0;
   emitResponse(response);
 }
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "common/critical_journal.h"
 #include "common/order_protocol.h"
 
 #include "common/thread_utils.h"
@@ -16,7 +17,7 @@ namespace Exchange {
   public:
     MatchingEngine(ClientRequestLFQueue *client_requests,
                    ClientResponseLFQueue *client_responses,
-                   MEMarketUpdateLFQueue *market_updates);
+                   MEMarketUpdateLFQueue *market_updates,Common::CriticalJournal* audit=nullptr);
 
     ~MatchingEngine();
 
@@ -27,6 +28,7 @@ namespace Exchange {
 
     /// Called to process a client request read from the lock free queue sent by the order server.
     auto processClientRequest(const MEClientRequest *client_request) noexcept {
+      if(audit_)audit_->request("APPLY",*client_request);
       const auto invalid=Common::Wire::validate(*client_request);
       if(invalid!=RejectReason::NONE) {
         const MEClientResponse reject{ClientResponseType::REJECTED,client_request->client_id_,client_request->ticker_id_,client_request->order_id_,OrderId_INVALID,client_request->side_,client_request->price_,0,0,invalid};sendClientResponse(&reject);return;
@@ -67,6 +69,7 @@ namespace Exchange {
         if(response.type_==ClientResponseType::FILLED) position+=int64_t(response.exec_qty_)*sideToValue(response.side_);
         response.position_=position;
       }
+      if(audit_)audit_->response(response);
       ASSERT(outgoing_ogw_responses_->try_push(response), "response queue full: matching fail-closed; reconciliation required");
       ++response_count_;
       TTT_MEASURE(T4t_MatchingEngine_LFQueue_write, logger_);
@@ -82,7 +85,7 @@ namespace Exchange {
     /// Main loop for this thread - processes incoming client requests which in turn generates client responses and market updates.
     auto run() noexcept {
       logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
-      while (run_) {
+      while(run_ || incoming_requests_->peek()) {
         const auto me_client_request = incoming_requests_->peek();
         if (LIKELY(me_client_request)) {
           TTT_MEASURE(T3_MatchingEngine_LFQueue_read, logger_);
@@ -120,11 +123,13 @@ namespace Exchange {
     ClientResponseLFQueue *outgoing_ogw_responses_ = nullptr;
     MEMarketUpdateLFQueue *outgoing_md_updates_ = nullptr;
 
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
     uint64_t next_response_id_=1,response_count_=0;
     std::array<std::array<int64_t,ME_MAX_TICKERS>,ME_MAX_NUM_CLIENTS> client_positions_{};
 
     std::string time_str_;
     Logger logger_;
+    Common::CriticalJournal* audit_=nullptr;
   };
 }

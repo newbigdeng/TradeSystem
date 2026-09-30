@@ -13,6 +13,9 @@ namespace Common {
       if(epoll_fd_>=0) ::close(epoll_fd_);
     }
 
+    size_t pendingBytes() const noexcept {
+      size_t pending=0;for(const auto* socket:receive_sockets_)pending+=socket->pending_bytes();return pending;
+    }
     /// Start listening for connections on the provided interface and port.
     auto listen(const std::string &iface, int port) -> void;
 

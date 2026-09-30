@@ -1,0 +1,71 @@
+{
+  "commit": "1c0af8688bd2a4a2d72541a1ac05763780b93521",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "new_orders_per_run": 200,
+  "cancel_orders_per_run": 200,
+  "input": "client96,ticker0,order1..200,BUY,price100,qty1; serial ACKs",
+  "samples": [
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 1254783,
+      "p99_ns": 3693890,
+      "mean_ns": 2063404.27,
+      "total_latency_ns": 825361708,
+      "stop_exit_code": -15
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 1285377,
+      "p99_ns": 5808875,
+      "mean_ns": 2385260.5625,
+      "total_latency_ns": 954104225,
+      "stop_exit_code": -15
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 1647147,
+      "p99_ns": 4769157,
+      "mean_ns": 2481069.36,
+      "total_latency_ns": 992427744,
+      "stop_exit_code": -15
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 1595824,
+      "p99_ns": 4608310,
+      "mean_ns": 2372803.2475,
+      "total_latency_ns": 949121299,
+      "stop_exit_code": -15
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 1415014,
+      "p99_ns": 3468101,
+      "mean_ns": 2130811.4825,
+      "total_latency_ns": 852324593,
+      "stop_exit_code": -15
+    }
+  ],
+  "median_p50_ns": 1415014,
+  "median_p99_ns": 4608310,
+  "evidence_directories": [
+    "/tmp/trade-e2e-perf-9pd7wgo8",
+    "/tmp/trade-e2e-perf-qgjaa_4h",
+    "/tmp/trade-e2e-perf-wkby6xo3",
+    "/tmp/trade-e2e-perf-b4nvw8ft",
+    "/tmp/trade-e2e-perf-4q1a6_77",
+    "/tmp/trade-e2e-perf-d4bq9pku"
+  ]
+}

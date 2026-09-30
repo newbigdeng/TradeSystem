@@ -67,16 +67,18 @@ namespace Trading {
   typedef std::map<PriceKey,MarketOrdersAtPrice*> OrdersAtPriceHashMap;
 
   /// Represents a Best Bid Offer (BBO) abstraction for components which only need a small summary of top of book price and liquidity instead of the full order book.
+  using BookQty=uint64_t;
+  constexpr BookQty BookQty_INVALID=UINT64_MAX;
   struct BBO {
     Price bid_price_ = Price_INVALID, ask_price_ = Price_INVALID;
-    Qty bid_qty_ = Qty_INVALID, ask_qty_ = Qty_INVALID;
+    BookQty bid_qty_ = BookQty_INVALID, ask_qty_ = BookQty_INVALID;
 
     auto toString() const {
       std::stringstream ss;
       ss << "BBO{"
-         << qtyToString(bid_qty_) << "@" << priceToString(bid_price_)
+         << (bid_qty_==BookQty_INVALID?"INVALID":std::to_string(bid_qty_)) << "@" << priceToString(bid_price_)
          << "X"
-         << priceToString(ask_price_) << "@" << qtyToString(ask_qty_)
+         << priceToString(ask_price_) << "@" << (ask_qty_==BookQty_INVALID?"INVALID":std::to_string(ask_qty_))
          << "}";
 
       return ss.str();

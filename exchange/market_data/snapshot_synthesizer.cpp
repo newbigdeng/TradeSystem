@@ -19,12 +19,12 @@ namespace Exchange {
   /// Start and stop the snapshot synthesizer thread.
   void SnapshotSynthesizer::start() {
     run_ = true;
-    ASSERT(Common::createAndStartThread(-1, "Exchange/SnapshotSynthesizer", [this]() { run(); }) != nullptr,
-           "Failed to start SnapshotSynthesizer thread.");
+    worker_.reset(Common::createAndStartThread(-1, "Exchange/SnapshotSynthesizer", [this]() { run(); }));
   }
 
   void SnapshotSynthesizer::stop() {
-    run_ = false;
+    run_=false;
+    if(worker_ && worker_->joinable())worker_->join();
   }
 
   /// Process an incremental market update and update the limit order book snapshot.
@@ -100,7 +100,7 @@ namespace Exchange {
     const auto milliseconds=configured?std::strtoll(configured,nullptr,10):60000;
     ASSERT(milliseconds>0 && milliseconds<=3600000,"TRADE_SNAPSHOT_MS out of bounds");
     const auto period=milliseconds*NANOS_TO_MILLIS;
-    while (run_) {
+    while(run_ || snapshot_md_updates_->peek()) {
       for (auto market_update = snapshot_md_updates_->peek(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->peek()) {
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_),
                     market_update->toString().c_str());
@@ -115,5 +115,6 @@ namespace Exchange {
         publishSnapshot();
       }
     }
+    publishSnapshot(); // stable final watermark after the publisher has joined
   }
 }

@@ -14,10 +14,7 @@ namespace Exchange {
     ~MarketDataPublisher() {
       stop();
 
-      using namespace std::literals::chrono_literals;
-      std::this_thread::sleep_for(5s);
-
-      delete snapshot_synthesizer_;
+  delete snapshot_synthesizer_;
       snapshot_synthesizer_ = nullptr;
     }
 
@@ -25,13 +22,14 @@ namespace Exchange {
     auto start() {
       run_ = true;
 
-      ASSERT(Common::createAndStartThread(-1, "Exchange/MarketDataPublisher", [this]() { run(); }) != nullptr, "Failed to start MarketData thread.");
+      worker_.reset(Common::createAndStartThread(-1, "Exchange/MarketDataPublisher", [this]() { run(); }));
 
       snapshot_synthesizer_->start();
     }
 
     auto stop() -> void {
-      run_ = false;
+      run_=false;
+      if(worker_ && worker_->joinable())worker_->join();
 
       snapshot_synthesizer_->stop();
     }
@@ -60,7 +58,8 @@ namespace Exchange {
     /// Lock free queue on which we forward the incremental market data updates to send to the snapshot synthesizer.
     MDPMarketUpdateLFQueue snapshot_md_updates_;
 
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
 
     std::string time_str_;
     Logger logger_;

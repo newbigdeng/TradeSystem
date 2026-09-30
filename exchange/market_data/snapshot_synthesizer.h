@@ -52,7 +52,8 @@ namespace Exchange {
 
     Logger logger_;
 
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
 
     std::string time_str_;
 

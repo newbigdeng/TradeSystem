@@ -2,6 +2,7 @@
 #include <mutex>
 #include "common/order_protocol.h"
 #include "common/book_hash.h"
+#include "common/critical_journal.h"
 
 #include <functional>
 
@@ -40,23 +41,17 @@ namespace Trading {
     /// Start and stop the trade engine main thread.
     auto start() -> void {
       run_ = true;
-      ASSERT(Common::createAndStartThread(-1, "Trading/TradeEngine", [this] { run(); }) != nullptr, "Failed to start TradeEngine thread.");
+      worker_.reset(Common::createAndStartThread(-1, "Trading/TradeEngine", [this] { run(); }));
     }
 
     auto stop() -> void {
-      while(incoming_ogw_responses_->size() || incoming_md_updates_->size()) {
-        logger_.log("%:% %() % Sleeping till all updates are consumed ogw-size:% md-size:%\n", __FILE__, __LINE__, __FUNCTION__,
-                    Common::getCurrentTimeStr(&time_str_), incoming_ogw_responses_->size(), incoming_md_updates_->size());
-
-        using namespace std::literals::chrono_literals;
-        std::this_thread::sleep_for(10ms);
-      }
-
-      logger_.log("%:% %() % POSITIONS\n%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
-                  position_keeper_.toString());
-
-      run_ = false;
+      admitting_.store(false,std::memory_order_release);run_=false;
+      if(worker_ && worker_->joinable())worker_->join();
+      logger_.log("TRADE STATS accepted:% rejected:% duplicates:% queue_full:% high_watermark:%\n",accepted_requests_,rejected_requests_,duplicate_responses_,outgoing_ogw_requests_->full_count(),outgoing_ogw_requests_->high_watermark());
+      logger_.log("POSITIONS\n%\n",position_keeper_.toString());
     }
+    void quiesce();
+    void writeCheckpoint(Common::CriticalJournal&,uint64_t epoch,bool healthy);
 
     /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
     auto run() noexcept -> void;
@@ -122,8 +117,10 @@ namespace Trading {
     Exchange::MEMarketUpdateLFQueue *incoming_md_updates_ = nullptr;
 
     std::atomic<Nanos> last_event_time_{0};
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
     std::mutex state_mutex_;
+    std::atomic<bool> admitting_{true};
     std::atomic<bool> market_trusted_{false};
     std::atomic<uint64_t> market_generation_{0};
     std::atomic<bool>* order_session_=nullptr;

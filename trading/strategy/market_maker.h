@@ -22,9 +22,9 @@ namespace Trading {
                    Common::sideToString(side).c_str());
 
       const auto bbo = book->getBBO();
-      const auto fair_price = feature_engine_->getMktPrice();
+      const auto fair_price = feature_engine_->getMktPrice(ticker_id);
 
-      if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && fair_price != Feature_INVALID)) {
+      if (LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID && std::isfinite(fair_price))) {
         logger_->log("%:% %() % % fair-price:%\n", __FILE__, __LINE__, __FUNCTION__,
                      Common::getCurrentTimeStr(&time_str_),
                      bbo->toString().c_str(), fair_price);
@@ -33,6 +33,7 @@ namespace Trading {
         const auto threshold = ticker_cfg_.at(ticker_id).threshold_;
 
         const auto bid_price = bbo->bid_price_ - (fair_price - bbo->bid_price_ >= threshold ? 0 : 1);
+        if(bbo->bid_price_<=1 || bbo->ask_price_>=Price_INVALID-1)return;
         const auto ask_price = bbo->ask_price_ + (bbo->ask_price_ - fair_price >= threshold ? 0 : 1);
 
         START_MEASURE(Trading_OrderManager_moveOrders);

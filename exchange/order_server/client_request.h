@@ -42,6 +42,7 @@ namespace Exchange {
     Side side_ = Side::INVALID;
     Price price_ = Price_INVALID;
     Qty qty_ = Qty_INVALID;
+    uint64_t session_epoch_=0,request_seq_=0;
 
     auto toString() const {
       std::stringstream ss;

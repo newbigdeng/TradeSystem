@@ -99,7 +99,7 @@ namespace Trading {
       if(reservations_.contains(key))return RiskCheckResult::INVALID;
       const auto result=checkPreTradeRisk(r.ticker_id_,r.side_,r.qty_);
       if(result!=RiskCheckResult::ALLOWED)return result;
-      reservations_.emplace(key,Reservation{r.side_,r.qty_});
+      reservations_.emplace(key,Reservation{r.side_,r.qty_,r.price_});
       (r.side_==Side::BUY?pending_buy_:pending_sell_)[r.ticker_id_]+=r.qty_;return result;
     }
     void rollback(const Exchange::MEClientRequest& r) {
@@ -117,12 +117,21 @@ namespace Trading {
       if(r.type_==Exchange::ClientResponseType::FILLED) {
         if(r.side_!=reservation.side || !r.exec_qty_ || r.exec_qty_>reservation.qty || uint64_t(r.exec_qty_)+r.leaves_qty_!=reservation.qty)return false;
         pending-=r.exec_qty_;reservation.qty=r.leaves_qty_;if(!reservation.qty)reservations_.erase(found);
+      } else if(r.type_==Exchange::ClientResponseType::CANCEL_REJECTED) {
+        if(r.leaves_qty_!=reservation.qty)return false;
+      } else if(r.type_==Exchange::ClientResponseType::REJECTED && r.reject_reason_==Exchange::RejectReason::DUPLICATE_ID) {
+        return false; // The original economic order may still be live.
       } else if(r.type_==Exchange::ClientResponseType::CANCELED || r.type_==Exchange::ClientResponseType::REJECTED) {
         pending-=reservation.qty;reservations_.erase(found);
       }
       return true;
     }
     uint64_t pending(TickerId ticker,Side side) const {return (side==Side::BUY?pending_buy_:pending_sell_).at(ticker);}
+    std::vector<Exchange::MEClientRequest> cancellations(ClientId client) const {
+      std::vector<Exchange::MEClientRequest> result;
+      for(const auto& [key,order]:reservations_)result.push_back({Exchange::ClientRequestType::CANCEL,client,key.first,key.second,order.side,order.price,order.qty});
+      return result;
+    }
 
     /// Deleted default, copy & move constructors and assignment-operators.
     RiskManager() = delete;
@@ -141,7 +150,7 @@ namespace Trading {
 
     /// Hash map container from TickerId -> RiskInfo.
     TickerRiskInfoHashMap ticker_risk_{};
-    struct Reservation {Side side;Qty qty;};
+    struct Reservation {Side side;Qty qty;Price price;};
     std::map<std::pair<TickerId,OrderId>,Reservation> reservations_;
     std::array<uint64_t,ME_MAX_TICKERS> pending_buy_{},pending_sell_{};
   };

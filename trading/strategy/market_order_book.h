@@ -35,7 +35,7 @@ namespace Trading {
         }
         else {
           bbo_.bid_price_ = Price_INVALID;
-          bbo_.bid_qty_ = Qty_INVALID;
+          bbo_.bid_qty_ = BookQty_INVALID;
         }
       }
 
@@ -48,7 +48,7 @@ namespace Trading {
         }
         else {
           bbo_.ask_price_ = Price_INVALID;
-          bbo_.ask_qty_ = Qty_INVALID;
+          bbo_.ask_qty_ = BookQty_INVALID;
         }
       }
     }

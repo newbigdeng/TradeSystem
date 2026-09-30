@@ -1,68 +1,39 @@
 #pragma once
-
-#include "common/macros.h"
+#include <cmath>
 #include "common/logging.h"
-
-using namespace Common;
-
+#include "market_order_book.h"
 namespace Trading {
-  /// Sentinel value to represent invalid / uninitialized feature value.
-  constexpr auto Feature_INVALID = std::numeric_limits<double>::quiet_NaN();
-
-  class FeatureEngine {
-  public:
-    FeatureEngine(Common::Logger *logger)
-        : logger_(logger) {
+constexpr double Feature_INVALID=std::numeric_limits<double>::quiet_NaN();
+class FeatureEngine {
+ public:
+  explicit FeatureEngine(Common::Logger* logger):logger_(logger){prices_.fill(Feature_INVALID);ratios_.fill(Feature_INVALID);}
+  void onOrderBookUpdate(Common::TickerId ticker,Common::Price price,Common::Side side,MarketOrderBook* book) noexcept {
+    if(ticker>=Common::ME_MAX_TICKERS)return;
+    const auto* bbo=book->getBBO();prices_[ticker]=Feature_INVALID;
+    if(valid(*bbo)) {
+      const double denominator=double(bbo->bid_qty_)+double(bbo->ask_qty_);
+      prices_[ticker]=(double(bbo->bid_price_)*double(bbo->ask_qty_)+double(bbo->ask_price_)*double(bbo->bid_qty_))/denominator;
+      if(!std::isfinite(prices_[ticker]))prices_[ticker]=Feature_INVALID;
+    } else ratios_[ticker]=Feature_INVALID;
+    logger_->log("FEATURE ticker:% price:% side:% fair:% ratio:%\n",ticker,price,int(side),prices_[ticker],ratios_[ticker]);
+  }
+  void onTradeUpdate(const Exchange::MEMarketUpdate* event,MarketOrderBook* book) noexcept {
+    if(event->ticker_id_>=Common::ME_MAX_TICKERS)return;
+    auto& ratio=ratios_[event->ticker_id_];ratio=Feature_INVALID;const auto* bbo=book->getBBO();
+    if(valid(*bbo) && event->qty_>0 && event->qty_!=Common::Qty_INVALID && (event->side_==Common::Side::BUY || event->side_==Common::Side::SELL)) {
+      ratio=double(event->qty_)/double(event->side_==Common::Side::BUY?bbo->ask_qty_:bbo->bid_qty_);
+      if(!std::isfinite(ratio))ratio=Feature_INVALID;
     }
-
-    /// Process a change in order book and in this case compute the fair market price.
-    auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook* book) noexcept -> void {
-      const auto bbo = book->getBBO();
-      if(LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID)) {
-        mkt_price_ = (bbo->bid_price_ * bbo->ask_qty_ + bbo->ask_price_ * bbo->bid_qty_) / static_cast<double>(bbo->bid_qty_ + bbo->ask_qty_);
-      }
-
-      logger_->log("%:% %() % ticker:% price:% side:% mkt-price:% agg-trade-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
-                   Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
-                   Common::sideToString(side).c_str(), mkt_price_, agg_trade_qty_ratio_);
-    }
-
-    /// Process a trade event and in this case compute the feature to capture aggressive trade quantity ratio against the BBO quantity.
-    auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook* book) noexcept -> void {
-      const auto bbo = book->getBBO();
-      if(LIKELY(bbo->bid_price_ != Price_INVALID && bbo->ask_price_ != Price_INVALID)) {
-        agg_trade_qty_ratio_ = static_cast<double>(market_update->qty_) / (market_update->side_ == Side::BUY ? bbo->ask_qty_ : bbo->bid_qty_);
-      }
-
-      logger_->log("%:% %() % % mkt-price:% agg-trade-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
-                   Common::getCurrentTimeStr(&time_str_),
-                   market_update->toString().c_str(), mkt_price_, agg_trade_qty_ratio_);
-    }
-
-    auto getMktPrice() const noexcept {
-      return mkt_price_;
-    }
-
-    auto getAggTradeQtyRatio() const noexcept {
-      return agg_trade_qty_ratio_;
-    }
-
-    /// Deleted default, copy & move constructors and assignment-operators.
-    FeatureEngine() = delete;
-
-    FeatureEngine(const FeatureEngine &) = delete;
-
-    FeatureEngine(const FeatureEngine &&) = delete;
-
-    FeatureEngine &operator=(const FeatureEngine &) = delete;
-
-    FeatureEngine &operator=(const FeatureEngine &&) = delete;
-
-  private:
-    std::string time_str_;
-    Common::Logger *logger_ = nullptr;
-
-    /// The two features we compute in our feature engine.
-    double mkt_price_ = Feature_INVALID, agg_trade_qty_ratio_ = Feature_INVALID;
-  };
+    logger_->log("TRADE FEATURE ticker:% ratio:%\n",event->ticker_id_,ratio);
+  }
+  double getMktPrice(Common::TickerId ticker) const noexcept {return ticker<Common::ME_MAX_TICKERS?prices_[ticker]:Feature_INVALID;}
+  double getAggTradeQtyRatio(Common::TickerId ticker) const noexcept {return ticker<Common::ME_MAX_TICKERS?ratios_[ticker]:Feature_INVALID;}
+  FeatureEngine(const FeatureEngine&)=delete;FeatureEngine& operator=(const FeatureEngine&)=delete;
+ private:
+  static bool valid(const BBO& bbo) noexcept {
+    return bbo.bid_price_>0 && bbo.ask_price_>0 && bbo.bid_price_!=Common::Price_INVALID && bbo.ask_price_!=Common::Price_INVALID && bbo.bid_qty_>0 && bbo.ask_qty_>0 && bbo.bid_qty_!=BookQty_INVALID && bbo.ask_qty_!=BookQty_INVALID;
+  }
+  Common::Logger* logger_;
+  std::array<double,Common::ME_MAX_TICKERS> prices_,ratios_;
+};
 }

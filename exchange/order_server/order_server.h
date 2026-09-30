@@ -1,4 +1,5 @@
 #pragma once
+#include "common/critical_journal.h"
 #include <unordered_map>
 #include "common/order_protocol.h"
 
@@ -15,7 +16,7 @@
 namespace Exchange {
   class OrderServer {
   public:
-    OrderServer(ClientRequestLFQueue *client_requests, ClientResponseLFQueue *client_responses, const std::string &iface, int port);
+    OrderServer(ClientRequestLFQueue *client_requests, ClientResponseLFQueue *client_responses, const std::string &iface,int port,Common::CriticalJournal* audit=nullptr);
 
     ~OrderServer();
 
@@ -24,13 +25,22 @@ namespace Exchange {
 
     auto stop() -> void;
 
+    void quiesce() {
+      accepting_.store(false,std::memory_order_release);
+      const auto deadline=std::chrono::steady_clock::now()+std::chrono::seconds(5);
+      while(!quiesced_.load(std::memory_order_acquire)) {
+        ASSERT(std::chrono::steady_clock::now()<deadline,"cannot drain accepted FIFO requests on shutdown");std::this_thread::yield();
+      }
+    }
     /// Main run loop for this thread - accepts new client connections, receives client requests from them and sends client responses to them.
     auto run() noexcept {
       logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
-      while (run_) {
-        tcp_server_.poll();
+      while(run_ || outgoing_responses_->peek() || tcp_server_.pendingBytes()) {
+        if(!run_ && Common::getMonotonicNanos()>stop_deadline_.load())FATAL("shutdown has unacknowledged exchange output; reconciliation required");
+        if(accepting_.load(std::memory_order_acquire))tcp_server_.poll();
 
         tcp_server_.sendAndRecv();
+        if(!accepting_.load(std::memory_order_acquire) && !fifo_sequencer_.pending())quiesced_.store(true,std::memory_order_release);
 
         for (auto client_response = outgoing_responses_->peek(); outgoing_responses_->size() && client_response; client_response = outgoing_responses_->peek()) {
           TTT_MEASURE(T5t_OrderServer_LFQueue_read, logger_);
@@ -60,15 +70,19 @@ namespace Exchange {
     /// Read client request from the TCP receive buffer, check for sequence gaps and forward it to the FIFO sequencer.
     bool reject(TCPSocket *socket,const OMClientRequest& request,RejectReason reason) noexcept {
       const auto &r=request.me_client_request_;
-      auto &sequence=(r.client_id_<ME_MAX_NUM_CLIENTS && cid_tcp_socket_[r.client_id_]==socket)?cid_next_outgoing_seq_num_[r.client_id_]:anonymous_sequences_.try_emplace(socket,1).first->second;
+      const auto owner=socket_client_.find(socket);
+      auto &sequence=owner!=socket_client_.end()?cid_next_outgoing_seq_num_[owner->second]:anonymous_sequences_.try_emplace(socket,1).first->second;
       MEClientResponse response{ClientResponseType::REJECTED,r.client_id_,r.ticker_id_,r.order_id_,OrderId_INVALID,r.side_,r.price_,0,0,reason};
+      if(owner!=socket_client_.end())response.client_id_=owner->second;
       const auto bytes=Common::Wire::encode(OMClientResponse{sequence,response,request.session_epoch_});
       const auto result=socket->send(bytes.data(),bytes.size());
       if(result==Common::SendResult::Full)return false;
       ASSERT(result==Common::SendResult::Accepted,"cannot send explicit protocol rejection");
+      if(audit_)audit_->response(response);
       ++sequence;++rejected_frames_;return true;
     }
     auto recvCallback(TCPSocket *socket,Nanos rx_time) noexcept {
+      if(!accepting_.load(std::memory_order_acquire))return;
       size_t consumed=0;
       while(consumed+Common::Wire::RequestSize<=socket->next_rcv_valid_index_) {
         OMClientRequest request;
@@ -78,12 +92,14 @@ namespace Exchange {
         if(reason==RejectReason::NONE) {
           if(r.client_id_>=ME_MAX_NUM_CLIENTS)reason=RejectReason::INVALID_ID;
           else {
+            const auto bound=socket_client_.find(socket);
+            if(bound!=socket_client_.end() && bound->second!=r.client_id_)reason=RejectReason::IDENTITY;
             auto *owner=cid_tcp_socket_[r.client_id_];
-            if(owner && owner!=socket) {
+            if(reason==RejectReason::NONE && owner && owner!=socket) {
               // A disconnected account can reconnect only for read-only queries
               // using its previous epoch. New economic intent stays blocked.
               if(!owner->healthy() && r.type_==ClientRequestType::QUERY && request.session_epoch_==cid_session_epoch_[r.client_id_]) {
-                cid_tcp_socket_[r.client_id_]=socket;cid_session_unknown_[r.client_id_]=true;
+                cid_tcp_socket_[r.client_id_]=socket;socket_client_[socket]=r.client_id_;cid_session_unknown_[r.client_id_]=true;
                 cid_next_exp_seq_num_[r.client_id_]=request.seq_num_;cid_next_outgoing_seq_num_[r.client_id_]=1;
               } else reason=RejectReason::IDENTITY;
             }
@@ -95,14 +111,22 @@ namespace Exchange {
         }
         const auto invalid=Common::Wire::validate(r);
         if(reason==RejectReason::NONE && invalid!=RejectReason::NONE) {
-          if(!cid_tcp_socket_[r.client_id_]) {cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;}
+          if(!cid_tcp_socket_[r.client_id_]) {
+            cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;socket_client_[socket]=r.client_id_;
+            cid_next_outgoing_seq_num_[r.client_id_]=anonymous_sequences_.try_emplace(socket,1).first->second;
+          }
           if(!reject(socket,request,invalid))break;
           ++cid_next_exp_seq_num_[r.client_id_];
         } else if(reason!=RejectReason::NONE) {
           if(!reject(socket,request,reason))break;
         } else {
-          if(!fifo_sequencer_.addClientRequest(rx_time,r))break;
-          if(!cid_tcp_socket_[r.client_id_]) {cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;}
+          if(!fifo_sequencer_.canAccept())break;
+          if(audit_)audit_->request("RECEIVED",r);
+          ASSERT(fifo_sequencer_.addClientRequest(rx_time,r),"FIFO capacity changed within single owner");
+          if(!cid_tcp_socket_[r.client_id_]) {
+            cid_tcp_socket_[r.client_id_]=socket;cid_session_epoch_[r.client_id_]=request.session_epoch_;socket_client_[socket]=r.client_id_;
+            cid_next_outgoing_seq_num_[r.client_id_]=anonymous_sequences_.try_emplace(socket,1).first->second;
+          }
           ++cid_next_exp_seq_num_[r.client_id_];++accepted_frames_;
         }
         consumed+=Common::Wire::RequestSize;
@@ -135,7 +159,8 @@ namespace Exchange {
     /// Lock free queue of outgoing client responses to be sent out to connected clients.
     ClientResponseLFQueue *outgoing_responses_ = nullptr;
 
-    volatile bool run_ = false;
+    std::atomic<bool> run_{false};
+    std::unique_ptr<std::thread> worker_;
 
     std::string time_str_;
     Logger logger_;
@@ -151,6 +176,7 @@ namespace Exchange {
     std::array<uint64_t,ME_MAX_NUM_CLIENTS> cid_session_epoch_{};
     std::array<bool,ME_MAX_NUM_CLIENTS> cid_session_unknown_{};
     std::unordered_map<TCPSocket*,uint64_t> anonymous_sequences_;
+    std::unordered_map<TCPSocket*,ClientId> socket_client_;
     uint64_t accepted_frames_=0,rejected_frames_=0;
 
     /// TCP server instance listening for new client connections.
@@ -158,5 +184,8 @@ namespace Exchange {
 
     /// FIFO sequencer responsible for making sure incoming client requests are processed in the order in which they were received.
     FIFOSequencer fifo_sequencer_;
+    Common::CriticalJournal* audit_=nullptr;
+    std::atomic<bool> accepting_{true},quiesced_{false};
+    std::atomic<Nanos> stop_deadline_{INT64_MAX};
   };
 }

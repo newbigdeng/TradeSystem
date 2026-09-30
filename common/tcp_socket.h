@@ -3,7 +3,7 @@
 #include <vector>
 #include "socket_utils.h"
 namespace Common {
-constexpr size_t TCPBufferSize=64*1024*1024;
+constexpr size_t TCPBufferSize=1024*1024;
 enum class SendResult { Accepted, Full, Invalid };
 enum class ConnectionState { Connecting, Open, PeerClosed, Error };
 struct TCPSocket {

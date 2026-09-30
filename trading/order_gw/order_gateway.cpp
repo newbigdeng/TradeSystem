@@ -13,7 +13,8 @@ namespace Trading {
   /// Main thread loop - sends out client requests to the exchange and reads and dispatches incoming client responses.
   auto OrderGateway::run() noexcept -> void {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
-    while (run_) {
+    while(run_ || outgoing_requests_->peek() || tcp_socket_.pending_bytes() || pending_requests_ || Common::getMonotonicNanos()-Nanos(last_receive_)<50*NANOS_TO_MILLIS) {
+      if(!run_ && Common::getMonotonicNanos()>stop_deadline_.load()) {session_healthy_=false;logger_.log("ORDER SESSION UNKNOWN: shutdown deadline pending:% unsent_bytes:%\n",pending_requests_,tcp_socket_.pending_bytes());break;}
       tcp_socket_.sendAndRecv();
       if(!tcp_socket_.healthy() || !session_healthy_.load(std::memory_order_acquire)) {
         logger_.log("ORDER SESSION UNKNOWN: disconnect; stop new sends and reconcile before restart\n");
@@ -34,9 +35,10 @@ namespace Trading {
         outgoing_requests_->pop();
         TTT_MEASURE(T12_OrderGateway_TCP_write, logger_);
 
-        next_outgoing_seq_num_++;
+        next_outgoing_seq_num_++;++pending_requests_;
       }
     }
+    logger_.log("GATEWAY STATS sent:% received_frames:% pending:% unsent_bytes:% healthy:% response_queue_full:%\n",next_outgoing_seq_num_-1,next_exp_seq_num_-1,pending_requests_,tcp_socket_.pending_bytes(),session_healthy_.load(),incoming_responses_->full_count());
   }
 
   /// Callback when an incoming client response is read, we perform some checks and forward it to the lock free queue connected to the trade engine.
@@ -61,6 +63,8 @@ namespace Trading {
       }
       if(!incoming_responses_->try_push(r))break; // keep complete frame, retry after downstream drains
       if(r.reject_reason_==Exchange::RejectReason::IDENTITY || r.reject_reason_==Exchange::RejectReason::SEQUENCE || r.reject_reason_==Exchange::RejectReason::SESSION || r.reject_reason_==Exchange::RejectReason::VERSION)session_healthy_.store(false,std::memory_order_release);
+      last_receive_=Common::getMonotonicNanos();
+      if(r.type_!=Exchange::ClientResponseType::FILLED && pending_requests_)--pending_requests_;
       ++next_exp_seq_num_;consumed+=Common::Wire::ResponseSize;
     }
     if(consumed) {memmove(socket->inbound_data_.data(),socket->inbound_data_.data()+consumed,socket->next_rcv_valid_index_-consumed);socket->next_rcv_valid_index_-=consumed;}

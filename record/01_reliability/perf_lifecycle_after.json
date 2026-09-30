@@ -1,6 +1,6 @@
 {
   "commit": "1c0af8688bd2a4a2d72541a1ac05763780b93521",
-  "compiler_flags": "-std=c++20 -O3 -DNDEBUG -DTRADE_FEATURE_BASELINE",
+  "compiler_flags": "-std=c++20 -O3 -DNDEBUG",
   "cpu_affinity": [
     0
   ],
@@ -10,38 +10,38 @@
     {
       "mode": "thread_start_join",
       "operations": 1,
-      "elapsed_ns": 1002260445,
-      "ns_per_operation": 1002260445,
+      "elapsed_ns": 804124,
+      "ns_per_operation": 804124,
       "checksum": 42
     },
     {
       "mode": "thread_start_join",
       "operations": 1,
-      "elapsed_ns": 1000633444,
-      "ns_per_operation": 1000633444,
+      "elapsed_ns": 1132152,
+      "ns_per_operation": 1132152,
       "checksum": 42
     },
     {
       "mode": "thread_start_join",
       "operations": 1,
-      "elapsed_ns": 1000561578,
-      "ns_per_operation": 1000561578,
+      "elapsed_ns": 462334,
+      "ns_per_operation": 462334,
       "checksum": 42
     },
     {
       "mode": "thread_start_join",
       "operations": 1,
-      "elapsed_ns": 1000378370,
-      "ns_per_operation": 1000378370,
+      "elapsed_ns": 307249,
+      "ns_per_operation": 307249,
       "checksum": 42
     },
     {
       "mode": "thread_start_join",
       "operations": 1,
-      "elapsed_ns": 1000435260,
-      "ns_per_operation": 1000435260,
+      "elapsed_ns": 491661,
+      "ns_per_operation": 491661,
       "checksum": 42
     }
   ],
-  "median_ns_per_operation": 1000561578
+  "median_ns_per_operation": 491661
 }
