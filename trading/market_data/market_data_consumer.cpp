@@ -128,9 +128,7 @@ namespace Trading {
     }
 
     for (const auto &itr: final_events) {
-      auto next_write = incoming_md_updates_->getNextToWriteTo();
-      *next_write = itr;
-      incoming_md_updates_->updateWriteIndex();
+      ASSERT(incoming_md_updates_->try_push(itr), "critical queue full; stop instead of overwriting");
     }
 
     logger_.log("%:% %() % Recovered % snapshot and % incremental orders.\n", __FILE__, __LINE__, __FUNCTION__,
@@ -202,9 +200,7 @@ namespace Trading {
 
           ++next_exp_inc_seq_num_;
 
-          auto next_write = incoming_md_updates_->getNextToWriteTo();
-          *next_write = std::move(request->me_market_update_);
-          incoming_md_updates_->updateWriteIndex();
+          ASSERT(incoming_md_updates_->try_push(std::move(request->me_market_update_)), "critical queue full; stop instead of overwriting");
           TTT_MEASURE(T8_MarketDataConsumer_LFQueue_write, logger_);
         }
       }

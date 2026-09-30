@@ -114,13 +114,13 @@ namespace Exchange {
   void SnapshotSynthesizer::run() {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_));
     while (run_) {
-      for (auto market_update = snapshot_md_updates_->getNextToRead(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->getNextToRead()) {
+      for (auto market_update = snapshot_md_updates_->peek(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->peek()) {
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(&time_str_),
                     market_update->toString().c_str());
 
         addToSnapshot(market_update);
 
-        snapshot_md_updates_->updateReadIndex();
+        snapshot_md_updates_->pop();
       }
 
       if (getCurrentNanos() - last_snapshot_time_ > 60 * NANOS_TO_SECS) {

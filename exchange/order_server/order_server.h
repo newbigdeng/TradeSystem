@@ -30,7 +30,7 @@ namespace Exchange {
 
         tcp_server_.sendAndRecv();
 
-        for (auto client_response = outgoing_responses_->getNextToRead(); outgoing_responses_->size() && client_response; client_response = outgoing_responses_->getNextToRead()) {
+        for (auto client_response = outgoing_responses_->peek(); outgoing_responses_->size() && client_response; client_response = outgoing_responses_->peek()) {
           TTT_MEASURE(T5t_OrderServer_LFQueue_read, logger_);
 
           auto &next_outgoing_seq_num = cid_next_outgoing_seq_num_[client_response->client_id_];
@@ -44,7 +44,7 @@ namespace Exchange {
           cid_tcp_socket_[client_response->client_id_]->send(client_response, sizeof(MEClientResponse));
           END_MEASURE(Exchange_TCPSocket_send, logger_);
 
-          outgoing_responses_->updateReadIndex();
+          outgoing_responses_->pop();
           TTT_MEASURE(T6t_OrderServer_TCP_write, logger_);
 
           ++next_outgoing_seq_num;

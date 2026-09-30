@@ -1,61 +1,57 @@
 #pragma once
-
-#include <iostream>
-#include <vector>
+#include <algorithm>
 #include <atomic>
-
+#include <cstdint>
+#include <stdexcept>
+#include <vector>
 #include "macros.h"
-
 namespace Common {
-  template<typename T>
-  class LFQueue final {
-  public:
-    explicit LFQueue(std::size_t num_elems) :
-        store_(num_elems, T()) /* pre-allocation of vector storage. */ {
-    }
-
-    auto getNextToWriteTo() noexcept {
-      return &store_[next_write_index_];
-    }
-
-    auto updateWriteIndex() noexcept {
-      next_write_index_ = (next_write_index_ + 1) % store_.size();
-      num_elements_++;
-    }
-
-    auto getNextToRead() const noexcept -> const T * {
-      return (size() ? &store_[next_read_index_] : nullptr);
-    }
-
-    auto updateReadIndex() noexcept {
-      next_read_index_ = (next_read_index_ + 1) % store_.size(); // wrap around at the end of container size.
-      ASSERT(num_elements_ != 0, "Read an invalid element in:" + std::to_string(pthread_self()));
-      num_elements_--;
-    }
-
-    auto size() const noexcept {
-      return num_elements_.load();
-    }
-
-    /// Deleted default, copy & move constructors and assignment-operators.
-    LFQueue() = delete;
-
-    LFQueue(const LFQueue &) = delete;
-
-    LFQueue(const LFQueue &&) = delete;
-
-    LFQueue &operator=(const LFQueue &) = delete;
-
-    LFQueue &operator=(const LFQueue &&) = delete;
-
-  private:
-    /// Underlying container of data accessed in FIFO order.
-    std::vector<T> store_;
-
-    /// Atomic trackers for next index to write new data to and read new data from.
-    std::atomic<size_t> next_write_index_ = {0};
-    std::atomic<size_t> next_read_index_ = {0};
-
-    std::atomic<size_t> num_elements_ = {0};
-  };
+// One producer, one consumer. Indices wrap at 2*capacity, not SIZE_MAX;
+// this preserves slot mapping for arbitrary capacities, including 1 and 3.
+template<class T> class LFQueue final {
+ public:
+  explicit LFQueue(size_t capacity):store_(capacity),modulus_(capacity*2) {
+    if(!capacity || capacity>SIZE_MAX/2) throw std::invalid_argument("invalid queue capacity");
+  }
+  bool try_push(const T &value) noexcept {
+    const auto tail=tail_.load(std::memory_order_relaxed);
+    const auto used=distance(tail,head_.load(std::memory_order_acquire));
+    if(used==store_.size()) { full_count_.fetch_add(1,std::memory_order_relaxed); return false; }
+    store_[tail%store_.size()]=value;
+    tail_.store(next(tail),std::memory_order_release);
+    if(used+1>high_watermark_.load(std::memory_order_relaxed)) high_watermark_.store(used+1,std::memory_order_relaxed);
+    return true;
+  }
+  bool try_pop(T &value) noexcept {
+    const auto head=head_.load(std::memory_order_relaxed);
+    if(head==tail_.load(std::memory_order_acquire)) return false;
+    value=store_[head%store_.size()]; head_.store(next(head),std::memory_order_release); return true;
+  }
+  // Consumer-only peek/commit retains a frame when an output buffer is full.
+  const T *peek() const noexcept {
+    const auto head=head_.load(std::memory_order_relaxed);
+    return head==tail_.load(std::memory_order_acquire)?nullptr:&store_[head%store_.size()];
+  }
+  void pop() noexcept {
+    const auto head=head_.load(std::memory_order_relaxed);
+    ASSERT(head!=tail_.load(std::memory_order_acquire),"pop on empty SPSC queue");
+    head_.store(next(head),std::memory_order_release);
+  }
+  // Diagnostic snapshot only; callers reserve slots through try_push/try_pop.
+  size_t size() const noexcept {
+    const auto head=head_.load(std::memory_order_acquire);
+    return std::min(distance(tail_.load(std::memory_order_acquire),head),store_.size());
+  }
+  size_t capacity() const noexcept { return store_.size(); }
+  uint64_t full_count() const noexcept { return full_count_.load(std::memory_order_relaxed); }
+  size_t high_watermark() const noexcept { return high_watermark_.load(std::memory_order_relaxed); }
+  LFQueue(const LFQueue &)=delete; LFQueue &operator=(const LFQueue &)=delete;
+ private:
+  size_t next(size_t i) const noexcept { return i+1==modulus_?0:i+1; }
+  size_t distance(size_t tail,size_t head) const noexcept { return tail>=head?tail-head:modulus_-(head-tail); }
+  std::vector<T> store_; size_t modulus_;
+  alignas(64) std::atomic<size_t> head_{0};
+  alignas(64) std::atomic<size_t> tail_{0};
+  std::atomic<uint64_t> full_count_{0}; std::atomic<size_t> high_watermark_{0};
+};
 }

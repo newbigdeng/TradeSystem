@@ -41,9 +41,11 @@ namespace Exchange {
         logger_->log("%:% %() % Writing RX:% Req:% to FIFO.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_),
                      client_request.recv_time_, client_request.request_.toString());
 
-        auto next_write = incoming_requests_->getNextToWriteTo();
-        *next_write = std::move(client_request.request_);
-        incoming_requests_->updateWriteIndex();
+        if(!incoming_requests_->try_push(client_request.request_)) {
+          std::move(pending_client_requests_.begin()+i,pending_client_requests_.begin()+pending_size_,pending_client_requests_.begin());
+          pending_size_-=i;
+          return;
+        }
         TTT_MEASURE(T2_OrderServer_LFQueue_write, (*logger_));
       }
 

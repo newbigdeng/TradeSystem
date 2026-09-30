@@ -1,0 +1,52 @@
+{
+  "environment": {
+    "commit": "c88c13b66e5c5d9f68ffb0848c27cbb527bb36b0",
+    "kernel": "7.0.0-34-generic",
+    "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "cpu_affinity": [
+      0
+    ],
+    "warmups": 1,
+    "repetitions": 5,
+    "compiler_flags": "-std=c++20 -O3 -DNDEBUG -DTRADE_BASELINE",
+    "note": "valid non-overflow / small-write workloads; constructor and destructor outside timer"
+  },
+  "samples": [
+    {
+      "mode": "queue",
+      "operations": 2000000,
+      "elapsed_ns": 457093438,
+      "ns_per_operation": 228.547,
+      "checksum": 1999999000000
+    },
+    {
+      "mode": "queue",
+      "operations": 2000000,
+      "elapsed_ns": 449152511,
+      "ns_per_operation": 224.576,
+      "checksum": 1999999000000
+    },
+    {
+      "mode": "queue",
+      "operations": 2000000,
+      "elapsed_ns": 476662680,
+      "ns_per_operation": 238.331,
+      "checksum": 1999999000000
+    },
+    {
+      "mode": "queue",
+      "operations": 2000000,
+      "elapsed_ns": 475195031,
+      "ns_per_operation": 237.598,
+      "checksum": 1999999000000
+    },
+    {
+      "mode": "queue",
+      "operations": 2000000,
+      "elapsed_ns": 480237465,
+      "ns_per_operation": 240.119,
+      "checksum": 1999999000000
+    }
+  ],
+  "median_ns_per_operation": 237.598
+}

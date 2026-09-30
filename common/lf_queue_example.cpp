@@ -12,8 +12,8 @@ auto consumeFunction(LFQueue<MyStruct>* lfq) {
   std::this_thread::sleep_for(5s);
 
   while(lfq->size()) {
-    const auto d = lfq->getNextToRead();
-    lfq->updateReadIndex();
+    const auto d = lfq->peek();
+    lfq->pop();
 
     std::cout << "consumeFunction read elem:" << d->d_[0] << "," << d->d_[1] << "," << d->d_[2] << " lfq-size:" << lfq->size() << std::endl;
 
@@ -30,8 +30,7 @@ int main(int, char **) {
 
   for(auto i = 0; i < 50; ++i) {
     const MyStruct d{i, i * 10, i * 100};
-    *(lfq.getNextToWriteTo()) = d;
-    lfq.updateWriteIndex();
+    while(!lfq.try_push(d)) std::this_thread::yield();
 
     std::cout << "main constructed elem:" << d.d_[0] << "," << d.d_[1] << "," << d.d_[2] << " lfq-size:" << lfq.size() << std::endl;
 

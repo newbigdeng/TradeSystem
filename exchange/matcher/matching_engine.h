@@ -53,18 +53,14 @@ namespace Exchange {
     /// Write client responses to the lock free queue for the order server to consume.
     auto sendClientResponse(const MEClientResponse *client_response) noexcept {
       logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), client_response->toString());
-      auto next_write = outgoing_ogw_responses_->getNextToWriteTo();
-      *next_write = std::move(*client_response);
-      outgoing_ogw_responses_->updateWriteIndex();
+      ASSERT(outgoing_ogw_responses_->try_push(std::move(*client_response)), "critical queue full; stop instead of overwriting");
       TTT_MEASURE(T4t_MatchingEngine_LFQueue_write, logger_);
     }
 
     /// Write market data update to the lock free queue for the market data publisher to consume.
     auto sendMarketUpdate(const MEMarketUpdate *market_update) noexcept {
       logger_.log("%:% %() % Sending %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), market_update->toString());
-      auto next_write = outgoing_md_updates_->getNextToWriteTo();
-      *next_write = *market_update;
-      outgoing_md_updates_->updateWriteIndex();
+      ASSERT(outgoing_md_updates_->try_push(*market_update), "critical queue full; stop instead of overwriting");
       TTT_MEASURE(T4_MatchingEngine_LFQueue_write, logger_);
     }
 
@@ -72,7 +68,7 @@ namespace Exchange {
     auto run() noexcept {
       logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
       while (run_) {
-        const auto me_client_request = incoming_requests_->getNextToRead();
+        const auto me_client_request = incoming_requests_->peek();
         if (LIKELY(me_client_request)) {
           TTT_MEASURE(T3_MatchingEngine_LFQueue_read, logger_);
 
@@ -81,7 +77,7 @@ namespace Exchange {
           START_MEASURE(Exchange_MatchingEngine_processClientRequest);
           processClientRequest(me_client_request);
           END_MEASURE(Exchange_MatchingEngine_processClientRequest, logger_);
-          incoming_requests_->updateReadIndex();
+          incoming_requests_->pop();
         }
       }
     }

@@ -16,7 +16,7 @@ namespace Trading {
     while (run_) {
       tcp_socket_.sendAndRecv();
 
-      for(auto client_request = outgoing_requests_->getNextToRead(); client_request; client_request = outgoing_requests_->getNextToRead()) {
+      for(auto client_request = outgoing_requests_->peek(); client_request; client_request = outgoing_requests_->peek()) {
         TTT_MEASURE(T11_OrderGateway_LFQueue_read, logger_);
 
         logger_.log("%:% %() % Sending cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__,
@@ -25,7 +25,7 @@ namespace Trading {
         tcp_socket_.send(&next_outgoing_seq_num_, sizeof(next_outgoing_seq_num_));
         tcp_socket_.send(client_request, sizeof(Exchange::MEClientRequest));
         END_MEASURE(Trading_TCPSocket_send, logger_);
-        outgoing_requests_->updateReadIndex();
+        outgoing_requests_->pop();
         TTT_MEASURE(T12_OrderGateway_TCP_write, logger_);
 
         next_outgoing_seq_num_++;
@@ -59,9 +59,7 @@ namespace Trading {
 
         ++next_exp_seq_num_;
 
-        auto next_write = incoming_responses_->getNextToWriteTo();
-        *next_write = std::move(response->me_client_response_);
-        incoming_responses_->updateWriteIndex();
+        ASSERT(incoming_responses_->try_push(std::move(response->me_client_response_)), "critical queue full; stop instead of overwriting");
         TTT_MEASURE(T8t_OrderGateway_LFQueue_write, logger_);
       }
       memcpy(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
