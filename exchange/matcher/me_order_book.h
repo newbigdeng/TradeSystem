@@ -1,4 +1,6 @@
 #pragma once
+#include <functional>
+#include <unordered_set>
 
 #include "common/types.h"
 #include "common/mem_pool.h"
@@ -26,6 +28,16 @@ namespace Exchange {
     /// Attempt to cancel an order in the order book, issue a cancel-rejection if order does not exist.
     auto cancel(ClientId client_id, OrderId order_id, TickerId ticker_id) noexcept -> void;
 
+    std::function<void(const MEClientResponse&)> response_sink_;
+    std::function<void(const MEMarketUpdate&)> market_sink_;
+    std::vector<MEMarketUpdate> liveOrders() const {
+      std::vector<MEMarketUpdate> result;
+      for(const auto &client:cid_oid_to_order_) for(const auto &[id,order]:client) {
+        (void)id; result.push_back({MarketUpdateType::ADD,order->market_order_id_,ticker_id_,order->side_,order->price_,order->qty_,order->priority_});
+      }
+      std::sort(result.begin(),result.end(),[](const auto& a,const auto& b){return a.order_id_<b.order_id_;});return result;
+    }
+
     auto toString(bool detailed, bool validity_check) const -> std::string;
 
     /// Deleted default, copy & move constructors and assignment-operators.
@@ -46,7 +58,7 @@ namespace Exchange {
     MatchingEngine *matching_engine_ = nullptr;
 
     /// Hash map from ClientId -> OrderId -> MEOrder.
-    ClientOrderHashMap cid_oid_to_order_;
+    ClientOrderHashMap cid_oid_to_order_{};
 
     /// Memory pool to manage MEOrdersAtPrice objects.
     MemPool<MEOrdersAtPrice> orders_at_price_pool_;
@@ -66,6 +78,9 @@ namespace Exchange {
     MEMarketUpdate market_update_;
 
     OrderId next_market_order_id_ = 1;
+    std::array<std::unordered_set<OrderId>,ME_MAX_NUM_CLIENTS> used_client_order_ids_{};
+    void emitResponse(const MEClientResponse& response);
+    void emitMarket(const MEMarketUpdate& update);
 
     std::string time_str_;
     Logger *logger_ = nullptr;
@@ -75,18 +90,14 @@ namespace Exchange {
       return next_market_order_id_++;
     }
 
-    auto priceToIndex(Price price) const noexcept {
-      return (price % ME_MAX_PRICE_LEVELS);
-    }
-
-    /// Fetch and return the MEOrdersAtPrice corresponding to the provided price.
-    auto getOrdersAtPrice(Price price) const noexcept -> MEOrdersAtPrice * {
-      return price_orders_at_price_.at(priceToIndex(price));
+    auto getOrdersAtPrice(Price price,Side side) const noexcept -> MEOrdersAtPrice* {
+      const auto found=price_orders_at_price_.find({side,price});
+      return found==price_orders_at_price_.end()?nullptr:found->second;
     }
 
     /// Add a new MEOrdersAtPrice at the correct price into the containers - the hash map and the doubly linked list of price levels.
     auto addOrdersAtPrice(MEOrdersAtPrice *new_orders_at_price) noexcept {
-      price_orders_at_price_.at(priceToIndex(new_orders_at_price->price_)) = new_orders_at_price;
+      price_orders_at_price_[{new_orders_at_price->side_,new_orders_at_price->price_}] = new_orders_at_price;
 
       const auto best_orders_by_price = (new_orders_at_price->side_ == Side::BUY ? bids_by_price_ : asks_by_price_);
       if (UNLIKELY(!best_orders_by_price)) {
@@ -134,7 +145,7 @@ namespace Exchange {
     /// Remove the MEOrdersAtPrice from the containers - the hash map and the doubly linked list of price levels.
     auto removeOrdersAtPrice(Side side, Price price) noexcept {
       const auto best_orders_by_price = (side == Side::BUY ? bids_by_price_ : asks_by_price_);
-      auto orders_at_price = getOrdersAtPrice(price);
+      auto orders_at_price = getOrdersAtPrice(price,side);
 
       if (UNLIKELY(orders_at_price->next_entry_ == orders_at_price)) { // empty side of book.
         (side == Side::BUY ? bids_by_price_ : asks_by_price_) = nullptr;
@@ -149,13 +160,13 @@ namespace Exchange {
         orders_at_price->prev_entry_ = orders_at_price->next_entry_ = nullptr;
       }
 
-      price_orders_at_price_.at(priceToIndex(price)) = nullptr;
+      price_orders_at_price_.erase({side,price});
 
       orders_at_price_pool_.deallocate(orders_at_price);
     }
 
-    auto getNextPriority(Price price) noexcept {
-      const auto orders_at_price = getOrdersAtPrice(price);
+    auto getNextPriority(Price price,Side side) noexcept {
+      const auto orders_at_price = getOrdersAtPrice(price,side);
       if (!orders_at_price)
         return 1lu;
 
@@ -169,11 +180,11 @@ namespace Exchange {
 
     /// Check if a new order with the provided attributes would match against existing passive orders on the other side of the order book.
     /// This will call the match() method to perform the match if there is a match to be made and return the quantity remaining if any on this new order.
-    auto checkForMatch(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty, Qty new_market_order_id) noexcept;
+    auto checkForMatch(ClientId client_id, OrderId client_order_id, TickerId ticker_id, Side side, Price price, Qty qty, OrderId new_market_order_id) noexcept;
 
     /// Remove and de-allocate provided order from the containers.
     auto removeOrder(MEOrder *order) noexcept {
-      auto orders_at_price = getOrdersAtPrice(order->price_);
+      auto orders_at_price = getOrdersAtPrice(order->price_,order->side_);
 
       if (order->prev_order_ == order) { // only one element.
         removeOrdersAtPrice(order->side_, order->price_);
@@ -190,13 +201,13 @@ namespace Exchange {
         order->prev_order_ = order->next_order_ = nullptr;
       }
 
-      cid_oid_to_order_.at(order->client_id_).at(order->client_order_id_) = nullptr;
+      cid_oid_to_order_.at(order->client_id_).erase(order->client_order_id_);
       order_pool_.deallocate(order);
     }
 
     /// Add a single order at the end of the FIFO queue at the price level that this order belongs in.
     auto addOrder(MEOrder *order) noexcept {
-      const auto orders_at_price = getOrdersAtPrice(order->price_);
+      const auto orders_at_price = getOrdersAtPrice(order->price_,order->side_);
 
       if (!orders_at_price) {
         order->next_order_ = order->prev_order_ = order;
@@ -212,7 +223,7 @@ namespace Exchange {
         first_order->prev_order_ = order;
       }
 
-      cid_oid_to_order_.at(order->client_id_).at(order->client_order_id_) = order;
+      cid_oid_to_order_.at(order->client_id_)[order->client_order_id_] = order;
     }
   };
 

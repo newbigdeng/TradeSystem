@@ -1,0 +1,12 @@
+{
+  "array": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL price collision mixed two distinct levels\n"
+  },
+  "unordered": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL price collision mixed two distinct levels\n"
+  }
+}

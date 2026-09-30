@@ -43,6 +43,7 @@ namespace Trading {
             order->order_state_ = OMOrderState::DEAD;
         }
           break;
+        case Exchange::ClientResponseType::REJECTED:
         case Exchange::ClientResponseType::CANCEL_REJECTED:
         case Exchange::ClientResponseType::INVALID: {
         }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <map>
 #include <sstream>
 #include "common/types.h"
 
@@ -63,7 +64,7 @@ namespace Trading {
   };
 
   /// Hash map from Price -> MarketOrdersAtPrice.
-  typedef std::array<MarketOrdersAtPrice *, ME_MAX_PRICE_LEVELS> OrdersAtPriceHashMap;
+  typedef std::map<PriceKey,MarketOrdersAtPrice*> OrdersAtPriceHashMap;
 
   /// Represents a Best Bid Offer (BBO) abstraction for components which only need a small summary of top of book price and liquidity instead of the full order book.
   struct BBO {

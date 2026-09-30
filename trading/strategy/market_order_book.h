@@ -1,4 +1,5 @@
 #pragma once
+#include <set>
 
 #include "common/types.h"
 #include "common/mem_pool.h"
@@ -17,7 +18,7 @@ namespace Trading {
     ~MarketOrderBook();
 
     /// Process market data update and update the limit order book.
-    auto onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept -> void;
+    auto onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept -> bool;
 
     auto setTradeEngine(TradeEngine *trade_engine) {
       trade_engine_ = trade_engine;
@@ -52,6 +53,11 @@ namespace Trading {
       }
     }
 
+    std::vector<Exchange::MEMarketUpdate> liveOrders() const {
+      std::vector<Exchange::MEMarketUpdate> result;
+      for(const auto id:live_order_ids_) {auto *order=oid_to_order_[id];result.push_back({Exchange::MarketUpdateType::ADD,order->order_id_,ticker_id_,order->side_,order->price_,order->qty_,order->priority_});}
+      return result;
+    }
     auto getBBO() const noexcept -> const BBO* {
       return &bbo_;
     }
@@ -76,7 +82,8 @@ namespace Trading {
     TradeEngine *trade_engine_ = nullptr;
 
     /// Hash map from OrderId -> MarketOrder.
-    OrderHashMap oid_to_order_;
+    OrderHashMap oid_to_order_{};
+    std::set<OrderId> live_order_ids_;
 
     /// Memory pool to manage MarketOrdersAtPrice objects.
     MemPool<MarketOrdersAtPrice> orders_at_price_pool_;
@@ -97,18 +104,13 @@ namespace Trading {
     Logger *logger_ = nullptr;
 
   private:
-    auto priceToIndex(Price price) const noexcept {
-      return (price % ME_MAX_PRICE_LEVELS);
+    auto getOrdersAtPrice(Price price,Side side) const noexcept -> MarketOrdersAtPrice* {
+      const auto found=price_orders_at_price_.find({side,price});
+      return found==price_orders_at_price_.end()?nullptr:found->second;
     }
-
-    /// Fetch and return the MarketOrdersAtPrice corresponding to the provided price.
-    auto getOrdersAtPrice(Price price) const noexcept -> MarketOrdersAtPrice * {
-      return price_orders_at_price_.at(priceToIndex(price));
-    }
-
     /// Add a new MarketOrdersAtPrice at the correct price into the containers - the hash map and the doubly linked list of price levels.
     auto addOrdersAtPrice(MarketOrdersAtPrice *new_orders_at_price) noexcept {
-      price_orders_at_price_.at(priceToIndex(new_orders_at_price->price_)) = new_orders_at_price;
+      price_orders_at_price_[{new_orders_at_price->side_,new_orders_at_price->price_}] = new_orders_at_price;
 
       const auto best_orders_by_price = (new_orders_at_price->side_ == Side::BUY ? bids_by_price_ : asks_by_price_);
       if (UNLIKELY(!best_orders_by_price)) {
@@ -158,7 +160,7 @@ namespace Trading {
     /// Remove the MarketOrdersAtPrice from the containers - the hash map and the doubly linked list of price levels.
     auto removeOrdersAtPrice(Side side, Price price) noexcept {
       const auto best_orders_by_price = (side == Side::BUY ? bids_by_price_ : asks_by_price_);
-      auto orders_at_price = getOrdersAtPrice(price);
+      auto orders_at_price = getOrdersAtPrice(price,side);
 
       if (UNLIKELY(orders_at_price->next_entry_ == orders_at_price)) { // empty side of book.
         (side == Side::BUY ? bids_by_price_ : asks_by_price_) = nullptr;
@@ -173,14 +175,14 @@ namespace Trading {
         orders_at_price->prev_entry_ = orders_at_price->next_entry_ = nullptr;
       }
 
-      price_orders_at_price_.at(priceToIndex(price)) = nullptr;
+      price_orders_at_price_.erase({side,price});
 
       orders_at_price_pool_.deallocate(orders_at_price);
     }
 
     /// Remove and de-allocate provided order from the containers.
     auto removeOrder(MarketOrder *order) noexcept -> void {
-      auto orders_at_price = getOrdersAtPrice(order->price_);
+      auto orders_at_price = getOrdersAtPrice(order->price_,order->side_);
 
       if (order->prev_order_ == order) { // only one element.
         removeOrdersAtPrice(order->side_, order->price_);
@@ -198,12 +200,13 @@ namespace Trading {
       }
 
       oid_to_order_.at(order->order_id_) = nullptr;
+      live_order_ids_.erase(order->order_id_);
       order_pool_.deallocate(order);
     }
 
     /// Add a single order at the end of the FIFO queue at the price level that this order belongs in.
     auto addOrder(MarketOrder *order) noexcept -> void {
-      const auto orders_at_price = getOrdersAtPrice(order->price_);
+      const auto orders_at_price = getOrdersAtPrice(order->price_,order->side_);
 
       if (!orders_at_price) {
         order->next_order_ = order->prev_order_ = order;
@@ -220,6 +223,7 @@ namespace Trading {
       }
 
       oid_to_order_.at(order->order_id_) = order;
+      live_order_ids_.insert(order->order_id_);
     }
   };
 

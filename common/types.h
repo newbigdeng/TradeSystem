@@ -4,6 +4,8 @@
 #include <limits>
 #include <sstream>
 #include <array>
+#include <utility>
+#include <functional>
 
 #include "common/macros.h"
 
@@ -114,6 +116,12 @@ namespace Common {
     return "UNKNOWN";
   }
 
+  using PriceKey=std::pair<Side,Price>;
+  struct PriceKeyHash {
+    size_t operator()(const PriceKey& key) const noexcept {
+      return std::hash<Price>{}(key.second) ^ (std::hash<int>{}(static_cast<int>(key.first))<<1);
+    }
+  };
   /// Convert Side to an index which can be used to index into a std::array.
   inline constexpr auto sideToIndex(Side side) noexcept {
     return static_cast<size_t>(side) + 1;

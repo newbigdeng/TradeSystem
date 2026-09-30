@@ -1,0 +1,56 @@
+{
+  "commit": "cc986999c93dd00cb9035ff6ddc29c11954b52e0",
+  "samples": [
+    {
+      "mode": "book",
+      "operations": 40000,
+      "elapsed_ns": 2995050513,
+      "ns_per_operation": 74876.3,
+      "checksum": 40000,
+      "sizeof_book": 29040,
+      "memory": "VmSize:\t  970716 kB\nVmRSS:\t  820760 kB\n"
+    },
+    {
+      "mode": "book",
+      "operations": 40000,
+      "elapsed_ns": 3036298063,
+      "ns_per_operation": 75907.5,
+      "checksum": 40000,
+      "sizeof_book": 29040,
+      "memory": "VmSize:\t  970716 kB\nVmRSS:\t  820756 kB\n"
+    },
+    {
+      "mode": "book",
+      "operations": 40000,
+      "elapsed_ns": 3087424708,
+      "ns_per_operation": 77185.6,
+      "checksum": 40000,
+      "sizeof_book": 29040,
+      "memory": "VmSize:\t  970716 kB\nVmRSS:\t  820788 kB\n"
+    },
+    {
+      "mode": "book",
+      "operations": 40000,
+      "elapsed_ns": 2952633082,
+      "ns_per_operation": 73815.8,
+      "checksum": 40000,
+      "sizeof_book": 29040,
+      "memory": "VmSize:\t  970716 kB\nVmRSS:\t  820796 kB\n"
+    },
+    {
+      "mode": "book",
+      "operations": 40000,
+      "elapsed_ns": 3031044014,
+      "ns_per_operation": 75776.1,
+      "checksum": 40000,
+      "sizeof_book": 29040,
+      "memory": "VmSize:\t  970716 kB\nVmRSS:\t  820740 kB\n"
+    }
+  ],
+  "median_ns_per_operation": 75776.1,
+  "warmups": 1,
+  "repetitions": 5,
+  "cpu_affinity": [
+    0
+  ]
+}

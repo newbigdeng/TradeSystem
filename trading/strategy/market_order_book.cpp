@@ -17,10 +17,16 @@ namespace Trading {
   }
 
   /// Process market data update and update the limit order book.
-  auto MarketOrderBook::onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept -> void {
-    const auto bid_updated = (bids_by_price_ && market_update->side_ == Side::BUY && market_update->price_ >= bids_by_price_->price_);
-    const auto ask_updated = (asks_by_price_ && market_update->side_ == Side::SELL && market_update->price_ <= asks_by_price_->price_);
-
+  auto MarketOrderBook::onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept -> bool {
+    if(market_update->ticker_id_!=ticker_id_) return false;
+    const auto type=market_update->type_;
+    if(type==Exchange::MarketUpdateType::ADD || type==Exchange::MarketUpdateType::MODIFY || type==Exchange::MarketUpdateType::CANCEL) {
+      if(!market_update->order_id_ || market_update->order_id_>=ME_MAX_ORDER_IDS) return false;
+      const auto *existing=oid_to_order_[market_update->order_id_];
+      if(type==Exchange::MarketUpdateType::ADD) {
+        if(existing || !order_pool_.available() || (market_update->side_!=Side::BUY && market_update->side_!=Side::SELL) || market_update->price_<=0 || market_update->price_==Price_INVALID || !market_update->qty_ || market_update->qty_==Qty_INVALID || (!getOrdersAtPrice(market_update->price_,market_update->side_) && !orders_at_price_pool_.available())) return false;
+      } else if(!existing || existing->side_!=market_update->side_ || existing->price_!=market_update->price_ || (type==Exchange::MarketUpdateType::MODIFY && (!market_update->qty_ || market_update->qty_==Qty_INVALID))) return false;
+    }
     switch (market_update->type_) {
       case Exchange::MarketUpdateType::ADD: {
         auto order = order_pool_.allocate(market_update->order_id_, market_update->side_, market_update->price_,
@@ -43,8 +49,8 @@ namespace Trading {
       }
         break;
       case Exchange::MarketUpdateType::TRADE: {
-        trade_engine_->onTradeUpdate(market_update, this);
-        return;
+        if(trade_engine_) trade_engine_->onTradeUpdate(market_update, this);
+        return true;
       }
         break;
       case Exchange::MarketUpdateType::CLEAR: { // Clear the full limit order book and deallocate MarketOrdersAtPrice and MarketOrder objects.
@@ -53,19 +59,10 @@ namespace Trading {
             order_pool_.deallocate(order);
         }
         oid_to_order_.fill(nullptr);
+        live_order_ids_.clear();
 
-        if(bids_by_price_) {
-          for(auto bid = bids_by_price_->next_entry_; bid != bids_by_price_; bid = bid->next_entry_)
-            orders_at_price_pool_.deallocate(bid);
-          orders_at_price_pool_.deallocate(bids_by_price_);
-        }
-
-        if(asks_by_price_) {
-          for(auto ask = asks_by_price_->next_entry_; ask != asks_by_price_; ask = ask->next_entry_)
-            orders_at_price_pool_.deallocate(ask);
-          orders_at_price_pool_.deallocate(asks_by_price_);
-        }
-
+        for(const auto &[key,level]:price_orders_at_price_) { (void)key;orders_at_price_pool_.deallocate(level); }
+        price_orders_at_price_.clear();
         bids_by_price_ = asks_by_price_ = nullptr;
       }
         break;
@@ -76,13 +73,14 @@ namespace Trading {
     }
 
     START_MEASURE(Trading_MarketOrderBook_updateBBO);
-    updateBBO(bid_updated, ask_updated);
+    updateBBO(true, true);
     END_MEASURE(Trading_MarketOrderBook_updateBBO, (*logger_));
 
     logger_->log("%:% %() % % %", __FILE__, __LINE__, __FUNCTION__,
                  Common::getCurrentTimeStr(&time_str_), market_update->toString(), bbo_.toString());
 
-    trade_engine_->onOrderBookUpdate(market_update->ticker_id_, market_update->price_, market_update->side_, this);
+    if(trade_engine_) trade_engine_->onOrderBookUpdate(market_update->ticker_id_, market_update->price_, market_update->side_, this);
+    return true;
   }
 
   auto MarketOrderBook::toString(bool detailed, bool validity_check) const -> std::string {

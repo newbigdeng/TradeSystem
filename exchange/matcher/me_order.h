@@ -1,6 +1,8 @@
 #pragma once
 
 #include <array>
+#include <map>
+#include <unordered_map>
 #include <sstream>
 #include "common/types.h"
 
@@ -34,7 +36,7 @@ namespace Exchange {
   };
 
   /// Hash map from OrderId -> MEOrder.
-  typedef std::array<MEOrder *, ME_MAX_ORDER_IDS> OrderHashMap;
+  typedef std::unordered_map<OrderId,MEOrder*> OrderHashMap;
 
   /// Hash map from ClientId -> OrderId -> MEOrder.
   typedef std::array<OrderHashMap, ME_MAX_NUM_CLIENTS> ClientOrderHashMap;
@@ -71,5 +73,5 @@ namespace Exchange {
   };
 
   /// Hash map from Price -> MEOrdersAtPrice.
-  typedef std::array<MEOrdersAtPrice *, ME_MAX_PRICE_LEVELS> OrdersAtPriceHashMap;
+  typedef std::map<PriceKey,MEOrdersAtPrice*> OrdersAtPriceHashMap;
 }

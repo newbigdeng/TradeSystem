@@ -14,7 +14,8 @@ namespace Exchange {
     ACCEPTED = 1,
     CANCELED = 2,
     FILLED = 3,
-    CANCEL_REJECTED = 4
+    CANCEL_REJECTED = 4,
+    REJECTED = 5
   };
 
   inline std::string clientResponseTypeToString(ClientResponseType type) {
@@ -27,11 +28,15 @@ namespace Exchange {
         return "FILLED";
       case ClientResponseType::CANCEL_REJECTED:
         return "CANCEL_REJECTED";
+      case ClientResponseType::REJECTED:
+        return "REJECTED";
       case ClientResponseType::INVALID:
         return "INVALID";
     }
     return "UNKNOWN";
   }
+
+  enum class RejectReason : uint8_t { NONE, INVALID_ID, INVALID_TYPE, INVALID_SIDE, INVALID_PRICE, INVALID_QTY, DUPLICATE_ID, CAPACITY, IDENTITY, SEQUENCE, SESSION, VERSION };
 
   /// These structures go over the wire / network, so the binary structures are packed to remove system dependent extra padding.
 #pragma pack(push, 1)
@@ -47,6 +52,7 @@ namespace Exchange {
     Price price_ = Price_INVALID;
     Qty exec_qty_ = Qty_INVALID;
     Qty leaves_qty_ = Qty_INVALID;
+    RejectReason reject_reason_=RejectReason::NONE;
 
     auto toString() const {
       std::stringstream ss;
@@ -60,6 +66,7 @@ namespace Exchange {
          << " side:" << sideToString(side_)
          << " exec_qty:" << qtyToString(exec_qty_)
          << " leaves_qty:" << qtyToString(leaves_qty_)
+         << " reason:" << static_cast<int>(reject_reason_)
          << " price:" << priceToString(price_)
          << "]";
       return ss.str();
