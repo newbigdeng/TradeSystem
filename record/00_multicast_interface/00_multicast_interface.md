@@ -2,7 +2,7 @@
 
 日期：2026-09-30
 
-目录整理说明：本工作现在统一放在 `record/00_multicast_interface`，本报告与 `multicast_interface_test.cpp` 放在一起。后续教程的可靠性改造及逐项性能基准见 [01_reliability](../01_reliability/01_reliability.md)。下文的两项 CTest 和业务日志数保留为首次组播修复的历史记录，不与后续改造结果混用。
+目录整理说明：本工作现在统一放在 `record/00_multicast_interface`，本报告与 `multicast_interface_test.cpp` 放在一起。后续的可靠性改造及逐项性能基准见 [01_reliability](../01_reliability/01_reliability.md)。下文的两项 CTest 和业务日志数保留为首次组播修复的历史记录，不与后续改造结果混用。
 
 项目：TradeSystem，基于 Packt《Building Low Latency Applications with C++》Chapter12 的学习与改造项目
 
