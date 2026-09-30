@@ -40,8 +40,10 @@ namespace Exchange {
           ASSERT(cid_tcp_socket_[client_response->client_id_] != nullptr,
                  "Dont have a TCPSocket for ClientId:" + std::to_string(client_response->client_id_));
           START_MEASURE(Exchange_TCPSocket_send);
-          cid_tcp_socket_[client_response->client_id_]->send(&next_outgoing_seq_num, sizeof(next_outgoing_seq_num));
-          cid_tcp_socket_[client_response->client_id_]->send(client_response, sizeof(MEClientResponse));
+          const OMClientResponse frame{next_outgoing_seq_num,*client_response};
+          const auto status=cid_tcp_socket_[client_response->client_id_]->send(&frame,sizeof(frame));
+          if(status==Common::SendResult::Full) break;
+          ASSERT(status==Common::SendResult::Accepted,"response delivery unknown; matching must stop for reconciliation");
           END_MEASURE(Exchange_TCPSocket_send, logger_);
 
           outgoing_responses_->pop();
@@ -64,6 +66,9 @@ namespace Exchange {
           auto request = reinterpret_cast<const OMClientRequest *>(socket->inbound_data_.data() + i);
           logger_.log("%:% %() % Received %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), request->toString());
 
+          if(request->me_client_request_.client_id_>=ME_MAX_NUM_CLIENTS) {
+            socket->state_=Common::ConnectionState::Error;break;
+          }
           if (UNLIKELY(cid_tcp_socket_[request->me_client_request_.client_id_] == nullptr)) { // first message from this ClientId.
             cid_tcp_socket_[request->me_client_request_.client_id_] = socket;
           }
@@ -82,13 +87,12 @@ namespace Exchange {
             continue;
           }
 
-          ++next_exp_seq_num;
-
           START_MEASURE(Exchange_FIFOSequencer_addClientRequest);
-          fifo_sequencer_.addClientRequest(rx_time, request->me_client_request_);
+          if(!fifo_sequencer_.addClientRequest(rx_time, request->me_client_request_)) break;
+          ++next_exp_seq_num;
           END_MEASURE(Exchange_FIFOSequencer_addClientRequest, logger_);
         }
-        memcpy(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
+        memmove(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
         socket->next_rcv_valid_index_ -= i;
       }
     }

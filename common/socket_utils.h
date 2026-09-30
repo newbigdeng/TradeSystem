@@ -16,6 +16,7 @@
 #include <ifaddrs.h>
 #include <sys/socket.h>
 #include <fcntl.h>
+#include <poll.h>
 
 #include "macros.h"
 
@@ -68,6 +69,7 @@ namespace Common {
   /// Sockets will not block on read, but instead return immediately if data is not available.
   inline auto setNonBlocking(int fd) -> bool {
     const auto flags = fcntl(fd, F_GETFL, 0);
+    if(flags==-1) return false;
     if (flags & O_NONBLOCK)
       return true;
     return (fcntl(fd, F_SETFL, flags | O_NONBLOCK) != -1);
@@ -144,7 +146,18 @@ namespace Common {
       }
 
       if (!socket_cfg.is_listening_) { // establish connection to specified address.
-        ASSERT(connect(socket_fd, rp->ai_addr, rp->ai_addrlen) != 1, "connect() failed. errno:" + std::string(strerror(errno)));
+        const auto connected=::connect(socket_fd,rp->ai_addr,rp->ai_addrlen);
+        if(connected<0) {
+          int error=errno;
+          if(error==EINPROGRESS) {
+            pollfd pending{socket_fd,POLLOUT,0}; int ready;
+            do {ready=::poll(&pending,1,5000);} while(ready<0 && errno==EINTR);
+            socklen_t size=sizeof(error);
+            if(ready>0 && getsockopt(socket_fd,SOL_SOCKET,SO_ERROR,&error,&size)==0) {}
+            else error=ready==0?ETIMEDOUT:errno;
+          }
+          if(error) {::close(socket_fd);socket_fd=-1;freeaddrinfo(result);errno=error;return -1;}
+        }
       }
 
       if (socket_cfg.is_listening_) { // allow re-using the address in the call to bind()
@@ -166,6 +179,7 @@ namespace Common {
       }
     }
 
+    freeaddrinfo(result);
     return socket_fd;
   }
 }

@@ -1,61 +1,56 @@
 #include "tcp_socket.h"
-
 namespace Common {
-  /// Create TCPSocket with provided attributes to either listen-on / connect-to.
-  auto TCPSocket::connect(const std::string &ip, const std::string &iface, int port, bool is_listening) -> int {
-    // Note that needs_so_timestamp=true for FIFOSequencer.
-    const SocketCfg socket_cfg{ip, iface, port, false, is_listening, true};
-    socket_fd_ = createSocket(logger_, socket_cfg);
-
-    socket_attrib_.sin_addr.s_addr = INADDR_ANY;
-    socket_attrib_.sin_port = htons(port);
-    socket_attrib_.sin_family = AF_INET;
-
-    return socket_fd_;
+int TCPSocket::connect(const std::string& ip,const std::string& iface,int port,bool listening) {
+  socket_fd_=createSocket(logger_,SocketCfg{ip,iface,port,false,listening,true});
+  state_=socket_fd_>=0?ConnectionState::Open:ConnectionState::Error;
+  if(socket_fd_<0) last_error_=errno;
+  return socket_fd_;
+}
+SendResult TCPSocket::send(const void* data,size_t length) noexcept {
+  if(!healthy() || !data || !length) return SendResult::Invalid;
+  if(length>outbound_data_.size()-next_send_valid_index_) return SendResult::Full;
+  if(send_begin_+next_send_valid_index_+length>outbound_data_.size()) {
+    memmove(outbound_data_.data(),outbound_data_.data()+send_begin_,next_send_valid_index_); send_begin_=0;
   }
-
-  /// Called to publish outgoing data from the buffers as well as check for and callback if data is available in the read buffers.
-  auto TCPSocket::sendAndRecv() noexcept -> bool {
-    char ctrl[CMSG_SPACE(sizeof(struct timeval))];
-    auto cmsg = reinterpret_cast<struct cmsghdr *>(&ctrl);
-
-    iovec iov{inbound_data_.data() + next_rcv_valid_index_, TCPBufferSize - next_rcv_valid_index_};
-    msghdr msg{&socket_attrib_, sizeof(socket_attrib_), &iov, 1, ctrl, sizeof(ctrl), 0};
-
-    // Non-blocking call to read available data.
-    const auto read_size = recvmsg(socket_fd_, &msg, MSG_DONTWAIT);
-    if (read_size > 0) {
-      next_rcv_valid_index_ += read_size;
-
-      Nanos kernel_time = 0;
-      timeval time_kernel;
-      if (cmsg->cmsg_level == SOL_SOCKET &&
-          cmsg->cmsg_type == SCM_TIMESTAMP &&
-          cmsg->cmsg_len == CMSG_LEN(sizeof(time_kernel))) {
-        memcpy(&time_kernel, CMSG_DATA(cmsg), sizeof(time_kernel));
-        kernel_time = time_kernel.tv_sec * NANOS_TO_SECS + time_kernel.tv_usec * NANOS_TO_MICROS; // convert timestamp to nanoseconds.
+  memcpy(outbound_data_.data()+send_begin_+next_send_valid_index_,data,length);
+  next_send_valid_index_+=length; return SendResult::Accepted;
+}
+bool TCPSocket::sendAndRecv() noexcept {
+  if(!healthy() || socket_fd_<0) return false;
+  // Eight system calls per direction bound work and leave other connections time.
+  for(int budget=0;budget<8 && next_send_valid_index_;++budget) {
+    const auto n=::send(socket_fd_,outbound_data_.data()+send_begin_,next_send_valid_index_,MSG_DONTWAIT|MSG_NOSIGNAL);
+    if(n>0) {send_begin_+=n;next_send_valid_index_-=n;sent_bytes_+=n;}
+    else if(n<0 && errno==EINTR) continue;
+    else if(n<0 && (errno==EAGAIN || errno==EWOULDBLOCK)) {++send_would_block_;break;}
+    else {last_error_=n==0?EPIPE:errno;state_=ConnectionState::Error;return false;}
+  }
+  if(!next_send_valid_index_) send_begin_=0;
+  bool received=false;
+  // Retry retained complete frames even without a fresh EPOLLIN edge.
+  if(next_rcv_valid_index_ && recv_callback_) recv_callback_(this,last_receive_time_);
+  for(int budget=0;budget<8 && healthy();++budget) {
+    if(next_rcv_valid_index_==inbound_data_.size()) break; // downstream backpressure
+    char control[CMSG_SPACE(sizeof(timeval))]{};
+    iovec iov{inbound_data_.data()+next_rcv_valid_index_,inbound_data_.size()-next_rcv_valid_index_};
+    msghdr message{}; message.msg_iov=&iov;message.msg_iovlen=1;
+    message.msg_control=control;message.msg_controllen=sizeof(control);
+    const auto n=recvmsg(socket_fd_,&message,MSG_DONTWAIT);
+    if(n>0) {
+      next_rcv_valid_index_+=n;received_bytes_+=n;received=true;last_receive_time_=getCurrentNanos();
+      for(auto *c=CMSG_FIRSTHDR(&message);c;c=CMSG_NXTHDR(&message,c)) {
+        if(c->cmsg_level==SOL_SOCKET && c->cmsg_type==SCM_TIMESTAMP && c->cmsg_len>=CMSG_LEN(sizeof(timeval))) {
+          timeval timestamp{};memcpy(&timestamp,CMSG_DATA(c),sizeof(timestamp));
+          last_receive_time_=timestamp.tv_sec*NANOS_TO_SECS+timestamp.tv_usec*NANOS_TO_MICROS;
+        }
       }
-
-      const auto user_time = getCurrentNanos();
-
-      logger_.log("%:% %() % read socket:% len:% utime:% ktime:% diff:%\n", __FILE__, __LINE__, __FUNCTION__,
-                  Common::getCurrentTimeStr(&time_str_), socket_fd_, next_rcv_valid_index_, user_time, kernel_time, (user_time - kernel_time));
-      recv_callback_(this, kernel_time);
-    }
-
-    if (next_send_valid_index_ > 0) {
-      // Non-blocking call to send data.
-      const auto n = ::send(socket_fd_, outbound_data_.data(), next_send_valid_index_, MSG_DONTWAIT | MSG_NOSIGNAL);
-      logger_.log("%:% %() % send socket:% len:%\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), socket_fd_, n);
-    }
-    next_send_valid_index_ = 0;
-
-    return (read_size > 0);
+      if(recv_callback_) recv_callback_(this,last_receive_time_);
+    } else if(n==0) {state_=ConnectionState::PeerClosed;break;}
+    else if(errno==EINTR) continue;
+    else if(errno==EAGAIN || errno==EWOULDBLOCK) break;
+    else {last_error_=errno;state_=ConnectionState::Error;break;}
   }
-
-  /// Write outgoing data to the send buffers.
-  auto TCPSocket::send(const void *data, size_t len) noexcept -> void {
-    memcpy(outbound_data_.data() + next_send_valid_index_, data, len);
-    next_send_valid_index_ += len;
-  }
+  if(!healthy()) logger_.log("TCP terminal state:% errno:% unsent_bytes:% buffered_receive:%\n",int(state_),last_error_,pending_bytes(),next_rcv_valid_index_);
+  return received;
+}
 }

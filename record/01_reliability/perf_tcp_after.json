@@ -15,11 +15,11 @@
       "common/opt_mem_pool.h": "3f82ac655393a5591e419c6517054a428f60c4f562eb14789698575c64f64745",
       "common/perf_utils.h": "93dbe5598986077a457310a476aecebcf782343b29a67eabd2b16a8bab9d29ce",
       "common/socket_example.cpp": "fc838c5dee6b185881530f531268fa07c0edba4afbf23144cfdea446e51593f7",
-      "common/socket_utils.h": "537441f7b993f168e13c3b11c60a8642684856186f2a3729ae7f499e50d49f9e",
-      "common/tcp_server.cpp": "588eb9780c81ae7621b2eba2082898941087455157d390426bbe675ee0f85e71",
-      "common/tcp_server.h": "1b08d64c54e9da1c10ee175f6a47984748990554f461d9a843319ddec390008f",
-      "common/tcp_socket.cpp": "674017f1c81c5c4720bf69603c089fa2281773c2d43d9ad5b6e1457aea95c1d0",
-      "common/tcp_socket.h": "561f12f09353492b39c8561bf3886b8c670bbf2bd64f35b6e68730c49fa2b9bd",
+      "common/socket_utils.h": "34b20d2742880ff1e1eadfcc16bc75a324adc078760ba7af57f31ae1b9f7219b",
+      "common/tcp_server.cpp": "45b559c3fb11b7c5f713780efd912d93e319652c19dd63e06b939803aad0a4f8",
+      "common/tcp_server.h": "8a4b263be43f43c4f2539f95de30bc409cd64c7775f31e707d08dc46aba6bbfb",
+      "common/tcp_socket.cpp": "c33d8b2f9e81a4b5c37ac7982eefc92c11e1f683a4bbc0c363622883f3ae56d8",
+      "common/tcp_socket.h": "60e9a4d85ed40bb3028f538062154133d2e43f32cb21a42b56545ca7f1223f88",
       "common/thread_example.cpp": "0a5a2ef7ce0034d9bd04a983733ea6c7b41e8e9f5f1d39ba70cdb5f2ea90c04e",
       "common/thread_utils.h": "79cddb6ffa7d0052fe81c393d79a98f3c09c2566b95d58117ed1ae709869dbf6",
       "common/time_utils.h": "b0f7ec4666f42128a1bb1705bb248c4a6d24f43e41600072e94c7b4aec20d009",
@@ -40,12 +40,12 @@
       "exchange/matcher/unordered_map_me_order_book.h": "7be741c3116c10d5be08f11044a630cbcc2771e3b1c0495f323aa0df1559c02b",
       "exchange/order_server/client_request.h": "8dc18bd53c2463b8cd50bb4dde7ca7df5ddccf4e8b49f31279093eabcd430d71",
       "exchange/order_server/client_response.h": "5769a8d2bee57ed22de0d8d22b23af213633664a14f3da322757d18b34b0ee7d",
-      "exchange/order_server/fifo_sequencer.h": "8916850cf21b152de2e7f21a6c2b2cba164b32f0679e6a34dbc907c05e9a932c",
+      "exchange/order_server/fifo_sequencer.h": "1d6b7b5bd19162b28cb3a043de981396aee51d7c670c1bd4cff7ff7c3d76fb6f",
       "exchange/order_server/order_server.cpp": "163864e93cad7cd1bf9adc81684ce89ed1a5b5983fd58c7cb98dc6fbed817514",
-      "exchange/order_server/order_server.h": "ae423451b0b54f6188f7f0e6c9f1b44a9e38a00be27b3da5271df674a999c1af",
+      "exchange/order_server/order_server.h": "9c254da8f01f5bbd3f5f59e0a59719ae4f9edd89a1a81f2c496dd3105843214e",
       "trading/market_data/market_data_consumer.cpp": "583d753d3aa14f8f6c1f3719e5dea8bb973f3e950c37aeff83087eaeddf33ba6",
       "trading/market_data/market_data_consumer.h": "8e0149902eaf1693da627d15a6523b2a7680db0656ee7c5ac5867372194d0aa6",
-      "trading/order_gw/order_gateway.cpp": "8b87207b5db3a3b79caa9cd291d00f1c92948f8a3de4b2fa639c9a29051cde88",
+      "trading/order_gw/order_gateway.cpp": "8163e287b23272ab5c7bb5e1d051fcefd3d30fc43f9b820d2610bba9daaf705b",
       "trading/order_gw/order_gateway.h": "91617f38b82b78e964c31d25767a2c2ef67511688849076c9ebedc13a05d6e4c",
       "trading/strategy/feature_engine.h": "b8efafa80e8a866557959f367754b828c0865f145e00bcf9c965bb13c4815141",
       "trading/strategy/liquidity_taker.cpp": "48ac4a55fc2ca6b06e0b4bb9609ef91e1108c31514e695fb8e41821f7185ecdf",
@@ -78,40 +78,40 @@
   },
   "samples": [
     {
-      "mode": "fifo",
-      "operations": 64000,
-      "elapsed_ns": 1504249597,
-      "ns_per_operation": 23503.9,
-      "checksum": 2080000
+      "mode": "tcp",
+      "operations": 32768,
+      "elapsed_ns": 313617810,
+      "ns_per_operation": 9570.86,
+      "checksum": 16777216
     },
     {
-      "mode": "fifo",
-      "operations": 64000,
-      "elapsed_ns": 1424845415,
-      "ns_per_operation": 22263.2,
-      "checksum": 2080000
+      "mode": "tcp",
+      "operations": 32768,
+      "elapsed_ns": 256855095,
+      "ns_per_operation": 7838.6,
+      "checksum": 16777216
     },
     {
-      "mode": "fifo",
-      "operations": 64000,
-      "elapsed_ns": 1471041207,
-      "ns_per_operation": 22985,
-      "checksum": 2080000
+      "mode": "tcp",
+      "operations": 32768,
+      "elapsed_ns": 222337244,
+      "ns_per_operation": 6785.19,
+      "checksum": 16777216
     },
     {
-      "mode": "fifo",
-      "operations": 64000,
-      "elapsed_ns": 1506387364,
-      "ns_per_operation": 23537.3,
-      "checksum": 2080000
+      "mode": "tcp",
+      "operations": 32768,
+      "elapsed_ns": 216767164,
+      "ns_per_operation": 6615.21,
+      "checksum": 16777216
     },
     {
-      "mode": "fifo",
-      "operations": 64000,
-      "elapsed_ns": 1438700920,
-      "ns_per_operation": 22479.7,
-      "checksum": 2080000
+      "mode": "tcp",
+      "operations": 32768,
+      "elapsed_ns": 219265542,
+      "ns_per_operation": 6691.45,
+      "checksum": 16777216
     }
   ],
-  "median_ns_per_operation": 22985
+  "median_ns_per_operation": 6785.19
 }

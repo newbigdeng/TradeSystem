@@ -27,17 +27,13 @@ namespace Common {
       recv |= socket->sendAndRecv();
     });
 
-    if (recv) // There were some events and they have all been dispatched, inform listener.
-      recv_finished_callback_();
-
-    std::for_each(send_sockets_.begin(), send_sockets_.end(), [](auto socket) {
-      socket->sendAndRecv();
-    });
+    (void)recv;
+    if(recv_finished_callback_) recv_finished_callback_(); // drain retained FIFO work even without fresh reads
   }
 
   /// Check for new connections or dead connections and update containers that track the sockets.
   auto TCPServer::poll() noexcept -> void {
-    const int max_events = 1 + send_sockets_.size() + receive_sockets_.size();
+    const int max_events = std::min<size_t>(1024,1+receive_sockets_.size());
 
     const int n = epoll_wait(epoll_fd_, events_, max_events, 0);
     bool have_new_connection = false;
@@ -83,9 +79,11 @@ namespace Common {
       int fd = accept(listener_socket_.socket_fd_, reinterpret_cast<sockaddr *>(&addr), &addr_len);
       if (fd == -1)
         break;
+      if(receive_sockets_.size()>=ME_MAX_NUM_CLIENTS) {::close(fd);continue;}
 
       ASSERT(setNonBlocking(fd) && disableNagle(fd),
              "Failed to set non-blocking or no-delay on socket:" + std::to_string(fd));
+      ASSERT(setSOTimestamp(fd),"cannot timestamp accepted socket");
 
       logger_.log("%:% %() % accepted socket:%\n", __FILE__, __LINE__, __FUNCTION__,
                   Common::getCurrentTimeStr(&time_str_), fd);

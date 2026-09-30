@@ -19,11 +19,12 @@ namespace Exchange {
     }
 
     /// Queue up a client request, not processed immediately, processed when sequenceAndPublish() is called.
-    auto addClientRequest(Nanos rx_time, const MEClientRequest &request) {
+    auto addClientRequest(Nanos rx_time, const MEClientRequest &request) -> bool {
       if (pending_size_ >= pending_client_requests_.size()) {
-        FATAL("Too many pending requests");
+        return false;
       }
       pending_client_requests_.at(pending_size_++) = std::move(RecvTimeClientRequest{rx_time, request});
+      return true;
     }
 
     /// Sort pending client requests in ascending receive time order and then write them to the lock free queue for the matching engine to consume from.

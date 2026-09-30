@@ -87,6 +87,30 @@ void tcpTest() {
   sender.sendAndRecv();
 #ifndef TRADE_BASELINE
   check(sender.state_==Common::ConnectionState::PeerClosed,"EOF not visible");
+  int stream[2]; check(socketpair(AF_UNIX,SOCK_STREAM,0,stream)==0,"second socketpair failed");
+  Common::setNonBlocking(stream[0]); Common::setNonBlocking(stream[1]);
+  Common::TCPSocket tx(logger,4096),rx(logger,4096); tx.socket_fd_=stream[0];rx.socket_fd_=stream[1];
+  std::vector<char> large(3*1024*1024),actual;
+  for(size_t i=0;i<large.size();++i) large[i]=char((i*31+7)%251);
+  rx.recv_callback_=[&](Common::TCPSocket *s,Common::Nanos) {
+    actual.insert(actual.end(),s->inbound_data_.begin(),s->inbound_data_.begin()+s->next_rcv_valid_index_);
+    s->next_rcv_valid_index_=0;
+  };
+  size_t offset=0,round=0;
+  const size_t lengths[]{1,47,48,49,512,4000};
+  while(actual.size()<large.size()) {
+    if(offset<large.size()) {
+      const auto length=std::min(lengths[round++%6],large.size()-offset);
+      if(tx.send(large.data()+offset,length)==Common::SendResult::Accepted) offset+=length;
+    }
+    tx.sendAndRecv(); rx.sendAndRecv();
+  }
+  check(actual==large && tx.pending_bytes()==0,"3 MiB split/coalesced stream differs");
+  int port_socket=socket(AF_INET,SOCK_STREAM,0); sockaddr_in address{}; address.sin_family=AF_INET;address.sin_addr.s_addr=htonl(INADDR_LOOPBACK);
+  check(bind(port_socket,reinterpret_cast<sockaddr*>(&address),sizeof(address))==0,"reserve port failed");
+  socklen_t address_size=sizeof(address);getsockname(port_socket,reinterpret_cast<sockaddr*>(&address),&address_size);close(port_socket);
+  Common::TCPSocket refused(logger,4096);
+  check(refused.connect("127.0.0.1","lo",ntohs(address.sin_port),false)==-1 && refused.state_==Common::ConnectionState::Error,"connection refusal not visible");
 #else
   close(fd[0]);
 #endif

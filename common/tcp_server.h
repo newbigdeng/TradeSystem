@@ -1,11 +1,16 @@
 #pragma once
 
 #include "tcp_socket.h"
+#include "types.h"
 
 namespace Common {
   struct TCPServer {
     explicit TCPServer(Logger &logger)
         : listener_socket_(logger), logger_(logger) {
+    }
+    ~TCPServer() {
+      for(auto *socket:receive_sockets_) delete socket;
+      if(epoll_fd_>=0) ::close(epoll_fd_);
     }
 
     /// Start listening for connections on the provided interface and port.

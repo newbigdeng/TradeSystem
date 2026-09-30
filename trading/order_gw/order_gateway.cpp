@@ -15,6 +15,10 @@ namespace Trading {
     logger_.log("%:% %() %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_));
     while (run_) {
       tcp_socket_.sendAndRecv();
+      if(!tcp_socket_.healthy()) {
+        logger_.log("ORDER SESSION UNKNOWN: disconnect; stop new sends and reconcile before restart\n");
+        run_=false; break;
+      }
 
       for(auto client_request = outgoing_requests_->peek(); client_request; client_request = outgoing_requests_->peek()) {
         TTT_MEASURE(T11_OrderGateway_LFQueue_read, logger_);
@@ -22,8 +26,10 @@ namespace Trading {
         logger_.log("%:% %() % Sending cid:% seq:% %\n", __FILE__, __LINE__, __FUNCTION__,
                     Common::getCurrentTimeStr(&time_str_), client_id_, next_outgoing_seq_num_, client_request->toString());
         START_MEASURE(Trading_TCPSocket_send);
-        tcp_socket_.send(&next_outgoing_seq_num_, sizeof(next_outgoing_seq_num_));
-        tcp_socket_.send(client_request, sizeof(Exchange::MEClientRequest));
+        const Exchange::OMClientRequest frame{next_outgoing_seq_num_,*client_request};
+        const auto status=tcp_socket_.send(&frame,sizeof(frame));
+        if(status==Common::SendResult::Full) break;
+        ASSERT(status==Common::SendResult::Accepted,"order session unknown: cannot queue complete frame");
         END_MEASURE(Trading_TCPSocket_send, logger_);
         outgoing_requests_->pop();
         TTT_MEASURE(T12_OrderGateway_TCP_write, logger_);
@@ -49,20 +55,19 @@ namespace Trading {
         if(response->me_client_response_.client_id_ != client_id_) { // this should never happen unless there is a bug at the exchange.
           logger_.log("%:% %() % ERROR Incorrect client id. ClientId expected:% received:%.\n", __FILE__, __LINE__, __FUNCTION__,
                       Common::getCurrentTimeStr(&time_str_), client_id_, response->me_client_response_.client_id_);
-          continue;
+          socket->state_=Common::ConnectionState::Error; break;
         }
         if(response->seq_num_ != next_exp_seq_num_) { // this should never happen since we use a reliable TCP protocol, unless there is a bug at the exchange.
           logger_.log("%:% %() % ERROR Incorrect sequence number. ClientId:%. SeqNum expected:% received:%.\n", __FILE__, __LINE__, __FUNCTION__,
                       Common::getCurrentTimeStr(&time_str_), client_id_, next_exp_seq_num_, response->seq_num_);
-          continue;
+          socket->state_=Common::ConnectionState::Error; break;
         }
 
+        if(!incoming_responses_->try_push(response->me_client_response_)) break;
         ++next_exp_seq_num_;
-
-        ASSERT(incoming_responses_->try_push(std::move(response->me_client_response_)), "critical queue full; stop instead of overwriting");
         TTT_MEASURE(T8t_OrderGateway_LFQueue_write, logger_);
       }
-      memcpy(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
+      memmove(socket->inbound_data_.data(), socket->inbound_data_.data() + i, socket->next_rcv_valid_index_ - i);
       socket->next_rcv_valid_index_ -= i;
     }
     END_MEASURE(Trading_OrderGateway_recvCallback, logger_);
