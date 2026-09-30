@@ -74,3 +74,7 @@ if(BUILD_TESTING)
   add_test(NAME reliability_tcp COMMAND reliability_test tcp)
   set_tests_properties(reliability_tcp PROPERTIES TIMEOUT 30)
 endif()
+
+if(BUILD_TESTING)
+  add_test(NAME reliability_pool COMMAND reliability_test pool)
+endif()

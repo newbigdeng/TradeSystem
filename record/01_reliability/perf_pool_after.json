@@ -9,10 +9,10 @@
       "common/macros.h": "18411d2e13a6e5f33d33fe32565fb844a08971cc1f6965b222e5fce74d740196",
       "common/mcast_socket.cpp": "69d7fbba249310c6268bf6216758365766eba20b94eec49c6c4e6c3a77e907ca",
       "common/mcast_socket.h": "ea2f05c8370b756b3efb4b5a82241d73e950fe9e86cd07aa59b3a915ec5fe90b",
-      "common/mem_pool.h": "3b8a12d5aa44f388d38d15e0a541c7903119e8bde560a2a79d43221abcec1bbb",
+      "common/mem_pool.h": "93f49df0e29bd4b6492a084896ed3cc9e664338148e18693bf4d36ed4e28b61c",
       "common/mem_pool_example.cpp": "520d5d297ce5390ed826014b98685f697ec7ada3e61d260f34a252ace02c83ab",
       "common/opt_logging.h": "d5a5f8184865abcc9981e107b647eb2a3a3882745a7b2d414ac3fb1ef789bbd7",
-      "common/opt_mem_pool.h": "3f82ac655393a5591e419c6517054a428f60c4f562eb14789698575c64f64745",
+      "common/opt_mem_pool.h": "820886cd16137cf863a6a1693840b8266938c9f409201d681386551b4d1c472f",
       "common/perf_utils.h": "93dbe5598986077a457310a476aecebcf782343b29a67eabd2b16a8bab9d29ce",
       "common/socket_example.cpp": "fc838c5dee6b185881530f531268fa07c0edba4afbf23144cfdea446e51593f7",
       "common/socket_utils.h": "34b20d2742880ff1e1eadfcc16bc75a324adc078760ba7af57f31ae1b9f7219b",
@@ -80,38 +80,38 @@
     {
       "mode": "pool",
       "operations": 2000000,
-      "elapsed_ns": 647479365,
-      "ns_per_operation": 323.74,
+      "elapsed_ns": 169849812,
+      "ns_per_operation": 84.9249,
       "checksum": 1999999000000
     },
     {
       "mode": "pool",
       "operations": 2000000,
-      "elapsed_ns": 639517426,
-      "ns_per_operation": 319.759,
+      "elapsed_ns": 149374994,
+      "ns_per_operation": 74.6875,
       "checksum": 1999999000000
     },
     {
       "mode": "pool",
       "operations": 2000000,
-      "elapsed_ns": 669070734,
-      "ns_per_operation": 334.535,
+      "elapsed_ns": 189060591,
+      "ns_per_operation": 94.5303,
       "checksum": 1999999000000
     },
     {
       "mode": "pool",
       "operations": 2000000,
-      "elapsed_ns": 660319257,
-      "ns_per_operation": 330.16,
+      "elapsed_ns": 187670913,
+      "ns_per_operation": 93.8355,
       "checksum": 1999999000000
     },
     {
       "mode": "pool",
       "operations": 2000000,
-      "elapsed_ns": 647864816,
-      "ns_per_operation": 323.932,
+      "elapsed_ns": 181534804,
+      "ns_per_operation": 90.7674,
       "checksum": 1999999000000
     }
   ],
-  "median_ns_per_operation": 323.932
+  "median_ns_per_operation": 90.7674
 }
