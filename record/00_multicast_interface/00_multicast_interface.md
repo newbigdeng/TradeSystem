@@ -102,7 +102,7 @@ ip route get 233.252.14.3
 
 问题涉及三处代码，以下展示的是修复前实现。
 
-**第一处：[`common/socket_utils.h`](../common/socket_utils.h) 的 `createSocket()`。**
+**第一处：[`common/socket_utils.h`](../../common/socket_utils.h) 的 `createSocket()`。**
 
 ```cpp
 const auto ip = socket_cfg.ip_.empty()
@@ -126,7 +126,7 @@ setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreq, sizeof(mreq));
 
 `imr_multiaddr` 指定要加入的组；`imr_interface` 指定在哪个接口加入。旧代码把接口字段设为 `INADDR_ANY`，把入组接口的选择也交给了系统，没有使用应用配置中的 `lo`。
 
-**第三处：[`common/mcast_socket.cpp`](../common/mcast_socket.cpp) 的 `McastSocket::join()`。**
+**第三处：[`common/mcast_socket.cpp`](../../common/mcast_socket.cpp) 的 `McastSocket::join()`。**
 
 ```cpp
 return Common::join(socket_fd_, ip);
@@ -173,7 +173,7 @@ join(int fd, const std::string &ip, const std::string &iface)
 
 ### 3. Socket 封装：保存接口名，贯穿增量和快照订阅
 
-在 [`common/mcast_socket.h`](../common/mcast_socket.h) 中增加 `iface_`。在 `init()` 中保存接口名，在 `join()` 中传递它：
+在 [`common/mcast_socket.h`](../../common/mcast_socket.h) 中增加 `iface_`。在 `init()` 中保存接口名，在 `join()` 中传递它：
 
 ```cpp
 // McastSocket::init()
@@ -187,7 +187,7 @@ return Common::join(socket_fd_, ip, iface_);
 
 ### 4. 增加自动化回归测试
 
-新增 [`tests/multicast_interface_test.cpp`](../tests/multicast_interface_test.cpp)，并在 [`CMakeLists.txt`](../CMakeLists.txt) 注册两项 CTest：
+新增 [`tests/multicast_interface_test.cpp`](multicast_interface_test.cpp)，并在 [`CMakeLists.txt`](../../CMakeLists.txt) 注册两项 CTest：
 
 | 测试 | 验证内容 |
 |---|---|

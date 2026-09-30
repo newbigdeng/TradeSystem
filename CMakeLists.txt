@@ -39,7 +39,7 @@ target_link_libraries(hash_benchmark PUBLIC ${LIBS})
 # Exercise both market-data groups on the configured interface, without root.
 include(CTest)
 if(BUILD_TESTING)
-  add_executable(multicast_interface_test tests/multicast_interface_test.cpp)
+  add_executable(multicast_interface_test record/00_multicast_interface/multicast_interface_test.cpp)
   target_link_libraries(multicast_interface_test PRIVATE libcommon pthread)
   add_test(NAME multicast_interface COMMAND multicast_interface_test)
   set_tests_properties(multicast_interface PROPERTIES TIMEOUT 20)
