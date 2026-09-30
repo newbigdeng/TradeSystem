@@ -1,0 +1,21 @@
+{
+  "source_commit": "67e63fd8e4a7e06dc19ec87de8da8c692f223198",
+  "results": {
+    "queue": {
+      "exit": 1,
+      "output": "FAIL full queue accepted and overwrote a message\n"
+    },
+    "tcp": {
+      "exit": 1,
+      "output": "Set core affinity for Common/Logger tcp_test.log 140214496388800 to -1\n15:30:52.054962211 Flushing and closing Logger for tcp_test.log\n15:30:53.065919090 Logger for tcp_test.log exiting.\nFAIL partial send discarded pending bytes\n"
+    },
+    "pool": {
+      "exit": 1,
+      "output": "ASSERT : Memory Pool out of space.\n"
+    },
+    "fifo": {
+      "exit": 1,
+      "output": "Set core affinity for Common/Logger fifo_test.log 136056951269056 to -1\n15:30:54.327945441 Flushing and closing Logger for fifo_test.log\n15:30:55.332572644 Logger for fifo_test.log exiting.\nFAIL equal timestamps reordered FIFO arrival\n"
+    }
+  }
+}
