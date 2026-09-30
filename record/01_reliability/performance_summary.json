@@ -1,0 +1,83 @@
+{
+  "components": [
+    {
+      "mode": "queue",
+      "before_ns_per_operation": 237.598,
+      "after_ns_per_operation": 16.4689,
+      "elapsed_reduction_percent": 93.06858643591276
+    },
+    {
+      "mode": "tcp",
+      "before_ns_per_operation": 20620.2,
+      "after_ns_per_operation": 6785.19,
+      "elapsed_reduction_percent": 67.09445107224956
+    },
+    {
+      "mode": "pool",
+      "before_ns_per_operation": 323.932,
+      "after_ns_per_operation": 90.7674,
+      "elapsed_reduction_percent": 71.97948952249237
+    },
+    {
+      "mode": "fifo",
+      "before_ns_per_operation": 23736.4,
+      "after_ns_per_operation": 22911.5,
+      "elapsed_reduction_percent": 3.475253197620538
+    },
+    {
+      "mode": "book",
+      "before_ns_per_operation": 75277,
+      "after_ns_per_operation": 75776.1,
+      "elapsed_reduction_percent": -0.6630179204803669
+    },
+    {
+      "mode": "admission_benchmark",
+      "before_ns_per_operation": 95140.9,
+      "after_ns_per_operation": 95915.3,
+      "elapsed_reduction_percent": -0.8139506773637928
+    },
+    {
+      "mode": "protocol",
+      "before_ns_per_operation": 32.9082,
+      "after_ns_per_operation": 89.961,
+      "elapsed_reduction_percent": -173.36955530840336
+    },
+    {
+      "mode": "recovery",
+      "before_ns_per_operation": 1004680.0,
+      "after_ns_per_operation": 58870.5,
+      "elapsed_reduction_percent": 94.14037305410677
+    },
+    {
+      "mode": "feature_benchmark",
+      "before_ns_per_operation": 14247.9,
+      "after_ns_per_operation": 3270.96,
+      "elapsed_reduction_percent": 77.04251152801464
+    },
+    {
+      "mode": "lifecycle",
+      "before_ns_per_operation": 1000561578,
+      "after_ns_per_operation": 491661,
+      "elapsed_reduction_percent": 99.9508614951033
+    },
+    {
+      "mode": "clock",
+      "before_ns_per_operation": 5701.05,
+      "after_ns_per_operation": 1734.33,
+      "elapsed_reduction_percent": 69.57876180703555
+    }
+  ],
+  "e2e_final_vs_intermediate_1c0af86": {
+    "median_p50_ns": {
+      "before_ns": 1415014,
+      "final_ns": 300444,
+      "elapsed_reduction_percent": 78.76741855557613
+    },
+    "median_p99_ns": {
+      "before_ns": 4608310,
+      "final_ns": 1904154,
+      "elapsed_reduction_percent": 58.67999331642186
+    }
+  },
+  "note": "Different stage workloads and units; reductions are not additive. See the report for scope and costs."
+}

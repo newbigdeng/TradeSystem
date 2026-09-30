@@ -1,0 +1,73 @@
+{
+  "commit": "957248424dfc34a50d689c36672cd00907d61ff0",
+  "dirty": true,
+  "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "warmups": 1,
+  "repetitions": 5,
+  "new_orders_per_run": 200,
+  "cancel_orders_per_run": 200,
+  "input": "client96,ticker0,order1..200,BUY,price100,qty1; serial ACKs",
+  "samples": [
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 279788,
+      "p99_ns": 3492621,
+      "mean_ns": 383207.5975,
+      "total_latency_ns": 153283039,
+      "stop_exit_code": 0
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 300444,
+      "p99_ns": 1828528,
+      "mean_ns": 417968.59,
+      "total_latency_ns": 167187436,
+      "stop_exit_code": 0
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 252198,
+      "p99_ns": 3681134,
+      "mean_ns": 376767.1275,
+      "total_latency_ns": 150706851,
+      "stop_exit_code": 0
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 454498,
+      "p99_ns": 1631829,
+      "mean_ns": 546458.1975,
+      "total_latency_ns": 218583279,
+      "stop_exit_code": 0
+    },
+    {
+      "operations": 400,
+      "checksum": 40200,
+      "p50_ns": 338399,
+      "p99_ns": 1904154,
+      "mean_ns": 400026.88,
+      "total_latency_ns": 160010752,
+      "stop_exit_code": 0
+    }
+  ],
+  "median_p50_ns": 300444,
+  "median_p99_ns": 1904154,
+  "evidence_directories": [
+    "/tmp/trade-e2e-perf-ihiw8p7i",
+    "/tmp/trade-e2e-perf-y6xmjiqt",
+    "/tmp/trade-e2e-perf-u5x71pip",
+    "/tmp/trade-e2e-perf-lz05if1c",
+    "/tmp/trade-e2e-perf-ggsajc97",
+    "/tmp/trade-e2e-perf-trbzp7a6"
+  ]
+}

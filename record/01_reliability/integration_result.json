@@ -1,6 +1,8 @@
 {
-  "commit": "701007c7a618eef93bf9ca1a5db0b231041c36ea",
-  "evidence_directory": "/tmp/trade-integration-hkbu93zp",
+  "commit": "957248424dfc34a50d689c36672cd00907d61ff0",
+  "profile": "release",
+  "sanitizer_errors": [],
+  "evidence_directory": "/tmp/trade-integration-y1a3c5mj",
   "protocol_cases": [
     {
       "name": "valid_new",
@@ -99,12 +101,12 @@
       "recovery_verifications": [
         "1"
       ],
-      "gateway_log": "/tmp/trade-integration-hkbu93zp/client1/trading_order_gateway_1.log",
+      "gateway_log": "/tmp/trade-integration-y1a3c5mj/client1/trading_order_gateway_1.log",
       "accepted": 830,
       "admission_rejected": 6,
       "duplicate_responses": 0,
       "outgoing_queue_full": 0,
-      "request_high_watermark": 30,
+      "request_high_watermark": 26,
       "gateway_sent": 830,
       "gateway_received_frames": 1336,
       "gateway_response_queue_full": 0,
@@ -116,12 +118,12 @@
       "recovery_verifications": [
         "1"
       ],
-      "gateway_log": "/tmp/trade-integration-hkbu93zp/client2/trading_order_gateway_2.log",
+      "gateway_log": "/tmp/trade-integration-y1a3c5mj/client2/trading_order_gateway_2.log",
       "accepted": 864,
       "admission_rejected": 6,
       "duplicate_responses": 0,
       "outgoing_queue_full": 0,
-      "request_high_watermark": 44,
+      "request_high_watermark": 67,
       "gateway_sent": 864,
       "gateway_received_frames": 1336,
       "gateway_response_queue_full": 0,
@@ -130,7 +132,7 @@
     }
   ],
   "audit": {
-    "journal": "/tmp/trade-integration-hkbu93zp/exchange/exchange_orders.journal",
+    "journal": "/tmp/trade-integration-y1a3c5mj/exchange/exchange_orders.journal",
     "counts": {
       "RECEIVED": 1701,
       "APPLY": 1701,
@@ -193,13 +195,13 @@
         "client": 1,
         "healthy": true,
         "unresolved": 0,
-        "path": "/tmp/trade-integration-hkbu93zp/client1/trading_account_1.journal"
+        "path": "/tmp/trade-integration-y1a3c5mj/client1/trading_account_1.journal"
       },
       {
         "client": 2,
         "healthy": true,
         "unresolved": 0,
-        "path": "/tmp/trade-integration-hkbu93zp/client2/trading_account_2.journal"
+        "path": "/tmp/trade-integration-y1a3c5mj/client2/trading_account_2.journal"
       }
     ],
     "errors": [],
