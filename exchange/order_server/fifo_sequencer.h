@@ -34,7 +34,7 @@ namespace Exchange {
 
       logger_->log("%:% %() % Processing % requests.\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), pending_size_);
 
-      std::sort(pending_client_requests_.begin(), pending_client_requests_.begin() + pending_size_);
+      std::stable_sort(pending_client_requests_.begin(), pending_client_requests_.begin() + pending_size_);
 
       for (size_t i = 0; i < pending_size_; ++i) {
         const auto &client_request = pending_client_requests_.at(i);

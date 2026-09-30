@@ -78,3 +78,7 @@ endif()
 if(BUILD_TESTING)
   add_test(NAME reliability_pool COMMAND reliability_test pool)
 endif()
+
+if(BUILD_TESTING)
+  add_test(NAME reliability_fifo COMMAND reliability_test fifo)
+endif()

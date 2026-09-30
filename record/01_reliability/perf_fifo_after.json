@@ -40,7 +40,7 @@
       "exchange/matcher/unordered_map_me_order_book.h": "7be741c3116c10d5be08f11044a630cbcc2771e3b1c0495f323aa0df1559c02b",
       "exchange/order_server/client_request.h": "8dc18bd53c2463b8cd50bb4dde7ca7df5ddccf4e8b49f31279093eabcd430d71",
       "exchange/order_server/client_response.h": "5769a8d2bee57ed22de0d8d22b23af213633664a14f3da322757d18b34b0ee7d",
-      "exchange/order_server/fifo_sequencer.h": "1d6b7b5bd19162b28cb3a043de981396aee51d7c670c1bd4cff7ff7c3d76fb6f",
+      "exchange/order_server/fifo_sequencer.h": "51b0696e602409edce606d5a1ea7d2a5449bf1c09776f8409dd14c766adfd5db",
       "exchange/order_server/order_server.cpp": "163864e93cad7cd1bf9adc81684ce89ed1a5b5983fd58c7cb98dc6fbed817514",
       "exchange/order_server/order_server.h": "9c254da8f01f5bbd3f5f59e0a59719ae4f9edd89a1a81f2c496dd3105843214e",
       "trading/market_data/market_data_consumer.cpp": "583d753d3aa14f8f6c1f3719e5dea8bb973f3e950c37aeff83087eaeddf33ba6",
@@ -80,38 +80,38 @@
     {
       "mode": "fifo",
       "operations": 64000,
-      "elapsed_ns": 1520011475,
-      "ns_per_operation": 23750.2,
+      "elapsed_ns": 1529772562,
+      "ns_per_operation": 23902.7,
       "checksum": 2080000
     },
     {
       "mode": "fifo",
       "operations": 64000,
-      "elapsed_ns": 1473389861,
-      "ns_per_operation": 23021.7,
+      "elapsed_ns": 1549887135,
+      "ns_per_operation": 24217,
       "checksum": 2080000
     },
     {
       "mode": "fifo",
       "operations": 64000,
-      "elapsed_ns": 1498725227,
-      "ns_per_operation": 23417.6,
+      "elapsed_ns": 1466335352,
+      "ns_per_operation": 22911.5,
       "checksum": 2080000
     },
     {
       "mode": "fifo",
       "operations": 64000,
-      "elapsed_ns": 1519130551,
-      "ns_per_operation": 23736.4,
+      "elapsed_ns": 1444731746,
+      "ns_per_operation": 22573.9,
       "checksum": 2080000
     },
     {
       "mode": "fifo",
       "operations": 64000,
-      "elapsed_ns": 1535442423,
-      "ns_per_operation": 23991.3,
+      "elapsed_ns": 1446335630,
+      "ns_per_operation": 22599,
       "checksum": 2080000
     }
   ],
-  "median_ns_per_operation": 23736.4
+  "median_ns_per_operation": 22911.5
 }
