@@ -1,0 +1,54 @@
+{
+  "formal_directory": "/home/zjh/trade-measurements/02/formal_d78282c",
+  "tmpfs_control_original": "/tmp/trade-storage-control-d78282c",
+  "tmpfs_control_persistent_archive": "/home/zjh/trade-measurements/02/formal_d78282c/storage_controls_archived",
+  "legacy_build_log": "/home/zjh/trade-measurements/02/legacy_rebuild/build.log",
+  "formal_console": "/home/zjh/trade-measurements/02/formal_console.log",
+  "artifact_hashes_sha256": "0bacdb71879ce1d29ac9fb286b2bffba771820f1acac7aafee0a817db2f4b144",
+  "production_and_measurement_hashes_verified": true,
+  "source_commit": "d78282cac805f4eb3af7270707d8d3424415b715",
+  "aggregate": {
+    "process_runs": 66,
+    "warmup_process_runs": 11,
+    "measured_process_runs": 55,
+    "measured_generated": 55000,
+    "measured_sent": 55000,
+    "measured_completed": 55000,
+    "measured_accepted": 27500,
+    "measured_canceled": 27500,
+    "timeout": 0,
+    "unsent": 0,
+    "audit_requests_including_warmups": 71376,
+    "all_correct": true,
+    "peak_process_rss_kib": 955364,
+    "logging_drops": 0,
+    "resource_correction": {
+      "process_runs": 12,
+      "warmup_process_runs": 2,
+      "measured_process_runs": 10,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "timeout": 0,
+      "unsent": 0,
+      "all_correct": true
+    },
+    "total_measured_requests_all_batches": 65000
+  },
+  "resource_correction_directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation",
+  "resource_tmpfs_persistent_archive": "/home/zjh/trade-measurements/02/cpu_boundary_validation/tmpfs_control_archived",
+  "source_commit_resource_correction": "aff900fdabd9bf2b46138e3ddf6db48d3e1961e1",
+  "cpu_correction_validation": {
+    "runs": 12,
+    "passed": true,
+    "checks": [
+      "interval brackets measured endpoints",
+      "CPU percent times sample duration equals tick-derived CPU time",
+      "same input and same business binary in each storage pair"
+    ],
+    "percent_range": [
+      328.1120230276106,
+      392.2583560825449
+    ]
+  }
+}

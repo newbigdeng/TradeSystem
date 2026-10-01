@@ -1,0 +1,2918 @@
+[
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849323491545703,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "65dd27d87fb3488d07820ade087509f6b487e58c4bdf3b9cecafa40d6c6a4945",
+    "warmup": true,
+    "counts": {
+      "observed_end_ns": 4451036247941,
+      "last_full_frame_sent_ns": 4451028691128,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4442156390216,
+      "window_end_ns": 4451036247941,
+      "window_seconds": 8.879857725,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 112.61441691623499,
+        "sent": 112.61441691623499,
+        "completed": 112.61441691623499,
+        "accepted": 56.30720845811749,
+        "canceled": 56.30720845811749,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 120963,
+        "p95_ns": 220497,
+        "p99_ns": 363677,
+        "max_ns": 715347,
+        "mean_ns": 136241.556
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 8333861,
+        "p95_ns": 11354072,
+        "p99_ns": 15134110,
+        "max_ns": 44498757,
+        "mean_ns": 8719093.904
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 8469643,
+        "p95_ns": 11534323,
+        "p99_ns": 15246557,
+        "max_ns": 44806930,
+        "mean_ns": 8855335.46
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 8472862,
+          "p95_ns": 11348854,
+          "p99_ns": 14603300,
+          "max_ns": 38116994,
+          "mean_ns": 8751062.168
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 8460310,
+          "p95_ns": 11791116,
+          "p99_ns": 18560544,
+          "max_ns": 44806930,
+          "mean_ns": 8959608.752
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 15246557,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        334840,
+        37820,
+        170453,
+        2904738,
+        31627,
+        0,
+        49137,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 74577,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 0,
+        "MemErrors": 0
+      },
+      "loadavg": "0.35 0.81 1.96 9/972 16967"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        337017,
+        37887,
+        171655,
+        2907590,
+        31977,
+        0,
+        49647,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 75577,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.05 0.95 1.99 11/970 16970"
+    },
+    "process_before": {
+      "cpu_ticks": 342,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946080 kB",
+      "VmRSS": "946080 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3314,
+      "VmSize": "1545428 kB",
+      "VmHWM": "949028 kB",
+      "VmRSS": "949028 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 8.879857725,
+    "cpu_sample_start_ns": 4442131579443,
+    "cpu_sample_end_ns": 4451037138803,
+    "cpu_sample_seconds": 8.90555936,
+    "process_cpu_seconds_sampled": 29.72,
+    "process_cpu_percent_sampled": 333.72412443276335,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/0_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849335425601350,
+    "iteration": 0,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/0_ext4"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849335430104631,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "fa0ea869a5f5e8fd62191762b18210701cea2cdf459c28a8634570e631f14cdb",
+    "warmup": true,
+    "counts": {
+      "observed_end_ns": 4454150954833,
+      "last_full_frame_sent_ns": 4454150522891,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4453484507967,
+      "window_end_ns": 4454150954833,
+      "window_seconds": 0.666446866,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1500.494714607901,
+        "sent": 1500.494714607901,
+        "completed": 1500.494714607901,
+        "accepted": 750.2473573039505,
+        "canceled": 750.2473573039505,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 89750,
+        "p95_ns": 153637,
+        "p99_ns": 342514,
+        "max_ns": 1612458,
+        "mean_ns": 101661.299
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 393392,
+        "p95_ns": 1493441,
+        "p99_ns": 2182753,
+        "max_ns": 3255367,
+        "mean_ns": 545328.594
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 489301,
+        "p95_ns": 1632570,
+        "p99_ns": 2393566,
+        "max_ns": 3365025,
+        "mean_ns": 646989.893
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 463388,
+          "p95_ns": 1565502,
+          "p99_ns": 2504570,
+          "max_ns": 3365025,
+          "mean_ns": 624268.884
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 514927,
+          "p95_ns": 1659960,
+          "p99_ns": 2359327,
+          "max_ns": 3105899,
+          "mean_ns": 669710.902
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 2393566,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        337137,
+        38005,
+        171901,
+        2909007,
+        31978,
+        0,
+        49679,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 75629,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.12 0.96 2.00 7/976 16987"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        337357,
+        38005,
+        171978,
+        2909246,
+        31978,
+        0,
+        49693,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 76626,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.12 0.96 2.00 7/976 16987"
+    },
+    "process_before": {
+      "cpu_ticks": 215,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945640 kB",
+      "VmRSS": "945640 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 486,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948660 kB",
+      "VmRSS": "948660 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.666446866,
+    "cpu_sample_start_ns": 4453461126775,
+    "cpu_sample_end_ns": 4454151997972,
+    "cpu_sample_seconds": 0.690871197,
+    "process_cpu_seconds_sampled": 2.71,
+    "process_cpu_percent_sampled": 392.2583560825449,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/0_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      2,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849338341547184,
+    "iteration": 0,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/0_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849338346108360,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "28b03cdd582c9e654ecb33ff86e6218473b98031893216ccb1f9123d77c003ff",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4457278125133,
+      "last_full_frame_sent_ns": 4457277760354,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4456624896552,
+      "window_end_ns": 4457278125133,
+      "window_seconds": 0.653228581,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1530.8576952789515,
+        "sent": 1530.8576952789515,
+        "completed": 1530.8576952789515,
+        "accepted": 765.4288476394757,
+        "canceled": 765.4288476394757,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 95129,
+        "p95_ns": 178974,
+        "p99_ns": 376677,
+        "max_ns": 1886720,
+        "mean_ns": 108883.61
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 417678,
+        "p95_ns": 1139747,
+        "p99_ns": 1618444,
+        "max_ns": 5320108,
+        "mean_ns": 523098.258
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 525228,
+        "p95_ns": 1283446,
+        "p99_ns": 1873951,
+        "max_ns": 5440389,
+        "mean_ns": 631981.868
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 490626,
+          "p95_ns": 1207013,
+          "p99_ns": 1719609,
+          "max_ns": 2160933,
+          "mean_ns": 594380.622
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 555773,
+          "p95_ns": 1336704,
+          "p99_ns": 1972453,
+          "max_ns": 5440389,
+          "mean_ns": 669583.114
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 1873951,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        337478,
+        38045,
+        172185,
+        2910797,
+        31978,
+        0,
+        49739,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 76678,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.11 0.97 1.99 8/976 16999"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        337700,
+        38045,
+        172263,
+        2911015,
+        31980,
+        0,
+        49758,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 77674,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.11 0.97 1.99 5/978 17001"
+    },
+    "process_before": {
+      "cpu_ticks": 241,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945660 kB",
+      "VmRSS": "945660 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 504,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948644 kB",
+      "VmRSS": "948644 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.653228581,
+    "cpu_sample_start_ns": 4456602584158,
+    "cpu_sample_end_ns": 4457279106777,
+    "cpu_sample_seconds": 0.676522619,
+    "process_cpu_seconds_sampled": 2.63,
+    "process_cpu_percent_sampled": 388.7527077642322,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/1_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      3,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849341472266761,
+    "iteration": 1,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/1_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849341478308508,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "2afa0fbe824a7dfb22de5074eee03204cfbe1de58518c44a6e0857a8a87a70f3",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4468575648473,
+      "last_full_frame_sent_ns": 4468565268021,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4459926875284,
+      "window_end_ns": 4468575648473,
+      "window_seconds": 8.648773189,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 115.62333502650488,
+        "sent": 115.62333502650488,
+        "completed": 115.62333502650488,
+        "accepted": 57.81166751325244,
+        "canceled": 57.81166751325244,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 116523,
+        "p95_ns": 215439,
+        "p99_ns": 425173,
+        "max_ns": 1340825,
+        "mean_ns": 133367.832
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 8178547,
+        "p95_ns": 11431123,
+        "p99_ns": 13921147,
+        "max_ns": 21814534,
+        "mean_ns": 8491396.857
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 8307265,
+        "p95_ns": 11537619,
+        "p99_ns": 14068657,
+        "max_ns": 21899448,
+        "mean_ns": 8624764.689
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 8270090,
+          "p95_ns": 11513990,
+          "p99_ns": 13948586,
+          "max_ns": 19631179,
+          "mean_ns": 8609834.988
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 8343269,
+          "p95_ns": 11537619,
+          "p99_ns": 14068657,
+          "max_ns": 21899448,
+          "mean_ns": 8639694.39
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 14068657,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        337872,
+        38176,
+        172513,
+        2912501,
+        31993,
+        0,
+        49820,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 576,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 77726,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "1.11 0.97 1.99 7/977 17012"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        340009,
+        38254,
+        173700,
+        2915252,
+        32327,
+        0,
+        50300,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 78729,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "2.18 1.20 2.05 10/970 17013"
+    },
+    "process_before": {
+      "cpu_ticks": 323,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946072 kB",
+      "VmRSS": "946072 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3211,
+      "VmSize": "1545428 kB",
+      "VmHWM": "949024 kB",
+      "VmRSS": "949024 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 8.648773189,
+    "cpu_sample_start_ns": 4459904537508,
+    "cpu_sample_end_ns": 4468576737452,
+    "cpu_sample_seconds": 8.672199944,
+    "process_cpu_seconds_sampled": 28.88,
+    "process_cpu_percent_sampled": 333.0181521008529,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/1_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849352963466655,
+    "iteration": 1,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/1_ext4"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849352969609275,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "c1b4d2dce4524c85fb57fbfb226c159accef4a08d784c05e41afaee8940e9a8d",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4480740874993,
+      "last_full_frame_sent_ns": 4480733209770,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4471447515845,
+      "window_end_ns": 4480740874993,
+      "window_seconds": 9.293359148,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 107.60371831914054,
+        "sent": 107.60371831914054,
+        "completed": 107.60371831914054,
+        "accepted": 53.80185915957027,
+        "canceled": 53.80185915957027,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 118262,
+        "p95_ns": 219035,
+        "p99_ns": 455139,
+        "max_ns": 1348614,
+        "mean_ns": 135840.847
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 8987481,
+        "p95_ns": 12098680,
+        "p99_ns": 14844884,
+        "max_ns": 47280474,
+        "mean_ns": 9131453.185
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 9117106,
+        "p95_ns": 12227911,
+        "p99_ns": 14954257,
+        "max_ns": 47375825,
+        "mean_ns": 9267294.032
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 8997165,
+          "p95_ns": 12278939,
+          "p99_ns": 14954257,
+          "max_ns": 47375825,
+          "mean_ns": 9188622.696
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 9195142,
+          "p95_ns": 12034076,
+          "p99_ns": 14045148,
+          "max_ns": 45959662,
+          "mean_ns": 9345965.368
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 14954257,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        340213,
+        38440,
+        174010,
+        2916758,
+        32338,
+        0,
+        50387,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 78781,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "2.65 1.31 2.09 7/975 17029"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        342540,
+        38521,
+        175265,
+        2919727,
+        32690,
+        0,
+        50880,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 79781,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.00 1.41 2.11 5/970 17031"
+    },
+    "process_before": {
+      "cpu_ticks": 319,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946068 kB",
+      "VmRSS": "946068 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3376,
+      "VmSize": "1545428 kB",
+      "VmHWM": "949004 kB",
+      "VmRSS": "949004 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 9.293359148,
+    "cpu_sample_start_ns": 4471424962065,
+    "cpu_sample_end_ns": 4480741901968,
+    "cpu_sample_seconds": 9.316939903,
+    "process_cpu_seconds_sampled": 30.57,
+    "process_cpu_percent_sampled": 328.1120230276106,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/2_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849365207476354,
+    "iteration": 2,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/2_ext4"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849365215317393,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "926bcb3439ad84569097c838132507b4b233dbf0e185d705a65ff3e69ecfd3fa",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4484312595700,
+      "last_full_frame_sent_ns": 4484312120558,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4483595710970,
+      "window_end_ns": 4484312595700,
+      "window_seconds": 0.71688473,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1394.9243973992864,
+        "sent": 1394.9243973992864,
+        "completed": 1394.9243973992864,
+        "accepted": 697.4621986996432,
+        "canceled": 697.4621986996432,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 97068,
+        "p95_ns": 226312,
+        "p99_ns": 468073,
+        "max_ns": 1164786,
+        "mean_ns": 114937.361
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 461052,
+        "p95_ns": 1331468,
+        "p99_ns": 1918481,
+        "max_ns": 4331472,
+        "mean_ns": 579375.566
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 578454,
+        "p95_ns": 1504767,
+        "p99_ns": 2068059,
+        "max_ns": 4419930,
+        "mean_ns": 694312.927
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 560665,
+          "p95_ns": 1424367,
+          "p99_ns": 2096638,
+          "max_ns": 3099249,
+          "mean_ns": 667092.102
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 602335,
+          "p95_ns": 1557915,
+          "p99_ns": 1981201,
+          "max_ns": 4419930,
+          "mean_ns": 721533.752
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 2068059,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        342691,
+        38631,
+        175538,
+        2921411,
+        32690,
+        0,
+        50929,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 79833,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.08 1.45 2.12 10/975 17047"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        342966,
+        38631,
+        175642,
+        2921606,
+        32691,
+        0,
+        50946,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 80803,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.08 1.45 2.12 6/975 17047"
+    },
+    "process_before": {
+      "cpu_ticks": 263,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945696 kB",
+      "VmRSS": "945696 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 549,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948660 kB",
+      "VmRSS": "948660 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.71688473,
+    "cpu_sample_start_ns": 4483572049329,
+    "cpu_sample_end_ns": 4484314039932,
+    "cpu_sample_seconds": 0.741990603,
+    "process_cpu_seconds_sampled": 2.86,
+    "process_cpu_percent_sampled": 385.4496254314423,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/2_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      14,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849368484698747,
+    "iteration": 2,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/2_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849368489169453,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "898d2591195e8923347fa6e5d8b069372d71ba7cfef3c0ff109f33cfd6ac5ee3",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4487520395038,
+      "last_full_frame_sent_ns": 4487518207916,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4486779251058,
+      "window_end_ns": 4487520395038,
+      "window_seconds": 0.74114398,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1349.265496293986,
+        "sent": 1349.265496293986,
+        "completed": 1349.265496293986,
+        "accepted": 674.632748146993,
+        "canceled": 674.632748146993,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 97038,
+        "p95_ns": 187920,
+        "p99_ns": 384830,
+        "max_ns": 1234182,
+        "mean_ns": 109450.701
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 476907,
+        "p95_ns": 1330557,
+        "p99_ns": 2175231,
+        "max_ns": 4146019,
+        "mean_ns": 607545.011
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 596518,
+        "p95_ns": 1455757,
+        "p99_ns": 2270949,
+        "max_ns": 4259852,
+        "mean_ns": 716995.712
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 557288,
+          "p95_ns": 1400434,
+          "p99_ns": 2073117,
+          "max_ns": 4257270,
+          "mean_ns": 686006.686
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 625536,
+          "p95_ns": 1467813,
+          "p99_ns": 2291069,
+          "max_ns": 4259852,
+          "mean_ns": 747984.738
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 2270949,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        343118,
+        38671,
+        175890,
+        2923075,
+        32691,
+        0,
+        51007,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 80855,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "2.91 1.44 2.12 5/975 17058"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        343367,
+        38671,
+        175975,
+        2923331,
+        32691,
+        0,
+        51028,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 81855,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "2.91 1.44 2.12 6/975 17058"
+    },
+    "process_before": {
+      "cpu_ticks": 240,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945572 kB",
+      "VmRSS": "945572 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 539,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948664 kB",
+      "VmRSS": "948664 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.74114398,
+    "cpu_sample_start_ns": 4486756876078,
+    "cpu_sample_end_ns": 4487521421215,
+    "cpu_sample_seconds": 0.764545137,
+    "process_cpu_seconds_sampled": 2.99,
+    "process_cpu_percent_sampled": 391.08220761595135,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/3_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849371760900718,
+    "iteration": 3,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/3_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849371770230254,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "fc77c263b06035d589695c7fed4ec3bb57180a923866abe17d6aaf62205b2544",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4500032918736,
+      "last_full_frame_sent_ns": 4500023486147,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4490355329151,
+      "window_end_ns": 4500032918736,
+      "window_seconds": 9.677589585,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 103.33151568547325,
+        "sent": 103.33151568547325,
+        "completed": 103.33151568547325,
+        "accepted": 51.665757842736625,
+        "canceled": 51.665757842736625,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 115340,
+        "p95_ns": 199272,
+        "p99_ns": 345766,
+        "max_ns": 1300691,
+        "mean_ns": 127607.847
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 9461781,
+        "p95_ns": 12327842,
+        "p99_ns": 14359017,
+        "max_ns": 19868121,
+        "mean_ns": 9523858.097
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 9600690,
+        "p95_ns": 12447867,
+        "p99_ns": 14500048,
+        "max_ns": 19972014,
+        "mean_ns": 9651465.944
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 9503786,
+          "p95_ns": 12299226,
+          "p99_ns": 14067278,
+          "max_ns": 19972014,
+          "mean_ns": 9574289.646
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 9705236,
+          "p95_ns": 12579887,
+          "p99_ns": 14619172,
+          "max_ns": 15631579,
+          "mean_ns": 9728642.242
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 14500048,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        343623,
+        38874,
+        176318,
+        2924690,
+        32703,
+        0,
+        51121,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 81907,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "2.91 1.44 2.12 11/975 17069"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        345899,
+        38959,
+        177547,
+        2928002,
+        33097,
+        0,
+        51719,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 82907,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.38 1.59 2.16 8/967 17069"
+    },
+    "process_before": {
+      "cpu_ticks": 351,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946048 kB",
+      "VmRSS": "946048 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3592,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948980 kB",
+      "VmRSS": "948980 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 9.677589585,
+    "cpu_sample_start_ns": 4490333056229,
+    "cpu_sample_end_ns": 4500034106793,
+    "cpu_sample_seconds": 9.701050564,
+    "process_cpu_seconds_sampled": 32.41,
+    "process_cpu_percent_sampled": 334.08752780107653,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/3_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849384473083477,
+    "iteration": 3,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/3_ext4"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849384484198043,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "f71a2538549731d36dcf06689e08b5cd8c3e66d72ea4063681b9a23995bea2ab",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4512154713802,
+      "last_full_frame_sent_ns": 4512145687551,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4503066683980,
+      "window_end_ns": 4512154713802,
+      "window_seconds": 9.088029822,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 110.03485019153804,
+        "sent": 110.03485019153804,
+        "completed": 110.03485019153804,
+        "accepted": 55.01742509576902,
+        "canceled": 55.01742509576902,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 116133,
+        "p95_ns": 198562,
+        "p99_ns": 399665,
+        "max_ns": 708749,
+        "mean_ns": 128887.091
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 8508211,
+        "p95_ns": 11947907,
+        "p99_ns": 15326035,
+        "max_ns": 62106591,
+        "mean_ns": 8933262.664
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 8636915,
+        "p95_ns": 12135918,
+        "p99_ns": 15471947,
+        "max_ns": 62238017,
+        "mean_ns": 9062149.755
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 8681648,
+          "p95_ns": 12021408,
+          "p99_ns": 15471947,
+          "max_ns": 62238017,
+          "mean_ns": 9062406.52
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 8606567,
+          "p95_ns": 12135918,
+          "p99_ns": 14511201,
+          "max_ns": 53521880,
+          "mean_ns": 9061892.99
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 15471947,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        346095,
+        39145,
+        177848,
+        2929655,
+        33112,
+        0,
+        51788,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 580,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 82959,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.43 1.63 2.17 6/972 17085"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        348219,
+        39229,
+        179018,
+        2932745,
+        33474,
+        0,
+        52360,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 83960,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.98 1.81 2.22 6/964 17085"
+    },
+    "process_before": {
+      "cpu_ticks": 350,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946068 kB",
+      "VmRSS": "946068 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3377,
+      "VmSize": "1545428 kB",
+      "VmHWM": "949008 kB",
+      "VmRSS": "949008 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 9.088029822,
+    "cpu_sample_start_ns": 4503044203183,
+    "cpu_sample_end_ns": 4512156162692,
+    "cpu_sample_seconds": 9.111959509,
+    "process_cpu_seconds_sampled": 30.27,
+    "process_cpu_percent_sampled": 332.2007738302824,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/4_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849396567125219,
+    "iteration": 4,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/4_ext4"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849396573783920,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "22cf8dd5ce368abce5fd9e99155a4cb04363e454d14167ab6c7fe042006c498e",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4515393972078,
+      "last_full_frame_sent_ns": 4515393210497,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4514679574340,
+      "window_end_ns": 4515393972078,
+      "window_seconds": 0.714397738,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1399.780467949914,
+        "sent": 1399.780467949914,
+        "completed": 1399.780467949914,
+        "accepted": 699.890233974957,
+        "canceled": 699.890233974957,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 99070,
+        "p95_ns": 195623,
+        "p99_ns": 366073,
+        "max_ns": 873691,
+        "mean_ns": 112406.8
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 453714,
+        "p95_ns": 1270728,
+        "p99_ns": 1818123,
+        "max_ns": 5072768,
+        "mean_ns": 578587.583
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 571173,
+        "p95_ns": 1421455,
+        "p99_ns": 1938176,
+        "max_ns": 5227570,
+        "mean_ns": 690994.383
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 539468,
+          "p95_ns": 1390540,
+          "p99_ns": 1758027,
+          "max_ns": 3591291,
+          "mean_ns": 660833.98
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 600179,
+          "p95_ns": 1421455,
+          "p99_ns": 2149910,
+          "max_ns": 5227570,
+          "mean_ns": 721154.786
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 1938176,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        348376,
+        39349,
+        179271,
+        2934168,
+        33475,
+        0,
+        52419,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 84012,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.98 1.81 2.22 5/975 17112"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        348617,
+        39349,
+        179357,
+        2934410,
+        33475,
+        0,
+        52437,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 84999,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.98 1.81 2.22 6/975 17112"
+    },
+    "process_before": {
+      "cpu_ticks": 228,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945836 kB",
+      "VmRSS": "945836 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 515,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948704 kB",
+      "VmRSS": "948704 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.714397738,
+    "cpu_sample_start_ns": 4514657246011,
+    "cpu_sample_end_ns": 4515395077876,
+    "cpu_sample_seconds": 0.737831865,
+    "process_cpu_seconds_sampled": 2.87,
+    "process_cpu_percent_sampled": 388.9775077686568,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/4_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      4,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849399647941430,
+    "iteration": 4,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/4_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849399656020985,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "400be48f2353b0c06203c91826222401e3023ffedb5d194996563c26f9f669e8",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4518859315453,
+      "last_full_frame_sent_ns": 4518858899391,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4518114094947,
+      "window_end_ns": 4518859315453,
+      "window_seconds": 0.745220506,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1341.884706538121,
+        "sent": 1341.884706538121,
+        "completed": 1341.884706538121,
+        "accepted": 670.9423532690605,
+        "canceled": 670.9423532690605,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 100521,
+        "p95_ns": 180419,
+        "p99_ns": 315879,
+        "max_ns": 1077576,
+        "mean_ns": 109936.974
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 467291,
+        "p95_ns": 1311625,
+        "p99_ns": 2417618,
+        "max_ns": 8606581,
+        "mean_ns": 612585.21
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 577133,
+        "p95_ns": 1464373,
+        "p99_ns": 2508295,
+        "max_ns": 8709390,
+        "mean_ns": 722522.184
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 544158,
+          "p95_ns": 1352762,
+          "p99_ns": 2737619,
+          "max_ns": 8709390,
+          "mean_ns": 697590.044
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 606975,
+          "p95_ns": 1502742,
+          "p99_ns": 2373394,
+          "max_ns": 6091536,
+          "mean_ns": 747454.324
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 2508295,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        348753,
+        39390,
+        179594,
+        2936092,
+        33475,
+        0,
+        52492,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 85051,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.82 1.81 2.22 5/975 17123"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        349046,
+        39390,
+        179705,
+        2936282,
+        33476,
+        0,
+        52509,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 86048,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "3.82 1.81 2.22 6/985 17150"
+    },
+    "process_before": {
+      "cpu_ticks": 263,
+      "VmSize": "1545428 kB",
+      "VmHWM": "945868 kB",
+      "VmRSS": "945868 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 560,
+      "VmSize": "1545428 kB",
+      "VmHWM": "948712 kB",
+      "VmRSS": "948712 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 0.745220506,
+    "cpu_sample_start_ns": 4518090846921,
+    "cpu_sample_end_ns": 4518860479737,
+    "cpu_sample_seconds": 0.769632816,
+    "process_cpu_seconds_sampled": 2.97,
+    "process_cpu_percent_sampled": 385.89830608262423,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE FSTYPE OPTIONS\n/tmp   tmpfs  tmpfs  rw,nosuid,nodev,nr_inodes=1048576,inode64,usrquota\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/tmp/trade-cpu-boundary-control/5_tmpfs/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      2,
+      1,
+      2,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_snapshot_synthesizer.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_main.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849403026894674,
+    "iteration": 5,
+    "variant": "tmpfs",
+    "profile": "closed_c1_t1",
+    "directory": "/tmp/trade-cpu-boundary-control/5_tmpfs"
+  },
+  {
+    "config": {
+      "mode": "closed",
+      "clients": 1,
+      "tickers": 1,
+      "rate": 0,
+      "requests": 1000,
+      "seed": 20260928,
+      "timeout_s": 30
+    },
+    "start_wall_ns": 1790849403033282188,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "events_sha256": "84466ba60856a6e0896e3f86b45fa9dd93369f6e559e69e6db1624cee0f73227",
+    "warmup": false,
+    "counts": {
+      "observed_end_ns": 4530597559050,
+      "last_full_frame_sent_ns": 4530588607759,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 4521399566321,
+      "window_end_ns": 4530597559050,
+      "window_seconds": 9.197992729,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 108.71937274391817,
+        "sent": 108.71937274391817,
+        "completed": 108.71937274391817,
+        "accepted": 54.359686371959086,
+        "canceled": 54.359686371959086,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 118965,
+        "p95_ns": 211967,
+        "p99_ns": 547212,
+        "max_ns": 1101149,
+        "mean_ns": 136687.362
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 8771040,
+        "p95_ns": 11820366,
+        "p99_ns": 15074562,
+        "max_ns": 66405021,
+        "mean_ns": 9035773.809
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 8893366,
+        "p95_ns": 11941161,
+        "p99_ns": 15213959,
+        "max_ns": 66488130,
+        "mean_ns": 9172461.171
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 8845044,
+          "p95_ns": 11869410,
+          "p99_ns": 18096915,
+          "max_ns": 51600962,
+          "mean_ns": 9096289.638
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 8963444,
+          "p95_ns": 11973253,
+          "p99_ns": 15197285,
+          "max_ns": 66488130,
+          "mean_ns": 9248632.704
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 15213959,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        349579,
+        39501,
+        180046,
+        2937238,
+        33493,
+        0,
+        52589,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 86100,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "4.16 1.92 2.25 9/1026 17220"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        351976,
+        39579,
+        181339,
+        2939990,
+        33846,
+        0,
+        53034,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 581,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 87100,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 4,
+        "MemErrors": 0
+      },
+      "loadavg": "4.47 2.02 2.28 6/1016 17224"
+    },
+    "process_before": {
+      "cpu_ticks": 319,
+      "VmSize": "1545428 kB",
+      "VmHWM": "946092 kB",
+      "VmRSS": "946092 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 3377,
+      "VmSize": "1545428 kB",
+      "VmHWM": "949028 kB",
+      "VmRSS": "949028 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 9.197992729,
+    "cpu_sample_start_ns": 4521377290790,
+    "cpu_sample_end_ns": 4530598808622,
+    "cpu_sample_seconds": 9.221517832,
+    "process_cpu_seconds_sampled": 30.58,
+    "process_cpu_percent_sampled": 331.6156901403257,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/02/cpu_boundary_validation/5_ext4/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 1032,
+        "APPLY": 1032,
+        "RESPONSE": 1032
+      },
+      "distinct_response_ids": 1032,
+      "received_count": 1032,
+      "applied_count": 1032,
+      "client_received_requests": {
+        "80": 1032
+      },
+      "client_matching_responses": {
+        "80": 1032
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "30c28b1f01e6ec2907b92071c0160374a88ae10c7d4d8afc7c0c9bbded1164b9",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      3097
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790849414923930755,
+    "iteration": 5,
+    "variant": "ext4",
+    "profile": "closed_c1_t1",
+    "directory": "/home/zjh/trade-measurements/02/cpu_boundary_validation/5_ext4"
+  }
+]

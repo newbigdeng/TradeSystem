@@ -1,0 +1,177 @@
+{
+  "source_commit": "aff900fdabd9bf2b46138e3ddf6db48d3e1961e1",
+  "dirty_tree": false,
+  "build_type": "Release",
+  "build_directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "cmake_command": "cmake -S . -B /home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release -G Ninja -DCMAKE_BUILD_TYPE=Release",
+  "build_command": "cmake --build /home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release -j 4",
+  "compile_commands_sha256": "184ff52fe3ca848cd7c4476e25030e486c838458466be431b01e07bb0a0f62c6",
+  "environment": [
+    {
+      "command": [
+        "uname",
+        "-srmo"
+      ],
+      "exit_code": 0,
+      "stdout": "Linux 7.0.0-34-generic x86_64 GNU/Linux\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "g++",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cmake",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "cmake version 4.2.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lscpu"
+      ],
+      "exit_code": 0,
+      "stdout": "\u67b6\u6784\uff1a                                   x86_64\nCPU \u8fd0\u884c\u6a21\u5f0f\uff1a                           32-bit, 64-bit\nAddress sizes:                           45 bits physical, 48 bits virtual\n\u5b57\u8282\u5e8f\uff1a                                 Little Endian\nCPU:                                     8\n\u5728\u7ebf CPU \u5217\u8868\uff1a                          0-7\n\u5382\u5546 ID\uff1a                                GenuineIntel\n\u578b\u53f7\u540d\u79f0\uff1a                               13th Gen Intel(R) Core(TM) i7-13650HX\nCPU \u7cfb\u5217\uff1a                               6\n\u578b\u53f7\uff1a                                   183\n\u6bcf\u4e2a\u6838\u7684\u7ebf\u7a0b\u6570\uff1a                         1\n\u6bcf\u4e2a\u5ea7\u7684\u6838\u6570\uff1a                           4\n\u5ea7\uff1a                                     2\n\u6b65\u8fdb\uff1a                                   1\nBogoMIPS\uff1a                               5606.39\n\u6807\u8bb0\uff1a                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni arat umip gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize flush_l1d arch_capabilities\n\u8d85\u7ba1\u7406\u5668\u5382\u5546\uff1a                           VMware\n\u865a\u62df\u5316\u7c7b\u578b\uff1a                             \u5b8c\u5168\nL1d \u7f13\u5b58\uff1a                               384 KiB (8 instances)\nL1i \u7f13\u5b58\uff1a                               256 KiB (8 instances)\nL2 \u7f13\u5b58\uff1a                                10 MiB (8 instances)\nL3 \u7f13\u5b58\uff1a                                48 MiB (2 instances)\nNUMA \u8282\u70b9\uff1a                              1\nNUMA \u8282\u70b90 CPU\uff1a                         0-7\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Mitigation; PTE Inversion\nVulnerability Mds:                       Mitigation; Clear CPU buffers; SMT Host state unknown\nVulnerability Meltdown:                  Mitigation; PTI\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Mitigation; IBRS\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ip",
+        "-details",
+        "link",
+        "show",
+        "lo"
+      ],
+      "exit_code": 0,
+      "stdout": "1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00 promiscuity 0 allmulti 0 minmtu 0 maxmtu 0 netns-immutable addrgenmode eui64 numtxqueues 1 numrxqueues 1 gso_max_size 65536 gso_max_segs 65535 tso_max_size 524280 tso_max_segs 65535 gro_max_size 65536 gso_ipv4_max_size 65536 gro_ipv4_max_size 65536 \n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sysctl",
+        "net.core.rmem_max",
+        "net.core.wmem_max",
+        "net.ipv4.tcp_rmem",
+        "net.ipv4.tcp_wmem"
+      ],
+      "exit_code": 0,
+      "stdout": "net.core.rmem_max = 4194304\nnet.core.wmem_max = 4194304\nnet.ipv4.tcp_rmem = 4096\t131072\t33554432\nnet.ipv4.tcp_wmem = 4096\t16384\t4194304\n",
+      "stderr": ""
+    }
+  ],
+  "memory": "MemTotal:        7553640 kB\nMemFree:          520620 kB\nMemAvailable:    5471952 kB\nBuffers:          780772 kB\nCached:          4015736 kB\nSwapCached:         1832 kB\nActive:           832436 kB\nInactive:        4956596 kB\nActive(anon):     351796 kB\nInactive(anon):   776204 kB\nActive(file):     480640 kB\nInactive(file):  4180392 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       4194300 kB\nSwapFree:        3865496 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:               568 kB\nWriteback:             0 kB\nAnonPages:        990384 kB\nMapped:           586524 kB\nShmem:            135744 kB\nKReclaimable:     595436 kB\nSlab:             884452 kB\nSReclaimable:     595436 kB\nSUnreclaim:       289016 kB\nKernelStack:       17296 kB\nPageTables:        32772 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     7971120 kB\nCommitted_AS:    7204684 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       45732 kB\nVmallocChunk:          0 kB\nPercpu:           118784 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:     49152 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:          167060 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      243520 kB\nDirectMap2M:     3950592 kB\nDirectMap1G:     6291456 kB\n",
+  "numa_maps_visible": "00400000 default file=/usr/bin/python3.14 mapped=34 mapmax=4 active=0 N0=34 kernelpagesize_kB=4\n00422000 default file=/usr/bin/python3.14 mapped=774 mapmax=4 active=0 N0=774 kernelpagesize_kB=4\n007a8000 default file=/usr/bin/python3.14 mapped=398 mapmax=4 active=0 N0=398 kernelpagesize_kB=4\n00a86000 default file=/usr/bin/python3.14 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n00a87000 default file=/usr/bin/python3.14 anon=124 dirty=124 mapped=154 mapmax=4 active=0 N0=154 kernelpagesize_kB=4\n00b22000 default anon=5 dirty=5 active=0 N0=5 kernelpagesize_kB=4\n2f87f000 default heap anon=795 dirty=795 active=1 N0=795 kernelpagesize_kB=4\n72342fa46000 default anon=265 dirty=265 active=3 N0=265 kernelpagesize_kB=4\n72342fbac000 default file=/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 mapped=4 mapmax=12 active=0 N0=4 kernelpagesize_kB=4\n72342fbb0000 default file=/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 mapped=16 mapmax=12 active=0 N0=16 kernelpagesize_kB=4\n72342fbd4000 default file=/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 mapped=11 mapmax=12 active=0 N0=11 kernelpagesize_kB=4\n72342fbdf000 default file=/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72342fbe0000 default file=/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72342fc00000 default file=/usr/lib/x86_64-linux-gnu/libcrypto.so.3 mapped=228 mapmax=32 active=0 N0=228 kernelpagesize_kB=4\n72342fce4000 default file=/usr/lib/x86_64-linux-gnu/libcrypto.so.3 mapped=584 mapmax=35 active=0 N0=584 kernelpagesize_kB=4\n723430078000 default file=/usr/lib/x86_64-linux-gnu/libcrypto.so.3 mapped=127 mapmax=35 active=0 N0=127 kernelpagesize_kB=4\n723430197000 default file=/usr/lib/x86_64-linux-gnu/libcrypto.so.3 anon=125 dirty=125 active=0 N0=125 kernelpagesize_kB=4\n723430214000 default file=/usr/lib/x86_64-linux-gnu/libcrypto.so.3 anon=3 dirty=3 active=0 N0=3 kernelpagesize_kB=4\n723430217000 default anon=3 dirty=3 active=0 N0=3 kernelpagesize_kB=4\n723430228000 default file=/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 mapped=2 mapmax=35 active=0 N0=2 kernelpagesize_kB=4\n72343022a000 default file=/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 mapped=15 mapmax=35 active=0 N0=15 kernelpagesize_kB=4\n723430239000 default file=/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 mapped=2 mapmax=35 active=0 N0=2 kernelpagesize_kB=4\n72343023b000 default file=/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72343023c000 default file=/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72343023d000 default anon=242 dirty=242 active=0 N0=242 kernelpagesize_kB=4\n72343033d000 default file=/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 mapped=4 mapmax=37 active=0 N0=4 kernelpagesize_kB=4\n723430341000 default file=/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 mapped=48 mapmax=37 active=0 N0=48 kernelpagesize_kB=4\n7234303f1000 default file=/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 mapped=13 mapmax=37 active=0 N0=13 kernelpagesize_kB=4\n7234303fe000 default file=/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n7234303ff000 default file=/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723430400000 default anon=1021 dirty=1021 active=0 N0=1021 kernelpagesize_kB=4\n723430800000 default file=/usr/lib/locale/locale-archive mapped=128 mapmax=85 active=0 N0=128 kernelpagesize_kB=4\n723430da9000 default file=/usr/lib/python3.14/lib-dynload/_decimal.cpython-314-x86_64-linux-gnu.so mapped=7 active=0 N0=7 kernelpagesize_kB=4\n723430db0000 default file=/usr/lib/python3.14/lib-dynload/_decimal.cpython-314-x86_64-linux-gnu.so mapped=32 active=0 N0=32 kernelpagesize_kB=4\n723430dec000 default file=/usr/lib/python3.14/lib-dynload/_decimal.cpython-314-x86_64-linux-gnu.so mapped=16 active=0 N0=16 kernelpagesize_kB=4\n723430dfc000 default file=/usr/lib/python3.14/lib-dynload/_decimal.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723430dfd000 default file=/usr/lib/python3.14/lib-dynload/_decimal.cpython-314-x86_64-linux-gnu.so anon=3 dirty=3 active=0 N0=3 kernelpagesize_kB=4\n723430e00000 default file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=39 mapmax=136 active=0 N0=39 kernelpagesize_kB=4\n723430e28000 default file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=312 mapmax=142 active=0 N0=312 kernelpagesize_kB=4\n723430fc0000 default file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=62 mapmax=142 active=0 N0=62 kernelpagesize_kB=4\n72343100e000 default file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=4 dirty=4 active=0 N0=4 kernelpagesize_kB=4\n723431012000 default file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=2 dirty=2 active=0 N0=2 kernelpagesize_kB=4\n723431014000 default anon=5 dirty=5 active=0 N0=5 kernelpagesize_kB=4\n72343102b000 default file=/usr/lib/python3.14/lib-dynload/_zstd.cpython-314-x86_64-linux-gnu.so mapped=3 mapmax=2 active=0 N0=3 kernelpagesize_kB=4\n72343102e000 default file=/usr/lib/python3.14/lib-dynload/_zstd.cpython-314-x86_64-linux-gnu.so mapped=6 mapmax=2 active=0 N0=6 kernelpagesize_kB=4\n723431034000 default file=/usr/lib/python3.14/lib-dynload/_zstd.cpython-314-x86_64-linux-gnu.so mapped=4 mapmax=2 active=0 N0=4 kernelpagesize_kB=4\n723431038000 default file=/usr/lib/python3.14/lib-dynload/_zstd.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431039000 default file=/usr/lib/python3.14/lib-dynload/_zstd.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72343103a000 default file=/usr/lib/python3.14/lib-dynload/_lzma.cpython-314-x86_64-linux-gnu.so mapped=3 mapmax=2 active=0 N0=3 kernelpagesize_kB=4\n72343103d000 default file=/usr/lib/python3.14/lib-dynload/_lzma.cpython-314-x86_64-linux-gnu.so mapped=4 mapmax=2 active=0 N0=4 kernelpagesize_kB=4\n723431041000 default file=/usr/lib/python3.14/lib-dynload/_lzma.cpython-314-x86_64-linux-gnu.so mapped=3 mapmax=2 active=0 N0=3 kernelpagesize_kB=4\n723431044000 default file=/usr/lib/python3.14/lib-dynload/_lzma.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431045000 default file=/usr/lib/python3.14/lib-dynload/_lzma.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431046000 default file=/usr/lib/python3.14/lib-dynload/_bz2.cpython-314-x86_64-linux-gnu.so mapped=2 mapmax=2 active=0 N0=2 kernelpagesize_kB=4\n723431048000 default file=/usr/lib/python3.14/lib-dynload/_bz2.cpython-314-x86_64-linux-gnu.so mapped=3 mapmax=2 active=0 N0=3 kernelpagesize_kB=4\n72343104b000 default file=/usr/lib/python3.14/lib-dynload/_bz2.cpython-314-x86_64-linux-gnu.so mapped=2 mapmax=2 active=0 N0=2 kernelpagesize_kB=4\n72343104d000 default file=/usr/lib/python3.14/lib-dynload/_bz2.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n72343104e000 default file=/usr/lib/python3.14/lib-dynload/_bz2.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431082000 default anon=6 dirty=6 active=0 N0=6 kernelpagesize_kB=4\n7234310e6000 default file=/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 mapped=4 mapmax=43 active=0 N0=4 kernelpagesize_kB=4\n7234310ea000 default file=/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 mapped=16 mapmax=41 active=0 N0=16 kernelpagesize_kB=4\n723431109000 default file=/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 mapped=1 mapmax=41 active=0 N0=1 kernelpagesize_kB=4\n723431111000 default file=/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 anon=2 dirty=2 active=0 N0=2 kernelpagesize_kB=4\n723431113000 default file=/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431114000 default file=/usr/lib/x86_64-linux-gnu/libz.so.1.3.1 mapped=3 mapmax=110 active=0 N0=3 kernelpagesize_kB=4\n723431117000 default file=/usr/lib/x86_64-linux-gnu/libz.so.1.3.1 mapped=16 mapmax=108 active=0 N0=16 kernelpagesize_kB=4\n72343112a000 default file=/usr/lib/x86_64-linux-gnu/libz.so.1.3.1 mapped=6 mapmax=108 active=0 N0=6 kernelpagesize_kB=4\n723431130000 default file=/usr/lib/x86_64-linux-gnu/libz.so.1.3.1 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431131000 default file=/usr/lib/x86_64-linux-gnu/libz.so.1.3.1 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431132000 default file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=17 mapmax=125 active=0 N0=17 kernelpagesize_kB=4\n723431144000 default file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=112 mapmax=123 active=0 N0=112 kernelpagesize_kB=4\n7234311e4000 default file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=38 mapmax=123 active=0 N0=38 kernelpagesize_kB=4\n723431256000 default file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431257000 default file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431259000 default file=/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so mapped=4 mapmax=2 active=0 N0=4 kernelpagesize_kB=4\n72343125d000 default file=/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so mapped=6 mapmax=2 active=0 N0=6 kernelpagesize_kB=4\n723431263000 default file=/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so mapped=4 mapmax=2 active=0 N0=4 kernelpagesize_kB=4\n723431267000 default file=/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431268000 default file=/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so anon=2 dirty=2 active=0 N0=2 kernelpagesize_kB=4\n72343126a000 default anon=4 dirty=4 active=0 N0=4 kernelpagesize_kB=4\n72343126f000 default anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n723431270000 default file=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache mapped=7 mapmax=93 active=0 N0=7 kernelpagesize_kB=4\n723431277000 default anon=2 dirty=2 active=0 N0=2 kernelpagesize_kB=4\n723431279000 default\n72343127d000 default\n72343127f000 default\n723431281000 default file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=1 mapmax=136 active=0 N0=1 kernelpagesize_kB=4\n723431282000 default file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=45 mapmax=141 active=0 N0=45 kernelpagesize_kB=4\n7234312b1000 default file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=11 mapmax=137 active=0 N0=11 kernelpagesize_kB=4\n7234312bc000 default file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=2 dirty=2 active=0 N0=2 kernelpagesize_kB=4\n7234312be000 default file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n7234312bf000 default anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4\n7ffc36445000 default stack anon=20 dirty=20 active=0 N0=20 kernelpagesize_kB=4\n",
+  "hugepage_policy": "always [madvise] never\n",
+  "frequency_policy": {},
+  "host_or_vm": "VM; host background load is not visible",
+  "vcpus": 8,
+  "python": "3.14.4",
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  },
+  "production_sources": {
+    "common/book_hash.h": "ce3836b1e12334fc023ad4d45a7bb3771a497793981fb1fba9838197b3404725",
+    "common/critical_journal.h": "cf6b46643b6c28c80509b49e19707b9a570fa98ee051f8c9ca7a71ff32a9e54a",
+    "common/lf_queue.h": "312364e953df9460925a30b2b4dafc0fe67c8f150c6f03010a1e3cd2ef456671",
+    "common/lf_queue_example.cpp": "f0a33209c4d1c117eea5eaad946542df235c6531c31a3772eb66844b021dd81d",
+    "common/logging.h": "434b41cc0d34586759ba011ee04f3e8d66c8373c035d8ff0749ac6a0498cbac6",
+    "common/logging_example.cpp": "0732fcbd086962d3acf66ac8dfc265a8ef9ca1362b7c0557b97584ef602595ec",
+    "common/macros.h": "18411d2e13a6e5f33d33fe32565fb844a08971cc1f6965b222e5fce74d740196",
+    "common/market_protocol.h": "e4df32d20f189ec74c488a005394ff7cc724f701abc23d2fe3b0e394d5b5797c",
+    "common/mcast_socket.cpp": "b4ec800601b7fd834831de1e916c98ebb075b6417924cc9fd8f4f2e22b3de6d1",
+    "common/mcast_socket.h": "3025fa8665a213c71589f5e0a284d28bf22e30b1338f0543f85a256a31ec7f1a",
+    "common/mem_pool.h": "dcc7b194767f86b5bb303b64d42a1649c3afd057a1c9fcd010ef4b1ab2f67e13",
+    "common/mem_pool_example.cpp": "520d5d297ce5390ed826014b98685f697ec7ada3e61d260f34a252ace02c83ab",
+    "common/opt_logging.h": "d5a5f8184865abcc9981e107b647eb2a3a3882745a7b2d414ac3fb1ef789bbd7",
+    "common/opt_mem_pool.h": "803352f2510638f12b8deb65f04e4c91b57bbf639d9ec9344ca213b6ea24f1ba",
+    "common/order_protocol.h": "7c3a7e52a7bb20c4256dac8e5b5f0b798e971a662477bb2aa5476fd46f46c276",
+    "common/perf_utils.h": "3a1fa48240b9c3b59474244990e6c5ff0a8df1fd9d78229e2e36e277fa4c5ce5",
+    "common/socket_example.cpp": "fc838c5dee6b185881530f531268fa07c0edba4afbf23144cfdea446e51593f7",
+    "common/socket_utils.h": "34b20d2742880ff1e1eadfcc16bc75a324adc078760ba7af57f31ae1b9f7219b",
+    "common/tcp_server.cpp": "ff8f9676b3e5ab91138efd8e2259d63abd12cb8c1b0dc0e305665a642b958ee7",
+    "common/tcp_server.h": "b0f8c023d163b4fc013f3c4a7d0e2ad6a50bfc08a971dc41c93d386f2db6ccba",
+    "common/tcp_socket.cpp": "c33d8b2f9e81a4b5c37ac7982eefc92c11e1f683a4bbc0c363622883f3ae56d8",
+    "common/tcp_socket.h": "8fa87041020b6a2076ffe7f1c1f40075ec680369a864daad331dc4a95c30f322",
+    "common/thread_example.cpp": "0a5a2ef7ce0034d9bd04a983733ea6c7b41e8e9f5f1d39ba70cdb5f2ea90c04e",
+    "common/thread_utils.h": "b0ab7a778abef392f28d35752898f8e0ad9103c0f84f6aaf3ce37c5e0036f8d9",
+    "common/time_utils.h": "5aa00a49cafc433342d2ec811b2536e572bc82c08f64a9323dd98cbfde2ba6cb",
+    "common/types.h": "12ede81d034de8651b327802394b6801b26693214185d89bd6408309c32de0a9",
+    "exchange/exchange_main.cpp": "b25cbdacbe943c757c6ebddfb8aceac5962d2e211c758c84ec45d76fe72c229a",
+    "exchange/market_data/market_data_publisher.cpp": "5f21ba956108fe139f10dbdd05c710d278452c7154e07b7b719e8b0d297c3f93",
+    "exchange/market_data/market_data_publisher.h": "697489374c0dbf1f0e95d027f02f6e2ad500a77dad88f8a45e95c020f3fd10f7",
+    "exchange/market_data/market_update.h": "fc44f8ed5eb49319fe469c1e6fa7c413b4467ca3094fd9a234edbd34c7432bf9",
+    "exchange/market_data/snapshot_synthesizer.cpp": "1cd2de0f46b5c4359d3cd9ece63f7afc41726ff253caead5ff52864d9c4a1af1",
+    "exchange/market_data/snapshot_synthesizer.h": "10717b9fce396e541ada94fab2fc4166a6407934e45e76d1c88a9c06a08a52f7",
+    "exchange/matcher/matching_engine.cpp": "47e012800f0818acaf64d57938ba91091da610d47c4fb9ba4d9b6cb5bf0213cb",
+    "exchange/matcher/matching_engine.h": "c8e55af41e87b7062df72d150dc08fe1d9c3ad85ba70cc7e55b25b7e216ec9d2",
+    "exchange/matcher/me_order.cpp": "c5e44fe8f927e9cdc0d52a624daef1af32a933124663d808892aa8c7672ebdcc",
+    "exchange/matcher/me_order.h": "a694f683d213d9bf77c13e3337ed625300c18cb2c2f56da1c76377be0f567266",
+    "exchange/matcher/me_order_book.cpp": "334374ed37ff6ebe98be6e21e5fa3ebddd8c0e7f0bff7286e503f50a7a11fa24",
+    "exchange/matcher/me_order_book.h": "8829f54c65ed35f123385e32e071b5a61614d7861f967c51e7796b520f153f61",
+    "exchange/matcher/unordered_map_me_order_book.cpp": "5625d1a9ee7bdb6a50640c4cd692f8798013459f9a53e3471a6c48c5f9257d14",
+    "exchange/matcher/unordered_map_me_order_book.h": "d2c6a59e14894284c3cad4664345511421ac48f2339e621e6173fad3cc15fa92",
+    "exchange/order_server/client_request.h": "d32fe581a2bf91c716db2b49e7df2945b49c07477a45d502f3bb2fdb0f6d99a3",
+    "exchange/order_server/client_response.h": "123ae69d20bf21521020d83e13e37443e8811dabd64cedcad0e15de336ead544",
+    "exchange/order_server/fifo_sequencer.h": "fea27df777ebfcc92fc2ee829c7726180e9d018b4247ace7b475c98a0707f436",
+    "exchange/order_server/order_server.cpp": "22b56b757557fdcd78d651c25eb5a5401b8715f79d483344916a8b2ff5334e71",
+    "exchange/order_server/order_server.h": "01be800b724ac8a749672b62a04b1671df69c147e7b6707e75050b2deb667706",
+    "trading/market_data/market_data_consumer.cpp": "473b437abb71b322bcc28f6dec40487da98b2d7ee5c290339f1900865401a6ad",
+    "trading/market_data/market_data_consumer.h": "8abaa934506beb592770af310a51ae8ef637c96780e9028427d21f18ff537f89",
+    "trading/market_data/market_recovery.h": "96e11dfe4ed3b9a3c9b75a8449b90fc0d1f376c266c37578ca203aa682cdf645",
+    "trading/order_gw/order_gateway.cpp": "73e5ad6de17d574cbfc7b40a81346bcd8c17433dfed8722b5d93efb5d02e3aab",
+    "trading/order_gw/order_gateway.h": "c89a3fea142fc46dce898edf6a101893f9576f64d98202498f5ad339517832b9",
+    "trading/strategy/feature_engine.h": "275bad2a68f57bd103b9e47b52ba30d7248b89fefac47d4516ed5c3e2064e13d",
+    "trading/strategy/liquidity_taker.cpp": "48ac4a55fc2ca6b06e0b4bb9609ef91e1108c31514e695fb8e41821f7185ecdf",
+    "trading/strategy/liquidity_taker.h": "605bcd49b5cc3186072f969292f78fe293647cfcf0a35c3b3c36f3f2b7231599",
+    "trading/strategy/market_maker.cpp": "284f9d2ee7b796d0ffc27658d8d4906eabb980edb9e24e5ea7d5f9c8df6c5dfb",
+    "trading/strategy/market_maker.h": "cc721f05bedc4ef97906f7eaf381f3c0c03a7225cc87934b9e2c370dc033a867",
+    "trading/strategy/market_order.cpp": "eada843166a006974017f3d522a18f2f5ddc28b16b12caf86e23f6de1b7c7000",
+    "trading/strategy/market_order.h": "56c0e3bd9f375a2cf41f0cfefdc61599d6e5a5bce7cd264b25ff3df77c184900",
+    "trading/strategy/market_order_book.cpp": "cfed0135cd7c3461fd39adbcfe4dc31c2da1146e8c2f0b71710809c5eec2ed04",
+    "trading/strategy/market_order_book.h": "c75b17999e820222ba14b8253908113aaf5ecacfc8fe3068e3ca78a43a4e38d1",
+    "trading/strategy/om_order.h": "ffb8c3266ab2a411519f0e5057b3c51730314fa7233774bf9598c3f38a0735a7",
+    "trading/strategy/order_manager.cpp": "9f739598104c8ce5d3844de4a44715e1629c638bb1f1b52984b58447daaf4e31",
+    "trading/strategy/order_manager.h": "ea70ef399cce5a0e4216d56008eabd516f463496649c9d64a7ea79dfd099616b",
+    "trading/strategy/position_keeper.h": "eb4878e78ec8b59eac5d9a3802edda3dd3da421521362223e06795156bc05ab2",
+    "trading/strategy/risk_manager.cpp": "3e146e59e2af6ac1e0e08c5b9dc952e3f4dd45e59491a42831fe953f44b68968",
+    "trading/strategy/risk_manager.h": "98bb447e375a129d4e341c1f6a246fd7455a8f860de3dd9d9605dfce7d4d230f",
+    "trading/strategy/trade_engine.cpp": "d082ced867c1785cb79959b22d468ed318bd475533431d2216fa3f90dd170eec",
+    "trading/strategy/trade_engine.h": "b271c463bd5b31b0a63d644e7649d8d7b36340a6ed5d7e2d0eee4d66eb6e1665",
+    "trading/trading_main.cpp": "61abf1acb2924fd33f28b00ee3d4ff88dada9f961987b07f007db357ba6b49a5"
+  },
+  "measurement_sources": {
+    "record/02_reproducible_measurement/verify_resource_timing.py": "ead284aedf112a73619d0d3b191ed59f05877be73886bfd46b835c542889b9c6",
+    "record/02_reproducible_measurement/analysis_test.py": "5513cbacea3057506d9e5ea8075875eb2f83ef55e250643e98830c1180090ac9",
+    "record/02_reproducible_measurement/component_benchmark.cpp": "b1b3343e1e421b474f9783423395f0764e556a224d66c49c0624945ed46335e0",
+    "record/02_reproducible_measurement/analyze.py": "e24c423a606f598eb19120bb545d0839f3eec98a0a11519f16548b779b8b7396",
+    "record/02_reproducible_measurement/benchmark_support.h": "78d1328b86887e6619caf986477e170e2da2086e674b794c18b27af6386f06aa",
+    "record/02_reproducible_measurement/run_measurements.py": "9d9ee8ff1f24c701d8a9fa65983a308fafd55acc63a4b845001f6294bb4785c0",
+    "record/02_reproducible_measurement/load_generator_test.py": "2b097cadb75bdc74e4b0cb278073b64475b60fd93566b6a3e07662b04969bcc1",
+    "record/02_reproducible_measurement/load_generator.py": "41bc71f0489e7fcbf21eeb0bea7f14323235a5db1ccb2120cdc12f1c1cda2dfe",
+    "benchmarks/hash_benchmark.cpp": "5641f8e7aafeeafee4f999a0f1ca234efdc3fe220141ffdec5f137068263925e",
+    "benchmarks/logger_benchmark.cpp": "faeb89f0de89603f6a541a16028f3ae795a08c1b75ab27db77d848217d82a358",
+    "benchmarks/release_benchmark.cpp": "2afaf73a4e6af85c7ac5c268d59713c859d58e07d4d1ef098ecdc52009861430"
+  },
+  "production_sources_sha256": "563c346e3f3412556b26fe05d069992fd28eda7f2e23c4cb89bbba8fa755c569",
+  "measurement_patch_sha256": "2a6a4b29436d47fe4e38381805f37fa17005cb5c5d3eae00e7ab0a4799179a75",
+  "logging_mode": "ordinary diagnostic logging and durable fsync journal unchanged",
+  "socket_buffers": "server Common::TCPBufferSize=1048576 bytes; external client OS defaults + TCP_NODELAY",
+  "queue_capacity": 262144,
+  "network": "same VM, loopback lo; no cross-host one-way timing",
+  "predeclared_primary_metric": "scheduled NEW/CANCEL -> matching ACK observed in external generator, P99",
+  "stable_capacity_rule": "each measured run correct; P99 <=20ms; >=98% of scheduled requests complete inside offered window",
+  "quantiles": "nearest rank; report median and range of per-run quantiles, never mean or pooled P99",
+  "raw_data_policy": "all warmup, failures and valid runs retained; no slow-sample filtering",
+  "purpose": "resource sampling boundary correction; same business binary, input and latency endpoints"
+}

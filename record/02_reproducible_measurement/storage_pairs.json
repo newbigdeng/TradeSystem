@@ -1,0 +1,52 @@
+[
+  {
+    "iteration": 1,
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "ext4_p99_ns": 14385614,
+    "tmpfs_p99_ns": 1508457,
+    "ext4_completed_per_s": 123.29975014257509,
+    "tmpfs_completed_per_s": 1654.696687354319,
+    "interpretation": "different storage condition, not a code optimization or durable-storage equivalence"
+  },
+  {
+    "iteration": 2,
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "ext4_p99_ns": 11049633,
+    "tmpfs_p99_ns": 1932412,
+    "ext4_completed_per_s": 126.36739419828285,
+    "tmpfs_completed_per_s": 1667.6338108952955,
+    "interpretation": "different storage condition, not a code optimization or durable-storage equivalence"
+  },
+  {
+    "iteration": 3,
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "ext4_p99_ns": 19233214,
+    "tmpfs_p99_ns": 1765890,
+    "ext4_completed_per_s": 123.48932240972752,
+    "tmpfs_completed_per_s": 1693.3708139513637,
+    "interpretation": "different storage condition, not a code optimization or durable-storage equivalence"
+  },
+  {
+    "iteration": 4,
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "ext4_p99_ns": 12647319,
+    "tmpfs_p99_ns": 2010116,
+    "ext4_completed_per_s": 112.64961727611328,
+    "tmpfs_completed_per_s": 1451.3382166345823,
+    "interpretation": "different storage condition, not a code optimization or durable-storage equivalence"
+  },
+  {
+    "iteration": 5,
+    "input_sha256": "3893fad9e0da3e495b5647ac9836abd6ee709a6ef3410f6ee27b6e60c545bd6b",
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "ext4_p99_ns": 13854925,
+    "tmpfs_p99_ns": 2073724,
+    "ext4_completed_per_s": 118.4344609319459,
+    "tmpfs_completed_per_s": 1508.1997904238751,
+    "interpretation": "different storage condition, not a code optimization or durable-storage equivalence"
+  }
+]

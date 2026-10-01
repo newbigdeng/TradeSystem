@@ -1,0 +1,66 @@
+{
+  "closed_c1_t1:tmpfs": {
+    "runs": 5,
+    "all_correct": true,
+    "latency_per_run": {
+      "p50_ns": {
+        "median": 577133,
+        "min": 525228,
+        "max": 596518
+      },
+      "p95_ns": {
+        "median": 1455757,
+        "min": 1283446,
+        "max": 1504767
+      },
+      "p99_ns": {
+        "median": 2068059,
+        "min": 1873951,
+        "max": 2508295
+      },
+      "max_ns": {
+        "median": 5227570,
+        "min": 4259852,
+        "max": 8709390
+      }
+    },
+    "window_completed_per_s": {
+      "median": 1394.9243973992864,
+      "min": 1341.884706538121,
+      "max": 1530.8576952789515
+    },
+    "stable_under_predeclared_budget": true
+  },
+  "closed_c1_t1:ext4": {
+    "runs": 5,
+    "all_correct": true,
+    "latency_per_run": {
+      "p50_ns": {
+        "median": 8893366,
+        "min": 8307265,
+        "max": 9600690
+      },
+      "p95_ns": {
+        "median": 12135918,
+        "min": 11537619,
+        "max": 12447867
+      },
+      "p99_ns": {
+        "median": 14954257,
+        "min": 14068657,
+        "max": 15471947
+      },
+      "max_ns": {
+        "median": 47375825,
+        "min": 19972014,
+        "max": 66488130
+      }
+    },
+    "window_completed_per_s": {
+      "median": 108.71937274391817,
+      "min": 103.33151568547325,
+      "max": 115.62333502650488
+    },
+    "stable_under_predeclared_budget": true
+  }
+}

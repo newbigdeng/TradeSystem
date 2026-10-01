@@ -1,0 +1,28 @@
+{
+  "process_runs": 66,
+  "warmup_process_runs": 11,
+  "measured_process_runs": 55,
+  "measured_generated": 55000,
+  "measured_sent": 55000,
+  "measured_completed": 55000,
+  "measured_accepted": 27500,
+  "measured_canceled": 27500,
+  "timeout": 0,
+  "unsent": 0,
+  "audit_requests_including_warmups": 71376,
+  "all_correct": true,
+  "peak_process_rss_kib": 955364,
+  "logging_drops": 0,
+  "resource_correction": {
+    "process_runs": 12,
+    "warmup_process_runs": 2,
+    "measured_process_runs": 10,
+    "generated": 10000,
+    "sent": 10000,
+    "completed": 10000,
+    "timeout": 0,
+    "unsent": 0,
+    "all_correct": true
+  },
+  "total_measured_requests_all_batches": 65000
+}
