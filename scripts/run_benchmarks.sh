@@ -1,20 +1,10 @@
-#!/bin/bash
-
-bash scripts/build.sh
-
-date
-
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-echo " Benchmark before and after optimization for Logger string handling. "
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-./cmake-build-release/logger_benchmark
-
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-echo " Benchmark before and after optimization for release builds. "
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-./cmake-build-release/release_benchmark
-
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-echo " Benchmark using std::arrays and std::unordered_maps as hash maps. "
-echo "---------------------------------------------------------------------------------------------------------------------------------------------------------"
-./cmake-build-release/hash_benchmark
+#!/usr/bin/env bash
+set -euo pipefail
+project_root="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$project_root"
+build_directory="${TRADE_BENCH_BUILD:-build/release}"
+output_directory="${1:-$HOME/trade-measurements/$(date -u +%Y%m%dT%H%M%SZ)}"
+cmake -S . -B "$build_directory" -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build "$build_directory" -j 4
+python3 record/02_reproducible_measurement/run_measurements.py \
+  --build "$build_directory" --output "$output_directory"
