@@ -251,10 +251,13 @@ def run(binary, directory, config, server_cpus, generator_cpus):
             raise RuntimeError('warmup did not complete')
         source = requests(config['requests'], config['clients'], config['tickers'], config['seed'], 16)
         (directory / 'input.json').write_text(json.dumps(source, sort_keys=True, separators=(',', ':')) + '\n')
-        before, resource_before = counters(), resources(process.pid)
+        cpu_sample_start = time.perf_counter_ns()
+        resource_before, before = resources(process.pid), counters()
         rows, start, end, counts = drive(peers, source, config['mode'], config['rate'],
                                         config.get('timeout_s', 5), config.get('pause_ms', 0))
-        after, resource_after = counters(), resources(process.pid)
+        resource_after = resources(process.pid)
+        cpu_sample_end = time.perf_counter_ns()
+        after = counters()
         with (directory / 'events.csv').open('w', newline='') as handle:
             writer = csv.DictWriter(handle, fieldnames=FIELDS)
             writer.writeheader()
@@ -269,8 +272,12 @@ def run(binary, directory, config, server_cpus, generator_cpus):
         metadata['generator_scheduled_not_sent_at_window_end'] = sum(r['scheduled_ns'] < end and
                                                                    (not r['sent_ns'] or r['sent_ns'] >= end) for r in rows)
         metadata['measurement_and_drain_seconds'] = (counts['observed_end_ns'] - start) / 1e9
-        metadata['process_cpu_seconds_measure_and_drain'] = (resource_after['cpu_ticks'] - resource_before['cpu_ticks']) / os.sysconf('SC_CLK_TCK')
-        metadata['process_cpu_percent_measure_and_drain'] = 100 * metadata['process_cpu_seconds_measure_and_drain'] / metadata['measurement_and_drain_seconds']
+        metadata['cpu_sample_start_ns'] = cpu_sample_start
+        metadata['cpu_sample_end_ns'] = cpu_sample_end
+        metadata['cpu_sample_seconds'] = (cpu_sample_end - cpu_sample_start) / 1e9
+        metadata['process_cpu_seconds_sampled'] = (resource_after['cpu_ticks'] - resource_before['cpu_ticks']) / os.sysconf('SC_CLK_TCK')
+        metadata['process_cpu_percent_sampled'] = 100 * metadata['process_cpu_seconds_sampled'] / metadata['cpu_sample_seconds']
+        metadata['cpu_scope'] = 'all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain'
         metadata['filesystem'] = subprocess.check_output(['findmnt', '-T', str(directory), '-o', 'TARGET,SOURCE,FSTYPE,OPTIONS'], text=True)
         process.send_signal(signal.SIGTERM)
         metadata['exit_code'] = process.wait(timeout=15)
