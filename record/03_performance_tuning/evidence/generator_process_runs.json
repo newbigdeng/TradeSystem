@@ -1,0 +1,1052 @@
+[
+  {
+    "iteration": 0,
+    "rate": 100,
+    "counts": {
+      "observed_end_ns": 47264633897019,
+      "last_full_frame_sent_ns": 47264633550046,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 47254641642621,
+      "window_end_ns": 47264641642621,
+      "window_seconds": 10.0,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 914995,
+        "p95_ns": 2620445,
+        "p99_ns": 5255422,
+        "max_ns": 11668976,
+        "mean_ns": 1122920.018
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 440611,
+        "p95_ns": 2294523,
+        "p99_ns": 4120414,
+        "max_ns": 9108786,
+        "mean_ns": 687503.771
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 1345686,
+        "p95_ns": 4612273,
+        "p99_ns": 7930597,
+        "max_ns": 13594968,
+        "mean_ns": 1810423.789
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 1425346,
+          "p95_ns": 4811128,
+          "p99_ns": 9622398,
+          "max_ns": 13594968,
+          "mean_ns": 1860748.084
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 1317409,
+          "p95_ns": 4379640,
+          "p99_ns": 7391374,
+          "max_ns": 12126708,
+          "mean_ns": 1760099.494
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 7930597,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "5ae3676c9c0d07832c4e6b3a1acbac07987c891fbe251d8d5b3271d249bbc015",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/0_r100"
+  },
+  {
+    "iteration": 0,
+    "rate": 1000,
+    "counts": {
+      "observed_end_ns": 47274813871538,
+      "last_full_frame_sent_ns": 47274813674289,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 500000,
+      "received_bytes": 790000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 10000
+    },
+    "statistics": {
+      "window_start_ns": 47264814495628,
+      "window_end_ns": 47274814495628,
+      "window_seconds": 10.0,
+      "total_rows": 10000,
+      "cohort": {
+        "ACCEPTED": 5000,
+        "CANCELED": 5000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 10000,
+        "sent": 10000,
+        "completed": 10000,
+        "accepted": 5000,
+        "canceled": 5000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1000.0,
+        "sent": 1000.0,
+        "completed": 1000.0,
+        "accepted": 500.0,
+        "canceled": 500.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 10000,
+        "p50_ns": 680895,
+        "p95_ns": 2659106,
+        "p99_ns": 5792562,
+        "max_ns": 13504898,
+        "mean_ns": 893501.4661
+      },
+      "actual_send_to_response": {
+        "n": 10000,
+        "p50_ns": 369217,
+        "p95_ns": 1886343,
+        "p99_ns": 3915442,
+        "max_ns": 13445452,
+        "mean_ns": 609004.7079
+      },
+      "scheduled_to_response": {
+        "n": 10000,
+        "p50_ns": 1086519,
+        "p95_ns": 4362486,
+        "p99_ns": 7889180,
+        "max_ns": 15966364,
+        "mean_ns": 1502506.174
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 5000,
+          "p50_ns": 1080336,
+          "p95_ns": 4402121,
+          "p99_ns": 7976632,
+          "max_ns": 15966364,
+          "mean_ns": 1495582.8846
+        },
+        "CANCEL": {
+          "n": 5000,
+          "p50_ns": 1092475,
+          "p95_ns": 4327815,
+          "p99_ns": 7795219,
+          "max_ns": 15130849,
+          "mean_ns": 1509429.4634
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 7889180,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "c784936e48023df480a4e7d11cd43d55efb908e43d782ea3d1ea4d715d943804",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/0_r1000"
+  },
+  {
+    "iteration": 1,
+    "rate": 1000,
+    "counts": {
+      "observed_end_ns": 47285216222884,
+      "last_full_frame_sent_ns": 47285215553849,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 500000,
+      "received_bytes": 790000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 10000
+    },
+    "statistics": {
+      "window_start_ns": 47275216406928,
+      "window_end_ns": 47285216406928,
+      "window_seconds": 10.0,
+      "total_rows": 10000,
+      "cohort": {
+        "ACCEPTED": 5000,
+        "CANCELED": 5000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 10000,
+        "sent": 10000,
+        "completed": 10000,
+        "accepted": 5000,
+        "canceled": 5000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1000.0,
+        "sent": 1000.0,
+        "completed": 1000.0,
+        "accepted": 500.0,
+        "canceled": 500.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 10000,
+        "p50_ns": 694224,
+        "p95_ns": 2565710,
+        "p99_ns": 5744572,
+        "max_ns": 14436613,
+        "mean_ns": 898062.1781
+      },
+      "actual_send_to_response": {
+        "n": 10000,
+        "p50_ns": 359699,
+        "p95_ns": 1903884,
+        "p99_ns": 4461923,
+        "max_ns": 12278136,
+        "mean_ns": 613455.0325
+      },
+      "scheduled_to_response": {
+        "n": 10000,
+        "p50_ns": 1095300,
+        "p95_ns": 4427479,
+        "p99_ns": 8231145,
+        "max_ns": 18190012,
+        "mean_ns": 1511517.2106
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 5000,
+          "p50_ns": 1092845,
+          "p95_ns": 4379085,
+          "p99_ns": 7911802,
+          "max_ns": 15212831,
+          "mean_ns": 1493533.7754
+        },
+        "CANCEL": {
+          "n": 5000,
+          "p50_ns": 1096695,
+          "p95_ns": 4486082,
+          "p99_ns": 8430230,
+          "max_ns": 18190012,
+          "mean_ns": 1529500.6458
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 8231145,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "c784936e48023df480a4e7d11cd43d55efb908e43d782ea3d1ea4d715d943804",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/1_r1000"
+  },
+  {
+    "iteration": 1,
+    "rate": 100,
+    "counts": {
+      "observed_end_ns": 47295558286998,
+      "last_full_frame_sent_ns": 47295557865646,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 47285566744638,
+      "window_end_ns": 47295566744638,
+      "window_seconds": 10.0,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 853951,
+        "p95_ns": 3491599,
+        "p99_ns": 6835267,
+        "max_ns": 16986631,
+        "mean_ns": 1147447.325
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 350362,
+        "p95_ns": 1809029,
+        "p99_ns": 3861305,
+        "max_ns": 16193673,
+        "mean_ns": 616694.0
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 1243877,
+        "p95_ns": 5100856,
+        "p99_ns": 8498736,
+        "max_ns": 18429720,
+        "mean_ns": 1764141.325
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 1254553,
+          "p95_ns": 5448397,
+          "p99_ns": 9968048,
+          "max_ns": 18429720,
+          "mean_ns": 1831568.866
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 1233560,
+          "p95_ns": 4987751,
+          "p99_ns": 7835106,
+          "max_ns": 9662198,
+          "mean_ns": 1696713.784
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 8498736,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "5ae3676c9c0d07832c4e6b3a1acbac07987c891fbe251d8d5b3271d249bbc015",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/1_r100"
+  },
+  {
+    "iteration": 2,
+    "rate": 100,
+    "counts": {
+      "observed_end_ns": 47305650463033,
+      "last_full_frame_sent_ns": 47305650082660,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 47295659792468,
+      "window_end_ns": 47305659792468,
+      "window_seconds": 10.0,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 871683,
+        "p95_ns": 3850675,
+        "p99_ns": 7758877,
+        "max_ns": 13890940,
+        "mean_ns": 1214558.102
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 371563,
+        "p95_ns": 3334514,
+        "p99_ns": 5710182,
+        "max_ns": 10401055,
+        "mean_ns": 826129.747
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 1335110,
+        "p95_ns": 6039415,
+        "p99_ns": 10368206,
+        "max_ns": 16093696,
+        "mean_ns": 2040687.849
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 1308198,
+          "p95_ns": 5800492,
+          "p99_ns": 9683833,
+          "max_ns": 12462825,
+          "mean_ns": 1992755.902
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 1371166,
+          "p95_ns": 6629380,
+          "p99_ns": 10368206,
+          "max_ns": 16093696,
+          "mean_ns": 2088619.796
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 10368206,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "5ae3676c9c0d07832c4e6b3a1acbac07987c891fbe251d8d5b3271d249bbc015",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/2_r100"
+  },
+  {
+    "iteration": 2,
+    "rate": 1000,
+    "counts": {
+      "observed_end_ns": 47315852145885,
+      "last_full_frame_sent_ns": 47315851114329,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 500000,
+      "received_bytes": 790000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 10000
+    },
+    "statistics": {
+      "window_start_ns": 47305850750949,
+      "window_end_ns": 47315850750949,
+      "window_seconds": 10.0,
+      "total_rows": 10000,
+      "cohort": {
+        "ACCEPTED": 5000,
+        "CANCELED": 5000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 10000,
+        "sent": 9996,
+        "completed": 9996,
+        "accepted": 5000,
+        "canceled": 4996,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1000.0,
+        "sent": 999.6,
+        "completed": 999.6,
+        "accepted": 500.0,
+        "canceled": 499.6,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 10000,
+        "p50_ns": 725719,
+        "p95_ns": 2939427,
+        "p99_ns": 5980771,
+        "max_ns": 17864087,
+        "mean_ns": 981400.4338
+      },
+      "actual_send_to_response": {
+        "n": 10000,
+        "p50_ns": 424229,
+        "p95_ns": 2315571,
+        "p99_ns": 4122700,
+        "max_ns": 17557575,
+        "mean_ns": 687220.6035
+      },
+      "scheduled_to_response": {
+        "n": 10000,
+        "p50_ns": 1151307,
+        "p95_ns": 4934887,
+        "p99_ns": 8344930,
+        "max_ns": 19376170,
+        "mean_ns": 1668621.0373
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 5000,
+          "p50_ns": 1142167,
+          "p95_ns": 4849802,
+          "p99_ns": 8193257,
+          "max_ns": 19376170,
+          "mean_ns": 1654767.7858
+        },
+        "CANCEL": {
+          "n": 5000,
+          "p50_ns": 1161181,
+          "p95_ns": 5013503,
+          "p99_ns": 8438201,
+          "max_ns": 18407517,
+          "mean_ns": 1682474.2888
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 8344930,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "c784936e48023df480a4e7d11cd43d55efb908e43d782ea3d1ea4d715d943804",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/2_r1000"
+  },
+  {
+    "iteration": 3,
+    "rate": 1000,
+    "counts": {
+      "observed_end_ns": 47326277541597,
+      "last_full_frame_sent_ns": 47326277283850,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 500000,
+      "received_bytes": 790000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 10000
+    },
+    "statistics": {
+      "window_start_ns": 47316277479309,
+      "window_end_ns": 47326277479309,
+      "window_seconds": 10.0,
+      "total_rows": 10000,
+      "cohort": {
+        "ACCEPTED": 5000,
+        "CANCELED": 5000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 10000,
+        "sent": 10000,
+        "completed": 9999,
+        "accepted": 5000,
+        "canceled": 4999,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1000.0,
+        "sent": 1000.0,
+        "completed": 999.9,
+        "accepted": 500.0,
+        "canceled": 499.9,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 10000,
+        "p50_ns": 670645,
+        "p95_ns": 2077261,
+        "p99_ns": 4081745,
+        "max_ns": 10770605,
+        "mean_ns": 833369.0042
+      },
+      "actual_send_to_response": {
+        "n": 10000,
+        "p50_ns": 501533,
+        "p95_ns": 1418313,
+        "p99_ns": 3266130,
+        "max_ns": 9722547,
+        "mean_ns": 608329.0917
+      },
+      "scheduled_to_response": {
+        "n": 10000,
+        "p50_ns": 1152799,
+        "p95_ns": 3288863,
+        "p99_ns": 6333598,
+        "max_ns": 11476257,
+        "mean_ns": 1441698.0959
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 5000,
+          "p50_ns": 1143248,
+          "p95_ns": 3241388,
+          "p99_ns": 6171594,
+          "max_ns": 11476257,
+          "mean_ns": 1423255.2372
+        },
+        "CANCEL": {
+          "n": 5000,
+          "p50_ns": 1163170,
+          "p95_ns": 3315494,
+          "p99_ns": 6766847,
+          "max_ns": 11199291,
+          "mean_ns": 1460140.9546
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 6333598,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "c784936e48023df480a4e7d11cd43d55efb908e43d782ea3d1ea4d715d943804",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/3_r1000"
+  },
+  {
+    "iteration": 3,
+    "rate": 100,
+    "counts": {
+      "observed_end_ns": 47336520341348,
+      "last_full_frame_sent_ns": 47336520092338,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 47326529646526,
+      "window_end_ns": 47336529646526,
+      "window_seconds": 10.0,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 890014,
+        "p95_ns": 3570065,
+        "p99_ns": 8186974,
+        "max_ns": 18163556,
+        "mean_ns": 1258975.409
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 467926,
+        "p95_ns": 3125762,
+        "p99_ns": 4663857,
+        "max_ns": 10235501,
+        "mean_ns": 806648.94
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 1407829,
+        "p95_ns": 5963439,
+        "p99_ns": 10208912,
+        "max_ns": 19541377,
+        "mean_ns": 2065624.349
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 1425725,
+          "p95_ns": 5630201,
+          "p99_ns": 10016492,
+          "max_ns": 19541377,
+          "mean_ns": 2022757.588
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 1340011,
+          "p95_ns": 6667561,
+          "p99_ns": 10208912,
+          "max_ns": 16038132,
+          "mean_ns": 2108491.11
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 10208912,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "5ae3676c9c0d07832c4e6b3a1acbac07987c891fbe251d8d5b3271d249bbc015",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/3_r100"
+  },
+  {
+    "iteration": 4,
+    "rate": 100,
+    "counts": {
+      "observed_end_ns": 47346606090885,
+      "last_full_frame_sent_ns": 47346605810563,
+      "generated": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 50000,
+      "received_bytes": 79000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 1000
+    },
+    "statistics": {
+      "window_start_ns": 47336615142016,
+      "window_end_ns": 47346615142016,
+      "window_seconds": 10.0,
+      "total_rows": 1000,
+      "cohort": {
+        "ACCEPTED": 500,
+        "CANCELED": 500,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 1000,
+        "sent": 1000,
+        "completed": 1000,
+        "accepted": 500,
+        "canceled": 500,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 1000,
+        "p50_ns": 818647,
+        "p95_ns": 3144788,
+        "p99_ns": 7054973,
+        "max_ns": 11714028,
+        "mean_ns": 1120317.881
+      },
+      "actual_send_to_response": {
+        "n": 1000,
+        "p50_ns": 367451,
+        "p95_ns": 2429501,
+        "p99_ns": 4031236,
+        "max_ns": 11184015,
+        "mean_ns": 685148.741
+      },
+      "scheduled_to_response": {
+        "n": 1000,
+        "p50_ns": 1291492,
+        "p95_ns": 5412299,
+        "p99_ns": 8793390,
+        "max_ns": 13265068,
+        "mean_ns": 1805466.622
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 500,
+          "p50_ns": 1322487,
+          "p95_ns": 5562663,
+          "p99_ns": 8793390,
+          "max_ns": 13265068,
+          "mean_ns": 1800181.068
+        },
+        "CANCEL": {
+          "n": 500,
+          "p50_ns": 1268471,
+          "p95_ns": 5362849,
+          "p99_ns": 8401192,
+          "max_ns": 12550628,
+          "mean_ns": 1810752.176
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 8793390,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "5ae3676c9c0d07832c4e6b3a1acbac07987c891fbe251d8d5b3271d249bbc015",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/4_r100"
+  },
+  {
+    "iteration": 4,
+    "rate": 1000,
+    "counts": {
+      "observed_end_ns": 47356781824450,
+      "last_full_frame_sent_ns": 47356781082710,
+      "generated": 10000,
+      "sent": 10000,
+      "completed": 10000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 500000,
+      "received_bytes": 790000,
+      "observation_timeout_s": 10,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 10000
+    },
+    "statistics": {
+      "window_start_ns": 47346781608937,
+      "window_end_ns": 47356781608937,
+      "window_seconds": 10.0,
+      "total_rows": 10000,
+      "cohort": {
+        "ACCEPTED": 5000,
+        "CANCELED": 5000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 10000,
+        "sent": 10000,
+        "completed": 9999,
+        "accepted": 5000,
+        "canceled": 4999,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 1000.0,
+        "sent": 1000.0,
+        "completed": 999.9,
+        "accepted": 500.0,
+        "canceled": 499.9,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 10000,
+        "p50_ns": 815568,
+        "p95_ns": 3564591,
+        "p99_ns": 5785376,
+        "max_ns": 13168150,
+        "mean_ns": 1170292.4763
+      },
+      "actual_send_to_response": {
+        "n": 10000,
+        "p50_ns": 710450,
+        "p95_ns": 3311311,
+        "p99_ns": 5116676,
+        "max_ns": 13056660,
+        "mean_ns": 1058618.3766
+      },
+      "scheduled_to_response": {
+        "n": 10000,
+        "p50_ns": 1651536,
+        "p95_ns": 5850312,
+        "p99_ns": 8241280,
+        "max_ns": 14785329,
+        "mean_ns": 2228910.8529
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 5000,
+          "p50_ns": 1651536,
+          "p95_ns": 5774420,
+          "p99_ns": 8191746,
+          "max_ns": 13838155,
+          "mean_ns": 2210320.7282
+        },
+        "CANCEL": {
+          "n": 5000,
+          "p50_ns": 1650731,
+          "p95_ns": 5970843,
+          "p99_ns": 8272508,
+          "max_ns": 14785329,
+          "mean_ns": 2247500.9776
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 8241280,
+      "all_offered_p99_status": "observed"
+    },
+    "scope": "same generator drive against ideal canonical-wire socketpair echo; no TradeSystem matching/audit",
+    "generator_cpu": 4,
+    "echo_cpu": 5,
+    "echo_process_exit": 0,
+    "echo_separate_process": true,
+    "input_sha256": "c784936e48023df480a4e7d11cd43d55efb908e43d782ea3d1ea4d715d943804",
+    "seed": 20260928,
+    "directory": "/home/zjh/trade-measurements/03/generator_separate_process/4_r1000"
+  }
+]

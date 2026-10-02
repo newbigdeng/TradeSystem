@@ -1,0 +1,4 @@
+COMMAND ['/home/zjh/trade-measurements/03/clock_probe']
+{"name":"stage_record_call","operations":10000,"elapsed_ns":2979422,"completed_per_s":3.35636e+06,"p50_ns":127,"p95_ns":133,"p99_ns":211,"max_ns":118154,"checksum":0,"errors":0}
+{"name":"stage_empty_clock_pair","operations":10000,"elapsed_ns":2979422,"completed_per_s":3.35636e+06,"p50_ns":59,"p95_ns":60,"p99_ns":61,"max_ns":1224,"checksum":0,"errors":0}
+{"monotonic_steady_brackets":10000,"max_bracket_span_ns":119693}

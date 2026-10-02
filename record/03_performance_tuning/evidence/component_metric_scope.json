@@ -1,0 +1,8 @@
+{
+  "used_in_report": "individual call/cycle P50/P95/P99/max validated against CSV; repeat medians and ranges; correctness counters",
+  "not_claimed": "component completed_per_s is not production sustained capacity",
+  "book_density": "driver elapsed includes untimed setup, validation and warmup cycles; per-type counts divided by mixed driver elapsed do not represent standalone operation throughput; those throughput fields are not used",
+  "book_case_strata": "per-case counts share the mixed event driver interval; per-case throughput fields are not separate capacities",
+  "snapshot_received": "output helper uses publisher driver interval for rate field; received-cycle latency CSV is valid, that rate field is not used",
+  "clock_v1": "empty-loop throughput denominator incorrect, deprecated; repaired in clock_v2"
+}

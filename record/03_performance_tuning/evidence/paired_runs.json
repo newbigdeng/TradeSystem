@@ -1,0 +1,5057 @@
+[
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966084730052837,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "4cfac178d359513fb6614d97525674eb4817bf5ae32613fbc6ca994292b5af46",
+    "warmup": {
+      "observed_end_ns": 44423414256593,
+      "last_full_frame_sent_ns": 44421522076444,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44483848673833,
+      "last_full_frame_sent_ns": 44483531256160,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44423537314265,
+      "window_end_ns": 44483537314265,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5960,
+        "accepted": 2982,
+        "canceled": 2978,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 99.33333333333333,
+        "accepted": 49.7,
+        "canceled": 49.63333333333333,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 971060,
+        "p95_ns": 1925385,
+        "p99_ns": 2637591,
+        "max_ns": 39535468,
+        "mean_ns": 1023439.2415
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 1308940189,
+        "p95_ns": 2557417586,
+        "p99_ns": 2685359651,
+        "max_ns": 2833519774,
+        "mean_ns": 1316039824.6168334
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 1309564679,
+        "p95_ns": 2559045994,
+        "p99_ns": 2686475498,
+        "max_ns": 2834095740,
+        "mean_ns": 1317063263.8583333
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 1311144714,
+          "p95_ns": 2556736602,
+          "p99_ns": 2687327491,
+          "max_ns": 2834095740,
+          "mean_ns": 1316155660.485
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 1308332301,
+          "p95_ns": 2561375789,
+          "p99_ns": 2684424391,
+          "max_ns": 2794110964,
+          "mean_ns": 1317970867.2316666
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 2686475498,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        451714,
+        37329,
+        155867,
+        34718661,
+        16965,
+        0,
+        20153,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1462,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 14723,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1300,
+        "MemErrors": 0
+      },
+      "loadavg": "3.05 2.12 1.31 8/918 29903"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        461597,
+        37589,
+        163023,
+        34743523,
+        20066,
+        0,
+        23361,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1464,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 20738,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1304,
+        "MemErrors": 0
+      },
+      "loadavg": "4.57 2.71 1.56 9/919 29910"
+    },
+    "process_before": {
+      "cpu_ticks": 8579,
+      "VmSize": "1551600 kB",
+      "VmHWM": "958112 kB",
+      "VmRSS": "958112 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 24185,
+      "VmSize": "1551600 kB",
+      "VmHWM": "961824 kB",
+      "VmRSS": "961824 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 40,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.311359568,
+    "cpu_sample_start_ns": 44423460432207,
+    "cpu_sample_end_ns": 44483851106756,
+    "cpu_sample_seconds": 60.390674549,
+    "process_cpu_seconds_sampled": 156.06,
+    "process_cpu_percent_sampled": 258.41738176541725,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/0_full/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "814a85013556739a38af5952fec7198f4004af07da0bf3ea7456f99746453d20",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      269,
+      29,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966182107639419,
+    "iteration": 0,
+    "variant": "full",
+    "directory": "/home/zjh/trade-measurements/03/paired/0_full",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 98354097,
+        "lines": 1351712,
+        "rdtsc": 1298976,
+        "ttt": 27000
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 3791418,
+        "lines": 36003,
+        "rdtsc": 9000,
+        "ttt": 18000
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 9924846,
+        "lines": 85550,
+        "rdtsc": 31500,
+        "ttt": 27000
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966182116452417,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "37cc7b86eb4ff9fba39d7e8620ab05312fc0b11b7a8deb21db5fbb7cf3491803",
+    "warmup": {
+      "observed_end_ns": 44518904996792,
+      "last_full_frame_sent_ns": 44518838882086,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44580173379796,
+      "last_full_frame_sent_ns": 44578960278720,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44518969584462,
+      "window_end_ns": 44578969584462,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5801,
+        "accepted": 2901,
+        "canceled": 2900,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 96.68333333333334,
+        "accepted": 48.35,
+        "canceled": 48.333333333333336,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 947005,
+        "p95_ns": 1910202,
+        "p99_ns": 2715485,
+        "max_ns": 5843922,
+        "mean_ns": 1000224.4805
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 2725985615,
+        "p95_ns": 4036160089,
+        "p99_ns": 4148465393,
+        "max_ns": 4225636051,
+        "mean_ns": 2543365506.665
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 2726797780,
+        "p95_ns": 4037185250,
+        "p99_ns": 4149268361,
+        "max_ns": 4225958290,
+        "mean_ns": 2544365731.1455
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 2727652652,
+          "p95_ns": 4036287705,
+          "p99_ns": 4149053967,
+          "max_ns": 4219816262,
+          "mean_ns": 2543448887.249
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 2723095951,
+          "p95_ns": 4037885225,
+          "p99_ns": 4150175999,
+          "max_ns": 4225958290,
+          "mean_ns": 2545282575.042
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 4149268361,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        467810,
+        37912,
+        167760,
+        34757485,
+        21365,
+        0,
+        25118,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1464,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 23758,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1304,
+        "MemErrors": 0
+      },
+      "loadavg": "5.16 3.04 1.71 9/921 30006"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        477367,
+        38176,
+        175078,
+        34783096,
+        24381,
+        0,
+        28868,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1465,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 29771,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1308,
+        "MemErrors": 0
+      },
+      "loadavg": "5.87 3.65 2.02 6/917 30012"
+    },
+    "process_before": {
+      "cpu_ticks": 9579,
+      "VmSize": "1551600 kB",
+      "VmHWM": "957060 kB",
+      "VmRSS": "957060 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 25110,
+      "VmSize": "1551600 kB",
+      "VmHWM": "962648 kB",
+      "VmRSS": "962648 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 199,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 61.203795334,
+    "cpu_sample_start_ns": 44518935630040,
+    "cpu_sample_end_ns": 44580177052860,
+    "cpu_sample_seconds": 61.24142282,
+    "process_cpu_seconds_sampled": 155.31,
+    "process_cpu_percent_sampled": 253.60286036541828,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/0_sample64/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "d6696e1808621d47d7b9c4098a8ded942a668915242230b062d1ee3d297e02cb",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      415,
+      28,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966276007261947,
+    "iteration": 0,
+    "variant": "sample64",
+    "directory": "/home/zjh/trade-measurements/03/paired/0_sample64",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 8623984,
+        "lines": 69832,
+        "rdtsc": 43723,
+        "ttt": 420
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1930402,
+        "lines": 9423,
+        "rdtsc": 140,
+        "ttt": 280
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5867356,
+        "lines": 27960,
+        "rdtsc": 490,
+        "ttt": 420
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099249,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966276019289039,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "32e37ad4c4db6e90e47d90e5b00b0489b14799d595defdbf2d9a42ea7584cd8f",
+    "warmup": {
+      "observed_end_ns": 44614252515831,
+      "last_full_frame_sent_ns": 44614243492378,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44674672499660,
+      "last_full_frame_sent_ns": 44674310966503,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44614319281129,
+      "window_end_ns": 44674319281129,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5936,
+        "accepted": 2969,
+        "canceled": 2967,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 98.93333333333334,
+        "accepted": 49.483333333333334,
+        "canceled": 49.45,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 890915,
+        "p95_ns": 1691769,
+        "p99_ns": 2227764,
+        "max_ns": 6493902,
+        "mean_ns": 893802.796
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 9054557,
+        "p95_ns": 214100147,
+        "p99_ns": 573475778,
+        "max_ns": 743006554,
+        "mean_ns": 40733552.8475
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9976575,
+        "p95_ns": 215040413,
+        "p99_ns": 574015637,
+        "max_ns": 744593372,
+        "mean_ns": 41627355.6435
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9913425,
+          "p95_ns": 210694292,
+          "p99_ns": 569913720,
+          "max_ns": 714490201,
+          "mean_ns": 41477830.242
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 10034150,
+          "p95_ns": 216684434,
+          "p99_ns": 578452478,
+          "max_ns": 744593372,
+          "mean_ns": 41776881.045
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 574015637,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        482765,
+        38486,
+        179215,
+        34797611,
+        25800,
+        0,
+        30686,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1465,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 32791,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1308,
+        "MemErrors": 0
+      },
+      "loadavg": "6.11 3.91 2.16 7/915 30038"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        495223,
+        38695,
+        187455,
+        34819572,
+        28350,
+        0,
+        34027,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1465,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 38804,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1311,
+        "MemErrors": 0
+      },
+      "loadavg": "5.68 4.24 2.39 5/914 30045"
+    },
+    "process_before": {
+      "cpu_ticks": 8696,
+      "VmSize": "1551576 kB",
+      "VmHWM": "956852 kB",
+      "VmRSS": "956852 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 28177,
+      "VmSize": "1551576 kB",
+      "VmHWM": "963092 kB",
+      "VmRSS": "963092 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 64,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.353218531,
+    "cpu_sample_start_ns": 44614284715246,
+    "cpu_sample_end_ns": 44674680278056,
+    "cpu_sample_seconds": 60.39556281,
+    "process_cpu_seconds_sampled": 194.81,
+    "process_cpu_percent_sampled": 322.55680870605994,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/0_off/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "d3a648eef43377f4e658fd290aefa149f3b9243131db47518fa921c0835a8f97",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      108,
+      22,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966370599812868,
+    "iteration": 0,
+    "variant": "off",
+    "directory": "/home/zjh/trade-measurements/03/paired/0_off",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 5707750,
+        "lines": 26840,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1900999,
+        "lines": 9003,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5803240,
+        "lines": 27050,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966370614047821,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "b9eade3b5816f9075ea3c032e08e46a2a06aa81753b4b97e35e2967facb39e32",
+    "warmup": {
+      "observed_end_ns": 44711675654096,
+      "last_full_frame_sent_ns": 44710475355332,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44771728496778,
+      "last_full_frame_sent_ns": 44771721093317,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44711730374886,
+      "window_end_ns": 44771730374886,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 875634,
+        "p95_ns": 1743638,
+        "p99_ns": 2410061,
+        "max_ns": 24490299,
+        "mean_ns": 897630.2695
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 13543951,
+        "p95_ns": 1760066748,
+        "p99_ns": 1827921076,
+        "max_ns": 2053446601,
+        "mean_ns": 569469014.885
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 14580081,
+        "p95_ns": 1761112012,
+        "p99_ns": 1829164408,
+        "max_ns": 2053624868,
+        "mean_ns": 570366645.1545
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 14750381,
+          "p95_ns": 1760765162,
+          "p99_ns": 1821450052,
+          "max_ns": 2013695632,
+          "mean_ns": 569669327.3403333
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 14372868,
+          "p95_ns": 1762001852,
+          "p99_ns": 1836543199,
+          "max_ns": 2053624868,
+          "mean_ns": 571063962.9686667
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 1829164408,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        500621,
+        39011,
+        191734,
+        34835936,
+        30023,
+        0,
+        35886,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1465,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 41824,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1312,
+        "MemErrors": 0
+      },
+      "loadavg": "5.18 4.28 2.47 7/917 30145"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        512558,
+        39293,
+        199381,
+        34858514,
+        32763,
+        0,
+        39256,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1467,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 47836,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1312,
+        "MemErrors": 0
+      },
+      "loadavg": "5.64 4.54 2.68 6/921 30235"
+    },
+    "process_before": {
+      "cpu_ticks": 8631,
+      "VmSize": "1551600 kB",
+      "VmHWM": "958056 kB",
+      "VmRSS": "958056 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 26643,
+      "VmSize": "1551600 kB",
+      "VmHWM": "961860 kB",
+      "VmRSS": "961860 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.998121892,
+    "cpu_sample_start_ns": 44711701758423,
+    "cpu_sample_end_ns": 44771732234060,
+    "cpu_sample_seconds": 60.030475637,
+    "process_cpu_seconds_sampled": 180.12,
+    "process_cpu_percent_sampled": 300.04759763886057,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/1_full/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "68cc7534bcb7bd9d0e35d25e6575b286194c60f2f9dcc95057f8ce469ab12e24",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      242,
+      24,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966468480969526,
+    "iteration": 1,
+    "variant": "full",
+    "directory": "/home/zjh/trade-measurements/03/paired/1_full",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 163228390,
+        "lines": 2277944,
+        "rdtsc": 2224802,
+        "ttt": 27000
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 3791294,
+        "lines": 36003,
+        "rdtsc": 9000,
+        "ttt": 18000
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 9923256,
+        "lines": 85550,
+        "rdtsc": 31500,
+        "ttt": 27000
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966468495940459,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "a8e5a6b81abc6269bdaea8a6eb29fe19f1acff035f47a993a41b30cbda18e88b",
+    "warmup": {
+      "observed_end_ns": 44805430514093,
+      "last_full_frame_sent_ns": 44805423812917,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44865500326367,
+      "last_full_frame_sent_ns": 44865491662508,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44805499856207,
+      "window_end_ns": 44865499856207,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5999,
+        "accepted": 3000,
+        "canceled": 2999,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 99.98333333333333,
+        "accepted": 50.0,
+        "canceled": 49.983333333333334,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 783086,
+        "p95_ns": 1461950,
+        "p99_ns": 1812508,
+        "max_ns": 6070833,
+        "mean_ns": 821145.014
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 7862328,
+        "p95_ns": 9380375,
+        "p99_ns": 12888685,
+        "max_ns": 30476019,
+        "mean_ns": 7983178.73
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 8634316,
+        "p95_ns": 10391804,
+        "p99_ns": 14067296,
+        "max_ns": 34092312,
+        "mean_ns": 8804323.744
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 8625320,
+          "p95_ns": 10398054,
+          "p99_ns": 14221444,
+          "max_ns": 34092312,
+          "mean_ns": 8815266.308666667
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 8644029,
+          "p95_ns": 10377869,
+          "p99_ns": 13842404,
+          "max_ns": 18377406,
+          "mean_ns": 8793381.179333333
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 14067296,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        519404,
+        39638,
+        203978,
+        34871118,
+        33877,
+        0,
+        41026,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1467,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 50856,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1316,
+        "MemErrors": 0
+      },
+      "loadavg": "5.48 4.61 2.77 7/915 30251"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        532792,
+        39837,
+        212594,
+        34892006,
+        36075,
+        0,
+        44469,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1468,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 56871,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1316,
+        "MemErrors": 0
+      },
+      "loadavg": "6.04 4.93 3.00 5/915 30257"
+    },
+    "process_before": {
+      "cpu_ticks": 10545,
+      "VmSize": "1551576 kB",
+      "VmHWM": "956856 kB",
+      "VmRSS": "956856 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31290,
+      "VmSize": "1551576 kB",
+      "VmHWM": "962996 kB",
+      "VmRSS": "962996 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 1,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.00047016,
+    "cpu_sample_start_ns": 44805469951608,
+    "cpu_sample_end_ns": 44865503899051,
+    "cpu_sample_seconds": 60.033947443,
+    "process_cpu_seconds_sampled": 207.45,
+    "process_cpu_percent_sampled": 345.55448847831644,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/1_off/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "44119d51178b91d7a47254aed18456db1f92faf547089ffabdf9de6aaa8c0789",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      3,
+      1,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966561227914847,
+    "iteration": 1,
+    "variant": "off",
+    "directory": "/home/zjh/trade-measurements/03/paired/1_off",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 5850832,
+        "lines": 27694,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_main.log": {
+        "bytes": 149,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1900999,
+        "lines": 9003,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5803240,
+        "lines": 27050,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099249,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966561243528391,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "66d93b2bdbf57b8a2f7fd1688e3532c19ef23aaf47122ec6d7176b8241e9be94",
+    "warmup": {
+      "observed_end_ns": 44898387123057,
+      "last_full_frame_sent_ns": 44898379517844,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 44958439027455,
+      "last_full_frame_sent_ns": 44958432789552,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44898441622889,
+      "window_end_ns": 44958441622889,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 802734,
+        "p95_ns": 1490637,
+        "p99_ns": 1806387,
+        "max_ns": 8670902,
+        "mean_ns": 827566.0428333334
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 7907723,
+        "p95_ns": 9612524,
+        "p99_ns": 14459069,
+        "max_ns": 44286446,
+        "mean_ns": 8147444.6565
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 8749003,
+        "p95_ns": 10538085,
+        "p99_ns": 15459454,
+        "max_ns": 45018287,
+        "mean_ns": 8975010.699333332
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 8749106,
+          "p95_ns": 10528813,
+          "p99_ns": 15325003,
+          "max_ns": 45018287,
+          "mean_ns": 8943315.994666666
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 8748529,
+          "p95_ns": 10539771,
+          "p99_ns": 15785256,
+          "max_ns": 44512126,
+          "mean_ns": 9006705.404
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 15459454,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        539582,
+        40194,
+        217266,
+        34903840,
+        37211,
+        0,
+        46250,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1468,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 59891,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1316,
+        "MemErrors": 0
+      },
+      "loadavg": "6.57 5.16 3.14 6/915 30279"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        553051,
+        40523,
+        226342,
+        34923725,
+        39383,
+        0,
+        49552,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1468,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 65905,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1320,
+        "MemErrors": 0
+      },
+      "loadavg": "6.87 5.47 3.37 5/918 30438"
+    },
+    "process_before": {
+      "cpu_ticks": 10651,
+      "VmSize": "1551600 kB",
+      "VmHWM": "957032 kB",
+      "VmRSS": "957032 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31510,
+      "VmSize": "1551600 kB",
+      "VmHWM": "962580 kB",
+      "VmRSS": "962580 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.997404566,
+    "cpu_sample_start_ns": 44898413706704,
+    "cpu_sample_end_ns": 44958442398300,
+    "cpu_sample_seconds": 60.028691596,
+    "process_cpu_seconds_sampled": 208.59,
+    "process_cpu_percent_sampled": 347.48383556955514,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/1_sample64/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "8753501bf5b82e79483b37fb865a5d0a7570ae894b007565381c6d648466c18c",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      4,
+      3,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966654145715612,
+    "iteration": 1,
+    "variant": "sample64",
+    "directory": "/home/zjh/trade-measurements/03/paired/1_sample64",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 13238258,
+        "lines": 132970,
+        "rdtsc": 104759,
+        "ttt": 420
+      },
+      "exchange_main.log": {
+        "bytes": 149,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1930401,
+        "lines": 9423,
+        "rdtsc": 140,
+        "ttt": 280
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5867268,
+        "lines": 27960,
+        "rdtsc": 490,
+        "ttt": 420
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099249,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966654159136506,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "adf8bc2fd64e598d42f5222b73068805eab1592040a8fb9a8d32009907b2529f",
+    "warmup": {
+      "observed_end_ns": 44991082040274,
+      "last_full_frame_sent_ns": 44991074807802,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45051177715565,
+      "last_full_frame_sent_ns": 45051174710606,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 44991184488223,
+      "window_end_ns": 45051184488223,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 793788,
+        "p95_ns": 1442919,
+        "p99_ns": 1882726,
+        "max_ns": 7906240,
+        "mean_ns": 816941.9501666666
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 7806592,
+        "p95_ns": 9552876,
+        "p99_ns": 15118512,
+        "max_ns": 36101937,
+        "mean_ns": 7975153.656333333
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 8639761,
+        "p95_ns": 10437408,
+        "p99_ns": 16068729,
+        "max_ns": 37478231,
+        "mean_ns": 8792095.6065
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 8606695,
+          "p95_ns": 10349203,
+          "p99_ns": 15241282,
+          "max_ns": 37478231,
+          "mean_ns": 8755529.144333333
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 8661046,
+          "p95_ns": 10495861,
+          "p99_ns": 16215781,
+          "max_ns": 37022541,
+          "mean_ns": 8828662.068666667
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 16068729,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        559888,
+        40825,
+        231091,
+        34935409,
+        40430,
+        0,
+        51327,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1468,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 68925,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1320,
+        "MemErrors": 0
+      },
+      "loadavg": "6.47 5.52 3.46 7/918 30461"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        573411,
+        41107,
+        240004,
+        34955707,
+        42484,
+        0,
+        54579,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1470,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 74937,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1324,
+        "MemErrors": 0
+      },
+      "loadavg": "6.55 5.72 3.66 5/915 30615"
+    },
+    "process_before": {
+      "cpu_ticks": 10646,
+      "VmSize": "1551576 kB",
+      "VmHWM": "956812 kB",
+      "VmRSS": "956812 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31430,
+      "VmSize": "1551576 kB",
+      "VmHWM": "962908 kB",
+      "VmRSS": "962908 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.993227342,
+    "cpu_sample_start_ns": 44991155534320,
+    "cpu_sample_end_ns": 45051179400403,
+    "cpu_sample_seconds": 60.023866083,
+    "process_cpu_seconds_sampled": 207.84,
+    "process_cpu_percent_sampled": 346.2622679328957,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/2_off/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "720ce515b41712b0b5efd8cc420644cbc647f939a069d54f02c8e5a099042e17",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      12,
+      4,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966746528492547,
+    "iteration": 2,
+    "variant": "off",
+    "directory": "/home/zjh/trade-measurements/03/paired/2_off",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 5843581,
+        "lines": 27638,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_main.log": {
+        "bytes": 150,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1900999,
+        "lines": 9003,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5803240,
+        "lines": 27050,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966746534246296,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "a117dd2bf5f8c471dff1870af9876ac49c9a965dd968cdc33add2c53174b3f40",
+    "warmup": {
+      "observed_end_ns": 45082290400895,
+      "last_full_frame_sent_ns": 45082281956561,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45142346549286,
+      "last_full_frame_sent_ns": 45142337088037,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45082345872906,
+      "window_end_ns": 45142345872906,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5999,
+        "accepted": 3000,
+        "canceled": 2999,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 99.98333333333333,
+        "accepted": 50.0,
+        "canceled": 49.983333333333334,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 838460,
+        "p95_ns": 1628566,
+        "p99_ns": 2310011,
+        "max_ns": 27048595,
+        "mean_ns": 918331.3941666667
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 8473309,
+        "p95_ns": 44499874,
+        "p99_ns": 235067529,
+        "max_ns": 421619998,
+        "mean_ns": 17191555.436666667
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9385383,
+        "p95_ns": 47495799,
+        "p99_ns": 235896931,
+        "max_ns": 429820249,
+        "mean_ns": 18109886.830833334
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9352279,
+          "p95_ns": 46891859,
+          "p99_ns": 235896931,
+          "max_ns": 429820249,
+          "mean_ns": 18012463.334666666
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 9427792,
+          "p95_ns": 47849039,
+          "p99_ns": 234950313,
+          "max_ns": 402377264,
+          "mean_ns": 18207310.327
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 235896931,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        580565,
+        41363,
+        244296,
+        34966310,
+        43507,
+        0,
+        56294,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1471,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 77958,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1324,
+        "MemErrors": 0
+      },
+      "loadavg": "7.15 5.94 3.80 8/916 30638"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        594384,
+        41710,
+        252904,
+        34986101,
+        45698,
+        0,
+        59663,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1476,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 83974,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1324,
+        "MemErrors": 0
+      },
+      "loadavg": "6.67 6.01 3.96 5/916 30651"
+    },
+    "process_before": {
+      "cpu_ticks": 10572,
+      "VmSize": "1551600 kB",
+      "VmHWM": "958208 kB",
+      "VmRSS": "958208 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31142,
+      "VmSize": "1551600 kB",
+      "VmHWM": "961788 kB",
+      "VmRSS": "961788 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 1,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.00067638,
+    "cpu_sample_start_ns": 45082317372743,
+    "cpu_sample_end_ns": 45142351781285,
+    "cpu_sample_seconds": 60.034408542,
+    "process_cpu_seconds_sampled": 205.7,
+    "process_cpu_percent_sampled": 342.6368394319943,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/2_full/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "f09aa85a666a27085346469b060a257baf77769e3de00044a26133185d43c298",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      33,
+      9,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966840546167459,
+    "iteration": 2,
+    "variant": "full",
+    "directory": "/home/zjh/trade-measurements/03/paired/2_full",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 269421526,
+        "lines": 3789394,
+        "rdtsc": 3733758,
+        "ttt": 27000
+      },
+      "exchange_main.log": {
+        "bytes": 150,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 3791380,
+        "lines": 36003,
+        "rdtsc": 9000,
+        "ttt": 18000
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 9919833,
+        "lines": 85550,
+        "rdtsc": 31500,
+        "ttt": 27000
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966840558400580,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "7ee57a9c9285ce3dec682806e2814f50da9974ad4a889383c665cec96714bb57",
+    "warmup": {
+      "observed_end_ns": 45177563657651,
+      "last_full_frame_sent_ns": 45177554036821,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45237618916182,
+      "last_full_frame_sent_ns": 45237611788912,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45177620915044,
+      "window_end_ns": 45237620915044,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 822941,
+        "p95_ns": 1578505,
+        "p99_ns": 2060769,
+        "max_ns": 4427962,
+        "mean_ns": 866287.067
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 8311113,
+        "p95_ns": 14042873,
+        "p99_ns": 26572574,
+        "max_ns": 54088831,
+        "mean_ns": 8910790.469833333
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9223101,
+        "p95_ns": 15026165,
+        "p99_ns": 27475521,
+        "max_ns": 54461028,
+        "mean_ns": 9777077.536833333
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9207744,
+          "p95_ns": 14684678,
+          "p99_ns": 27025063,
+          "max_ns": 50293269,
+          "mean_ns": 9666942.927666666
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 9239664,
+          "p95_ns": 15550141,
+          "p99_ns": 27626728,
+          "max_ns": 54461028,
+          "mean_ns": 9887212.146
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 27475521,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        601144,
+        42137,
+        257885,
+        34999308,
+        46814,
+        0,
+        61408,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1476,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 86994,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1328,
+        "MemErrors": 0
+      },
+      "loadavg": "6.20 5.94 4.02 6/918 30673"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        614574,
+        42473,
+        266920,
+        35019193,
+        48992,
+        0,
+        64745,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1476,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 93007,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1328,
+        "MemErrors": 0
+      },
+      "loadavg": "6.43 6.04 4.17 6/924 30838"
+    },
+    "process_before": {
+      "cpu_ticks": 10510,
+      "VmSize": "1551600 kB",
+      "VmHWM": "957048 kB",
+      "VmRSS": "957048 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31199,
+      "VmSize": "1551600 kB",
+      "VmHWM": "962604 kB",
+      "VmRSS": "962604 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.998001138,
+    "cpu_sample_start_ns": 45177592278641,
+    "cpu_sample_end_ns": 45237622683642,
+    "cpu_sample_seconds": 60.030405001,
+    "process_cpu_seconds_sampled": 206.89,
+    "process_cpu_percent_sampled": 344.6420193176334,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/2_sample64/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "53dacfdb4d4560c2987b4e0d6839fa35d7d11504b678db953e2055c6a9e1f390",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      21,
+      3,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790966933364437943,
+    "iteration": 2,
+    "variant": "sample64",
+    "directory": "/home/zjh/trade-measurements/03/paired/2_sample64",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 12856597,
+        "lines": 127490,
+        "rdtsc": 99067,
+        "ttt": 420
+      },
+      "exchange_main.log": {
+        "bytes": 150,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1930407,
+        "lines": 9423,
+        "rdtsc": 140,
+        "ttt": 280
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5867292,
+        "lines": 27960,
+        "rdtsc": 490,
+        "ttt": 420
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790966933415882662,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "ddfd49964c658c6705445ba7f30a889a7f612825077ce0f4453a5c831ee90b48",
+    "warmup": {
+      "observed_end_ns": 45270297483680,
+      "last_full_frame_sent_ns": 45270290476935,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45330354117497,
+      "last_full_frame_sent_ns": 45330345751311,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45270355072982,
+      "window_end_ns": 45330355072982,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 799489,
+        "p95_ns": 1482328,
+        "p99_ns": 2029765,
+        "max_ns": 6008650,
+        "mean_ns": 822573.9075
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 8278710,
+        "p95_ns": 10666684,
+        "p99_ns": 16849403,
+        "max_ns": 75736072,
+        "mean_ns": 8634842.919666667
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9091799,
+        "p95_ns": 11504101,
+        "p99_ns": 17668895,
+        "max_ns": 76916439,
+        "mean_ns": 9457416.827166667
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9079837,
+          "p95_ns": 11315359,
+          "p99_ns": 17008524,
+          "max_ns": 76916439,
+          "mean_ns": 9431979.454333333
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 9107411,
+          "p95_ns": 13001484,
+          "p99_ns": 18073900,
+          "max_ns": 64373576,
+          "mean_ns": 9482854.2
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 17668895,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        621341,
+        42773,
+        271536,
+        35031007,
+        50100,
+        0,
+        66513,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1476,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 96027,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1328,
+        "MemErrors": 0
+      },
+      "loadavg": "5.86 5.94 4.21 7/916 30854"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        634523,
+        43001,
+        280262,
+        35051684,
+        52271,
+        0,
+        69992,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1477,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 102041,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1332,
+        "MemErrors": 0
+      },
+      "loadavg": "5.99 5.96 4.32 5/918 30868"
+    },
+    "process_before": {
+      "cpu_ticks": 10519,
+      "VmSize": "1551576 kB",
+      "VmHWM": "956868 kB",
+      "VmRSS": "956868 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 31091,
+      "VmSize": "1551576 kB",
+      "VmHWM": "963040 kB",
+      "VmRSS": "963040 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.999044515,
+    "cpu_sample_start_ns": 45270326635437,
+    "cpu_sample_end_ns": 45330358076008,
+    "cpu_sample_seconds": 60.031440571,
+    "process_cpu_seconds_sampled": 205.72,
+    "process_cpu_percent_sampled": 342.6870953674553,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/3_off/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "4542d946c1eed8d16778b823681133e4e8cb496505f637078e7c2ba016b05d5b",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      5,
+      4,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967026069691323,
+    "iteration": 3,
+    "variant": "off",
+    "directory": "/home/zjh/trade-measurements/03/paired/3_off",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 5856712,
+        "lines": 27754,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_main.log": {
+        "bytes": 149,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1900999,
+        "lines": 9003,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5803240,
+        "lines": 27050,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790967026087559575,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "11da14f10aeaba1a7436ae1ae59f2ca1474595e5686d678a5374ac8ba6b99a6a",
+    "warmup": {
+      "observed_end_ns": 45362918960893,
+      "last_full_frame_sent_ns": 45362911119042,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45422979453202,
+      "last_full_frame_sent_ns": 45422969370203,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45362978863015,
+      "window_end_ns": 45422978863015,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5999,
+        "accepted": 3000,
+        "canceled": 2999,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 99.98333333333333,
+        "accepted": 50.0,
+        "canceled": 49.983333333333334,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 826170,
+        "p95_ns": 1595296,
+        "p99_ns": 2224024,
+        "max_ns": 8429569,
+        "mean_ns": 874060.8821666667
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 8479218,
+        "p95_ns": 25399027,
+        "p99_ns": 385911724,
+        "max_ns": 679744469,
+        "mean_ns": 18656735.22566667
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9368349,
+        "p95_ns": 26693365,
+        "p99_ns": 387280039,
+        "max_ns": 680089364,
+        "mean_ns": 19530796.107833333
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9338944,
+          "p95_ns": 25379605,
+          "p99_ns": 383827876,
+          "max_ns": 656612566,
+          "mean_ns": 19439876.357666668
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 9397532,
+          "p95_ns": 26701055,
+          "p99_ns": 387280039,
+          "max_ns": 680089364,
+          "mean_ns": 19621715.858
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 387280039,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        641278,
+        43432,
+        285024,
+        35063013,
+        53470,
+        0,
+        71749,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1478,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 105062,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1332,
+        "MemErrors": 0
+      },
+      "loadavg": "6.12 6.00 4.39 7/917 30964"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        654252,
+        43701,
+        293738,
+        35083681,
+        55889,
+        0,
+        75124,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1479,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 111075,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1336,
+        "MemErrors": 0
+      },
+      "loadavg": "5.73 5.91 4.47 5/918 30971"
+    },
+    "process_before": {
+      "cpu_ticks": 10451,
+      "VmSize": "1551600 kB",
+      "VmHWM": "957056 kB",
+      "VmRSS": "957056 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 30760,
+      "VmSize": "1551600 kB",
+      "VmHWM": "962544 kB",
+      "VmRSS": "962544 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 1,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.000590187,
+    "cpu_sample_start_ns": 45362949871677,
+    "cpu_sample_end_ns": 45422983305337,
+    "cpu_sample_seconds": 60.03343366,
+    "process_cpu_seconds_sampled": 203.09,
+    "process_cpu_percent_sampled": 338.29482609674204,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/3_sample64/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "4cd59725753b25842e94bc689856540ca984a3033ed4981742e1008d97e550b0",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      55,
+      7,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967118738321757,
+    "iteration": 3,
+    "variant": "sample64",
+    "directory": "/home/zjh/trade-measurements/03/paired/3_sample64",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 12707899,
+        "lines": 125399,
+        "rdtsc": 97085,
+        "ttt": 420
+      },
+      "exchange_main.log": {
+        "bytes": 150,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1930407,
+        "lines": 9423,
+        "rdtsc": 140,
+        "ttt": 280
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5867296,
+        "lines": 27960,
+        "rdtsc": 490,
+        "ttt": 420
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099249,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790967118751709317,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "a1974f9462fc3261f60a6ab1320c2ea2143a0e5c9f74eda907d1deb517ba2ecf",
+    "warmup": {
+      "observed_end_ns": 45455747256837,
+      "last_full_frame_sent_ns": 45455738668755,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45515905985941,
+      "last_full_frame_sent_ns": 45515799375046,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45455808791064,
+      "window_end_ns": 45515808791064,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5986,
+        "accepted": 2994,
+        "canceled": 2992,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 99.76666666666667,
+        "accepted": 49.9,
+        "canceled": 49.86666666666667,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 869113,
+        "p95_ns": 1752678,
+        "p99_ns": 2435952,
+        "max_ns": 13490851,
+        "mean_ns": 935130.4883333333
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 20278623,
+        "p95_ns": 839317554,
+        "p99_ns": 900730014,
+        "max_ns": 1102675463,
+        "mean_ns": 259627607.92933333
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 21006860,
+        "p95_ns": 840352050,
+        "p99_ns": 902060873,
+        "max_ns": 1103452908,
+        "mean_ns": 260562738.41766667
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 20784211,
+          "p95_ns": 840109606,
+          "p99_ns": 895864664,
+          "max_ns": 1063473670,
+          "mean_ns": 260218701.94
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 21403526,
+          "p95_ns": 840755224,
+          "p99_ns": 910074653,
+          "max_ns": 1103452908,
+          "mean_ns": 260906774.89533332
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 902060873,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        660912,
+        44055,
+        297985,
+        35095739,
+        57177,
+        0,
+        76905,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1479,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 114095,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1336,
+        "MemErrors": 0
+      },
+      "loadavg": "5.67 5.86 4.50 6/918 30992"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        672933,
+        44353,
+        305878,
+        35117878,
+        59907,
+        0,
+        80317,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1479,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 120107,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1340,
+        "MemErrors": 0
+      },
+      "loadavg": "5.75 5.83 4.58 6/919 31078"
+    },
+    "process_before": {
+      "cpu_ticks": 10065,
+      "VmSize": "1551600 kB",
+      "VmHWM": "958184 kB",
+      "VmRSS": "958184 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 28232,
+      "VmSize": "1551600 kB",
+      "VmHWM": "961792 kB",
+      "VmRSS": "961792 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 14,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 60.097194877,
+    "cpu_sample_start_ns": 45455778268469,
+    "cpu_sample_end_ns": 45515911040975,
+    "cpu_sample_seconds": 60.132772506,
+    "process_cpu_seconds_sampled": 181.67,
+    "process_cpu_percent_sampled": 302.11479103491047,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/3_full/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "b94b77088c38be2e96365026316c83b1f697f00af0a42d23405916e8087b8c85",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      89,
+      15,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967214068844998,
+    "iteration": 3,
+    "variant": "full",
+    "directory": "/home/zjh/trade-measurements/03/paired/3_full",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 200070463,
+        "lines": 2800865,
+        "rdtsc": 2746190,
+        "ttt": 27000
+      },
+      "exchange_main.log": {
+        "bytes": 151,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 3791273,
+        "lines": 36003,
+        "rdtsc": 9000,
+        "ttt": 18000
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 9922019,
+        "lines": 85550,
+        "rdtsc": 31500,
+        "ttt": 27000
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790967214096312291,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "5ba21a4bd70f9ad5b8203968bcb357d29dfc71b3cc6ca0fb41010e0b061e4695",
+    "warmup": {
+      "observed_end_ns": 45552930829696,
+      "last_full_frame_sent_ns": 45551239410842,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45614033814935,
+      "last_full_frame_sent_ns": 45612983844670,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45552992724444,
+      "window_end_ns": 45612992724444,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 5822,
+        "accepted": 2912,
+        "canceled": 2910,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 97.03333333333333,
+        "accepted": 48.53333333333333,
+        "canceled": 48.5,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 891468,
+        "p95_ns": 1785659,
+        "p99_ns": 2369158,
+        "max_ns": 12918526,
+        "mean_ns": 952578.5408333334
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 228570590,
+        "p95_ns": 1484938719,
+        "p99_ns": 1770502981,
+        "max_ns": 1950075771,
+        "mean_ns": 389952883.2643333
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 229194192,
+        "p95_ns": 1485670928,
+        "p99_ns": 1771013201,
+        "max_ns": 1950610381,
+        "mean_ns": 390905461.80516666
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 233039426,
+          "p95_ns": 1485670928,
+          "p99_ns": 1766467019,
+          "max_ns": 1950610381,
+          "mean_ns": 389995387.8893333
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 225984153,
+          "p95_ns": 1485146759,
+          "p99_ns": 1771013201,
+          "max_ns": 1944186300,
+          "mean_ns": 391815535.721
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 1771013201,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        678028,
+        44722,
+        310071,
+        35134466,
+        61593,
+        0,
+        82104,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1483,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 123130,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1340,
+        "MemErrors": 0
+      },
+      "loadavg": "5.72 5.81 4.61 12/919 31100"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        688619,
+        44976,
+        317685,
+        35158792,
+        64626,
+        0,
+        85613,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1483,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 129140,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1340,
+        "MemErrors": 0
+      },
+      "loadavg": "5.40 5.70 4.65 5/917 31183"
+    },
+    "process_before": {
+      "cpu_ticks": 8153,
+      "VmSize": "1551600 kB",
+      "VmHWM": "956924 kB",
+      "VmRSS": "956924 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 24845,
+      "VmSize": "1551600 kB",
+      "VmHWM": "962772 kB",
+      "VmRSS": "962772 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 178,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 61.041090491,
+    "cpu_sample_start_ns": 45552962432554,
+    "cpu_sample_end_ns": 45614037867750,
+    "cpu_sample_seconds": 61.075435196,
+    "process_cpu_seconds_sampled": 166.92,
+    "process_cpu_percent_sampled": 273.30136815943973,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/4_sample64/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "17c70b5edaea8507bc567abc56e582a5fd04f431549613f5b81158aac288457c",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      464,
+      24,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967309772472555,
+    "iteration": 4,
+    "variant": "sample64",
+    "directory": "/home/zjh/trade-measurements/03/paired/4_sample64",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 8196216,
+        "lines": 64391,
+        "rdtsc": 38832,
+        "ttt": 420
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1930408,
+        "lines": 9423,
+        "rdtsc": 140,
+        "ttt": 280
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5867349,
+        "lines": 27960,
+        "rdtsc": 490,
+        "ttt": 420
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790967309789177262,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "f6fb2705971ea8a33b52bf90b8dec6011b9b265e0cd09b685d882c1895afd934",
+    "warmup": {
+      "observed_end_ns": 45646991249808,
+      "last_full_frame_sent_ns": 45646982909743,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45707046484901,
+      "last_full_frame_sent_ns": 45707038188947,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45647046890927,
+      "window_end_ns": 45707046890927,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 842549,
+        "p95_ns": 1747773,
+        "p99_ns": 2235366,
+        "max_ns": 5644707,
+        "mean_ns": 895615.3265
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 8927675,
+        "p95_ns": 17909794,
+        "p99_ns": 59303969,
+        "max_ns": 120784151,
+        "mean_ns": 11148885.701833334
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 9844814,
+        "p95_ns": 18923747,
+        "p99_ns": 60924928,
+        "max_ns": 121196843,
+        "mean_ns": 12044501.028333334
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 9803612,
+          "p95_ns": 19027678,
+          "p99_ns": 60452039,
+          "max_ns": 121196843,
+          "mean_ns": 11947827.089
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 9896454,
+          "p95_ns": 18678906,
+          "p99_ns": 61162951,
+          "max_ns": 114426376,
+          "mean_ns": 12141174.967666667
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 60924928,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        694368,
+        45301,
+        321799,
+        35172059,
+        66054,
+        0,
+        87363,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1485,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 132162,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1344,
+        "MemErrors": 0
+      },
+      "loadavg": "5.25 5.63 4.67 6/917 31212"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        707228,
+        45514,
+        330330,
+        35193211,
+        68520,
+        0,
+        90794,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1485,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 138174,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1344,
+        "MemErrors": 0
+      },
+      "loadavg": "5.88 5.74 4.77 5/917 31220"
+    },
+    "process_before": {
+      "cpu_ticks": 8981,
+      "VmSize": "1551576 kB",
+      "VmHWM": "956812 kB",
+      "VmRSS": "956812 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 28971,
+      "VmSize": "1551576 kB",
+      "VmHWM": "963064 kB",
+      "VmRSS": "963064 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.999593974,
+    "cpu_sample_start_ns": 45647018423581,
+    "cpu_sample_end_ns": 45707050930446,
+    "cpu_sample_seconds": 60.032506865,
+    "process_cpu_seconds_sampled": 199.9,
+    "process_cpu_percent_sampled": 332.9862610094418,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/4_off/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "450620f7b1aee1099bfb8dafc430444f3541086c1be6913bb1c6a1e98d60885b",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      88,
+      22,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967402743905097,
+    "iteration": 4,
+    "variant": "off",
+    "directory": "/home/zjh/trade-measurements/03/paired/4_off",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 5766287,
+        "lines": 27224,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_main.log": {
+        "bytes": 151,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 1900999,
+        "lines": 9003,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 5803240,
+        "lines": 27050,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099249,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  },
+  {
+    "config": {
+      "mode": "open",
+      "clients": 4,
+      "tickers": 8,
+      "rate": 100,
+      "requests": 6000,
+      "seed": 20260928,
+      "timeout_s": 60,
+      "warm_requests": 3000,
+      "warm_mode": "open",
+      "warm_rate": 100,
+      "snapshot_ms": 60000
+    },
+    "start_wall_ns": 1790967402762477225,
+    "server_cpus": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "generator_cpus": [
+      4
+    ],
+    "binary_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "input_sha256": "01ad3b1c0e6c18c612d9629f24698ac72290b6b619f2d75f0e0f7c9647e03fe0",
+    "events_sha256": "7759cb9e28eb4f4c68819e9cf859e9d1478aa649b68504f4fa34a4958f8159f7",
+    "warmup": {
+      "observed_end_ns": 45740864443357,
+      "last_full_frame_sent_ns": 45739903362485,
+      "generated": 3000,
+      "sent": 3000,
+      "completed": 3000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 150000,
+      "received_bytes": 237000,
+      "observation_timeout_s": 30,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 3000
+    },
+    "counts": {
+      "observed_end_ns": 45800924397141,
+      "last_full_frame_sent_ns": 45800916422002,
+      "generated": 6000,
+      "sent": 6000,
+      "completed": 6000,
+      "unsent": 0,
+      "timeout": 0,
+      "partial_writes": 0,
+      "send_would_block": 0,
+      "unfinished_partial_frames": 0,
+      "sent_bytes": 300000,
+      "received_bytes": 474000,
+      "observation_timeout_s": 60,
+      "injected_generator_pause_ms": 0,
+      "unique_response_ids": 6000
+    },
+    "statistics": {
+      "window_start_ns": 45740926134000,
+      "window_end_ns": 45800926134000,
+      "window_seconds": 60.0,
+      "total_rows": 6000,
+      "cohort": {
+        "ACCEPTED": 3000,
+        "CANCELED": 3000,
+        "REJECTED": 0,
+        "TIMEOUT": 0,
+        "UNSENT": 0
+      },
+      "conservation_ok": true,
+      "window_counts": {
+        "offered": 6000,
+        "sent": 6000,
+        "completed": 6000,
+        "accepted": 3000,
+        "canceled": 3000,
+        "rejected": 0
+      },
+      "window_rates_per_s": {
+        "offered": 100.0,
+        "sent": 100.0,
+        "completed": 100.0,
+        "accepted": 50.0,
+        "canceled": 50.0,
+        "rejected": 0.0
+      },
+      "send_lateness": {
+        "n": 6000,
+        "p50_ns": 836919,
+        "p95_ns": 1686494,
+        "p99_ns": 2393302,
+        "max_ns": 29746929,
+        "mean_ns": 913881.6575
+      },
+      "actual_send_to_response": {
+        "n": 6000,
+        "p50_ns": 410434480,
+        "p95_ns": 1509016148,
+        "p99_ns": 1637432458,
+        "max_ns": 1708211531,
+        "mean_ns": 635184693.1206666
+      },
+      "scheduled_to_response": {
+        "n": 6000,
+        "p50_ns": 411373047,
+        "p95_ns": 1509808678,
+        "p99_ns": 1638357224,
+        "max_ns": 1708692365,
+        "mean_ns": 636098574.7781667
+      },
+      "scheduled_to_response_by_kind": {
+        "NEW": {
+          "n": 3000,
+          "p50_ns": 415492820,
+          "p95_ns": 1508520353,
+          "p99_ns": 1630655003,
+          "max_ns": 1696175736,
+          "mean_ns": 635502953.4073334
+        },
+        "CANCEL": {
+          "n": 3000,
+          "p50_ns": 410440614,
+          "p95_ns": 1516053906,
+          "p99_ns": 1640724341,
+          "max_ns": 1708692365,
+          "mean_ns": 636694196.149
+        }
+      },
+      "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+      "latency_scope": "completed responses only",
+      "all_offered_p99_ns": 1638357224,
+      "all_offered_p99_status": "observed"
+    },
+    "system_before": {
+      "cpu_ticks": [
+        712913,
+        45876,
+        334302,
+        35207173,
+        70082,
+        0,
+        92476,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1486,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 141195,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1344,
+        "MemErrors": 0
+      },
+      "loadavg": "5.61 5.69 4.79 7/917 31242"
+    },
+    "system_after": {
+      "cpu_ticks": [
+        724227,
+        46206,
+        341944,
+        35229853,
+        72940,
+        0,
+        96023,
+        0,
+        0,
+        0
+      ],
+      "udp_system_counters": {
+        "InDatagrams": 1486,
+        "NoPorts": 40,
+        "InErrors": 0,
+        "OutDatagrams": 147206,
+        "RcvbufErrors": 0,
+        "SndbufErrors": 0,
+        "InCsumErrors": 0,
+        "IgnoredMulti": 1348,
+        "MemErrors": 0
+      },
+      "loadavg": "5.53 5.66 4.84 5/918 31404"
+    },
+    "process_before": {
+      "cpu_ticks": 8746,
+      "VmSize": "1551600 kB",
+      "VmHWM": "958128 kB",
+      "VmRSS": "958128 kB"
+    },
+    "process_after": {
+      "cpu_ticks": 25965,
+      "VmSize": "1551600 kB",
+      "VmHWM": "961856 kB",
+      "VmRSS": "961856 kB"
+    },
+    "clock_ticks_per_s": 100,
+    "inflight_at_window_end": 0,
+    "generator_scheduled_not_sent_at_window_end": 0,
+    "measurement_and_drain_seconds": 59.998263141,
+    "cpu_sample_start_ns": 45740895941780,
+    "cpu_sample_end_ns": 45800928306210,
+    "cpu_sample_seconds": 60.03236443,
+    "process_cpu_seconds_sampled": 172.19,
+    "process_cpu_percent_sampled": 286.8286159222998,
+    "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+    "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+    "exit_code": 0,
+    "reconciliation": {
+      "journal": "/home/zjh/trade-measurements/03/paired/4_full/exchange_orders.journal",
+      "counts": {
+        "RECEIVED": 9000,
+        "APPLY": 9000,
+        "RESPONSE": 9000
+      },
+      "distinct_response_ids": 9000,
+      "received_count": 9000,
+      "applied_count": 9000,
+      "client_received_requests": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "client_matching_responses": {
+        "80": 2250,
+        "81": 2250,
+        "82": 2250,
+        "83": 2250
+      },
+      "unapplied_requests": [],
+      "live_orders": [],
+      "positions": {
+        "80:0": 0,
+        "80:1": 0,
+        "80:2": 0,
+        "80:3": 0,
+        "80:4": 0,
+        "80:5": 0,
+        "80:6": 0,
+        "80:7": 0,
+        "81:0": 0,
+        "81:1": 0,
+        "81:2": 0,
+        "81:3": 0,
+        "81:4": 0,
+        "81:5": 0,
+        "81:6": 0,
+        "81:7": 0,
+        "82:0": 0,
+        "82:1": 0,
+        "82:2": 0,
+        "82:3": 0,
+        "82:4": 0,
+        "82:5": 0,
+        "82:6": 0,
+        "82:7": 0,
+        "83:0": 0,
+        "83:1": 0,
+        "83:2": 0,
+        "83:3": 0,
+        "83:4": 0,
+        "83:5": 0,
+        "83:6": 0,
+        "83:7": 0
+      },
+      "volume": {},
+      "checkpoints": [],
+      "errors": [],
+      "consistent": true
+    },
+    "journal_sha256": "eb979abaff8b125ba3f16db0aac94dd93506f0fc45d2ecc8e20caebd724fd3e7",
+    "queue_final_and_highwater": [
+      0,
+      0,
+      0,
+      167,
+      16,
+      1,
+      27001
+    ],
+    "log_dropped_records": {
+      "exchange_order_server.log": 0,
+      "exchange_main.log": 0,
+      "exchange_market_data_publisher.log": 0,
+      "exchange_matching_engine.log": 0,
+      "exchange_snapshot_synthesizer.log": 0
+    },
+    "correctness_ok": true,
+    "end_wall_ns": 1790967497736087297,
+    "iteration": 4,
+    "variant": "full",
+    "directory": "/home/zjh/trade-measurements/03/paired/4_full",
+    "diagnostic_log_stats": {
+      "exchange_order_server.log": {
+        "bytes": 149935257,
+        "lines": 2086970,
+        "rdtsc": 2032961,
+        "ttt": 27000
+      },
+      "exchange_main.log": {
+        "bytes": 152,
+        "lines": 2,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_market_data_publisher.log": {
+        "bytes": 3791289,
+        "lines": 36003,
+        "rdtsc": 9000,
+        "ttt": 18000
+      },
+      "exchange_matching_engine.log": {
+        "bytes": 9924571,
+        "lines": 85550,
+        "rdtsc": 31500,
+        "ttt": 27000
+      },
+      "process_output.log": {
+        "bytes": 0,
+        "lines": 0,
+        "rdtsc": 0,
+        "ttt": 0
+      },
+      "exchange_snapshot_synthesizer.log": {
+        "bytes": 2099250,
+        "lines": 9006,
+        "rdtsc": 0,
+        "ttt": 0
+      }
+    }
+  }
+]

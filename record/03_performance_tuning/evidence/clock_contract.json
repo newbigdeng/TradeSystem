@@ -1,0 +1,134 @@
+{
+  "python_clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  },
+  "child_cpp_clock": "clock_gettime(CLOCK_MONOTONIC)",
+  "all_bracketed": true,
+  "samples": [
+    {
+      "python_before_ns": 47663234413531,
+      "cpp_monotonic_ns": 47663244912785,
+      "python_after_ns": 47663246299735,
+      "bracket_width_ns": 11886204
+    },
+    {
+      "python_before_ns": 47663246309498,
+      "cpp_monotonic_ns": 47663256702670,
+      "python_after_ns": 47663257513376,
+      "bracket_width_ns": 11203878
+    },
+    {
+      "python_before_ns": 47663257522958,
+      "cpp_monotonic_ns": 47663268796365,
+      "python_after_ns": 47663270835205,
+      "bracket_width_ns": 13312247
+    },
+    {
+      "python_before_ns": 47663270843599,
+      "cpp_monotonic_ns": 47663283036493,
+      "python_after_ns": 47663284891184,
+      "bracket_width_ns": 14047585
+    },
+    {
+      "python_before_ns": 47663284897773,
+      "cpp_monotonic_ns": 47663298493638,
+      "python_after_ns": 47663299702984,
+      "bracket_width_ns": 14805211
+    },
+    {
+      "python_before_ns": 47663299712032,
+      "cpp_monotonic_ns": 47663310603427,
+      "python_after_ns": 47663311946493,
+      "bracket_width_ns": 12234461
+    },
+    {
+      "python_before_ns": 47663311954469,
+      "cpp_monotonic_ns": 47663321313535,
+      "python_after_ns": 47663322106709,
+      "bracket_width_ns": 10152240
+    },
+    {
+      "python_before_ns": 47663322113912,
+      "cpp_monotonic_ns": 47663331819515,
+      "python_after_ns": 47663333160075,
+      "bracket_width_ns": 11046163
+    },
+    {
+      "python_before_ns": 47663333166820,
+      "cpp_monotonic_ns": 47663341994050,
+      "python_after_ns": 47663342896771,
+      "bracket_width_ns": 9729951
+    },
+    {
+      "python_before_ns": 47663342903724,
+      "cpp_monotonic_ns": 47663353770134,
+      "python_after_ns": 47663354578327,
+      "bracket_width_ns": 11674603
+    },
+    {
+      "python_before_ns": 47663354584911,
+      "cpp_monotonic_ns": 47663363265156,
+      "python_after_ns": 47663363929932,
+      "bracket_width_ns": 9345021
+    },
+    {
+      "python_before_ns": 47663363935686,
+      "cpp_monotonic_ns": 47663376530230,
+      "python_after_ns": 47663377601958,
+      "bracket_width_ns": 13666272
+    },
+    {
+      "python_before_ns": 47663377610117,
+      "cpp_monotonic_ns": 47663386243365,
+      "python_after_ns": 47663386921681,
+      "bracket_width_ns": 9311564
+    },
+    {
+      "python_before_ns": 47663386927053,
+      "cpp_monotonic_ns": 47663397820824,
+      "python_after_ns": 47663399316692,
+      "bracket_width_ns": 12389639
+    },
+    {
+      "python_before_ns": 47663399323470,
+      "cpp_monotonic_ns": 47663406844400,
+      "python_after_ns": 47663407406871,
+      "bracket_width_ns": 8083401
+    },
+    {
+      "python_before_ns": 47663407411968,
+      "cpp_monotonic_ns": 47663416467851,
+      "python_after_ns": 47663417980843,
+      "bracket_width_ns": 10568875
+    },
+    {
+      "python_before_ns": 47663417986290,
+      "cpp_monotonic_ns": 47663430896600,
+      "python_after_ns": 47663431827612,
+      "bracket_width_ns": 13841322
+    },
+    {
+      "python_before_ns": 47663431835598,
+      "cpp_monotonic_ns": 47663441831518,
+      "python_after_ns": 47663442598821,
+      "bracket_width_ns": 10763223
+    },
+    {
+      "python_before_ns": 47663442604786,
+      "cpp_monotonic_ns": 47663452700595,
+      "python_after_ns": 47663453526146,
+      "bracket_width_ns": 10921360
+    },
+    {
+      "python_before_ns": 47663453532378,
+      "cpp_monotonic_ns": 47663465634315,
+      "python_after_ns": 47663466474818,
+      "bracket_width_ns": 12942440
+    }
+  ],
+  "cxx_same_process_brackets": 10000,
+  "C++_record_call_and_empty_loop": "clock_probe_v2.log; no clock-overhead subtraction"
+}

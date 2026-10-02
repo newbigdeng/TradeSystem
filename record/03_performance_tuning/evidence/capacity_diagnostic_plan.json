@@ -1,0 +1,16 @@
+{
+  "classification": "exploratory after primary experiment; cannot certify sustained capacity",
+  "rates": [
+    80,
+    100,
+    120,
+    160,
+    200
+  ],
+  "repeats": 5,
+  "window_seconds": 10,
+  "warmup_seconds": 2,
+  "binary": "trace off candidate",
+  "retention": "all attempts; no outlier filtering",
+  "budget": "same 20ms and 98% in-window criterion shown for context; short windows not admission proof"
+}

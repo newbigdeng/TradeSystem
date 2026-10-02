@@ -1,0 +1,11 @@
+cmake -S /home/zjh/XiangMu/TradeSystem-rebuild -B /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-1 -G Ninja -DCMAKE_BUILD_TYPE=Release -DTRADE_PERF_TRACE_EVERY=1
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter
+-- Configuring done (1.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-1

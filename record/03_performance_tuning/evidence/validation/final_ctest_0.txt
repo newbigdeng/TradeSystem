@@ -1,0 +1,50 @@
+ctest --test-dir /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0 --output-on-failure
+Test project /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0
+      Start  1: multicast_interface
+ 1/22 Test  #1: multicast_interface ...........................   Passed    0.03 sec
+      Start  2: multicast_invalid_interface
+ 2/22 Test  #2: multicast_invalid_interface ...................   Passed    0.02 sec
+      Start  3: reliability_queue
+ 3/22 Test  #3: reliability_queue .............................   Passed    2.39 sec
+      Start  4: reliability_tcp
+ 4/22 Test  #4: reliability_tcp ...............................   Passed    0.14 sec
+      Start  5: reliability_pool
+ 5/22 Test  #5: reliability_pool ..............................   Passed    0.02 sec
+      Start  6: reliability_fifo
+ 6/22 Test  #6: reliability_fifo ..............................   Passed    0.02 sec
+      Start  7: reliability_book
+ 7/22 Test  #7: reliability_book ..............................   Passed   15.38 sec
+      Start  8: reliability_unordered_book
+ 8/22 Test  #8: reliability_unordered_book ....................   Passed   15.33 sec
+      Start  9: reliability_protocol
+ 9/22 Test  #9: reliability_protocol ..........................   Passed    0.01 sec
+      Start 10: reliability_order_state
+10/22 Test #10: reliability_order_state .......................   Passed    0.01 sec
+      Start 11: reliability_final_risk_gate
+11/22 Test #11: reliability_final_risk_gate ...................   Passed    1.98 sec
+      Start 12: reliability_recovery
+12/22 Test #12: reliability_recovery ..........................   Passed    0.02 sec
+      Start 13: reliability_features
+13/22 Test #13: reliability_features ..........................   Passed    0.59 sec
+      Start 14: reliability_thread_lifetime
+14/22 Test #14: reliability_thread_lifetime ...................   Passed    0.02 sec
+      Start 15: reliability_journal
+15/22 Test #15: reliability_journal ...........................   Passed    2.16 sec
+      Start 16: reliability_concurrent_admission
+16/22 Test #16: reliability_concurrent_admission ..............   Passed    1.87 sec
+      Start 17: measurement_analysis
+17/22 Test #17: measurement_analysis ..........................   Passed    0.22 sec
+      Start 18: measurement_generator
+18/22 Test #18: measurement_generator .........................   Passed    0.78 sec
+      Start 19: measurement_release_benchmark
+19/22 Test #19: measurement_release_benchmark .................   Passed    0.92 sec
+      Start 20: measurement_logger_benchmark
+20/22 Test #20: measurement_logger_benchmark ..................   Passed    0.63 sec
+      Start 21: measurement_hash_benchmark
+21/22 Test #21: measurement_hash_benchmark ....................   Passed    0.65 sec
+      Start 22: measurement_measurement_component_benchmark
+22/22 Test #22: measurement_measurement_component_benchmark ...   Passed    0.39 sec
+
+100% tests passed, 0 tests failed out of 22
+
+Total Test time (real) =  43.61 sec

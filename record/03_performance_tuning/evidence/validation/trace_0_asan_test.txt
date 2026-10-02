@@ -1,0 +1,2 @@
+/home/zjh/trade-measurements/03/trace_mode_0_asan
+PASS trace_every=0 records=0 logger_evaluations=0

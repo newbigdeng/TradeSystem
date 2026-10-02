@@ -1,0 +1,6 @@
+{
+  "previous": "same process, 2 Python threads share GIL; valid as joint benchmark, invalid as independent ideal peer calibration",
+  "repair": "fork an independent echo process; retain same generator drive and socketpair wire path and CPUs 4/5",
+  "retest": "5 runs each at 100/1000 req/s, 10-second windows, all previous runs retained",
+  "source_change": "auxiliary measurement only; primary 90k TradeSystem request data unaffected"
+}

@@ -1,0 +1,318 @@
+[
+  {
+    "name": "api_probe_after",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/exchange",
+      "-fsyntax-only",
+      "/home/zjh/trade-measurements/03/snapshot_api_test.cpp"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_configure_0",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "-B",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DTRADE_PERF_TRACE_EVERY=0"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_build_0",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0",
+      "-j",
+      "4"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_ctest_0",
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0",
+      "--output-on-failure"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_configure_1",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "-B",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-1",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DTRADE_PERF_TRACE_EVERY=1"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_build_1",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-1",
+      "-j",
+      "4"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final_ctest_1",
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-1",
+      "--output-on-failure"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "component_after_api_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O3",
+      "-DNDEBUG",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=0",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/exchange",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/trading",
+      "/home/zjh/trade-measurements/03/component_probe.cpp",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0/trading/liblibtrading.a",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0/exchange/liblibexchange.a",
+      "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0/common/liblibcommon.a",
+      "-pthread",
+      "-o",
+      "/home/zjh/trade-measurements/03/component_after_api"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "snapshot_after_api",
+    "command": [
+      "/home/zjh/trade-measurements/03/component_after_api",
+      "snapshot"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_0_asan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=0",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_0_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_0_asan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_0_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_1_asan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=1",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_1_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_1_asan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_1_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_64_asan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=64",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_64_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_64_asan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_64_asan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_0_tsan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=0",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=thread",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_0_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_0_tsan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_0_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_1_tsan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=1",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=thread",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_1_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_1_tsan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_1_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_64_tsan_build",
+    "command": [
+      "g++",
+      "-std=c++20",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wpedantic",
+      "-DTRADE_PERF_TRACE_EVERY=64",
+      "-I",
+      "/home/zjh/XiangMu/TradeSystem-rebuild",
+      "/home/zjh/trade-measurements/03/trace_mode_test.cpp",
+      "-pthread",
+      "-fsanitize=thread",
+      "-fno-omit-frame-pointer",
+      "-o",
+      "/home/zjh/trade-measurements/03/trace_mode_64_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "trace_64_tsan_test",
+    "command": [
+      "/home/zjh/trade-measurements/03/trace_mode_64_tsan"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "git_diff_check",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0
+  }
+]

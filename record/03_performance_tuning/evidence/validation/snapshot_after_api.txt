@@ -1,0 +1,14 @@
+/home/zjh/trade-measurements/03/component_after_api snapshot
+{"name":"clock_empty","operations":10000,"elapsed_ns":1489108,"completed_per_s":6.71543e+06,"p50_ns":59,"p95_ns":60,"p99_ns":61,"max_ns":145458,"checksum":0,"errors":0}
+{"name":"snapshot_live_0_publish","operations":5,"elapsed_ns":190794315,"completed_per_s":26.2062,"p50_ns":38359422,"p95_ns":43459412,"p99_ns":43459412,"max_ns":43459412,"checksum":50,"errors":0}
+{"name":"snapshot_live_0_received","operations":5,"elapsed_ns":190794315,"completed_per_s":26.2062,"p50_ns":38325814,"p95_ns":43430213,"p99_ns":43430213,"max_ns":43430213,"checksum":50,"errors":0}
+{"name":"snapshot_live_0_rebuild_commit","operations":5,"elapsed_ns":47648,"completed_per_s":104936,"p50_ns":9637,"p95_ns":12161,"p99_ns":12161,"max_ns":12161,"checksum":50,"errors":0}
+{"control":"snapshot_live_0","frames_per_cycle":10,"packets_total":50,"receive_buffer_bytes":8388608,"state_hash_ok":true,"watermark":0,"receiver_truncation":0}
+{"name":"snapshot_live_1000_publish","operations":5,"elapsed_ns":279453330,"completed_per_s":17.8921,"p50_ns":55049233,"p95_ns":59679084,"p99_ns":59679084,"max_ns":59679084,"checksum":5050,"errors":0}
+{"name":"snapshot_live_1000_received","operations":5,"elapsed_ns":279453330,"completed_per_s":17.8921,"p50_ns":55018024,"p95_ns":59655383,"p99_ns":59655383,"max_ns":59655383,"checksum":5050,"errors":0}
+{"name":"snapshot_live_1000_rebuild_commit","operations":5,"elapsed_ns":9379871,"completed_per_s":533.056,"p50_ns":1764476,"p95_ns":2191056,"p99_ns":2191056,"max_ns":2191056,"checksum":5050,"errors":0}
+{"control":"snapshot_live_1000","frames_per_cycle":1010,"packets_total":5050,"receive_buffer_bytes":8388608,"state_hash_ok":true,"watermark":1000,"receiver_truncation":0}
+{"name":"snapshot_live_10000_publish","operations":5,"elapsed_ns":982955921,"completed_per_s":5.0867,"p50_ns":198952470,"p95_ns":208250358,"p99_ns":208250358,"max_ns":208250358,"checksum":50050,"errors":0}
+{"name":"snapshot_live_10000_received","operations":5,"elapsed_ns":982955921,"completed_per_s":5.0867,"p50_ns":198923771,"p95_ns":208204591,"p99_ns":208204591,"max_ns":208204591,"checksum":50050,"errors":0}
+{"name":"snapshot_live_10000_rebuild_commit","operations":5,"elapsed_ns":115293664,"completed_per_s":43.3675,"p50_ns":22059550,"p95_ns":27465690,"p99_ns":27465690,"max_ns":27465690,"checksum":50050,"errors":0}
+{"control":"snapshot_live_10000","frames_per_cycle":10010,"packets_total":50050,"receive_buffer_bytes":8388608,"state_hash_ok":true,"watermark":10000,"receiver_truncation":0}

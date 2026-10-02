@@ -1,0 +1,13 @@
+{
+  "successful_fsync": 3386,
+  "duration": {
+    "n": 3386,
+    "p50_ns": 3413000,
+    "p95_ns": 5652000,
+    "p99_ns": 7255000,
+    "max_ns": 40384000
+  },
+  "unparsed_or_error_lines": [],
+  "diagnostic_only": true,
+  "traced_real_child": true
+}

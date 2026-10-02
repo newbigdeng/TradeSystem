@@ -1,0 +1,3341 @@
+{
+  "directory": "/home/zjh/trade-measurements/03/profile_snapshot_burst",
+  "trace_only_not_formal_performance": true,
+  "correctness_ok": true,
+  "matched_requests": 1000,
+  "invalid_requests": [],
+  "duplicate_stage_events": 0,
+  "recording_overflow": 0,
+  "clock_boundary_overlap": [
+    {
+      "request": "82:18:1",
+      "client_send_return_to_decode_ns": -4033,
+      "server_send_return_to_client_ns": 120637
+    },
+    {
+      "request": "82:19:2",
+      "client_send_return_to_decode_ns": -138119,
+      "server_send_return_to_client_ns": 70258
+    },
+    {
+      "request": "81:20:1",
+      "client_send_return_to_decode_ns": 478467,
+      "server_send_return_to_client_ns": -141064
+    },
+    {
+      "request": "83:20:2",
+      "client_send_return_to_decode_ns": -1351,
+      "server_send_return_to_client_ns": 94894
+    },
+    {
+      "request": "80:21:1",
+      "client_send_return_to_decode_ns": -959,
+      "server_send_return_to_client_ns": 224172
+    },
+    {
+      "request": "82:21:1",
+      "client_send_return_to_decode_ns": -815453,
+      "server_send_return_to_client_ns": 91570
+    },
+    {
+      "request": "81:22:2",
+      "client_send_return_to_decode_ns": -3550,
+      "server_send_return_to_client_ns": 871635
+    },
+    {
+      "request": "80:23:1",
+      "client_send_return_to_decode_ns": -20,
+      "server_send_return_to_client_ns": 567912
+    },
+    {
+      "request": "82:23:1",
+      "client_send_return_to_decode_ns": -412,
+      "server_send_return_to_client_ns": 96697
+    },
+    {
+      "request": "80:23:2",
+      "client_send_return_to_decode_ns": -17041,
+      "server_send_return_to_client_ns": 105646
+    },
+    {
+      "request": "83:23:2",
+      "client_send_return_to_decode_ns": -1267,
+      "server_send_return_to_client_ns": 1076998
+    },
+    {
+      "request": "82:24:1",
+      "client_send_return_to_decode_ns": -291,
+      "server_send_return_to_client_ns": 1745752
+    },
+    {
+      "request": "81:24:2",
+      "client_send_return_to_decode_ns": 2673,
+      "server_send_return_to_client_ns": -30152
+    },
+    {
+      "request": "81:26:1",
+      "client_send_return_to_decode_ns": -1377,
+      "server_send_return_to_client_ns": 30949
+    },
+    {
+      "request": "83:26:1",
+      "client_send_return_to_decode_ns": -1109,
+      "server_send_return_to_client_ns": 44221
+    },
+    {
+      "request": "83:27:1",
+      "client_send_return_to_decode_ns": -249075,
+      "server_send_return_to_client_ns": 91705
+    },
+    {
+      "request": "82:28:2",
+      "client_send_return_to_decode_ns": -352974,
+      "server_send_return_to_client_ns": 168344
+    },
+    {
+      "request": "80:29:1",
+      "client_send_return_to_decode_ns": -2434,
+      "server_send_return_to_client_ns": 96726
+    },
+    {
+      "request": "83:29:1",
+      "client_send_return_to_decode_ns": -833,
+      "server_send_return_to_client_ns": 1189847
+    },
+    {
+      "request": "80:30:2",
+      "client_send_return_to_decode_ns": -238,
+      "server_send_return_to_client_ns": 570511
+    },
+    {
+      "request": "81:30:2",
+      "client_send_return_to_decode_ns": -2971,
+      "server_send_return_to_client_ns": 885959
+    },
+    {
+      "request": "83:30:2",
+      "client_send_return_to_decode_ns": -1088,
+      "server_send_return_to_client_ns": 868060
+    },
+    {
+      "request": "81:31:1",
+      "client_send_return_to_decode_ns": -4518,
+      "server_send_return_to_client_ns": 80185
+    },
+    {
+      "request": "82:31:2",
+      "client_send_return_to_decode_ns": -573,
+      "server_send_return_to_client_ns": 89369
+    },
+    {
+      "request": "82:32:1",
+      "client_send_return_to_decode_ns": -3973,
+      "server_send_return_to_client_ns": 205335
+    },
+    {
+      "request": "80:34:1",
+      "client_send_return_to_decode_ns": -255236,
+      "server_send_return_to_client_ns": 912828
+    },
+    {
+      "request": "82:36:2",
+      "client_send_return_to_decode_ns": -280,
+      "server_send_return_to_client_ns": 657449
+    },
+    {
+      "request": "83:37:2",
+      "client_send_return_to_decode_ns": -537875,
+      "server_send_return_to_client_ns": 639312
+    },
+    {
+      "request": "80:39:2",
+      "client_send_return_to_decode_ns": -370,
+      "server_send_return_to_client_ns": 642028
+    },
+    {
+      "request": "82:40:2",
+      "client_send_return_to_decode_ns": -519,
+      "server_send_return_to_client_ns": 135509
+    },
+    {
+      "request": "80:42:1",
+      "client_send_return_to_decode_ns": -4891,
+      "server_send_return_to_client_ns": 639849
+    },
+    {
+      "request": "83:43:2",
+      "client_send_return_to_decode_ns": -1738,
+      "server_send_return_to_client_ns": 547428
+    },
+    {
+      "request": "80:44:2",
+      "client_send_return_to_decode_ns": -740860,
+      "server_send_return_to_client_ns": 557616
+    },
+    {
+      "request": "82:44:2",
+      "client_send_return_to_decode_ns": -86916,
+      "server_send_return_to_client_ns": 545893
+    },
+    {
+      "request": "82:46:2",
+      "client_send_return_to_decode_ns": -1899,
+      "server_send_return_to_client_ns": 125826
+    },
+    {
+      "request": "83:47:1",
+      "client_send_return_to_decode_ns": 410192,
+      "server_send_return_to_client_ns": -34990
+    },
+    {
+      "request": "80:48:1",
+      "client_send_return_to_decode_ns": -11988,
+      "server_send_return_to_client_ns": 1046936
+    },
+    {
+      "request": "80:48:2",
+      "client_send_return_to_decode_ns": -7600,
+      "server_send_return_to_client_ns": 311145
+    },
+    {
+      "request": "83:48:2",
+      "client_send_return_to_decode_ns": -2172,
+      "server_send_return_to_client_ns": 152005
+    },
+    {
+      "request": "81:50:1",
+      "client_send_return_to_decode_ns": -35,
+      "server_send_return_to_client_ns": -118294
+    },
+    {
+      "request": "83:50:1",
+      "client_send_return_to_decode_ns": -366644,
+      "server_send_return_to_client_ns": 88244
+    },
+    {
+      "request": "81:50:2",
+      "client_send_return_to_decode_ns": -564622,
+      "server_send_return_to_client_ns": 132262
+    },
+    {
+      "request": "83:50:2",
+      "client_send_return_to_decode_ns": -883,
+      "server_send_return_to_client_ns": 84197
+    },
+    {
+      "request": "80:51:1",
+      "client_send_return_to_decode_ns": -9241,
+      "server_send_return_to_client_ns": 164102
+    },
+    {
+      "request": "80:51:2",
+      "client_send_return_to_decode_ns": -5378,
+      "server_send_return_to_client_ns": 70537
+    },
+    {
+      "request": "81:52:1",
+      "client_send_return_to_decode_ns": -218850,
+      "server_send_return_to_client_ns": 86200
+    },
+    {
+      "request": "80:52:2",
+      "client_send_return_to_decode_ns": 1668,
+      "server_send_return_to_client_ns": -52513
+    },
+    {
+      "request": "83:53:1",
+      "client_send_return_to_decode_ns": -503,
+      "server_send_return_to_client_ns": 116636
+    },
+    {
+      "request": "81:53:2",
+      "client_send_return_to_decode_ns": -292086,
+      "server_send_return_to_client_ns": 63494
+    },
+    {
+      "request": "82:54:1",
+      "client_send_return_to_decode_ns": -668,
+      "server_send_return_to_client_ns": 1288709
+    },
+    {
+      "request": "83:54:1",
+      "client_send_return_to_decode_ns": -157712,
+      "server_send_return_to_client_ns": 199436
+    },
+    {
+      "request": "81:55:1",
+      "client_send_return_to_decode_ns": -6610,
+      "server_send_return_to_client_ns": 101644
+    },
+    {
+      "request": "82:55:1",
+      "client_send_return_to_decode_ns": 80357,
+      "server_send_return_to_client_ns": -52365
+    },
+    {
+      "request": "82:56:1",
+      "client_send_return_to_decode_ns": -983,
+      "server_send_return_to_client_ns": 81205
+    },
+    {
+      "request": "83:57:1",
+      "client_send_return_to_decode_ns": -384543,
+      "server_send_return_to_client_ns": 499828
+    },
+    {
+      "request": "83:58:1",
+      "client_send_return_to_decode_ns": 97410,
+      "server_send_return_to_client_ns": -138265
+    },
+    {
+      "request": "82:58:2",
+      "client_send_return_to_decode_ns": -36206,
+      "server_send_return_to_client_ns": 489266
+    },
+    {
+      "request": "80:59:2",
+      "client_send_return_to_decode_ns": -15644,
+      "server_send_return_to_client_ns": 170617
+    },
+    {
+      "request": "83:59:2",
+      "client_send_return_to_decode_ns": -403,
+      "server_send_return_to_client_ns": 99760
+    },
+    {
+      "request": "83:60:2",
+      "client_send_return_to_decode_ns": -135,
+      "server_send_return_to_client_ns": 93886
+    },
+    {
+      "request": "83:61:1",
+      "client_send_return_to_decode_ns": 6779,
+      "server_send_return_to_client_ns": -46565
+    },
+    {
+      "request": "81:61:2",
+      "client_send_return_to_decode_ns": -11,
+      "server_send_return_to_client_ns": 87201
+    },
+    {
+      "request": "83:61:2",
+      "client_send_return_to_decode_ns": -257,
+      "server_send_return_to_client_ns": 80013
+    },
+    {
+      "request": "80:62:1",
+      "client_send_return_to_decode_ns": -377,
+      "server_send_return_to_client_ns": 1251184
+    },
+    {
+      "request": "81:62:1",
+      "client_send_return_to_decode_ns": 2012,
+      "server_send_return_to_client_ns": -36643
+    },
+    {
+      "request": "82:62:1",
+      "client_send_return_to_decode_ns": -1270,
+      "server_send_return_to_client_ns": 106063
+    },
+    {
+      "request": "82:62:2",
+      "client_send_return_to_decode_ns": -469,
+      "server_send_return_to_client_ns": 844055
+    },
+    {
+      "request": "80:63:2",
+      "client_send_return_to_decode_ns": -62344,
+      "server_send_return_to_client_ns": 343264
+    },
+    {
+      "request": "83:64:1",
+      "client_send_return_to_decode_ns": -987,
+      "server_send_return_to_client_ns": 171077
+    },
+    {
+      "request": "80:64:2",
+      "client_send_return_to_decode_ns": -423,
+      "server_send_return_to_client_ns": 97275
+    },
+    {
+      "request": "80:65:1",
+      "client_send_return_to_decode_ns": -855,
+      "server_send_return_to_client_ns": 123047
+    },
+    {
+      "request": "81:65:2",
+      "client_send_return_to_decode_ns": -883058,
+      "server_send_return_to_client_ns": 88676
+    },
+    {
+      "request": "80:67:2",
+      "client_send_return_to_decode_ns": -1826,
+      "server_send_return_to_client_ns": 386804
+    },
+    {
+      "request": "82:67:2",
+      "client_send_return_to_decode_ns": -66725,
+      "server_send_return_to_client_ns": 180553
+    },
+    {
+      "request": "83:67:2",
+      "client_send_return_to_decode_ns": -93170,
+      "server_send_return_to_client_ns": 576761
+    },
+    {
+      "request": "81:68:2",
+      "client_send_return_to_decode_ns": -275887,
+      "server_send_return_to_client_ns": 864077
+    },
+    {
+      "request": "81:69:2",
+      "client_send_return_to_decode_ns": -6110,
+      "server_send_return_to_client_ns": 80073
+    },
+    {
+      "request": "83:69:2",
+      "client_send_return_to_decode_ns": -46841,
+      "server_send_return_to_client_ns": 86245
+    },
+    {
+      "request": "80:70:2",
+      "client_send_return_to_decode_ns": 22620,
+      "server_send_return_to_client_ns": -94474
+    },
+    {
+      "request": "83:72:1",
+      "client_send_return_to_decode_ns": -1282,
+      "server_send_return_to_client_ns": 169805
+    },
+    {
+      "request": "80:73:1",
+      "client_send_return_to_decode_ns": 6609227,
+      "server_send_return_to_client_ns": -24979
+    },
+    {
+      "request": "81:74:1",
+      "client_send_return_to_decode_ns": -4670,
+      "server_send_return_to_client_ns": 87008
+    },
+    {
+      "request": "82:74:2",
+      "client_send_return_to_decode_ns": -38158,
+      "server_send_return_to_client_ns": 102060
+    },
+    {
+      "request": "83:74:2",
+      "client_send_return_to_decode_ns": -539,
+      "server_send_return_to_client_ns": 89788
+    },
+    {
+      "request": "80:75:1",
+      "client_send_return_to_decode_ns": -1086,
+      "server_send_return_to_client_ns": 116882
+    },
+    {
+      "request": "81:75:1",
+      "client_send_return_to_decode_ns": -251039,
+      "server_send_return_to_client_ns": 149158
+    },
+    {
+      "request": "80:75:2",
+      "client_send_return_to_decode_ns": -30121,
+      "server_send_return_to_client_ns": 320842
+    },
+    {
+      "request": "81:77:1",
+      "client_send_return_to_decode_ns": -8457,
+      "server_send_return_to_client_ns": 3154
+    },
+    {
+      "request": "83:77:2",
+      "client_send_return_to_decode_ns": -186,
+      "server_send_return_to_client_ns": 166789
+    },
+    {
+      "request": "83:78:1",
+      "client_send_return_to_decode_ns": -1275,
+      "server_send_return_to_client_ns": 656989
+    },
+    {
+      "request": "81:79:1",
+      "client_send_return_to_decode_ns": -1617,
+      "server_send_return_to_client_ns": 315118
+    },
+    {
+      "request": "82:80:1",
+      "client_send_return_to_decode_ns": -5417,
+      "server_send_return_to_client_ns": 139173
+    },
+    {
+      "request": "81:82:1",
+      "client_send_return_to_decode_ns": -428393,
+      "server_send_return_to_client_ns": 568883
+    },
+    {
+      "request": "81:85:1",
+      "client_send_return_to_decode_ns": -308702,
+      "server_send_return_to_client_ns": 1301083
+    },
+    {
+      "request": "83:85:1",
+      "client_send_return_to_decode_ns": -828,
+      "server_send_return_to_client_ns": 568554
+    },
+    {
+      "request": "81:85:2",
+      "client_send_return_to_decode_ns": -206181,
+      "server_send_return_to_client_ns": 2172676
+    },
+    {
+      "request": "82:86:1",
+      "client_send_return_to_decode_ns": -163,
+      "server_send_return_to_client_ns": 271211
+    },
+    {
+      "request": "80:87:1",
+      "client_send_return_to_decode_ns": -801,
+      "server_send_return_to_client_ns": 248197
+    },
+    {
+      "request": "82:87:1",
+      "client_send_return_to_decode_ns": -332,
+      "server_send_return_to_client_ns": 137131
+    },
+    {
+      "request": "80:87:2",
+      "client_send_return_to_decode_ns": 2148,
+      "server_send_return_to_client_ns": -59338
+    },
+    {
+      "request": "80:88:1",
+      "client_send_return_to_decode_ns": -726,
+      "server_send_return_to_client_ns": 105379
+    },
+    {
+      "request": "83:88:2",
+      "client_send_return_to_decode_ns": -1651373,
+      "server_send_return_to_client_ns": 347323
+    },
+    {
+      "request": "80:89:1",
+      "client_send_return_to_decode_ns": -188376,
+      "server_send_return_to_client_ns": 180056
+    },
+    {
+      "request": "82:89:2",
+      "client_send_return_to_decode_ns": -728371,
+      "server_send_return_to_client_ns": 729367
+    },
+    {
+      "request": "82:90:2",
+      "client_send_return_to_decode_ns": -9674,
+      "server_send_return_to_client_ns": 152208
+    },
+    {
+      "request": "82:91:1",
+      "client_send_return_to_decode_ns": -1962,
+      "server_send_return_to_client_ns": 124725
+    },
+    {
+      "request": "83:91:1",
+      "client_send_return_to_decode_ns": 5452,
+      "server_send_return_to_client_ns": -43054
+    },
+    {
+      "request": "80:92:1",
+      "client_send_return_to_decode_ns": -255190,
+      "server_send_return_to_client_ns": 114043
+    },
+    {
+      "request": "81:92:1",
+      "client_send_return_to_decode_ns": 2585,
+      "server_send_return_to_client_ns": -70371
+    },
+    {
+      "request": "83:92:1",
+      "client_send_return_to_decode_ns": -723,
+      "server_send_return_to_client_ns": 106638
+    },
+    {
+      "request": "82:92:2",
+      "client_send_return_to_decode_ns": -32261,
+      "server_send_return_to_client_ns": 280409
+    },
+    {
+      "request": "80:94:1",
+      "client_send_return_to_decode_ns": -163,
+      "server_send_return_to_client_ns": 247164
+    },
+    {
+      "request": "82:94:1",
+      "client_send_return_to_decode_ns": -139,
+      "server_send_return_to_client_ns": 160524
+    },
+    {
+      "request": "81:94:2",
+      "client_send_return_to_decode_ns": 2551,
+      "server_send_return_to_client_ns": -85522
+    },
+    {
+      "request": "80:95:1",
+      "client_send_return_to_decode_ns": -4854,
+      "server_send_return_to_client_ns": 117015
+    },
+    {
+      "request": "81:95:2",
+      "client_send_return_to_decode_ns": -916,
+      "server_send_return_to_client_ns": 1156318
+    },
+    {
+      "request": "83:96:1",
+      "client_send_return_to_decode_ns": 85857,
+      "server_send_return_to_client_ns": -29848
+    },
+    {
+      "request": "80:96:2",
+      "client_send_return_to_decode_ns": -16860,
+      "server_send_return_to_client_ns": 243823
+    },
+    {
+      "request": "82:96:2",
+      "client_send_return_to_decode_ns": -2454,
+      "server_send_return_to_client_ns": 79197
+    },
+    {
+      "request": "83:97:2",
+      "client_send_return_to_decode_ns": -42,
+      "server_send_return_to_client_ns": 326588
+    },
+    {
+      "request": "83:99:2",
+      "client_send_return_to_decode_ns": -12174,
+      "server_send_return_to_client_ns": 124541
+    },
+    {
+      "request": "81:100:1",
+      "client_send_return_to_decode_ns": -36816,
+      "server_send_return_to_client_ns": 100963
+    },
+    {
+      "request": "83:100:2",
+      "client_send_return_to_decode_ns": -148561,
+      "server_send_return_to_client_ns": 118386
+    },
+    {
+      "request": "81:101:2",
+      "client_send_return_to_decode_ns": -83909,
+      "server_send_return_to_client_ns": 143518
+    },
+    {
+      "request": "80:102:1",
+      "client_send_return_to_decode_ns": 117421,
+      "server_send_return_to_client_ns": -73092
+    },
+    {
+      "request": "83:102:1",
+      "client_send_return_to_decode_ns": -37794,
+      "server_send_return_to_client_ns": 159567
+    },
+    {
+      "request": "81:104:2",
+      "client_send_return_to_decode_ns": -146343,
+      "server_send_return_to_client_ns": 62565
+    },
+    {
+      "request": "82:104:2",
+      "client_send_return_to_decode_ns": -30733,
+      "server_send_return_to_client_ns": 126621
+    },
+    {
+      "request": "83:105:1",
+      "client_send_return_to_decode_ns": -305061,
+      "server_send_return_to_client_ns": 93142
+    },
+    {
+      "request": "81:105:2",
+      "client_send_return_to_decode_ns": -3716,
+      "server_send_return_to_client_ns": 111950
+    },
+    {
+      "request": "80:106:1",
+      "client_send_return_to_decode_ns": -1,
+      "server_send_return_to_client_ns": 1001588
+    },
+    {
+      "request": "81:106:1",
+      "client_send_return_to_decode_ns": -187699,
+      "server_send_return_to_client_ns": 307073
+    },
+    {
+      "request": "82:106:2",
+      "client_send_return_to_decode_ns": -129,
+      "server_send_return_to_client_ns": 126406
+    },
+    {
+      "request": "83:106:2",
+      "client_send_return_to_decode_ns": -2107,
+      "server_send_return_to_client_ns": 442451
+    },
+    {
+      "request": "82:107:1",
+      "client_send_return_to_decode_ns": -42,
+      "server_send_return_to_client_ns": -10203
+    },
+    {
+      "request": "80:107:2",
+      "client_send_return_to_decode_ns": -7125,
+      "server_send_return_to_client_ns": 240678
+    },
+    {
+      "request": "81:107:2",
+      "client_send_return_to_decode_ns": -276757,
+      "server_send_return_to_client_ns": 181389
+    },
+    {
+      "request": "81:108:1",
+      "client_send_return_to_decode_ns": -9285,
+      "server_send_return_to_client_ns": 439757
+    },
+    {
+      "request": "83:109:2",
+      "client_send_return_to_decode_ns": -1099,
+      "server_send_return_to_client_ns": 145247
+    },
+    {
+      "request": "83:110:1",
+      "client_send_return_to_decode_ns": 12557,
+      "server_send_return_to_client_ns": -12335
+    },
+    {
+      "request": "81:110:2",
+      "client_send_return_to_decode_ns": -194382,
+      "server_send_return_to_client_ns": 119656
+    },
+    {
+      "request": "83:111:1",
+      "client_send_return_to_decode_ns": -329103,
+      "server_send_return_to_client_ns": 396151
+    },
+    {
+      "request": "82:112:2",
+      "client_send_return_to_decode_ns": -971,
+      "server_send_return_to_client_ns": 1126492
+    },
+    {
+      "request": "80:113:2",
+      "client_send_return_to_decode_ns": -237422,
+      "server_send_return_to_client_ns": 897620
+    },
+    {
+      "request": "81:113:2",
+      "client_send_return_to_decode_ns": -668366,
+      "server_send_return_to_client_ns": 238363
+    },
+    {
+      "request": "81:115:1",
+      "client_send_return_to_decode_ns": -161567,
+      "server_send_return_to_client_ns": 511174
+    },
+    {
+      "request": "83:115:2",
+      "client_send_return_to_decode_ns": -34957,
+      "server_send_return_to_client_ns": 119982
+    },
+    {
+      "request": "81:117:1",
+      "client_send_return_to_decode_ns": -333386,
+      "server_send_return_to_client_ns": 1586131
+    },
+    {
+      "request": "83:117:1",
+      "client_send_return_to_decode_ns": -67,
+      "server_send_return_to_client_ns": 808928
+    },
+    {
+      "request": "81:118:1",
+      "client_send_return_to_decode_ns": -23386,
+      "server_send_return_to_client_ns": 130157
+    },
+    {
+      "request": "82:118:1",
+      "client_send_return_to_decode_ns": 3723,
+      "server_send_return_to_client_ns": -13922
+    },
+    {
+      "request": "83:118:2",
+      "client_send_return_to_decode_ns": -199,
+      "server_send_return_to_client_ns": 112602
+    },
+    {
+      "request": "81:119:2",
+      "client_send_return_to_decode_ns": -761954,
+      "server_send_return_to_client_ns": 116392
+    },
+    {
+      "request": "83:120:1",
+      "client_send_return_to_decode_ns": -703242,
+      "server_send_return_to_client_ns": 112948
+    },
+    {
+      "request": "81:121:1",
+      "client_send_return_to_decode_ns": -222876,
+      "server_send_return_to_client_ns": 80747
+    },
+    {
+      "request": "82:121:1",
+      "client_send_return_to_decode_ns": 2244,
+      "server_send_return_to_client_ns": -22157
+    },
+    {
+      "request": "83:121:1",
+      "client_send_return_to_decode_ns": -275,
+      "server_send_return_to_client_ns": 92929
+    },
+    {
+      "request": "83:123:1",
+      "client_send_return_to_decode_ns": -44924,
+      "server_send_return_to_client_ns": 1045284
+    },
+    {
+      "request": "80:124:1",
+      "client_send_return_to_decode_ns": -808,
+      "server_send_return_to_client_ns": 107435
+    },
+    {
+      "request": "81:124:1",
+      "client_send_return_to_decode_ns": -555158,
+      "server_send_return_to_client_ns": 131943
+    },
+    {
+      "request": "80:124:2",
+      "client_send_return_to_decode_ns": -4047,
+      "server_send_return_to_client_ns": 418876
+    },
+    {
+      "request": "81:125:1",
+      "client_send_return_to_decode_ns": -67669,
+      "server_send_return_to_client_ns": 90389
+    },
+    {
+      "request": "81:125:2",
+      "client_send_return_to_decode_ns": -6482,
+      "server_send_return_to_client_ns": 97765
+    },
+    {
+      "request": "82:125:2",
+      "client_send_return_to_decode_ns": -1238,
+      "server_send_return_to_client_ns": 104111
+    },
+    {
+      "request": "81:126:1",
+      "client_send_return_to_decode_ns": -4,
+      "server_send_return_to_client_ns": 175668
+    },
+    {
+      "request": "83:126:1",
+      "client_send_return_to_decode_ns": -25251,
+      "server_send_return_to_client_ns": -81642
+    },
+    {
+      "request": "80:127:1",
+      "client_send_return_to_decode_ns": -665,
+      "server_send_return_to_client_ns": 173688
+    },
+    {
+      "request": "83:127:2",
+      "client_send_return_to_decode_ns": -64666,
+      "server_send_return_to_client_ns": 262567
+    },
+    {
+      "request": "81:128:2",
+      "client_send_return_to_decode_ns": -166838,
+      "server_send_return_to_client_ns": 104199
+    },
+    {
+      "request": "83:129:1",
+      "client_send_return_to_decode_ns": -4332,
+      "server_send_return_to_client_ns": -88100
+    },
+    {
+      "request": "82:130:1",
+      "client_send_return_to_decode_ns": -176,
+      "server_send_return_to_client_ns": 72120
+    },
+    {
+      "request": "81:130:2",
+      "client_send_return_to_decode_ns": -12040,
+      "server_send_return_to_client_ns": 1381548
+    },
+    {
+      "request": "82:130:2",
+      "client_send_return_to_decode_ns": -145109,
+      "server_send_return_to_client_ns": 632956
+    },
+    {
+      "request": "80:131:1",
+      "client_send_return_to_decode_ns": 291,
+      "server_send_return_to_client_ns": -3703
+    },
+    {
+      "request": "83:131:2",
+      "client_send_return_to_decode_ns": -1029,
+      "server_send_return_to_client_ns": 91095
+    },
+    {
+      "request": "80:132:1",
+      "client_send_return_to_decode_ns": -649,
+      "server_send_return_to_client_ns": 1153645
+    },
+    {
+      "request": "82:132:1",
+      "client_send_return_to_decode_ns": -1047459,
+      "server_send_return_to_client_ns": 361718
+    },
+    {
+      "request": "83:132:1",
+      "client_send_return_to_decode_ns": -8038,
+      "server_send_return_to_client_ns": -191691
+    },
+    {
+      "request": "81:133:1",
+      "client_send_return_to_decode_ns": -5347,
+      "server_send_return_to_client_ns": 161570
+    },
+    {
+      "request": "82:133:2",
+      "client_send_return_to_decode_ns": -82979,
+      "server_send_return_to_client_ns": 117002
+    },
+    {
+      "request": "82:134:1",
+      "client_send_return_to_decode_ns": -3220,
+      "server_send_return_to_client_ns": 186181
+    },
+    {
+      "request": "80:134:2",
+      "client_send_return_to_decode_ns": -160219,
+      "server_send_return_to_client_ns": 610054
+    },
+    {
+      "request": "81:136:2",
+      "client_send_return_to_decode_ns": -1338,
+      "server_send_return_to_client_ns": 676422
+    },
+    {
+      "request": "82:136:2",
+      "client_send_return_to_decode_ns": -10648,
+      "server_send_return_to_client_ns": 541131
+    },
+    {
+      "request": "82:138:1",
+      "client_send_return_to_decode_ns": -2263,
+      "server_send_return_to_client_ns": 138608
+    },
+    {
+      "request": "83:139:1",
+      "client_send_return_to_decode_ns": -854,
+      "server_send_return_to_client_ns": 137330
+    },
+    {
+      "request": "81:140:2",
+      "client_send_return_to_decode_ns": 285239,
+      "server_send_return_to_client_ns": -169922
+    },
+    {
+      "request": "80:141:1",
+      "client_send_return_to_decode_ns": -5106,
+      "server_send_return_to_client_ns": 596681
+    },
+    {
+      "request": "82:141:1",
+      "client_send_return_to_decode_ns": -112013,
+      "server_send_return_to_client_ns": 117119
+    }
+  ],
+  "stage_distributions": {
+    "generator_lateness": {
+      "n": 1000,
+      "p50_ns": 903045,
+      "p95_ns": 1978807,
+      "p99_ns": 2897018,
+      "max_ns": 7570763
+    },
+    "client_to_validated_frame_lower": {
+      "n": 1000,
+      "p50_ns": 2993,
+      "p95_ns": 5980062,
+      "p99_ns": 14954686,
+      "max_ns": 24001154
+    },
+    "client_to_validated_frame_upper": {
+      "n": 1000,
+      "p50_ns": 86426,
+      "p95_ns": 6071088,
+      "p99_ns": 15038076,
+      "max_ns": 24206189
+    },
+    "receive_audit": {
+      "n": 1000,
+      "p50_ns": 2694899,
+      "p95_ns": 11422283,
+      "p99_ns": 21450850,
+      "max_ns": 33488875
+    },
+    "fifo_accumulate": {
+      "n": 1000,
+      "p50_ns": 60912,
+      "p95_ns": 3465091,
+      "p99_ns": 9403902,
+      "max_ns": 24265565
+    },
+    "input_queue": {
+      "n": 1000,
+      "p50_ns": 2287,
+      "p95_ns": 16505581,
+      "p99_ns": 26538655,
+      "max_ns": 37001609
+    },
+    "matching_preprocessing": {
+      "n": 1000,
+      "p50_ns": 27343,
+      "p95_ns": 91769,
+      "p99_ns": 234730,
+      "max_ns": 938300
+    },
+    "apply_audit": {
+      "n": 1000,
+      "p50_ns": 2595630,
+      "p95_ns": 4534237,
+      "p99_ns": 8131752,
+      "max_ns": 14061851
+    },
+    "before_response_audit": {
+      "n": 1000,
+      "p50_ns": 43817,
+      "p95_ns": 126413,
+      "p99_ns": 249689,
+      "max_ns": 768438
+    },
+    "response_audit": {
+      "n": 1000,
+      "p50_ns": 2670139,
+      "p95_ns": 4894048,
+      "p99_ns": 9254978,
+      "max_ns": 12505519
+    },
+    "response_publish": {
+      "n": 1000,
+      "p50_ns": 1168,
+      "p95_ns": 1705,
+      "p99_ns": 2304,
+      "max_ns": 213400
+    },
+    "response_queue": {
+      "n": 1000,
+      "p50_ns": 9141,
+      "p95_ns": 14956666,
+      "p99_ns": 27452352,
+      "max_ns": 38153368
+    },
+    "gateway_format_encode": {
+      "n": 1000,
+      "p50_ns": 35650,
+      "p95_ns": 120284,
+      "p99_ns": 249187,
+      "max_ns": 608850
+    },
+    "socket_pending": {
+      "n": 1000,
+      "p50_ns": 133427,
+      "p95_ns": 2996721,
+      "p99_ns": 17627560,
+      "max_ns": 36810432
+    },
+    "kernel_to_client_lower": {
+      "n": 1000,
+      "p50_ns": 198432,
+      "p95_ns": 1189599,
+      "p99_ns": 1745752,
+      "max_ns": 2172676
+    },
+    "kernel_to_client_upper": {
+      "n": 1000,
+      "p50_ns": 333503,
+      "p95_ns": 1300374,
+      "p99_ns": 1828905,
+      "max_ns": 2470994
+    },
+    "matching_service": {
+      "n": 1000,
+      "p50_ns": 5508441,
+      "p95_ns": 9529659,
+      "p99_ns": 14788281,
+      "max_ns": 20289082
+    }
+  },
+  "slow_requests": [
+    {
+      "request_id": "81:45:1",
+      "ticker": 3,
+      "kind": "NEW",
+      "scheduled_ns": 46726453047315,
+      "sent_ns": 46726453702427,
+      "completed_ns": 46726553784954,
+      "scheduled_to_response_ns": 100737639,
+      "pieces_ns": {
+        "generator_lateness": 655112,
+        "client_to_validated_frame_lower": 13764649,
+        "client_to_validated_frame_upper": 13850796,
+        "kernel_to_client_lower": 1026430,
+        "kernel_to_client_upper": 1177037,
+        "receive_audit": 4143021,
+        "fifo_accumulate": 5846281,
+        "input_queue": 8017313,
+        "matching_preprocessing": 7591,
+        "apply_audit": 3036405,
+        "before_response_audit": 39974,
+        "response_audit": 2963493,
+        "response_publish": 1093,
+        "response_queue": 32071819,
+        "gateway_format_encode": 2984,
+        "socket_pending": 29161474,
+        "matching_service": 6081626
+      },
+      "stages": {
+        "0": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46726467467076,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46726471610097,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46726477456378,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 2
+        },
+        "3": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46726485481282,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46726488517687,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46726488557661,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46726491521154,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46726491522247,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "8": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46726523594066,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "9": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46726523597050,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46726552758524,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46726485473691,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "12": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46726491555317,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 81,
+          "ticker": 3,
+          "order": 45,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46726552607917,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:83:1",
+      "ticker": 4,
+      "kind": "NEW",
+      "scheduled_ns": 46729503047315,
+      "sent_ns": 46729503392333,
+      "completed_ns": 46729602823763,
+      "scheduled_to_response_ns": 99776448,
+      "pieces_ns": {
+        "generator_lateness": 345018,
+        "client_to_validated_frame_lower": 18442719,
+        "client_to_validated_frame_upper": 18534789,
+        "kernel_to_client_lower": 192054,
+        "kernel_to_client_upper": 375895,
+        "receive_audit": 2741175,
+        "fifo_accumulate": 3235977,
+        "input_queue": 24016654,
+        "matching_preprocessing": 8253,
+        "apply_audit": 2646721,
+        "before_response_audit": 31575,
+        "response_audit": 2719004,
+        "response_publish": 1157,
+        "response_queue": 20082003,
+        "gateway_format_encode": 9668,
+        "socket_pending": 25304470,
+        "matching_service": 5437499
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46729521835052,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46729524576227,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46729527812204,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "3": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46729551837111,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46729554483832,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46729554515407,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46729557234411,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46729557235568,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "8": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46729577317571,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 2
+        },
+        "9": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46729577327239,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46729602631709,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46729551828858,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 4
+        },
+        "12": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46729557266357,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 4,
+          "order": 83,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46729602447868,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:82:1",
+      "ticker": 4,
+      "kind": "NEW",
+      "scheduled_ns": 46729423047315,
+      "sent_ns": 46729423795410,
+      "completed_ns": 46729522609004,
+      "scheduled_to_response_ns": 99561689,
+      "pieces_ns": {
+        "generator_lateness": 748095,
+        "client_to_validated_frame_lower": 5980062,
+        "client_to_validated_frame_upper": 6071088,
+        "kernel_to_client_lower": 784928,
+        "kernel_to_client_upper": 874984,
+        "receive_audit": 3322627,
+        "fifo_accumulate": 61530,
+        "input_queue": 25778465,
+        "matching_preprocessing": 8386,
+        "apply_audit": 3997013,
+        "before_response_audit": 37446,
+        "response_audit": 10914154,
+        "response_publish": 1394,
+        "response_queue": 33261928,
+        "gateway_format_encode": 11009,
+        "socket_pending": 14654652,
+        "matching_service": 14993671
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46729429775472,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46729433098099,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46729433159629,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "3": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46729458946480,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46729462943493,
+          "cpu": 3,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46729462980939,
+          "cpu": 3,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46729473895093,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46729473896487,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46729507158415,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 5
+        },
+        "9": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46729507169424,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46729521824076,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46729458938094,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "12": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46729473931765,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 4,
+          "order": 82,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46729521734020,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "83:83:1",
+      "ticker": 2,
+      "kind": "NEW",
+      "scheduled_ns": 46729513047315,
+      "sent_ns": 46729513471191,
+      "completed_ns": 46729607788552,
+      "scheduled_to_response_ns": 94741237,
+      "pieces_ns": {
+        "generator_lateness": 423876,
+        "client_to_validated_frame_lower": 11252794,
+        "client_to_validated_frame_upper": 11421279,
+        "kernel_to_client_lower": 132823,
+        "kernel_to_client_upper": 257132,
+        "receive_audit": 2935042,
+        "fifo_accumulate": 164104,
+        "input_queue": 29443663,
+        "matching_preprocessing": 8632,
+        "apply_audit": 3925805,
+        "before_response_audit": 34155,
+        "response_audit": 7660288,
+        "response_publish": 2555,
+        "response_queue": 8429238,
+        "gateway_format_encode": 6013,
+        "socket_pending": 30322249,
+        "matching_service": 11851987
+      },
+      "stages": {
+        "0": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46729524723985,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46729527659027,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46729527823131,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "3": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46729557275426,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46729561201231,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46729561235386,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46729568895674,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46729568898229,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "8": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46729577327467,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46729577333480,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46729607655729,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46729557266794,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "12": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46729569118781,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 83,
+          "ticker": 2,
+          "order": 83,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46729607531420,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:45:1",
+      "ticker": 2,
+      "kind": "NEW",
+      "scheduled_ns": 46726463047315,
+      "sent_ns": 46726464265591,
+      "completed_ns": 46726557243775,
+      "scheduled_to_response_ns": 94196460,
+      "pieces_ns": {
+        "generator_lateness": 1218276,
+        "client_to_validated_frame_lower": 7373498,
+        "client_to_validated_frame_upper": 7465646,
+        "kernel_to_client_lower": 498015,
+        "kernel_to_client_upper": 599908,
+        "receive_audit": 2733070,
+        "fifo_accumulate": 3089147,
+        "input_queue": 14094643,
+        "matching_preprocessing": 8175,
+        "apply_audit": 2879626,
+        "before_response_audit": 37000,
+        "response_audit": 2885136,
+        "response_publish": 1119,
+        "response_queue": 26230133,
+        "gateway_format_encode": 3754,
+        "socket_pending": 33144868,
+        "matching_service": 5844424
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46726471639089,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46726474372159,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46726477461306,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "3": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46726491564124,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46726494443750,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46726494480750,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46726497365886,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46726497367005,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "8": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46726523597138,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 2
+        },
+        "9": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46726523600892,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46726556745760,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46726491555949,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "12": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46726497400373,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 2,
+          "order": 45,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46726556643867,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "81:83:1",
+      "ticker": 7,
+      "kind": "NEW",
+      "scheduled_ns": 46729493047315,
+      "sent_ns": 46729494484974,
+      "completed_ns": 46729587241878,
+      "scheduled_to_response_ns": 94194563,
+      "pieces_ns": {
+        "generator_lateness": 1437659,
+        "client_to_validated_frame_lower": 24001154,
+        "client_to_validated_frame_upper": 24206189,
+        "kernel_to_client_lower": 687057,
+        "kernel_to_client_upper": 878580,
+        "receive_audit": 3235767,
+        "fifo_accumulate": 6028026,
+        "input_queue": 6888158,
+        "matching_preprocessing": 13487,
+        "apply_audit": 14061851,
+        "before_response_audit": 38535,
+        "response_audit": 3044302,
+        "response_publish": 996,
+        "response_queue": 25415771,
+        "gateway_format_encode": 104140,
+        "socket_pending": 9237660,
+        "matching_service": 17190201
+      },
+      "stages": {
+        "0": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46729518486128,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46729521721895,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46729527749921,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 2
+        },
+        "3": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46729534651566,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46729548713417,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46729548751952,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46729551796254,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46729551797250,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46729577213021,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "9": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46729577317161,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46729586554821,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46729534638079,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 3
+        },
+        "12": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46729551828280,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 81,
+          "ticker": 7,
+          "order": 83,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46729586363298,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "83:82:1",
+      "ticker": 5,
+      "kind": "NEW",
+      "scheduled_ns": 46729433047315,
+      "sent_ns": 46729434129663,
+      "completed_ns": 46729525440160,
+      "scheduled_to_response_ns": 92392845,
+      "pieces_ns": {
+        "generator_lateness": 1082348,
+        "client_to_validated_frame_lower": 14814,
+        "client_to_validated_frame_upper": 369474,
+        "kernel_to_client_lower": 726699,
+        "kernel_to_client_upper": 853127,
+        "receive_audit": 13856837,
+        "fifo_accumulate": 73881,
+        "input_queue": 25857278,
+        "matching_preprocessing": 8654,
+        "apply_audit": 4502926,
+        "before_response_audit": 290502,
+        "response_audit": 2747589,
+        "response_publish": 1088,
+        "response_queue": 25686543,
+        "gateway_format_encode": 12077,
+        "socket_pending": 17531609,
+        "matching_service": 7583161
+      },
+      "stages": {
+        "0": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46729434144477,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46729448001314,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46729448075195,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "3": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46729473941127,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46729478444053,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46729478734555,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46729481482144,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46729481483232,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "8": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46729507169775,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "9": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46729507181852,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46729524713461,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46729473932473,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 4
+        },
+        "12": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46729481515634,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 83,
+          "ticker": 5,
+          "order": 82,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46729524587033,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "81:72:1",
+      "ticker": 0,
+      "kind": "NEW",
+      "scheduled_ns": 46728613047315,
+      "sent_ns": 46728614384394,
+      "completed_ns": 46728705335704,
+      "scheduled_to_response_ns": 92288389,
+      "pieces_ns": {
+        "generator_lateness": 1337079,
+        "client_to_validated_frame_lower": 6183352,
+        "client_to_validated_frame_upper": 6255429,
+        "kernel_to_client_lower": 152650,
+        "kernel_to_client_upper": 219693,
+        "receive_audit": 3835781,
+        "fifo_accumulate": 2481018,
+        "input_queue": 13036480,
+        "matching_preprocessing": 56813,
+        "apply_audit": 10856012,
+        "before_response_audit": 34694,
+        "response_audit": 4753905,
+        "response_publish": 1487,
+        "response_queue": 34576637,
+        "gateway_format_encode": 525125,
+        "socket_pending": 14457356,
+        "matching_service": 15741099
+      },
+      "stages": {
+        "0": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46728620567746,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46728624403527,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46728626884545,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "3": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46728639977838,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46728650833850,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46728650868544,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46728655622449,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46728655623936,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46728690200573,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "9": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46728690725698,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46728705183054,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46728639921025,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "12": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46728655662124,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 81,
+          "ticker": 0,
+          "order": 72,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46728705116011,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:46:1",
+      "ticker": 6,
+      "kind": "NEW",
+      "scheduled_ns": 46726543047315,
+      "sent_ns": 46726543541949,
+      "completed_ns": 46726631535298,
+      "scheduled_to_response_ns": 88487983,
+      "pieces_ns": {
+        "generator_lateness": 494634,
+        "client_to_validated_frame_lower": 13216384,
+        "client_to_validated_frame_upper": 13301962,
+        "kernel_to_client_lower": 362354,
+        "kernel_to_client_upper": 463115,
+        "receive_audit": 3531149,
+        "fifo_accumulate": 3497574,
+        "input_queue": 22072635,
+        "matching_preprocessing": 10585,
+        "apply_audit": 2657723,
+        "before_response_audit": 29691,
+        "response_audit": 2714007,
+        "response_publish": 937,
+        "response_queue": 23088172,
+        "gateway_format_encode": 15016,
+        "socket_pending": 16797122,
+        "matching_service": 5449347
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46726556758333,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46726560289482,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46726563787056,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 3
+        },
+        "3": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46726585870276,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46726588527999,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46726588557690,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46726591271697,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46726591272634,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46726614360806,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "9": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46726614375822,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46726631172944,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46726585859691,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 4
+        },
+        "12": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46726591309038,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 6,
+          "order": 46,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46726631072183,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "80:83:2",
+      "ticker": 1,
+      "kind": "CANCEL",
+      "scheduled_ns": 46729523047315,
+      "sent_ns": 46729523965529,
+      "completed_ns": 46729610969462,
+      "scheduled_to_response_ns": 87922147,
+      "pieces_ns": {
+        "generator_lateness": 918214,
+        "client_to_validated_frame_lower": 3900195,
+        "client_to_validated_frame_upper": 3969457,
+        "kernel_to_client_lower": 96771,
+        "kernel_to_client_upper": 225203,
+        "receive_audit": 11456743,
+        "fifo_accumulate": 3592637,
+        "input_queue": 26205159,
+        "matching_preprocessing": 17494,
+        "apply_audit": 2593853,
+        "before_response_audit": 41971,
+        "response_audit": 8146619,
+        "response_publish": 791,
+        "response_queue": 30775486,
+        "gateway_format_encode": 12496,
+        "socket_pending": 163718,
+        "matching_service": 10801990
+      },
+      "stages": {
+        "0": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46729527865724,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46729539322467,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46729542915104,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "3": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46729569137757,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46729571731610,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46729571773581,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46729579920200,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46729579920991,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46729610696477,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 4
+        },
+        "9": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46729610708973,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46729610872691,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46729569120263,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 2
+        },
+        "12": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46729579922253,
+          "cpu": 1,
+          "tid": 33710,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 80,
+          "ticker": 1,
+          "order": 83,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46729610744259,
+          "cpu": 3,
+          "tid": 33713,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    }
+  ],
+  "snapshot_events": [
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600616,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46722909396801,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600616,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46722963474780,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600617,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46723909397223,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600617,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46723952991348,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 3
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600618,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46724909397113,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600618,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46724945736340,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600619,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46725909397665,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600619,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46725950259208,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600620,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46726909397371,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600620,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46726946171367,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 1
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600621,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46727909410526,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600621,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46727950694576,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600622,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46728909410743,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600622,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46728952980915,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 1
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600623,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46729909508030,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600623,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46729948642326,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600624,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46730909508173,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600624,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46730948871266,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 1
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600625,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46731909508426,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600625,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46731952826777,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600626,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46732909508183,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600626,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46732946309807,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 1
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600627,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46733909527047,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600627,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46733955527758,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 2
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600628,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46734263491563,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790968417587600628,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46734305976327,
+      "cpu": 2,
+      "tid": 33712,
+      "queue_or_pending_bytes": 0
+    }
+  ],
+  "thread_deltas_coarse_sampled": {
+    "33697": {
+      "samples": 157,
+      "user_tick_delta": 1,
+      "sys_tick_delta": 1,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 970,
+      "nonvoluntary_context_switch_delta": 1,
+      "cpu_run_ns_delta": 16853720,
+      "runqueue_wait_ns_delta": 115470509,
+      "observed_cpu_changes": 3
+    },
+    "33700": {
+      "samples": 157,
+      "user_tick_delta": 3,
+      "sys_tick_delta": 9,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7291,
+      "nonvoluntary_context_switch_delta": 9,
+      "cpu_run_ns_delta": 123227089,
+      "runqueue_wait_ns_delta": 1437254944,
+      "observed_cpu_changes": 44
+    },
+    "33701": {
+      "samples": 157,
+      "user_tick_delta": 2,
+      "sys_tick_delta": 26,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7386,
+      "nonvoluntary_context_switch_delta": 43,
+      "cpu_run_ns_delta": 271853771,
+      "runqueue_wait_ns_delta": 1501463696,
+      "observed_cpu_changes": 43
+    },
+    "33706": {
+      "samples": 157,
+      "user_tick_delta": 3,
+      "sys_tick_delta": 15,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7511,
+      "nonvoluntary_context_switch_delta": 18,
+      "cpu_run_ns_delta": 182259798,
+      "runqueue_wait_ns_delta": 1285109051,
+      "observed_cpu_changes": 47
+    },
+    "33707": {
+      "samples": 157,
+      "user_tick_delta": 3,
+      "sys_tick_delta": 15,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7634,
+      "nonvoluntary_context_switch_delta": 18,
+      "cpu_run_ns_delta": 180014611,
+      "runqueue_wait_ns_delta": 1176226809,
+      "observed_cpu_changes": 47
+    },
+    "33709": {
+      "samples": 157,
+      "user_tick_delta": 2,
+      "sys_tick_delta": 21,
+      "minor_fault_delta": 1,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7529,
+      "nonvoluntary_context_switch_delta": 31,
+      "cpu_run_ns_delta": 237514915,
+      "runqueue_wait_ns_delta": 1249304842,
+      "observed_cpu_changes": 48
+    },
+    "33710": {
+      "samples": 157,
+      "user_tick_delta": 393,
+      "sys_tick_delta": 91,
+      "minor_fault_delta": 193,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 4071,
+      "nonvoluntary_context_switch_delta": 4029,
+      "cpu_run_ns_delta": 4845184832,
+      "runqueue_wait_ns_delta": 421450860,
+      "observed_cpu_changes": 1
+    },
+    "33711": {
+      "samples": 157,
+      "user_tick_delta": 369,
+      "sys_tick_delta": 625,
+      "minor_fault_delta": 57,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 9,
+      "nonvoluntary_context_switch_delta": 1687,
+      "cpu_run_ns_delta": 9937772791,
+      "runqueue_wait_ns_delta": 46168711,
+      "observed_cpu_changes": 0
+    },
+    "33712": {
+      "samples": 157,
+      "user_tick_delta": 993,
+      "sys_tick_delta": 2,
+      "minor_fault_delta": 63,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 1,
+      "nonvoluntary_context_switch_delta": 1101,
+      "cpu_run_ns_delta": 9943268726,
+      "runqueue_wait_ns_delta": 41376079,
+      "observed_cpu_changes": 0
+    },
+    "33713": {
+      "samples": 157,
+      "user_tick_delta": 237,
+      "sys_tick_delta": 393,
+      "minor_fault_delta": 171,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 2599,
+      "nonvoluntary_context_switch_delta": 5134,
+      "cpu_run_ns_delta": 6306953184,
+      "runqueue_wait_ns_delta": 321016977,
+      "observed_cpu_changes": 5
+    }
+  },
+  "blocked_wchan_sample_counts": {
+    "hrtimer_nanosleep": 754,
+    "0": 102,
+    "folio_wait_bit_common": 7,
+    "jbd2_log_wait_commit": 74,
+    "do_get_write_access": 1,
+    "futex_do_wait": 18
+  },
+  "clock_contract": "CLOCK_MONOTONIC/steady/Python perf_counter checked separately; no wall-clock subtraction",
+  "publish_boundary": "timestamp just before successful queue publish attempt; includes slot copy/index publication bias",
+  "matching_service": "first matching peek -> processing returns; may overlap ACK pipeline; never add it to response stages",
+  "kernel_acceptance_uncertainty": "send entry/return bracket internal kernel acceptance. Peer can observe before sender returns; signed overlaps retained and network intervals reported as lower/upper bounds"
+}

@@ -1,0 +1,1927 @@
+{
+  "files": 384,
+  "samples": 5507400,
+  "all_exact": true,
+  "checks": [
+    {
+      "path": "components/0_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/0_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/1_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/2_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/3_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/4_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_128_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_128_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_1024_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_1024_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_8192_residence.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_queue/queue_capacity_8192_producer_wait.csv",
+      "samples": 100000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_0_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_0_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_20_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_20_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_100_transfer.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_tcp/tcp_reader_pause_100_accepted_buffer_append.csv",
+      "samples": 20480,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_0_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_0_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_0_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_1000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_1000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_1000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_10000_publish.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_10000_received.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_snapshot/snapshot_live_10000_rebuild_commit.csv",
+      "samples": 5,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_alternative_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary.csv",
+      "samples": 24000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_empty_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_second_level.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_same_price_fifo.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_partial_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_multi_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_cancel_success.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_cancel_failure.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_bid_356.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_bid_100_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_cancel_collision.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_one_level_fill.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_cases/book_primary_cancel_filled.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/clock_empty.csv",
+      "samples": 10000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_dense_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_dense_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_sparse_new.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_sparse_cancel.csv",
+      "samples": 12800,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_one_level_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/alternative_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    },
+    {
+      "path": "components/5_book_density/primary_eight_levels_crossing_new.csv",
+      "samples": 2000,
+      "all_quantiles_exact": true
+    }
+  ]
+}

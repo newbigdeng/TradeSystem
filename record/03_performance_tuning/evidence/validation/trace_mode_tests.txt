@@ -1,0 +1,6 @@
+g++ -std=c++20 -O3 -Wall -Wextra -Werror -Wpedantic -DTRADE_PERF_TRACE_EVERY=0 -I /home/zjh/XiangMu/TradeSystem-rebuild /home/zjh/trade-measurements/03/trace_mode_test.cpp -pthread -o /home/zjh/trade-measurements/03/trace_mode_0_test
+PASS trace_every=0 records=0 logger_evaluations=0
+g++ -std=c++20 -O3 -Wall -Wextra -Werror -Wpedantic -DTRADE_PERF_TRACE_EVERY=1 -I /home/zjh/XiangMu/TradeSystem-rebuild /home/zjh/trade-measurements/03/trace_mode_test.cpp -pthread -o /home/zjh/trade-measurements/03/trace_mode_1_test
+PASS trace_every=1 records=4096 logger_evaluations=4096
+g++ -std=c++20 -O3 -Wall -Wextra -Werror -Wpedantic -DTRADE_PERF_TRACE_EVERY=64 -I /home/zjh/XiangMu/TradeSystem-rebuild /home/zjh/trade-measurements/03/trace_mode_test.cpp -pthread -o /home/zjh/trade-measurements/03/trace_mode_64_test
+PASS trace_every=64 records=64 logger_evaluations=64

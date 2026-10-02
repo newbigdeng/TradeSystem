@@ -1,0 +1,230 @@
+[
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/exchange_main.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/exchange_main.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/trading_main.dir/trading/trading_main.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/trading_main.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/trading_main.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/trading_main.dir/trading/trading_main.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/logger_benchmark.dir/benchmarks/logger_benchmark.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/logger_benchmark.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/logger_benchmark.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/logger_benchmark.dir/benchmarks/logger_benchmark.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/release_benchmark.dir/benchmarks/release_benchmark.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/release_benchmark.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/release_benchmark.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/release_benchmark.dir/benchmarks/release_benchmark.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/hash_benchmark.dir/benchmarks/hash_benchmark.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/hash_benchmark.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/benchmarks/hash_benchmark.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/hash_benchmark.dir/benchmarks/hash_benchmark.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/multicast_interface_test.dir/record/00_multicast_interface/multicast_interface_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/00_multicast_interface/multicast_interface_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/00_multicast_interface/multicast_interface_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/multicast_interface_test.dir/record/00_multicast_interface/multicast_interface_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/queue_test.dir/record/01_reliability/queue_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/queue_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/queue_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/queue_test.dir/record/01_reliability/queue_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/reliability_test.dir/record/01_reliability/reliability_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/reliability_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/reliability_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/reliability_test.dir/record/01_reliability/reliability_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/book_model_test.dir/record/01_reliability/book_model_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/book_model_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/book_model_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/book_model_test.dir/record/01_reliability/book_model_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/protocol_test.dir/record/01_reliability/protocol_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/protocol_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/protocol_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/protocol_test.dir/record/01_reliability/protocol_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/control_probe.dir/record/01_reliability/control_probe.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/control_probe.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/control_probe.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/control_probe.dir/record/01_reliability/control_probe.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/recovery_test.dir/record/01_reliability/recovery_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/recovery_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/recovery_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/recovery_test.dir/record/01_reliability/recovery_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/journal_test.dir/record/01_reliability/journal_test.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/journal_test.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/01_reliability/journal_test.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/journal_test.dir/record/01_reliability/journal_test.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o CMakeFiles/measurement_component_benchmark.dir/record/02_reproducible_measurement/component_benchmark.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/record/02_reproducible_measurement/component_benchmark.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/record/02_reproducible_measurement/component_benchmark.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/CMakeFiles/measurement_component_benchmark.dir/record/02_reproducible_measurement/component_benchmark.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/mcast_socket.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/mcast_socket.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/libcommon.dir/tcp_server.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/tcp_server.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/tcp_server.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/libcommon.dir/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/tcp_socket.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/tcp_socket.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/thread_example.dir/thread_example.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/thread_example.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/thread_example.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/thread_example.dir/thread_example.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/mem_pool_example.dir/mem_pool_example.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/mem_pool_example.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/mem_pool_example.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/mem_pool_example.dir/mem_pool_example.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/lf_queue_example.dir/lf_queue_example.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/lf_queue_example.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/lf_queue_example.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/lf_queue_example.dir/lf_queue_example.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/logging_example.dir/logging_example.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/logging_example.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/logging_example.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/logging_example.dir/logging_example.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o common/CMakeFiles/socket_example.dir/socket_example.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/common/socket_example.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/common/socket_example.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/common/CMakeFiles/socket_example.dir/socket_example.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/market_data/market_data_publisher.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/market_data/market_data_publisher.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/market_data/snapshot_synthesizer.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/market_data/snapshot_synthesizer.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/matching_engine.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/matching_engine.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/me_order.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/me_order.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/me_order_book.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/me_order_book.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/matcher/unordered_map_me_order_book.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/unordered_map_me_order_book.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/matcher/unordered_map_me_order_book.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/matcher/unordered_map_me_order_book.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/exchange -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/exchange/order_server/order_server.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/exchange/order_server/order_server.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/market_data/market_data_consumer.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/market_data/market_data_consumer.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/market_data/market_data_consumer.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/market_data/market_data_consumer.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/order_gw/order_gateway.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/order_gw/order_gateway.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/order_gw/order_gateway.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/order_gw/order_gateway.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/liquidity_taker.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/liquidity_taker.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/liquidity_taker.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/liquidity_taker.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/market_maker.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_maker.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_maker.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/market_maker.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/market_order.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_order.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_order.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/market_order.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/market_order_book.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_order_book.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/market_order_book.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/market_order_book.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/order_manager.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/order_manager.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/order_manager.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/order_manager.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/risk_manager.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/risk_manager.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/risk_manager.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/risk_manager.cpp.o"
+},
+{
+  "directory": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release",
+  "command": "/usr/bin/c++ -I/home/zjh/XiangMu/TradeSystem-rebuild -I/home/zjh/XiangMu/TradeSystem-rebuild/trading -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Werror -Wpedantic -o trading/CMakeFiles/libtrading.dir/strategy/trade_engine.cpp.o -c /home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/trade_engine.cpp",
+  "file": "/home/zjh/XiangMu/TradeSystem-rebuild/trading/strategy/trade_engine.cpp",
+  "output": "/home/zjh/XiangMu/TradeSystem-rebuild/build/reliability-release/trading/CMakeFiles/libtrading.dir/strategy/trade_engine.cpp.o"
+}
+]

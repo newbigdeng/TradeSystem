@@ -1,0 +1,6 @@
+{
+  "before_sha256": "466a22656fdbc809c922e151dc17cb3a83fd6a0824e53c076fd1df07366d3a6e",
+  "after_sha256": "466a22656fdbc809c922e151dc17cb3a83fd6a0824e53c076fd1df07366d3a6e",
+  "identical_bytes": true,
+  "compiler_flags": "ordinary Release -O3 -DNDEBUG; same build target and compiler"
+}

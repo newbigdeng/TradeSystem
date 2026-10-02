@@ -1,0 +1,17 @@
+{
+  "off": {
+    "measured_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "current_sha256": "8b39185f7d77842070b8153aafc506a349e0ac8fbf6b0defe00cf6c8dea2d76f",
+    "identical": true
+  },
+  "full": {
+    "measured_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "current_sha256": "598d6be7aea364842f65cbb286960897ac5dfb2b7d17ff6791da44a410a7e454",
+    "identical": true
+  },
+  "sample64": {
+    "measured_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "current_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+    "identical": true
+  }
+}

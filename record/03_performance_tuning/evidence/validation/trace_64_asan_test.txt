@@ -1,0 +1,2 @@
+/home/zjh/trade-measurements/03/trace_mode_64_asan
+PASS trace_every=64 records=64 logger_evaluations=64

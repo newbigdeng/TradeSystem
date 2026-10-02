@@ -1,0 +1,2994 @@
+{
+  "directory": "/home/zjh/trade-measurements/03/profile_stage_full",
+  "trace_only_not_formal_performance": true,
+  "correctness_ok": true,
+  "matched_requests": 1000,
+  "invalid_requests": [],
+  "duplicate_stage_events": 0,
+  "recording_overflow": 0,
+  "clock_boundary_overlap": [
+    {
+      "request": "83:17:1",
+      "client_send_return_to_decode_ns": -269339,
+      "server_send_return_to_client_ns": 866130
+    },
+    {
+      "request": "80:18:1",
+      "client_send_return_to_decode_ns": -8222,
+      "server_send_return_to_client_ns": 449748
+    },
+    {
+      "request": "83:18:1",
+      "client_send_return_to_decode_ns": -1019847,
+      "server_send_return_to_client_ns": 243722
+    },
+    {
+      "request": "80:20:1",
+      "client_send_return_to_decode_ns": -14680,
+      "server_send_return_to_client_ns": 116941
+    },
+    {
+      "request": "82:20:1",
+      "client_send_return_to_decode_ns": -223026,
+      "server_send_return_to_client_ns": 343046
+    },
+    {
+      "request": "80:21:1",
+      "client_send_return_to_decode_ns": -1145,
+      "server_send_return_to_client_ns": 119157
+    },
+    {
+      "request": "81:21:2",
+      "client_send_return_to_decode_ns": -2227,
+      "server_send_return_to_client_ns": 30210
+    },
+    {
+      "request": "80:23:1",
+      "client_send_return_to_decode_ns": -939,
+      "server_send_return_to_client_ns": 35536
+    },
+    {
+      "request": "81:23:1",
+      "client_send_return_to_decode_ns": -13927,
+      "server_send_return_to_client_ns": 143405
+    },
+    {
+      "request": "82:24:1",
+      "client_send_return_to_decode_ns": -312884,
+      "server_send_return_to_client_ns": 260242
+    },
+    {
+      "request": "83:24:2",
+      "client_send_return_to_decode_ns": -41206,
+      "server_send_return_to_client_ns": 139838
+    },
+    {
+      "request": "81:25:1",
+      "client_send_return_to_decode_ns": -325369,
+      "server_send_return_to_client_ns": 270880
+    },
+    {
+      "request": "83:25:2",
+      "client_send_return_to_decode_ns": -836924,
+      "server_send_return_to_client_ns": 95730
+    },
+    {
+      "request": "80:26:1",
+      "client_send_return_to_decode_ns": -3196,
+      "server_send_return_to_client_ns": 328574
+    },
+    {
+      "request": "81:27:1",
+      "client_send_return_to_decode_ns": -17989,
+      "server_send_return_to_client_ns": 132126
+    },
+    {
+      "request": "82:27:1",
+      "client_send_return_to_decode_ns": -281,
+      "server_send_return_to_client_ns": 99599
+    },
+    {
+      "request": "83:27:1",
+      "client_send_return_to_decode_ns": -358,
+      "server_send_return_to_client_ns": 112933
+    },
+    {
+      "request": "81:27:2",
+      "client_send_return_to_decode_ns": -365,
+      "server_send_return_to_client_ns": 246173
+    },
+    {
+      "request": "83:28:2",
+      "client_send_return_to_decode_ns": -1259,
+      "server_send_return_to_client_ns": 68296
+    },
+    {
+      "request": "81:29:2",
+      "client_send_return_to_decode_ns": -868174,
+      "server_send_return_to_client_ns": 2816
+    },
+    {
+      "request": "81:30:1",
+      "client_send_return_to_decode_ns": -384,
+      "server_send_return_to_client_ns": 281005
+    },
+    {
+      "request": "81:30:2",
+      "client_send_return_to_decode_ns": -794,
+      "server_send_return_to_client_ns": 471282
+    },
+    {
+      "request": "83:31:2",
+      "client_send_return_to_decode_ns": -38149,
+      "server_send_return_to_client_ns": 779582
+    },
+    {
+      "request": "81:32:1",
+      "client_send_return_to_decode_ns": -4436,
+      "server_send_return_to_client_ns": 486339
+    },
+    {
+      "request": "81:32:2",
+      "client_send_return_to_decode_ns": -1399,
+      "server_send_return_to_client_ns": 86639
+    },
+    {
+      "request": "83:32:2",
+      "client_send_return_to_decode_ns": -624,
+      "server_send_return_to_client_ns": 200484
+    },
+    {
+      "request": "80:33:1",
+      "client_send_return_to_decode_ns": -847,
+      "server_send_return_to_client_ns": 92571
+    },
+    {
+      "request": "82:34:1",
+      "client_send_return_to_decode_ns": -1424,
+      "server_send_return_to_client_ns": 503674
+    },
+    {
+      "request": "80:34:2",
+      "client_send_return_to_decode_ns": -3437,
+      "server_send_return_to_client_ns": 137748
+    },
+    {
+      "request": "80:35:1",
+      "client_send_return_to_decode_ns": -24084,
+      "server_send_return_to_client_ns": -85948
+    },
+    {
+      "request": "83:36:2",
+      "client_send_return_to_decode_ns": -110,
+      "server_send_return_to_client_ns": 144542
+    },
+    {
+      "request": "80:37:1",
+      "client_send_return_to_decode_ns": -201,
+      "server_send_return_to_client_ns": 88021
+    },
+    {
+      "request": "82:37:1",
+      "client_send_return_to_decode_ns": -795016,
+      "server_send_return_to_client_ns": 1035305
+    },
+    {
+      "request": "82:37:2",
+      "client_send_return_to_decode_ns": 3768,
+      "server_send_return_to_client_ns": -158200
+    },
+    {
+      "request": "82:38:1",
+      "client_send_return_to_decode_ns": -737,
+      "server_send_return_to_client_ns": 128497
+    },
+    {
+      "request": "80:39:1",
+      "client_send_return_to_decode_ns": -6036,
+      "server_send_return_to_client_ns": 165113
+    },
+    {
+      "request": "82:39:1",
+      "client_send_return_to_decode_ns": -377,
+      "server_send_return_to_client_ns": -99978
+    },
+    {
+      "request": "80:39:2",
+      "client_send_return_to_decode_ns": -257,
+      "server_send_return_to_client_ns": 99341
+    },
+    {
+      "request": "81:39:2",
+      "client_send_return_to_decode_ns": -3909,
+      "server_send_return_to_client_ns": 106097
+    },
+    {
+      "request": "82:39:2",
+      "client_send_return_to_decode_ns": -248,
+      "server_send_return_to_client_ns": 97697
+    },
+    {
+      "request": "83:40:1",
+      "client_send_return_to_decode_ns": -1195769,
+      "server_send_return_to_client_ns": 75998
+    },
+    {
+      "request": "83:41:1",
+      "client_send_return_to_decode_ns": -59237,
+      "server_send_return_to_client_ns": 959663
+    },
+    {
+      "request": "83:41:2",
+      "client_send_return_to_decode_ns": -962,
+      "server_send_return_to_client_ns": 255671
+    },
+    {
+      "request": "81:42:2",
+      "client_send_return_to_decode_ns": -153,
+      "server_send_return_to_client_ns": -33043
+    },
+    {
+      "request": "82:43:1",
+      "client_send_return_to_decode_ns": -84565,
+      "server_send_return_to_client_ns": 1065046
+    },
+    {
+      "request": "83:43:1",
+      "client_send_return_to_decode_ns": -165385,
+      "server_send_return_to_client_ns": 462487
+    },
+    {
+      "request": "83:44:2",
+      "client_send_return_to_decode_ns": -570,
+      "server_send_return_to_client_ns": 69179
+    },
+    {
+      "request": "83:46:1",
+      "client_send_return_to_decode_ns": -893839,
+      "server_send_return_to_client_ns": 1469356
+    },
+    {
+      "request": "81:46:2",
+      "client_send_return_to_decode_ns": -4971,
+      "server_send_return_to_client_ns": 91518
+    },
+    {
+      "request": "82:49:1",
+      "client_send_return_to_decode_ns": -649965,
+      "server_send_return_to_client_ns": 456226
+    },
+    {
+      "request": "81:50:1",
+      "client_send_return_to_decode_ns": -4555,
+      "server_send_return_to_client_ns": 92677
+    },
+    {
+      "request": "83:50:1",
+      "client_send_return_to_decode_ns": -2481,
+      "server_send_return_to_client_ns": 240882
+    },
+    {
+      "request": "82:50:2",
+      "client_send_return_to_decode_ns": -35383,
+      "server_send_return_to_client_ns": 355472
+    },
+    {
+      "request": "80:51:1",
+      "client_send_return_to_decode_ns": -56902,
+      "server_send_return_to_client_ns": 176822
+    },
+    {
+      "request": "82:51:1",
+      "client_send_return_to_decode_ns": -615,
+      "server_send_return_to_client_ns": 750859
+    },
+    {
+      "request": "80:51:2",
+      "client_send_return_to_decode_ns": 3071,
+      "server_send_return_to_client_ns": -2527926
+    },
+    {
+      "request": "80:52:1",
+      "client_send_return_to_decode_ns": -2359,
+      "server_send_return_to_client_ns": -2506857
+    },
+    {
+      "request": "83:61:1",
+      "client_send_return_to_decode_ns": 83533892,
+      "server_send_return_to_client_ns": -142098
+    },
+    {
+      "request": "80:65:1",
+      "client_send_return_to_decode_ns": -10596,
+      "server_send_return_to_client_ns": 956350
+    },
+    {
+      "request": "81:65:1",
+      "client_send_return_to_decode_ns": 1738,
+      "server_send_return_to_client_ns": -89395
+    },
+    {
+      "request": "81:65:2",
+      "client_send_return_to_decode_ns": -188119,
+      "server_send_return_to_client_ns": 433100
+    },
+    {
+      "request": "81:66:1",
+      "client_send_return_to_decode_ns": -1476,
+      "server_send_return_to_client_ns": 378953
+    },
+    {
+      "request": "81:67:2",
+      "client_send_return_to_decode_ns": -10957,
+      "server_send_return_to_client_ns": 643704
+    },
+    {
+      "request": "82:68:2",
+      "client_send_return_to_decode_ns": -5777,
+      "server_send_return_to_client_ns": -382639
+    },
+    {
+      "request": "80:71:1",
+      "client_send_return_to_decode_ns": -6395,
+      "server_send_return_to_client_ns": 463530
+    },
+    {
+      "request": "82:71:1",
+      "client_send_return_to_decode_ns": -25936,
+      "server_send_return_to_client_ns": 1063224
+    },
+    {
+      "request": "83:71:1",
+      "client_send_return_to_decode_ns": -9975,
+      "server_send_return_to_client_ns": 166046
+    },
+    {
+      "request": "80:72:2",
+      "client_send_return_to_decode_ns": -4608,
+      "server_send_return_to_client_ns": 268236
+    },
+    {
+      "request": "80:75:2",
+      "client_send_return_to_decode_ns": 883,
+      "server_send_return_to_client_ns": -8938
+    },
+    {
+      "request": "81:75:2",
+      "client_send_return_to_decode_ns": -662,
+      "server_send_return_to_client_ns": 32706
+    },
+    {
+      "request": "80:76:1",
+      "client_send_return_to_decode_ns": -73629,
+      "server_send_return_to_client_ns": 319759
+    },
+    {
+      "request": "82:76:1",
+      "client_send_return_to_decode_ns": -427,
+      "server_send_return_to_client_ns": 119126
+    },
+    {
+      "request": "80:77:1",
+      "client_send_return_to_decode_ns": -845648,
+      "server_send_return_to_client_ns": 1115437
+    },
+    {
+      "request": "82:77:1",
+      "client_send_return_to_decode_ns": -183094,
+      "server_send_return_to_client_ns": 146961
+    },
+    {
+      "request": "81:77:2",
+      "client_send_return_to_decode_ns": -625,
+      "server_send_return_to_client_ns": 122239
+    },
+    {
+      "request": "82:77:2",
+      "client_send_return_to_decode_ns": -166135,
+      "server_send_return_to_client_ns": 472518
+    },
+    {
+      "request": "80:78:1",
+      "client_send_return_to_decode_ns": -1605,
+      "server_send_return_to_client_ns": 262164
+    },
+    {
+      "request": "81:78:1",
+      "client_send_return_to_decode_ns": -3002,
+      "server_send_return_to_client_ns": 797275
+    },
+    {
+      "request": "82:78:2",
+      "client_send_return_to_decode_ns": -6267,
+      "server_send_return_to_client_ns": 296011
+    },
+    {
+      "request": "82:86:1",
+      "client_send_return_to_decode_ns": -11106,
+      "server_send_return_to_client_ns": 193369
+    },
+    {
+      "request": "83:86:1",
+      "client_send_return_to_decode_ns": -948,
+      "server_send_return_to_client_ns": 415933
+    },
+    {
+      "request": "83:87:1",
+      "client_send_return_to_decode_ns": -31755,
+      "server_send_return_to_client_ns": 359850
+    },
+    {
+      "request": "80:87:2",
+      "client_send_return_to_decode_ns": -592325,
+      "server_send_return_to_client_ns": 385026
+    },
+    {
+      "request": "80:88:1",
+      "client_send_return_to_decode_ns": -252,
+      "server_send_return_to_client_ns": 675268
+    },
+    {
+      "request": "80:88:2",
+      "client_send_return_to_decode_ns": -179,
+      "server_send_return_to_client_ns": 247825
+    },
+    {
+      "request": "81:88:2",
+      "client_send_return_to_decode_ns": -6486,
+      "server_send_return_to_client_ns": 1068929
+    },
+    {
+      "request": "80:89:1",
+      "client_send_return_to_decode_ns": -726515,
+      "server_send_return_to_client_ns": 229457
+    },
+    {
+      "request": "81:89:1",
+      "client_send_return_to_decode_ns": -1928,
+      "server_send_return_to_client_ns": 182783
+    },
+    {
+      "request": "83:89:1",
+      "client_send_return_to_decode_ns": -226,
+      "server_send_return_to_client_ns": 776603
+    },
+    {
+      "request": "81:89:2",
+      "client_send_return_to_decode_ns": -72935,
+      "server_send_return_to_client_ns": 191538
+    },
+    {
+      "request": "82:89:2",
+      "client_send_return_to_decode_ns": -222891,
+      "server_send_return_to_client_ns": 540438
+    },
+    {
+      "request": "82:90:1",
+      "client_send_return_to_decode_ns": -388,
+      "server_send_return_to_client_ns": 100287
+    },
+    {
+      "request": "80:90:2",
+      "client_send_return_to_decode_ns": -10292,
+      "server_send_return_to_client_ns": 133665
+    },
+    {
+      "request": "81:90:2",
+      "client_send_return_to_decode_ns": -8769,
+      "server_send_return_to_client_ns": 78713
+    },
+    {
+      "request": "80:92:2",
+      "client_send_return_to_decode_ns": -80840,
+      "server_send_return_to_client_ns": 517608
+    },
+    {
+      "request": "83:92:2",
+      "client_send_return_to_decode_ns": -142984,
+      "server_send_return_to_client_ns": 256421
+    },
+    {
+      "request": "80:93:1",
+      "client_send_return_to_decode_ns": -7398,
+      "server_send_return_to_client_ns": 136116
+    },
+    {
+      "request": "83:95:1",
+      "client_send_return_to_decode_ns": -274,
+      "server_send_return_to_client_ns": 496011
+    },
+    {
+      "request": "80:95:2",
+      "client_send_return_to_decode_ns": -223,
+      "server_send_return_to_client_ns": 282503
+    },
+    {
+      "request": "82:95:2",
+      "client_send_return_to_decode_ns": -23132,
+      "server_send_return_to_client_ns": 651007
+    },
+    {
+      "request": "83:97:2",
+      "client_send_return_to_decode_ns": -2923,
+      "server_send_return_to_client_ns": 607762
+    },
+    {
+      "request": "82:99:1",
+      "client_send_return_to_decode_ns": -250742,
+      "server_send_return_to_client_ns": 83668
+    },
+    {
+      "request": "81:99:2",
+      "client_send_return_to_decode_ns": -778,
+      "server_send_return_to_client_ns": 314611
+    },
+    {
+      "request": "80:100:1",
+      "client_send_return_to_decode_ns": -6333,
+      "server_send_return_to_client_ns": 1488570
+    },
+    {
+      "request": "82:100:1",
+      "client_send_return_to_decode_ns": -396522,
+      "server_send_return_to_client_ns": 664838
+    },
+    {
+      "request": "83:100:1",
+      "client_send_return_to_decode_ns": -3653,
+      "server_send_return_to_client_ns": 123840
+    },
+    {
+      "request": "83:100:2",
+      "client_send_return_to_decode_ns": -1350,
+      "server_send_return_to_client_ns": 130844
+    },
+    {
+      "request": "81:101:1",
+      "client_send_return_to_decode_ns": -2508,
+      "server_send_return_to_client_ns": 88138
+    },
+    {
+      "request": "82:101:2",
+      "client_send_return_to_decode_ns": -393196,
+      "server_send_return_to_client_ns": 131143
+    },
+    {
+      "request": "82:102:1",
+      "client_send_return_to_decode_ns": -204637,
+      "server_send_return_to_client_ns": 193487
+    },
+    {
+      "request": "81:102:2",
+      "client_send_return_to_decode_ns": -69487,
+      "server_send_return_to_client_ns": 111435
+    },
+    {
+      "request": "80:106:2",
+      "client_send_return_to_decode_ns": -6312,
+      "server_send_return_to_client_ns": 359801
+    },
+    {
+      "request": "82:106:2",
+      "client_send_return_to_decode_ns": -9593,
+      "server_send_return_to_client_ns": 383853
+    },
+    {
+      "request": "83:106:2",
+      "client_send_return_to_decode_ns": -8800,
+      "server_send_return_to_client_ns": 320659
+    },
+    {
+      "request": "82:107:2",
+      "client_send_return_to_decode_ns": -457381,
+      "server_send_return_to_client_ns": 882568
+    },
+    {
+      "request": "80:108:1",
+      "client_send_return_to_decode_ns": -384,
+      "server_send_return_to_client_ns": 512519
+    },
+    {
+      "request": "82:109:1",
+      "client_send_return_to_decode_ns": -221876,
+      "server_send_return_to_client_ns": 506098
+    },
+    {
+      "request": "80:110:1",
+      "client_send_return_to_decode_ns": -468581,
+      "server_send_return_to_client_ns": 607476
+    },
+    {
+      "request": "81:110:1",
+      "client_send_return_to_decode_ns": -66900,
+      "server_send_return_to_client_ns": 496460
+    },
+    {
+      "request": "82:110:2",
+      "client_send_return_to_decode_ns": -176965,
+      "server_send_return_to_client_ns": 376758
+    },
+    {
+      "request": "80:111:1",
+      "client_send_return_to_decode_ns": -1664,
+      "server_send_return_to_client_ns": 1035491
+    },
+    {
+      "request": "82:111:1",
+      "client_send_return_to_decode_ns": -7234,
+      "server_send_return_to_client_ns": 83428
+    },
+    {
+      "request": "82:111:2",
+      "client_send_return_to_decode_ns": -11056,
+      "server_send_return_to_client_ns": 501699
+    },
+    {
+      "request": "83:111:2",
+      "client_send_return_to_decode_ns": -979,
+      "server_send_return_to_client_ns": 362413
+    },
+    {
+      "request": "81:120:1",
+      "client_send_return_to_decode_ns": -1337,
+      "server_send_return_to_client_ns": 487081
+    },
+    {
+      "request": "82:120:1",
+      "client_send_return_to_decode_ns": -197,
+      "server_send_return_to_client_ns": 368997
+    },
+    {
+      "request": "83:120:1",
+      "client_send_return_to_decode_ns": -252739,
+      "server_send_return_to_client_ns": 174575
+    },
+    {
+      "request": "80:120:2",
+      "client_send_return_to_decode_ns": -98316,
+      "server_send_return_to_client_ns": 342675
+    },
+    {
+      "request": "82:120:2",
+      "client_send_return_to_decode_ns": -1167,
+      "server_send_return_to_client_ns": 3157240
+    },
+    {
+      "request": "80:121:1",
+      "client_send_return_to_decode_ns": -102,
+      "server_send_return_to_client_ns": 291479
+    },
+    {
+      "request": "82:121:1",
+      "client_send_return_to_decode_ns": -36217,
+      "server_send_return_to_client_ns": 215940
+    },
+    {
+      "request": "83:121:1",
+      "client_send_return_to_decode_ns": -1770,
+      "server_send_return_to_client_ns": 200244
+    },
+    {
+      "request": "81:121:2",
+      "client_send_return_to_decode_ns": -589,
+      "server_send_return_to_client_ns": 99237
+    },
+    {
+      "request": "82:121:2",
+      "client_send_return_to_decode_ns": -7488,
+      "server_send_return_to_client_ns": 654252
+    },
+    {
+      "request": "83:121:2",
+      "client_send_return_to_decode_ns": -13370,
+      "server_send_return_to_client_ns": 490628
+    },
+    {
+      "request": "81:122:1",
+      "client_send_return_to_decode_ns": -493,
+      "server_send_return_to_client_ns": 483117
+    },
+    {
+      "request": "83:122:1",
+      "client_send_return_to_decode_ns": -414,
+      "server_send_return_to_client_ns": 414787
+    },
+    {
+      "request": "80:122:2",
+      "client_send_return_to_decode_ns": -3241,
+      "server_send_return_to_client_ns": 716320
+    },
+    {
+      "request": "81:122:2",
+      "client_send_return_to_decode_ns": -24314,
+      "server_send_return_to_client_ns": 260549
+    },
+    {
+      "request": "83:122:2",
+      "client_send_return_to_decode_ns": -45171,
+      "server_send_return_to_client_ns": 146701
+    },
+    {
+      "request": "83:123:1",
+      "client_send_return_to_decode_ns": -4381,
+      "server_send_return_to_client_ns": 196754
+    },
+    {
+      "request": "80:123:2",
+      "client_send_return_to_decode_ns": -1026,
+      "server_send_return_to_client_ns": 1019966
+    },
+    {
+      "request": "81:123:2",
+      "client_send_return_to_decode_ns": -17,
+      "server_send_return_to_client_ns": 616977
+    },
+    {
+      "request": "82:123:2",
+      "client_send_return_to_decode_ns": -7641,
+      "server_send_return_to_client_ns": 919661
+    },
+    {
+      "request": "82:124:1",
+      "client_send_return_to_decode_ns": -10628,
+      "server_send_return_to_client_ns": 738846
+    },
+    {
+      "request": "80:124:2",
+      "client_send_return_to_decode_ns": -767,
+      "server_send_return_to_client_ns": 76885
+    },
+    {
+      "request": "83:124:2",
+      "client_send_return_to_decode_ns": -202075,
+      "server_send_return_to_client_ns": 191931
+    },
+    {
+      "request": "80:125:1",
+      "client_send_return_to_decode_ns": -58347,
+      "server_send_return_to_client_ns": 300925
+    },
+    {
+      "request": "82:125:2",
+      "client_send_return_to_decode_ns": -4316,
+      "server_send_return_to_client_ns": 849302
+    },
+    {
+      "request": "83:125:2",
+      "client_send_return_to_decode_ns": -628,
+      "server_send_return_to_client_ns": 108106
+    },
+    {
+      "request": "81:126:1",
+      "client_send_return_to_decode_ns": -1768,
+      "server_send_return_to_client_ns": 271756
+    },
+    {
+      "request": "82:126:1",
+      "client_send_return_to_decode_ns": -1320,
+      "server_send_return_to_client_ns": 209674
+    },
+    {
+      "request": "80:126:2",
+      "client_send_return_to_decode_ns": -3631,
+      "server_send_return_to_client_ns": 137984
+    },
+    {
+      "request": "81:126:2",
+      "client_send_return_to_decode_ns": -726,
+      "server_send_return_to_client_ns": 288224
+    },
+    {
+      "request": "83:126:2",
+      "client_send_return_to_decode_ns": -3391,
+      "server_send_return_to_client_ns": 1211691
+    },
+    {
+      "request": "81:127:1",
+      "client_send_return_to_decode_ns": -80454,
+      "server_send_return_to_client_ns": 295465
+    },
+    {
+      "request": "83:127:2",
+      "client_send_return_to_decode_ns": -4652,
+      "server_send_return_to_client_ns": 1233633
+    },
+    {
+      "request": "80:128:1",
+      "client_send_return_to_decode_ns": -544045,
+      "server_send_return_to_client_ns": 167443
+    },
+    {
+      "request": "82:129:1",
+      "client_send_return_to_decode_ns": -613,
+      "server_send_return_to_client_ns": 106131
+    },
+    {
+      "request": "80:129:2",
+      "client_send_return_to_decode_ns": -456537,
+      "server_send_return_to_client_ns": 128156
+    },
+    {
+      "request": "83:130:1",
+      "client_send_return_to_decode_ns": -6661,
+      "server_send_return_to_client_ns": 196095
+    },
+    {
+      "request": "80:130:2",
+      "client_send_return_to_decode_ns": -322356,
+      "server_send_return_to_client_ns": 96872
+    },
+    {
+      "request": "81:137:2",
+      "client_send_return_to_decode_ns": -53639,
+      "server_send_return_to_client_ns": 862886
+    },
+    {
+      "request": "82:138:1",
+      "client_send_return_to_decode_ns": -16996,
+      "server_send_return_to_client_ns": 385126
+    },
+    {
+      "request": "81:138:2",
+      "client_send_return_to_decode_ns": -4083,
+      "server_send_return_to_client_ns": 410862
+    },
+    {
+      "request": "83:138:2",
+      "client_send_return_to_decode_ns": -8718,
+      "server_send_return_to_client_ns": 905311
+    },
+    {
+      "request": "81:139:1",
+      "client_send_return_to_decode_ns": -4927,
+      "server_send_return_to_client_ns": 159422
+    },
+    {
+      "request": "80:141:2",
+      "client_send_return_to_decode_ns": -447,
+      "server_send_return_to_client_ns": 572691
+    }
+  ],
+  "stage_distributions": {
+    "generator_lateness": {
+      "n": 1000,
+      "p50_ns": 1029090,
+      "p95_ns": 2578618,
+      "p99_ns": 5127566,
+      "max_ns": 14763343
+    },
+    "client_to_validated_frame_lower": {
+      "n": 1000,
+      "p50_ns": 56669,
+      "p95_ns": 177671281,
+      "p99_ns": 501499289,
+      "max_ns": 690371155
+    },
+    "client_to_validated_frame_upper": {
+      "n": 1000,
+      "p50_ns": 228629,
+      "p95_ns": 177855128,
+      "p99_ns": 501604671,
+      "max_ns": 690487374
+    },
+    "receive_audit": {
+      "n": 1000,
+      "p50_ns": 4123419,
+      "p95_ns": 19564066,
+      "p99_ns": 42366818,
+      "max_ns": 120419176
+    },
+    "fifo_accumulate": {
+      "n": 1000,
+      "p50_ns": 110999,
+      "p95_ns": 83066895,
+      "p99_ns": 264323808,
+      "max_ns": 368529056
+    },
+    "input_queue": {
+      "n": 1000,
+      "p50_ns": 488878898,
+      "p95_ns": 743306665,
+      "p99_ns": 773509890,
+      "max_ns": 783896608
+    },
+    "matching_preprocessing": {
+      "n": 1000,
+      "p50_ns": 13145,
+      "p95_ns": 98286,
+      "p99_ns": 288872,
+      "max_ns": 2069049
+    },
+    "apply_audit": {
+      "n": 1000,
+      "p50_ns": 3484598,
+      "p95_ns": 12276058,
+      "p99_ns": 19905973,
+      "max_ns": 39449744
+    },
+    "before_response_audit": {
+      "n": 1000,
+      "p50_ns": 55646,
+      "p95_ns": 186480,
+      "p99_ns": 413025,
+      "max_ns": 821526
+    },
+    "response_audit": {
+      "n": 1000,
+      "p50_ns": 3281388,
+      "p95_ns": 8836264,
+      "p99_ns": 19706721,
+      "max_ns": 47113046
+    },
+    "response_publish": {
+      "n": 1000,
+      "p50_ns": 1219,
+      "p95_ns": 2002,
+      "p99_ns": 2569,
+      "max_ns": 49949
+    },
+    "response_queue": {
+      "n": 1000,
+      "p50_ns": 2816544,
+      "p95_ns": 77321763,
+      "p99_ns": 252173075,
+      "max_ns": 395362742
+    },
+    "gateway_format_encode": {
+      "n": 1000,
+      "p50_ns": 22028,
+      "p95_ns": 94816,
+      "p99_ns": 196359,
+      "max_ns": 458710
+    },
+    "socket_pending": {
+      "n": 1000,
+      "p50_ns": 157439,
+      "p95_ns": 53816706,
+      "p99_ns": 85705238,
+      "max_ns": 396294943
+    },
+    "kernel_to_client_lower": {
+      "n": 1000,
+      "p50_ns": 300520,
+      "p95_ns": 1224790,
+      "p99_ns": 1877036,
+      "max_ns": 5144984
+    },
+    "kernel_to_client_upper": {
+      "n": 1000,
+      "p50_ns": 419586,
+      "p95_ns": 1340723,
+      "p99_ns": 2020522,
+      "max_ns": 5304173
+    },
+    "matching_service": {
+      "n": 1000,
+      "p50_ns": 7645334,
+      "p95_ns": 19988270,
+      "p99_ns": 35043349,
+      "max_ns": 64331739
+    }
+  },
+  "slow_requests": [
+    {
+      "request_id": "82:52:2",
+      "ticker": 4,
+      "kind": "CANCEL",
+      "scheduled_ns": 46038734644272,
+      "sent_ns": 46038735734632,
+      "completed_ns": 46039896251788,
+      "scheduled_to_response_ns": 1161607516,
+      "pieces_ns": {
+        "generator_lateness": 1090360,
+        "client_to_validated_frame_lower": 690371155,
+        "client_to_validated_frame_upper": 690487374,
+        "kernel_to_client_lower": 270636,
+        "kernel_to_client_upper": 367096,
+        "receive_audit": 2623667,
+        "fifo_accumulate": 89007747,
+        "input_queue": 334223337,
+        "matching_preprocessing": 10992,
+        "apply_audit": 16194848,
+        "before_response_audit": 92958,
+        "response_audit": 8580165,
+        "response_publish": 1202,
+        "response_queue": 12308686,
+        "gateway_format_encode": 24131,
+        "socket_pending": 6807632,
+        "matching_service": 24914889
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46039426105787,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46039428729454,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46039517737201,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 33
+        },
+        "3": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46039851971530,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46039868166378,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46039868259336,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46039876839501,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46039876840703,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46039889149389,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46039889173520,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46039895981152,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46039851960538,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 68
+        },
+        "12": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46039876875427,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 4,
+          "order": 52,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46039895884692,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:53:1",
+      "ticker": 6,
+      "kind": "NEW",
+      "scheduled_ns": 46038774644272,
+      "sent_ns": 46038777303508,
+      "completed_ns": 46039904000300,
+      "scheduled_to_response_ns": 1129356028,
+      "pieces_ns": {
+        "generator_lateness": 2659236,
+        "client_to_validated_frame_lower": 651429858,
+        "client_to_validated_frame_upper": 651538763,
+        "kernel_to_client_lower": 435203,
+        "kernel_to_client_upper": 595099,
+        "receive_audit": 2263339,
+        "fifo_accumulate": 86748512,
+        "input_queue": 359135735,
+        "matching_preprocessing": 11716,
+        "apply_audit": 3986319,
+        "before_response_audit": 40516,
+        "response_audit": 22426120,
+        "response_publish": 1508,
+        "response_queue": 3832,
+        "gateway_format_encode": 38839,
+        "socket_pending": 175295,
+        "matching_service": 26568418
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46039428733366,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46039430996705,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46039517745217,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 34
+        },
+        "3": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46039876892668,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46039880878987,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46039880919503,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46039903345623,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46039903347131,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46039903350963,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46039903389802,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46039903565097,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46039876880952,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 71
+        },
+        "12": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46039903449370,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46039903405201,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:53:2",
+      "ticker": 6,
+      "kind": "CANCEL",
+      "scheduled_ns": 46038814644272,
+      "sent_ns": 46038815459873,
+      "completed_ns": 46039922137087,
+      "scheduled_to_response_ns": 1107492815,
+      "pieces_ns": {
+        "generator_lateness": 815601,
+        "client_to_validated_frame_lower": 615540527,
+        "client_to_validated_frame_upper": 615678390,
+        "kernel_to_client_lower": 185590,
+        "kernel_to_client_upper": 344458,
+        "receive_audit": 3686083,
+        "fifo_accumulate": 83066895,
+        "input_queue": 385706267,
+        "matching_preprocessing": 86080,
+        "apply_audit": 2928238,
+        "before_response_audit": 51092,
+        "response_audit": 11598010,
+        "response_publish": 1513,
+        "response_queue": 3620036,
+        "gateway_format_encode": 22476,
+        "socket_pending": 184407,
+        "matching_service": 14698970
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46039431000400,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46039434686483,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46039517753378,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 35
+        },
+        "3": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46039903545725,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46039906473963,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46039906525055,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46039918123065,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46039918124578,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46039921744614,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46039921767090,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46039921951497,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46039903459645,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 76
+        },
+        "12": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46039918158615,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 6,
+          "order": 53,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46039921792629,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:54:1",
+      "ticker": 7,
+      "kind": "NEW",
+      "scheduled_ns": 46038854644272,
+      "sent_ns": 46038858662599,
+      "completed_ns": 46039930916042,
+      "scheduled_to_response_ns": 1076271770,
+      "pieces_ns": {
+        "generator_lateness": 4018327,
+        "client_to_validated_frame_lower": 576027826,
+        "client_to_validated_frame_upper": 576133314,
+        "kernel_to_client_lower": 443628,
+        "kernel_to_client_upper": 558643,
+        "receive_audit": 3975806,
+        "fifo_accumulate": 79095297,
+        "input_queue": 400402463,
+        "matching_preprocessing": 12360,
+        "apply_audit": 6310683,
+        "before_response_audit": 39702,
+        "response_audit": 2822117,
+        "response_publish": 1154,
+        "response_queue": 2969843,
+        "gateway_format_encode": 19410,
+        "socket_pending": 133154,
+        "matching_service": 9464444
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46039434690425,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46039438666231,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46039517761528,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 36
+        },
+        "3": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46039918176351,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46039924487034,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46039924526736,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46039927348853,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46039927350007,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46039930319850,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46039930339260,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46039930472414,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46039918163991,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 76
+        },
+        "12": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46039927628435,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46039930357399,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:54:2",
+      "ticker": 7,
+      "kind": "CANCEL",
+      "scheduled_ns": 46038894644272,
+      "sent_ns": 46038896298372,
+      "completed_ns": 46039935882817,
+      "scheduled_to_response_ns": 1041238545,
+      "pieces_ns": {
+        "generator_lateness": 1654100,
+        "client_to_validated_frame_lower": 542373783,
+        "client_to_validated_frame_upper": 542543641,
+        "kernel_to_client_lower": 70925,
+        "kernel_to_client_upper": 177530,
+        "receive_audit": 3135428,
+        "fifo_accumulate": 75966474,
+        "input_queue": 409864051,
+        "matching_preprocessing": 11971,
+        "apply_audit": 5084642,
+        "before_response_audit": 206399,
+        "response_audit": 2629410,
+        "response_publish": 956,
+        "response_queue": 76138,
+        "gateway_format_encode": 32487,
+        "socket_pending": 131781,
+        "matching_service": 7958704
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46039438672155,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46039441807583,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46039517774057,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 37
+        },
+        "3": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46039927650079,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46039932734721,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46039932941120,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46039935570530,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46039935571486,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46039935647624,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46039935680111,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46039935811892,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46039927638108,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 76
+        },
+        "12": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46039935596812,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 7,
+          "order": 54,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46039935705287,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:55:1",
+      "ticker": 3,
+      "kind": "NEW",
+      "scheduled_ns": 46038934644272,
+      "sent_ns": 46038936250574,
+      "completed_ns": 46039945969253,
+      "scheduled_to_response_ns": 1011324981,
+      "pieces_ns": {
+        "generator_lateness": 1606302,
+        "client_to_validated_frame_lower": 505561613,
+        "client_to_validated_frame_upper": 505645823,
+        "kernel_to_client_lower": 1814198,
+        "kernel_to_client_upper": 2020522,
+        "receive_audit": 3454353,
+        "fifo_accumulate": 72515386,
+        "input_queue": 417820547,
+        "matching_preprocessing": 64886,
+        "apply_audit": 2442955,
+        "before_response_audit": 53758,
+        "response_audit": 2415476,
+        "response_publish": 1220,
+        "response_queue": 3321340,
+        "gateway_format_encode": 21186,
+        "socket_pending": 231761,
+        "matching_service": 5045531
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46039441812187,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46039445266540,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46039517781926,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 38
+        },
+        "3": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46039935667359,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46039938110314,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46039938164072,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46039940579548,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46039940580768,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46039943902108,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46039943923294,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46039944155055,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46039935602473,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 76
+        },
+        "12": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46039940648004,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46039943948731,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:55:2",
+      "ticker": 3,
+      "kind": "CANCEL",
+      "scheduled_ns": 46038974644272,
+      "sent_ns": 46038977425824,
+      "completed_ns": 46039953445343,
+      "scheduled_to_response_ns": 978801071,
+      "pieces_ns": {
+        "generator_lateness": 2781552,
+        "client_to_validated_frame_lower": 467846676,
+        "client_to_validated_frame_upper": 467916696,
+        "kernel_to_client_lower": 466336,
+        "kernel_to_client_upper": 595927,
+        "receive_audit": 2941415,
+        "fifo_accumulate": 69620803,
+        "input_queue": 422818732,
+        "matching_preprocessing": 11008,
+        "apply_audit": 6323605,
+        "before_response_audit": 129306,
+        "response_audit": 5595197,
+        "response_publish": 1166,
+        "response_queue": 40236,
+        "gateway_format_encode": 76535,
+        "socket_pending": 148504,
+        "matching_service": 12102541
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46039445272500,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46039448213915,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46039517834718,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 39
+        },
+        "3": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46039940664458,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46039946988063,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46039947117369,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46039952712566,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46039952713732,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46039952753968,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46039952830503,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46039952979007,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46039940653450,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 75
+        },
+        "12": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46039952755991,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 3,
+          "order": 55,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46039952849416,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "83:57:1",
+      "ticker": 7,
+      "kind": "NEW",
+      "scheduled_ns": 46039104644272,
+      "sent_ns": 46039106093476,
+      "completed_ns": 46040074190624,
+      "scheduled_to_response_ns": 969546352,
+      "pieces_ns": {
+        "generator_lateness": 1449204,
+        "client_to_validated_frame_lower": 380672765,
+        "client_to_validated_frame_upper": 380809622,
+        "kernel_to_client_lower": 1336432,
+        "kernel_to_client_upper": 1372272,
+        "receive_audit": 2307596,
+        "fifo_accumulate": 28873179,
+        "input_queue": 541674074,
+        "matching_preprocessing": 11833,
+        "apply_audit": 4219307,
+        "before_response_audit": 35960,
+        "response_audit": 2576868,
+        "response_publish": 1083,
+        "response_queue": 6130764,
+        "gateway_format_encode": 69497,
+        "socket_pending": 187790,
+        "matching_service": 6963782
+      },
+      "stages": {
+        "0": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46039486766241,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46039489073837,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46039517947016,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 52
+        },
+        "3": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46040059632923,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46040063852230,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46040063888190,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46040066465058,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46040066466141,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 2
+        },
+        "8": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46040072596905,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46040072666402,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46040072854192,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46040059621090,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 74
+        },
+        "12": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46040066584872,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 83,
+          "ticker": 7,
+          "order": 57,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46040072818352,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "81:52:2",
+      "ticker": 3,
+      "kind": "CANCEL",
+      "scheduled_ns": 46038724644272,
+      "sent_ns": 46038729249859,
+      "completed_ns": 46039693324767,
+      "scheduled_to_response_ns": 968680495,
+      "pieces_ns": {
+        "generator_lateness": 4605587,
+        "client_to_validated_frame_lower": 538884810,
+        "client_to_validated_frame_upper": 538973761,
+        "kernel_to_client_lower": 178917,
+        "kernel_to_client_upper": 324950,
+        "receive_audit": 76095039,
+        "fifo_accumulate": 173356633,
+        "input_queue": 140290409,
+        "matching_preprocessing": 11624,
+        "apply_audit": 16073313,
+        "before_response_audit": 177784,
+        "response_audit": 18745694,
+        "response_publish": 1557,
+        "response_queue": 73507,
+        "gateway_format_encode": 30992,
+        "socket_pending": 154629,
+        "matching_service": 35043349
+      },
+      "stages": {
+        "0": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 0,
+          "time_ns": 46039268134669,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 1,
+          "time_ns": 46039344229708,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 2,
+          "time_ns": 46039517586341,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 15
+        },
+        "3": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 3,
+          "time_ns": 46039657888374,
+          "cpu": 3,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 4,
+          "time_ns": 46039673961687,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 5,
+          "time_ns": 46039674139471,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 6,
+          "time_ns": 46039692885165,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 7,
+          "time_ns": 46039692886722,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 8,
+          "time_ns": 46039692960229,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 9,
+          "time_ns": 46039692991221,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 10,
+          "time_ns": 46039693145850,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 11,
+          "time_ns": 46039657876750,
+          "cpu": 3,
+          "tid": 32465,
+          "queue_or_pending_bytes": 65
+        },
+        "12": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 12,
+          "time_ns": 46039692920099,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 81,
+          "ticker": 3,
+          "order": 52,
+          "kind": 2,
+          "stage": 13,
+          "time_ns": 46039692999817,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    },
+    {
+      "request_id": "82:56:1",
+      "ticker": 4,
+      "kind": "NEW",
+      "scheduled_ns": 46039014644272,
+      "sent_ns": 46039014932593,
+      "completed_ns": 46039960842507,
+      "scheduled_to_response_ns": 946198235,
+      "pieces_ns": {
+        "generator_lateness": 288321,
+        "client_to_validated_frame_lower": 433285476,
+        "client_to_validated_frame_upper": 433408415,
+        "kernel_to_client_lower": 90268,
+        "kernel_to_client_upper": 156736,
+        "receive_audit": 4913827,
+        "fifo_accumulate": 64717400,
+        "input_queue": 434912638,
+        "matching_preprocessing": 12033,
+        "apply_audit": 2536836,
+        "before_response_audit": 36056,
+        "response_audit": 2467297,
+        "response_publish": 1140,
+        "response_queue": 2839566,
+        "gateway_format_encode": 18762,
+        "socket_pending": 78615,
+        "matching_service": 5141948
+      },
+      "stages": {
+        "0": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 0,
+          "time_ns": 46039448218069,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "1": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 1,
+          "time_ns": 46039453131896,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "2": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 2,
+          "time_ns": 46039517849296,
+          "cpu": 0,
+          "tid": 32468,
+          "queue_or_pending_bytes": 40
+        },
+        "3": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 3,
+          "time_ns": 46039952773967,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "4": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 4,
+          "time_ns": 46039955310803,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "5": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 5,
+          "time_ns": 46039955346859,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "6": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 6,
+          "time_ns": 46039957814156,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "7": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 7,
+          "time_ns": 46039957815296,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 1
+        },
+        "8": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 8,
+          "time_ns": 46039960654862,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 1
+        },
+        "9": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 9,
+          "time_ns": 46039960673624,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 79
+        },
+        "10": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 10,
+          "time_ns": 46039960752239,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        },
+        "11": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 11,
+          "time_ns": 46039952761934,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 76
+        },
+        "12": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 12,
+          "time_ns": 46039957903882,
+          "cpu": 0,
+          "tid": 32465,
+          "queue_or_pending_bytes": 0
+        },
+        "13": {
+          "client": 82,
+          "ticker": 4,
+          "order": 56,
+          "kind": 1,
+          "stage": 13,
+          "time_ns": 46039960685771,
+          "cpu": 3,
+          "tid": 32468,
+          "queue_or_pending_bytes": 0
+        }
+      }
+    }
+  ],
+  "snapshot_events": [
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790967729254895259,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46034498894178,
+      "cpu": 2,
+      "tid": 32467,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790967729254895259,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46034563767773,
+      "cpu": 2,
+      "tid": 32467,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790967729254895260,
+      "kind": 0,
+      "stage": 14,
+      "time_ns": 46046242523113,
+      "cpu": 2,
+      "tid": 32467,
+      "queue_or_pending_bytes": 0
+    },
+    {
+      "client": 0,
+      "ticker": 0,
+      "order": 1790967729254895260,
+      "kind": 0,
+      "stage": 15,
+      "time_ns": 46046289434450,
+      "cpu": 2,
+      "tid": 32467,
+      "queue_or_pending_bytes": 0
+    }
+  ],
+  "thread_deltas_coarse_sampled": {
+    "32455": {
+      "samples": 159,
+      "user_tick_delta": 0,
+      "sys_tick_delta": 1,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 986,
+      "nonvoluntary_context_switch_delta": 7,
+      "cpu_run_ns_delta": 24803527,
+      "runqueue_wait_ns_delta": 107649463,
+      "observed_cpu_changes": 5
+    },
+    "32458": {
+      "samples": 159,
+      "user_tick_delta": 4,
+      "sys_tick_delta": 11,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7454,
+      "nonvoluntary_context_switch_delta": 9,
+      "cpu_run_ns_delta": 159706157,
+      "runqueue_wait_ns_delta": 888228799,
+      "observed_cpu_changes": 18
+    },
+    "32459": {
+      "samples": 159,
+      "user_tick_delta": 3,
+      "sys_tick_delta": 30,
+      "minor_fault_delta": 1,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7565,
+      "nonvoluntary_context_switch_delta": 103,
+      "cpu_run_ns_delta": 334073332,
+      "runqueue_wait_ns_delta": 909956690,
+      "observed_cpu_changes": 17
+    },
+    "32462": {
+      "samples": 159,
+      "user_tick_delta": 3,
+      "sys_tick_delta": 18,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7681,
+      "nonvoluntary_context_switch_delta": 47,
+      "cpu_run_ns_delta": 211600778,
+      "runqueue_wait_ns_delta": 772435635,
+      "observed_cpu_changes": 16
+    },
+    "32463": {
+      "samples": 159,
+      "user_tick_delta": 4,
+      "sys_tick_delta": 17,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7554,
+      "nonvoluntary_context_switch_delta": 51,
+      "cpu_run_ns_delta": 215446521,
+      "runqueue_wait_ns_delta": 891266354,
+      "observed_cpu_changes": 19
+    },
+    "32464": {
+      "samples": 159,
+      "user_tick_delta": 9,
+      "sys_tick_delta": 50,
+      "minor_fault_delta": 0,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 7366,
+      "nonvoluntary_context_switch_delta": 348,
+      "cpu_run_ns_delta": 588113629,
+      "runqueue_wait_ns_delta": 923115874,
+      "observed_cpu_changes": 28
+    },
+    "32465": {
+      "samples": 159,
+      "user_tick_delta": 118,
+      "sys_tick_delta": 105,
+      "minor_fault_delta": 296,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 5005,
+      "nonvoluntary_context_switch_delta": 1170,
+      "cpu_run_ns_delta": 2228542929,
+      "runqueue_wait_ns_delta": 497418178,
+      "observed_cpu_changes": 34
+    },
+    "32466": {
+      "samples": 159,
+      "user_tick_delta": 399,
+      "sys_tick_delta": 620,
+      "minor_fault_delta": 119,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 28,
+      "nonvoluntary_context_switch_delta": 665,
+      "cpu_run_ns_delta": 10195571465,
+      "runqueue_wait_ns_delta": 24862764,
+      "observed_cpu_changes": 0
+    },
+    "32467": {
+      "samples": 159,
+      "user_tick_delta": 1020,
+      "sys_tick_delta": 1,
+      "minor_fault_delta": 62,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 2,
+      "nonvoluntary_context_switch_delta": 894,
+      "cpu_run_ns_delta": 10204209737,
+      "runqueue_wait_ns_delta": 19243448,
+      "observed_cpu_changes": 0
+    },
+    "32468": {
+      "samples": 159,
+      "user_tick_delta": 214,
+      "sys_tick_delta": 178,
+      "minor_fault_delta": 125,
+      "major_fault_delta": 0,
+      "voluntary_context_switch_delta": 3553,
+      "nonvoluntary_context_switch_delta": 1306,
+      "cpu_run_ns_delta": 3907667826,
+      "runqueue_wait_ns_delta": 209878739,
+      "observed_cpu_changes": 28
+    }
+  },
+  "blocked_wchan_sample_counts": {
+    "hrtimer_nanosleep": 760,
+    "0": 123,
+    "folio_wait_bit_common": 14,
+    "futex_do_wait": 74,
+    "jbd2_log_wait_commit": 83,
+    "do_get_write_access": 15
+  },
+  "clock_contract": "CLOCK_MONOTONIC/steady/Python perf_counter checked separately; no wall-clock subtraction",
+  "publish_boundary": "timestamp just before successful queue publish attempt; includes slot copy/index publication bias",
+  "matching_service": "first matching peek -> processing returns; may overlap ACK pipeline; never add it to response stages",
+  "kernel_acceptance_uncertainty": "send entry/return bracket internal kernel acceptance. Peer can observe before sender returns; signed overlaps retained and network intervals reported as lower/upper bounds"
+}

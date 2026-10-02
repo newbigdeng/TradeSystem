@@ -1,0 +1,6 @@
+{
+  "v1_issue": "empty clock throughput reused event-enabled driver duration; v1 per-call CSV durations still valid; throughput field deprecated",
+  "v2_repair": "measure empty loop duration independently, before enabled event loop; no clock-cost subtraction",
+  "retention": "v1 and v2 both retained",
+  "source_change": "auxiliary measurement only, no effect on primary network samples"
+}

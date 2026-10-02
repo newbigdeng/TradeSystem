@@ -1,0 +1,23 @@
+[
+  {
+    "profile": "profile_stage_off",
+    "slow_request": "81:111:2",
+    "checked_cycles": 2,
+    "overlapping_cycles": [],
+    "test": "start < request_end AND end > request_start"
+  },
+  {
+    "profile": "profile_stage_full",
+    "slow_request": "82:52:2",
+    "checked_cycles": 2,
+    "overlapping_cycles": [],
+    "test": "start < request_end AND end > request_start"
+  },
+  {
+    "profile": "profile_snapshot_burst",
+    "slow_request": "81:45:1",
+    "checked_cycles": 13,
+    "overlapping_cycles": [],
+    "test": "start < request_end AND end > request_start"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "registered_wall_ns": 1790965486865182090,
+  "baseline_commit": "3ac3c20e4171dccd0802294fea30179688d53da3",
+  "primary": "c4 t8 100 req/s 60 second offered window; 30 second same rate warmup; 6000 measured requests; 5 paired repeats",
+  "correctness": "exact canonical ACK association; audit reconciliation; empty final book; final queues zero; dropped diagnostic logs reported",
+  "modes": [
+    "original full trace",
+    "new compile-time 1/64 performance trace",
+    "new compile-time performance trace disabled"
+  ],
+  "order": "cycle forward/reverse and rotate mode order; no outlier removal; original baseline binary frozen",
+  "primary_budget": "every measured run correct; P99 scheduled->ACK <=20ms; >=98% ACK observed inside 60s offered window",
+  "quantile": "nearest rank; median and range of per-run values; paired relative deltas separately",
+  "component_controls": "A queue capacities, B operation-stratified books, D 0/1000/10000 live snapshot frames, E paused-reader socket backpressure; component scopes declared",
+  "profile": "separate short trace runs; no trace values mixed with formal P99; perf capability failure retained",
+  "code_publication": "reports and JSON/CSV evidence only; CMake/header/scripts/cpp changes remain uncommitted",
+  "no_policy_change": "no kernel sysctl changes; fsync audit retained; no physical network latency claim"
+}

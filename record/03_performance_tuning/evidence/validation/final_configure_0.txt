@@ -1,0 +1,4 @@
+cmake -S /home/zjh/XiangMu/TradeSystem-rebuild -B /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0 -G Ninja -DCMAKE_BUILD_TYPE=Release -DTRADE_PERF_TRACE_EVERY=0
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0

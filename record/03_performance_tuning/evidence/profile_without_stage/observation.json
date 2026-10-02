@@ -1,0 +1,21 @@
+{
+  "sampler_cpu": 5,
+  "sampling_interval_ms": 50,
+  "trace_fsync": false,
+  "perturbed_diagnostic_only": true,
+  "command": [
+    "/home/zjh/trade-measurements/03/profile_driver.py",
+    "--binary",
+    "/home/zjh/XiangMu/TradeSystem-rebuild/build/tuning-trace-0/exchange_main",
+    "--output",
+    "/home/zjh/trade-measurements/03/profile_without_stage",
+    "--requests",
+    "1000"
+  ],
+  "python_clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  }
+}

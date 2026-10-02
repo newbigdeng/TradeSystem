@@ -1,0 +1,296 @@
+{
+  "config": {
+    "mode": "open",
+    "clients": 4,
+    "tickers": 8,
+    "rate": 100,
+    "requests": 200,
+    "seed": 20260928,
+    "timeout_s": 60,
+    "warm_requests": 200,
+    "warm_mode": "open",
+    "warm_rate": 100,
+    "snapshot_ms": 60000
+  },
+  "start_wall_ns": 1790966076549638120,
+  "server_cpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "generator_cpus": [
+    4
+  ],
+  "binary_sha256": "3501ac076d0791c239b8cea925edecc66be0388a4b9b203824caa21f8fab89e1",
+  "input_sha256": "f483fcb9ad99302bc920e747d184801b356f70b4e521ede7e2504b03feee1591",
+  "events_sha256": "b0350f7c30970e65ec191a4e2628f85b3cc26dbac31f223a35101a9bf5f1c32a",
+  "warmup": {
+    "observed_end_ns": 44386851699590,
+    "last_full_frame_sent_ns": 44386802618159,
+    "generated": 200,
+    "sent": 200,
+    "completed": 200,
+    "unsent": 0,
+    "timeout": 0,
+    "partial_writes": 0,
+    "send_would_block": 0,
+    "unfinished_partial_frames": 0,
+    "sent_bytes": 10000,
+    "received_bytes": 15800,
+    "observation_timeout_s": 30,
+    "injected_generator_pause_ms": 0,
+    "unique_response_ids": 200
+  },
+  "counts": {
+    "observed_end_ns": 44389124504385,
+    "last_full_frame_sent_ns": 44388867046021,
+    "generated": 200,
+    "sent": 200,
+    "completed": 200,
+    "unsent": 0,
+    "timeout": 0,
+    "partial_writes": 0,
+    "send_would_block": 0,
+    "unfinished_partial_frames": 0,
+    "sent_bytes": 10000,
+    "received_bytes": 15800,
+    "observation_timeout_s": 60,
+    "injected_generator_pause_ms": 0,
+    "unique_response_ids": 200
+  },
+  "statistics": {
+    "window_start_ns": 44386875751570,
+    "window_end_ns": 44388875751570,
+    "window_seconds": 2.0,
+    "total_rows": 200,
+    "cohort": {
+      "ACCEPTED": 100,
+      "CANCELED": 100,
+      "REJECTED": 0,
+      "TIMEOUT": 0,
+      "UNSENT": 0
+    },
+    "conservation_ok": true,
+    "window_counts": {
+      "offered": 200,
+      "sent": 200,
+      "completed": 161,
+      "accepted": 81,
+      "canceled": 80,
+      "rejected": 0
+    },
+    "window_rates_per_s": {
+      "offered": 100.0,
+      "sent": 100.0,
+      "completed": 80.5,
+      "accepted": 40.5,
+      "canceled": 40.0,
+      "rejected": 0.0
+    },
+    "send_lateness": {
+      "n": 200,
+      "p50_ns": 1049218,
+      "p95_ns": 2022655,
+      "p99_ns": 2420933,
+      "max_ns": 2887967,
+      "mean_ns": 1046740.14
+    },
+    "actual_send_to_response": {
+      "n": 200,
+      "p50_ns": 226900162,
+      "p95_ns": 414184613,
+      "p99_ns": 446565265,
+      "max_ns": 483565785,
+      "mean_ns": 213466102.255
+    },
+    "scheduled_to_response": {
+      "n": 200,
+      "p50_ns": 227593151,
+      "p95_ns": 415572798,
+      "p99_ns": 447124154,
+      "max_ns": 485035913,
+      "mean_ns": 214512842.395
+    },
+    "scheduled_to_response_by_kind": {
+      "NEW": {
+        "n": 100,
+        "p50_ns": 227415061,
+        "p95_ns": 419184512,
+        "p99_ns": 447124154,
+        "max_ns": 455556735,
+        "mean_ns": 215444856.89
+      },
+      "CANCEL": {
+        "n": 100,
+        "p50_ns": 227593151,
+        "p95_ns": 407214422,
+        "p99_ns": 437241954,
+        "max_ns": 485035913,
+        "mean_ns": 213580827.9
+      }
+    },
+    "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+    "latency_scope": "completed responses only",
+    "all_offered_p99_ns": 447124154,
+    "all_offered_p99_status": "observed"
+  },
+  "system_before": {
+    "cpu_ticks": [
+      445890,
+      36891,
+      151335,
+      34703579,
+      15330,
+      0,
+      18322,
+      0,
+      0,
+      0
+    ],
+    "udp_system_counters": {
+      "InDatagrams": 1462,
+      "NoPorts": 40,
+      "InErrors": 0,
+      "OutDatagrams": 11503,
+      "RcvbufErrors": 0,
+      "SndbufErrors": 0,
+      "InCsumErrors": 0,
+      "IgnoredMulti": 1300,
+      "MemErrors": 0
+    },
+    "loadavg": "1.45 1.76 1.16 6/921 29803"
+  },
+  "system_after": {
+    "cpu_ticks": [
+      446258,
+      36923,
+      151610,
+      34704496,
+      15451,
+      0,
+      18444,
+      0,
+      0,
+      0
+    ],
+    "udp_system_counters": {
+      "InDatagrams": 1462,
+      "NoPorts": 40,
+      "InErrors": 0,
+      "OutDatagrams": 11703,
+      "RcvbufErrors": 0,
+      "SndbufErrors": 0,
+      "InCsumErrors": 0,
+      "IgnoredMulti": 1300,
+      "MemErrors": 0
+    },
+    "loadavg": "1.45 1.76 1.16 10/925 29807"
+  },
+  "process_before": {
+    "cpu_ticks": 1033,
+    "VmSize": "1551600 kB",
+    "VmHWM": "951952 kB",
+    "VmRSS": "951952 kB"
+  },
+  "process_after": {
+    "cpu_ticks": 1609,
+    "VmSize": "1551600 kB",
+    "VmHWM": "952372 kB",
+    "VmRSS": "952372 kB"
+  },
+  "clock_ticks_per_s": 100,
+  "inflight_at_window_end": 39,
+  "generator_scheduled_not_sent_at_window_end": 0,
+  "measurement_and_drain_seconds": 2.248752815,
+  "cpu_sample_start_ns": 44386853806513,
+  "cpu_sample_end_ns": 44389125100450,
+  "cpu_sample_seconds": 2.271293937,
+  "process_cpu_seconds_sampled": 5.76,
+  "process_cpu_percent_sampled": 253.59993729424554,
+  "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+  "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+  "exit_code": 0,
+  "reconciliation": {
+    "journal": "/home/zjh/trade-measurements/03/smoke_trace_64/0_r100/exchange_orders.journal",
+    "counts": {
+      "RECEIVED": 400,
+      "APPLY": 400,
+      "RESPONSE": 400
+    },
+    "distinct_response_ids": 400,
+    "received_count": 400,
+    "applied_count": 400,
+    "client_received_requests": {
+      "80": 100,
+      "81": 100,
+      "82": 100,
+      "83": 100
+    },
+    "client_matching_responses": {
+      "80": 100,
+      "81": 100,
+      "82": 100,
+      "83": 100
+    },
+    "unapplied_requests": [],
+    "live_orders": [],
+    "positions": {
+      "80:0": 0,
+      "80:1": 0,
+      "80:2": 0,
+      "80:3": 0,
+      "80:4": 0,
+      "80:5": 0,
+      "80:6": 0,
+      "80:7": 0,
+      "81:0": 0,
+      "81:1": 0,
+      "81:2": 0,
+      "81:3": 0,
+      "81:4": 0,
+      "81:5": 0,
+      "81:6": 0,
+      "81:7": 0,
+      "82:0": 0,
+      "82:1": 0,
+      "82:2": 0,
+      "82:3": 0,
+      "82:4": 0,
+      "82:5": 0,
+      "82:6": 0,
+      "82:7": 0,
+      "83:0": 0,
+      "83:1": 0,
+      "83:2": 0,
+      "83:3": 0,
+      "83:4": 0,
+      "83:5": 0,
+      "83:6": 0,
+      "83:7": 0
+    },
+    "volume": {},
+    "checkpoints": [],
+    "errors": [],
+    "consistent": true
+  },
+  "journal_sha256": "f9725c5ee87689a366f2e8f615b3c22d886ac4a7a3d8c0f0a7cc0732ac0cac63",
+  "queue_final_and_highwater": [
+    0,
+    0,
+    0,
+    40,
+    17,
+    1,
+    1201
+  ],
+  "log_dropped_records": {
+    "exchange_order_server.log": 0,
+    "exchange_main.log": 0,
+    "exchange_market_data_publisher.log": 0,
+    "exchange_matching_engine.log": 0,
+    "exchange_snapshot_synthesizer.log": 0
+  },
+  "correctness_ok": true,
+  "end_wall_ns": 1790966084467772126
+}

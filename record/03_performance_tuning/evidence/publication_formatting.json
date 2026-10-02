@@ -1,0 +1,26 @@
+{
+  "numerical_JSON_data_unchanged": true,
+  "raw_sources_preserved": true,
+  "changes": {
+    "diagnostic_snapshot_overlap.json": {
+      "before_sha256": "832f1e1180b104d967cb152a831ab7d821008e7564d9c7a3b38575efebd0babc",
+      "after_sha256": "65d9b7c033a17756f79fbfd7e5ef4fc45ee5cdef065cb23fb14131e97f2125c9",
+      "change": "line endings and trailing formatting whitespace only"
+    },
+    "figures/slow_request.svg": {
+      "before_sha256": "16cb85f9c2352fdd4a8e08a3e95cc0f44a5a4afe2b2ada225fdf054b67760a6c",
+      "after_sha256": "cad39adf9cbd8384f6f2b5cec00695eeb0acde0e9966c733cbf586b5954b4bf6",
+      "change": "line endings and trailing formatting whitespace only"
+    },
+    "figures/paired_p99.svg": {
+      "before_sha256": "d5f83e64458792ae16aaa720c6a416a66b985d74d8813c34b90b70f61dd838a7",
+      "after_sha256": "fabdb9c6e29713e84422a68ca051a18116500f2fab7be643924a1bd78ae187ac",
+      "change": "line endings and trailing formatting whitespace only"
+    },
+    "figures/snapshot_timeline.svg": {
+      "before_sha256": "1f9d13edb40fafd1aff9de66ee67fe9fc62c7d79569942ccae1d0f5bcda2446e",
+      "after_sha256": "5bbefa5288eff8320c092b3c9fd560ae1251b3194d47895b1e5243a9ce95320f",
+      "change": "line endings and trailing formatting whitespace only"
+    }
+  }
+}

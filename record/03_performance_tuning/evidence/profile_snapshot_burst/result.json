@@ -1,0 +1,293 @@
+{
+  "config": {
+    "mode": "open",
+    "clients": 4,
+    "tickers": 8,
+    "rate": 100,
+    "requests": 1000,
+    "seed": 20260928,
+    "timeout_s": 60,
+    "snapshot_ms": 1000
+  },
+  "start_wall_ns": 1790968415601681118,
+  "server_cpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "generator_cpus": [
+    4
+  ],
+  "binary_sha256": "b48ebbca8adf9c32b817a7329101c842d80f561f5f4aa79471c9dce53ae2edc1",
+  "input_sha256": "a958605eb41921d02c2ac201967ebdf48e2e5535b6a6ef410091b87ce89d42dd",
+  "events_sha256": "75bf339782d9742268058b8cb9c9a8f6e359c7f71663912d7bc1801cdd164ac2",
+  "warmup": {
+    "observed_end_ns": 46724173085239,
+    "last_full_frame_sent_ns": 46724165592200,
+    "generated": 128,
+    "sent": 128,
+    "completed": 128,
+    "unsent": 0,
+    "timeout": 0,
+    "partial_writes": 0,
+    "send_would_block": 0,
+    "unfinished_partial_frames": 0,
+    "sent_bytes": 6400,
+    "received_bytes": 10112,
+    "observation_timeout_s": 30,
+    "injected_generator_pause_ms": 0,
+    "unique_response_ids": 128
+  },
+  "counts": {
+    "observed_end_ns": 46734201124078,
+    "last_full_frame_sent_ns": 46734193744661,
+    "generated": 1000,
+    "sent": 1000,
+    "completed": 1000,
+    "unsent": 0,
+    "timeout": 0,
+    "partial_writes": 0,
+    "send_would_block": 0,
+    "unfinished_partial_frames": 0,
+    "sent_bytes": 50000,
+    "received_bytes": 79000,
+    "observation_timeout_s": 60,
+    "injected_generator_pause_ms": 0,
+    "unique_response_ids": 1000
+  },
+  "statistics": {
+    "window_start_ns": 46724203047315,
+    "window_end_ns": 46734203047315,
+    "window_seconds": 10.0,
+    "total_rows": 1000,
+    "cohort": {
+      "ACCEPTED": 500,
+      "CANCELED": 500,
+      "REJECTED": 0,
+      "TIMEOUT": 0,
+      "UNSENT": 0
+    },
+    "conservation_ok": true,
+    "window_counts": {
+      "offered": 1000,
+      "sent": 1000,
+      "completed": 1000,
+      "accepted": 500,
+      "canceled": 500,
+      "rejected": 0
+    },
+    "window_rates_per_s": {
+      "offered": 100.0,
+      "sent": 100.0,
+      "completed": 100.0,
+      "accepted": 50.0,
+      "canceled": 50.0,
+      "rejected": 0.0
+    },
+    "send_lateness": {
+      "n": 1000,
+      "p50_ns": 903045,
+      "p95_ns": 1978807,
+      "p99_ns": 2897018,
+      "max_ns": 7570763,
+      "mean_ns": 978862.824
+    },
+    "actual_send_to_response": {
+      "n": 1000,
+      "p50_ns": 9175995,
+      "p95_ns": 54998906,
+      "p99_ns": 86389759,
+      "max_ns": 100082527,
+      "mean_ns": 17302685.773
+    },
+    "scheduled_to_response": {
+      "n": 1000,
+      "p50_ns": 10098519,
+      "p95_ns": 56405190,
+      "p99_ns": 87679686,
+      "max_ns": 100737639,
+      "mean_ns": 18281548.597
+    },
+    "scheduled_to_response_by_kind": {
+      "NEW": {
+        "n": 500,
+        "p50_ns": 10098519,
+        "p95_ns": 57300697,
+        "p99_ns": 94194563,
+        "max_ns": 100737639,
+        "mean_ns": 18607872.764
+      },
+      "CANCEL": {
+        "n": 500,
+        "p50_ns": 10075395,
+        "p95_ns": 55113643,
+        "p99_ns": 71759345,
+        "max_ns": 87922147,
+        "mean_ns": 17955224.43
+      }
+    },
+    "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+    "latency_scope": "completed responses only",
+    "all_offered_p99_ns": 87679686,
+    "all_offered_p99_status": "observed"
+  },
+  "system_before": {
+    "cpu_ticks": [
+      852624,
+      65945,
+      424352,
+      35686812,
+      96976,
+      0,
+      124251,
+      0,
+      0,
+      0
+    ],
+    "udp_system_counters": {
+      "InDatagrams": 332398,
+      "NoPorts": 40,
+      "InErrors": 0,
+      "OutDatagrams": 522969,
+      "RcvbufErrors": 0,
+      "SndbufErrors": 0,
+      "InCsumErrors": 0,
+      "IgnoredMulti": 1380,
+      "MemErrors": 0
+    },
+    "loadavg": "2.26 3.95 4.26 7/926 33714"
+  },
+  "system_after": {
+    "cpu_ticks": [
+      854803,
+      66010,
+      425834,
+      35690230,
+      97382,
+      0,
+      124786,
+      0,
+      0,
+      0
+    ],
+    "udp_system_counters": {
+      "InDatagrams": 332398,
+      "NoPorts": 40,
+      "InErrors": 0,
+      "OutDatagrams": 524085,
+      "RcvbufErrors": 0,
+      "SndbufErrors": 0,
+      "InCsumErrors": 0,
+      "IgnoredMulti": 1380,
+      "MemErrors": 0
+    },
+    "loadavg": "2.90 4.03 4.28 7/921 33724"
+  },
+  "process_before": {
+    "cpu_ticks": 669,
+    "VmSize": "1570040 kB",
+    "VmHWM": "970028 kB",
+    "VmRSS": "970028 kB"
+  },
+  "process_after": {
+    "cpu_ticks": 3886,
+    "VmSize": "1570040 kB",
+    "VmHWM": "971976 kB",
+    "VmRSS": "971976 kB"
+  },
+  "clock_ticks_per_s": 100,
+  "inflight_at_window_end": 0,
+  "generator_scheduled_not_sent_at_window_end": 0,
+  "measurement_and_drain_seconds": 9.998076763,
+  "cpu_sample_start_ns": 46724179488713,
+  "cpu_sample_end_ns": 46734202243036,
+  "cpu_sample_seconds": 10.022754323,
+  "process_cpu_seconds_sampled": 32.17,
+  "process_cpu_percent_sampled": 320.9696552790582,
+  "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+  "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+  "exit_code": 0,
+  "reconciliation": {
+    "journal": "/home/zjh/trade-measurements/03/profile_snapshot_burst/exchange_orders.journal",
+    "counts": {
+      "RECEIVED": 1128,
+      "APPLY": 1128,
+      "RESPONSE": 1128
+    },
+    "distinct_response_ids": 1128,
+    "received_count": 1128,
+    "applied_count": 1128,
+    "client_received_requests": {
+      "80": 282,
+      "81": 282,
+      "82": 282,
+      "83": 282
+    },
+    "client_matching_responses": {
+      "80": 282,
+      "81": 282,
+      "82": 282,
+      "83": 282
+    },
+    "unapplied_requests": [],
+    "live_orders": [],
+    "positions": {
+      "80:0": 0,
+      "80:1": 0,
+      "80:2": 0,
+      "80:3": 0,
+      "80:4": 0,
+      "80:5": 0,
+      "80:6": 0,
+      "80:7": 0,
+      "81:0": 0,
+      "81:1": 0,
+      "81:2": 0,
+      "81:3": 0,
+      "81:4": 0,
+      "81:5": 0,
+      "81:6": 0,
+      "81:7": 0,
+      "82:0": 0,
+      "82:1": 0,
+      "82:2": 0,
+      "82:3": 0,
+      "82:4": 0,
+      "82:5": 0,
+      "82:6": 0,
+      "82:7": 0,
+      "83:0": 0,
+      "83:1": 0,
+      "83:2": 0,
+      "83:3": 0,
+      "83:4": 0,
+      "83:5": 0,
+      "83:6": 0,
+      "83:7": 0
+    },
+    "volume": {},
+    "checkpoints": [],
+    "errors": [],
+    "consistent": true
+  },
+  "journal_sha256": "f58933011783bf1442d055a72a6998a376d6d457ef986e79dcd968a05ae7170c",
+  "queue_final_and_highwater": [
+    0,
+    0,
+    0,
+    6,
+    5,
+    1,
+    3385
+  ],
+  "log_dropped_records": {
+    "exchange_order_server.log": 0,
+    "exchange_main.log": 0,
+    "exchange_market_data_publisher.log": 0,
+    "exchange_matching_engine.log": 0,
+    "exchange_snapshot_synthesizer.log": 0
+  },
+  "correctness_ok": true,
+  "end_wall_ns": 1790968429657517435
+}
