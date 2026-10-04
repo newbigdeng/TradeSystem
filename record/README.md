@@ -1,16 +1,17 @@
 # 修复与优化记录
 
-每项工作使用一个 `编号_工作` 目录。报告、用于复现问题的测试、性能测量脚本及结果放在同一目录，编号不包含日期。
+先读主报告：问题是什么、为什么、怎么改、测试结果如何。需要具体代码时再打开“源码对照”，点击对应问题展开。
 
-| 编号 | 工作 | 报告 |
+| 编号 | 主报告 | 源码细节 |
 |---|---|---|
-| 00 | 组播接口选择 | [00_multicast_interface](00_multicast_interface/00_multicast_interface.md) |
-| 01 | 可靠性改造与逐项性能测量 | [01_reliability](01_reliability/01_reliability.md) |
-| 02 | 可复现测量与基准口径修正 | [02_reproducible_measurement](02_reproducible_measurement/02_reproducible_measurement.md) |
-| 03 | 性能调优与吞吐、尾延迟定位 | [03_performance_tuning](03_performance_tuning/03_performance_tuning.md) |
+| 00 | [组播接口](00_multicast_interface/00_multicast_interface.md) | [修改前后](00_multicast_interface/00_source_changes.md) |
+| 01 | [可靠性改造](01_reliability/01_reliability.md) | [修改前后](01_reliability/01_source_changes.md) |
+| 02 | [测量口径](02_reproducible_measurement/02_reproducible_measurement.md) | [修改前后](02_reproducible_measurement/02_source_changes.md) |
+| 03 | [性能调优](03_performance_tuning/03_performance_tuning.md) | [修改前后](03_performance_tuning/03_source_changes.md) |
+| 04 | [源码修复核对](04_source_repairs/04_source_repairs.md) | 汇总已有修复，补充验收 |
 
-报告按“测试发现问题 → 寻找问题 → 解决问题 → 重新测试”展开。每项改造先保留性能基准，修改后验证业务结果，再用相同有效输入重新测量。原始失败记录不删除；耗时增加也要记录。
+每项工作放在 `编号_工作` 目录，文件名不加日期。报告、回归工具和紧凑结果放在同一目录；日期、版本和验证范围写在正文。
 
-`*.journal` 是运行时审计或账户文件，留在本机，不提交到账户源码仓库。构建目录和普通日志也不提交。目录内的 JSON、CSV 和图表是可审查的测试摘要与测量证据。03 本次先提交报告与证据，候选代码及辅助实验源代码暂留工作区，不随报告提交。
+修改生产实现时，先保存基准，每次只改一项，验证正确性后再用相同条件复测。慢轮、失败与性能成本均保留；不把业务通过写成所有性能门槛通过。
 
-源码修改的记录同时包含代码位置与版本、修改前片段、问题原因、修改后片段及对应验证。新增功能标为新增实现；性能候选与正确性修复分别说明。2026-10-03 已补齐 00–03 的关键源码对照，未保存的旧辅助源码明确说明缺失，不重建成历史代码。
+JSON、CSV 和图表保留原始结论。运行日志、审计文件、大样本及构建留在独立资料目录。03 候选实现和实验源码尚未提交，公开报告对应已登记的冻结测量版本。

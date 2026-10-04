@@ -1,0 +1,7 @@
+ownership expected=111 forwarded=111 producer_next=222
+fill 1 position=10 realized=0
+fill 2 position=6 realized=40
+fill 3 position=-2 realized=-20
+position heap+stack+8tickers initialized; short_cost=180
+book first ADD -> same price -> last CANCEL -> CLEAR x2 -> rebuild PASS
+PASS review checks
