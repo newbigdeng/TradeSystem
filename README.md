@@ -125,6 +125,8 @@ python3 record/02_reproducible_measurement/run_measurements.py \
 
 正式测量要求源码已提交、Release 构建且结果目录不存在。默认预热一次、独立测量五次，保留每轮的吞吐、P50/P95/P99、最大值、请求完整性和资源记录。测量使用独立负载生成器；具体边界、环境和结果见 [02 测量报告](record/02_reproducible_measurement/02_reproducible_measurement.md)。
 
+2026-10-06 新增[perf重新测量报告](record/05_perf_remeasurement/README.md)：实际采集软件事件与调用栈，完成队列索引/布局/批量对照和独立容量验收。保留逐记录fsync的loopback NEW/CANCEL场景下，50请求/秒通过五个64秒窗口（P99中位15.649 ms）及追加304秒观察（P99 18.156 ms）；100请求/秒未通过独立容量验收。该档位不是生产最大容量，组件收益不等于业务收益。05采用固定提交加归档冻结补丁复现，公开报告与数值汇总，默认实现不随实验结果自动切换。
+
 ## 来源与许可 / Attribution
 
 项目的初始代码来源于 Packt Publishing《[Building Low Latency Applications with C++](https://github.com/PacktPublishing/Building-Low-Latency-Applications-with-CPP)》。本仓库在其基础上进行改造，遵循 [MIT License](LICENSE)，保留原版权声明；后续改动与验证记录见 `record/`。

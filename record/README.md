@@ -9,9 +9,12 @@
 | 02 | [测量口径](02_reproducible_measurement/02_reproducible_measurement.md) | [修改前后](02_reproducible_measurement/02_source_changes.md) |
 | 03 | [性能调优](03_performance_tuning/03_performance_tuning.md) | [修改前后](03_performance_tuning/03_source_changes.md) |
 | 04 | [源码修复核对](04_source_repairs/04_source_repairs.md) | 汇总已有修复，补充验收 |
+| 05 | [perf重新测量](05_perf_remeasurement/README.md) | 真实perf、队列单因素、批处理与容量验收 |
 
 每项工作放在 `编号_工作` 目录，文件名不加日期。报告、回归工具和紧凑结果放在同一目录；日期、版本和验证范围写在正文。
 
 修改生产实现时，先保存基准，每次只改一项，验证正确性后再用相同条件复测。慢轮、失败与性能成本均保留；不把业务通过写成所有性能门槛通过。
 
 JSON、CSV 和图表保留原始结论。运行日志、审计文件、大样本及构建留在独立资料目录。03 候选实现和实验源码尚未提交，公开报告对应已登记的冻结测量版本。
+
+2026-10-06 的05重新测量公开报告、数值汇总和图表；既有候选补丁、实验源码、原始perf与逐请求数据保留在测量归档，可按固定提交复现。默认交易实现未切换为实验候选。
