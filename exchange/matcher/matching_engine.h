@@ -113,7 +113,7 @@ namespace Exchange {
 
   private:
     /// Hash map container from TickerId -> MEOrderBook.
-    OrderBookHashMap ticker_order_book_;
+    OrderBookHashMap ticker_order_book_;//品种ID作为下标，品种对应的订单簿作为值
 
     /// Lock free queues.
     /// One to consume incoming client requests sent by the order server.

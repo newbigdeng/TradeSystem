@@ -28,7 +28,7 @@ namespace Exchange {
   }
 
   /// Process an incremental market update and update the limit order book snapshot.
-  auto SnapshotSynthesizer::addToSnapshot(const MDPMarketUpdate *market_update) {
+  void SnapshotSynthesizer::addToSnapshot(const MDPMarketUpdate *market_update) {
     const auto &me_market_update = market_update->me_market_update_;
     ASSERT(me_market_update.ticker_id_<ME_MAX_TICKERS,"invalid ticker in snapshot input");
     if(me_market_update.type_==MarketUpdateType::ADD || me_market_update.type_==MarketUpdateType::MODIFY || me_market_update.type_==MarketUpdateType::CANCEL)ASSERT(me_market_update.order_id_>0 && me_market_update.order_id_<ME_MAX_ORDER_IDS,"invalid market order ID");
@@ -75,7 +75,7 @@ namespace Exchange {
   }
 
   /// Publish a full snapshot cycle on the snapshot multicast stream.
-  auto SnapshotSynthesizer::publishSnapshot() {
+  void SnapshotSynthesizer::publishSnapshot() {
     std::vector<MEMarketUpdate> live;
     for(const auto& orders:ticker_orders_)for(const auto* order:orders)if(order)live.push_back(*order);
     const auto hash=Common::bookHash(live);const auto cycle=++snapshot_cycle_;uint64_t sequence=0;

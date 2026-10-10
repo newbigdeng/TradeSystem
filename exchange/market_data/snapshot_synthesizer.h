@@ -27,10 +27,10 @@ namespace Exchange {
     auto stop() -> void;
 
     /// Process an incremental market update and update the limit order book snapshot.
-    auto addToSnapshot(const MDPMarketUpdate *market_update);
+    void addToSnapshot(const MDPMarketUpdate *market_update);
 
     /// Publish a full snapshot cycle on the snapshot multicast stream.
-    auto publishSnapshot();
+    void publishSnapshot();
 
     /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
     auto run() -> void;
