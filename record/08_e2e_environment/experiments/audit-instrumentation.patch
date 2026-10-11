@@ -1,0 +1,60 @@
+--- a/common/critical_journal.h
++++ b/common/critical_journal.h
+@@ -1,5 +1,9 @@
+ #pragma once
+ #include <cerrno>
++#include <array>
++#include <vector>
++#include <cstdio>
++#include <ctime>
+ #include <fcntl.h>
+ #include <mutex>
+ #include <sstream>
+@@ -13,6 +17,7 @@
+ class CriticalJournal {
+  public:
+   explicit CriticalJournal(const std::string& path) {
++    trace_.reserve(8192);
+     fd_=::open(path.c_str(),O_WRONLY|O_CREAT|O_EXCL|O_CLOEXEC,0600);
+     ASSERT(fd_>=0,"existing/unavailable order journal: reconcile or explicitly archive the previous simulation before restarting: "+path);
+     append("TS_AUDIT_V1");
+@@ -21,15 +26,27 @@
+     ASSERT(parent>=0,"cannot open journal parent directory");
+     ASSERT(::fsync(parent)==0,"cannot persist journal directory entry");::close(parent);
+   }
+-  ~CriticalJournal(){if(fd_>=0)::close(fd_);}
++  ~CriticalJournal(){
++    if(auto* out=std::fopen("audit_trace.csv","w")) {
++      std::fprintf(out,"start,locked,written,synced,cpu_start,cpu_end,text\n");
++      for(const auto& t:trace_) std::fprintf(out,"%lld,%lld,%lld,%lld,%lld,%lld,%s\n",t.start,t.locked,t.written,t.synced,t.cpu_start,t.cpu_end,t.text.data());
++      std::fclose(out);
++    }
++    if(fd_>=0)::close(fd_);
++  }
+   void append(const std::string& text) {
+-    std::lock_guard<std::mutex> lock(writer_);const auto record=text+'\n';size_t done=0;
++    Trace trace{};trace.cpu_start=now(CLOCK_THREAD_CPUTIME_ID);trace.start=now(CLOCK_MONOTONIC);
++    std::lock_guard<std::mutex> lock(writer_);trace.locked=now(CLOCK_MONOTONIC);const auto record=text+'\n';size_t done=0;
+     while(done<record.size()) {
+       const auto n=::write(fd_,record.data()+done,record.size()-done);
+       if(n>0)done+=n;else if(n<0&&errno==EINTR)continue;else FATAL("critical journal write failed");
+     }
++    trace.written=now(CLOCK_MONOTONIC);
+     int rc;do {rc=::fsync(fd_);}while(rc<0&&errno==EINTR);
++    trace.synced=now(CLOCK_MONOTONIC);trace.cpu_end=now(CLOCK_THREAD_CPUTIME_ID);
+     ASSERT(rc==0,"critical journal fsync failed");++records_;
++    std::snprintf(trace.text.data(),trace.text.size(),"%s",text.c_str());
++    ASSERT(trace_.size()<trace_.capacity(),"diagnostic trace capacity exhausted");trace_.push_back(trace);
+   }
+   void request(const char* phase,const Exchange::MEClientRequest& r) {
+     std::ostringstream text;text<<phase<<' '<<r.client_id_<<' '<<r.session_epoch_<<' '<<r.request_seq_<<' '<<int(r.type_)<<' '<<r.ticker_id_<<' '<<r.order_id_<<' '<<int(r.side_)<<' '<<r.price_<<' '<<r.qty_;append(text.str());
+@@ -40,6 +57,9 @@
+   uint64_t records() const {return records_;} // after workers have joined
+   CriticalJournal(const CriticalJournal&)=delete;CriticalJournal& operator=(const CriticalJournal&)=delete;
+  private:
++  struct Trace { long long start,locked,written,synced,cpu_start,cpu_end;std::array<char,160> text; };
++  std::vector<Trace> trace_;
++  static long long now(clockid_t id) {timespec t{};::clock_gettime(id,&t);return t.tv_sec*1000000000LL+t.tv_nsec;}
+   int fd_=-1;std::mutex writer_;uint64_t records_=0;
+ };
+ }

@@ -1,0 +1,6182 @@
+{
+  "counter_errors": {},
+  "samples": [
+    {
+      "wall_ns": 1791733877518615200,
+      "cpu_percent": 15.77152600170503,
+      "available_bytes": 6901395456,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0019355736842105262,
+      "disk_queue": 0.0,
+      "pages_in_s": 1580.6302258462817,
+      "frequency_percent": 67.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733878519307300,
+      "cpu_percent": 18.232558139534884,
+      "available_bytes": 6891134976,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0029204578947368423,
+      "disk_queue": 0.0,
+      "pages_in_s": 2302.193238746232,
+      "frequency_percent": 63.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733879520947500,
+      "cpu_percent": 11.580294305822138,
+      "available_bytes": 6884438016,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0027195375,
+      "disk_queue": 1.0,
+      "pages_in_s": 2232.798918199945,
+      "frequency_percent": 61.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733880522759600,
+      "cpu_percent": 20.20389249304912,
+      "available_bytes": 6893154304,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002746584615384615,
+      "disk_queue": 0.0,
+      "pages_in_s": 1159.7302113915473,
+      "frequency_percent": 65.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733881526328000,
+      "cpu_percent": 12.962962962962964,
+      "available_bytes": 6893047808,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0031545,
+      "disk_queue": 0.0,
+      "pages_in_s": 1749.0708248109734,
+      "frequency_percent": 60.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733882545790700,
+      "cpu_percent": 19.594594594594593,
+      "available_bytes": 6887596032,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0029882166666666665,
+      "disk_queue": 0.0,
+      "pages_in_s": 1789.9420726569606,
+      "frequency_percent": 70.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733883548755500,
+      "cpu_percent": 23.919308357348704,
+      "available_bytes": 6869377024,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0104257,
+      "disk_queue": 1.0,
+      "pages_in_s": 4490.385204769751,
+      "frequency_percent": 63.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733884550272600,
+      "cpu_percent": 13.300760043431053,
+      "available_bytes": 6831575040,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0026057416666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 9976.823609059516,
+      "frequency_percent": 55.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733885621226000,
+      "cpu_percent": 21.61084529505582,
+      "available_bytes": 6835679232,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002105906896551724,
+      "disk_queue": 0.0,
+      "pages_in_s": 652.7093929550525,
+      "frequency_percent": 65.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733886642723500,
+      "cpu_percent": 18.526466380543635,
+      "available_bytes": 6838927360,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00016621546391752578,
+      "disk_queue": 0.0,
+      "pages_in_s": 2152.5958455781188,
+      "frequency_percent": 68.0,
+      "phase": "before"
+    },
+    {
+      "wall_ns": 1791733887702176100,
+      "cpu_percent": 19.12568306010929,
+      "available_bytes": 6827888640,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003107657142857143,
+      "disk_queue": 1.0,
+      "pages_in_s": 1509.7693874440972,
+      "frequency_percent": 65.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733888753096900,
+      "cpu_percent": 17.796030116358658,
+      "available_bytes": 6842515456,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0005917618181818181,
+      "disk_queue": 0.0,
+      "pages_in_s": 215.16082176582105,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733889768259400,
+      "cpu_percent": 24.861878453038674,
+      "available_bytes": 6819713024,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0008799880952380952,
+      "disk_queue": 0.0,
+      "pages_in_s": 13495.73921921702,
+      "frequency_percent": 63.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733890779897700,
+      "cpu_percent": 21.209740769835037,
+      "available_bytes": 6712455168,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00010013513513513514,
+      "disk_queue": 0.0,
+      "pages_in_s": 26014.481767130605,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733891783261900,
+      "cpu_percent": 16.903313049357674,
+      "available_bytes": 6630588416,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0,
+      "disk_queue": 4.0,
+      "pages_in_s": 18746.926559717675,
+      "frequency_percent": 62.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733892791068500,
+      "cpu_percent": 22.808764940239044,
+      "available_bytes": 6548455424,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00017738734622144113,
+      "disk_queue": 2.0,
+      "pages_in_s": 22965.153522959346,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733893795653800,
+      "cpu_percent": 24.680851063829788,
+      "available_bytes": 6419845120,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.000627308938547486,
+      "disk_queue": 1.0,
+      "pages_in_s": 32074.138213288796,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733895179851200,
+      "cpu_percent": 14.08983451536643,
+      "available_bytes": 6354694144,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00021912979890310785,
+      "disk_queue": 0.0,
+      "pages_in_s": 12144.572212880645,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733896663478800,
+      "cpu_percent": 17.40702479338843,
+      "available_bytes": 6317441024,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00028100919540229887,
+      "disk_queue": 0.0,
+      "pages_in_s": 4385.827448323973,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733897717289600,
+      "cpu_percent": 18.558172733761598,
+      "available_bytes": 6283579392,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001447171186440678,
+      "disk_queue": 0.0,
+      "pages_in_s": 6832.995999808756,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733898850709100,
+      "cpu_percent": 21.351545650611072,
+      "available_bytes": 6244536320,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0010172,
+      "disk_queue": 0.0,
+      "pages_in_s": 4807.533155515223,
+      "frequency_percent": 80.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733900029085200,
+      "cpu_percent": 19.721254355400696,
+      "available_bytes": 6235168768,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001492216,
+      "disk_queue": 0.0,
+      "pages_in_s": 2784.5169313061374,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733901095960300,
+      "cpu_percent": 27.800269905533064,
+      "available_bytes": 6193577984,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0,
+      "disk_queue": 0.0,
+      "pages_in_s": 7226.657596451683,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733902201650000,
+      "cpu_percent": 24.47257383966245,
+      "available_bytes": 6161514496,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0008074763636363636,
+      "disk_queue": 0.0,
+      "pages_in_s": 5376.477422505862,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733903210921500,
+      "cpu_percent": 26.564885496183205,
+      "available_bytes": 6142631936,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0011760521126760563,
+      "disk_queue": 0.0,
+      "pages_in_s": 9612.437120003235,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733904236076800,
+      "cpu_percent": 23.886328725038403,
+      "available_bytes": 6113120256,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0027206884615384617,
+      "disk_queue": 0.0,
+      "pages_in_s": 8143.456645330673,
+      "frequency_percent": 63.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733905266973800,
+      "cpu_percent": 21.957236842105264,
+      "available_bytes": 6072070144,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0,
+      "disk_queue": 0.0,
+      "pages_in_s": 13360.308988215838,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733906440545200,
+      "cpu_percent": 20.319786808794138,
+      "available_bytes": 6011957248,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 4.154642857142857e-05,
+      "disk_queue": 1.0,
+      "pages_in_s": 7894.677298154087,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733907504497700,
+      "cpu_percent": 18.75432525951557,
+      "available_bytes": 5943193600,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0021152733333333336,
+      "disk_queue": 0.0,
+      "pages_in_s": 14173.162071624085,
+      "frequency_percent": 63.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733908509161600,
+      "cpu_percent": 24.795081967213115,
+      "available_bytes": 5895639040,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 3.0537735849056604e-05,
+      "disk_queue": 0.0,
+      "pages_in_s": 14398.32137371831,
+      "frequency_percent": 70.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733909543246000,
+      "cpu_percent": 15.703069236259815,
+      "available_bytes": 5873192960,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0017321763157894735,
+      "disk_queue": 0.0,
+      "pages_in_s": 8102.188306225015,
+      "frequency_percent": 61.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733910613773400,
+      "cpu_percent": 14.71147748890298,
+      "available_bytes": 5869608960,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0003178855769230769,
+      "disk_queue": 0.0,
+      "pages_in_s": 1960.9893845107983,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733911666922100,
+      "cpu_percent": 18.6046511627907,
+      "available_bytes": 5865820160,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00031483498542274053,
+      "disk_queue": 0.0,
+      "pages_in_s": 484.1063610151996,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733912794634000,
+      "cpu_percent": 15.986622073578594,
+      "available_bytes": 5861195776,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00024468287037037037,
+      "disk_queue": 1.0,
+      "pages_in_s": 286.51348218906236,
+      "frequency_percent": 82.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733913912875500,
+      "cpu_percent": 23.032311516155758,
+      "available_bytes": 5857370112,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004616865384615384,
+      "disk_queue": 0.0,
+      "pages_in_s": 441.0090071393365,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733914975272100,
+      "cpu_percent": 13.389941214892227,
+      "available_bytes": 5863124992,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00766260909090909,
+      "disk_queue": 0.0,
+      "pages_in_s": 545.8372475196874,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733916035365600,
+      "cpu_percent": 16.825164594001464,
+      "available_bytes": 5850886144,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00047553333333333336,
+      "disk_queue": 2.0,
+      "pages_in_s": 269.94175935999533,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733917143886700,
+      "cpu_percent": 20.58011049723757,
+      "available_bytes": 5858668544,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00399879756097561,
+      "disk_queue": 0.0,
+      "pages_in_s": 775.339674773505,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733918274720000,
+      "cpu_percent": 17.061611374407583,
+      "available_bytes": 5869551616,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00350233125,
+      "disk_queue": 0.0,
+      "pages_in_s": 368.649025970926,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733919337144100,
+      "cpu_percent": 18.284424379232505,
+      "available_bytes": 5874700288,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0038924323529411766,
+      "disk_queue": 0.0,
+      "pages_in_s": 417.7686019232599,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733920354630800,
+      "cpu_percent": 17.10231516056759,
+      "available_bytes": 5869117440,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002385044444444444,
+      "disk_queue": 0.0,
+      "pages_in_s": 474.80552142788474,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733921386357000,
+      "cpu_percent": 18.318068276436303,
+      "available_bytes": 5872783360,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0019212200000000002,
+      "disk_queue": 0.0,
+      "pages_in_s": 1140.5923631521937,
+      "frequency_percent": 63.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733922427684000,
+      "cpu_percent": 16.171389080856944,
+      "available_bytes": 5874552832,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0018443347826086955,
+      "disk_queue": 0.0,
+      "pages_in_s": 976.1321871541576,
+      "frequency_percent": 80.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733923500698400,
+      "cpu_percent": 18.54199683042789,
+      "available_bytes": 5871378432,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0037498,
+      "disk_queue": 0.0,
+      "pages_in_s": 648.0413326397099,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733924572337800,
+      "cpu_percent": 16.92726036709721,
+      "available_bytes": 5859553280,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00336104,
+      "disk_queue": 0.0,
+      "pages_in_s": 798.2322749489132,
+      "frequency_percent": 70.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733925635652800,
+      "cpu_percent": 21.056493030080706,
+      "available_bytes": 5841227776,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0165327,
+      "disk_queue": 0.0,
+      "pages_in_s": 327.2898509956524,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733926692253400,
+      "cpu_percent": 15.69767441860465,
+      "available_bytes": 5843877888,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004029831168831169,
+      "disk_queue": 0.0,
+      "pages_in_s": 261.2406355643915,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733927777150700,
+      "cpu_percent": 22.021364009860314,
+      "available_bytes": 5819183104,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0034430083333333336,
+      "disk_queue": 0.0,
+      "pages_in_s": 175.01708489148433,
+      "frequency_percent": 78.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733928816045400,
+      "cpu_percent": 19.611780455153948,
+      "available_bytes": 5810647040,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0006929555555555555,
+      "disk_queue": 0.0,
+      "pages_in_s": 144.41997328230494,
+      "frequency_percent": 86.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733929834757500,
+      "cpu_percent": 39.10355486862442,
+      "available_bytes": 5802594304,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0032770666666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 3207.3282543438786,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733930848690500,
+      "cpu_percent": 35.96358118361153,
+      "available_bytes": 5628080128,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0019386594202898551,
+      "disk_queue": 1.0,
+      "pages_in_s": 1706.1131742131997,
+      "frequency_percent": 89.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733931854231200,
+      "cpu_percent": 33.46394984326019,
+      "available_bytes": 5633343488,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0035425583333333335,
+      "disk_queue": 0.0,
+      "pages_in_s": 1681.7667641116743,
+      "frequency_percent": 58.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733932858344800,
+      "cpu_percent": 18.606627017841973,
+      "available_bytes": 5636763648,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0012756720588235294,
+      "disk_queue": 1.0,
+      "pages_in_s": 2220.9423308919236,
+      "frequency_percent": 56.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733933865118300,
+      "cpu_percent": 17.296511627906977,
+      "available_bytes": 5629632512,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 7.805238095238096e-05,
+      "disk_queue": 1.0,
+      "pages_in_s": 2890.790196656157,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733934871393100,
+      "cpu_percent": 17.28201099764336,
+      "available_bytes": 5656645632,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0006189429508196721,
+      "disk_queue": 0.0,
+      "pages_in_s": 4470.745991241036,
+      "frequency_percent": 59.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733935903235400,
+      "cpu_percent": 16.22641509433962,
+      "available_bytes": 5685739520,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.01264634,
+      "disk_queue": 0.0,
+      "pages_in_s": 871.887586304533,
+      "frequency_percent": 51.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733936910546300,
+      "cpu_percent": 21.19815668202765,
+      "available_bytes": 5846822912,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001110271098265896,
+      "disk_queue": 0.0,
+      "pages_in_s": 1933.9182615775087,
+      "frequency_percent": 58.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733937913334000,
+      "cpu_percent": 19.470404984423677,
+      "available_bytes": 5921964032,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 3.2825e-05,
+      "disk_queue": 0.0,
+      "pages_in_s": 3784.4285772124144,
+      "frequency_percent": 57.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733938917165000,
+      "cpu_percent": 18.91271056661562,
+      "available_bytes": 5855195136,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0002504638888888889,
+      "disk_queue": 0.0,
+      "pages_in_s": 1076.8783557810834,
+      "frequency_percent": 63.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733939939761000,
+      "cpu_percent": 21.776061776061777,
+      "available_bytes": 5809958912,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0036805166666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 2381.8990528310487,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733941004596500,
+      "cpu_percent": 24.961119751166407,
+      "available_bytes": 5772804096,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0027314152173913047,
+      "disk_queue": 0.0,
+      "pages_in_s": 1343.907408442199,
+      "frequency_percent": 78.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733942026541000,
+      "cpu_percent": 26.834532374100718,
+      "available_bytes": 5776420864,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004829373134328358,
+      "disk_queue": 0.0,
+      "pages_in_s": 1969.338196708417,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733943079774900,
+      "cpu_percent": 20.928270042194093,
+      "available_bytes": 5780643840,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0034022892857142857,
+      "disk_queue": 0.0,
+      "pages_in_s": 230.86273785156095,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733944154787000,
+      "cpu_percent": 14.603798297314997,
+      "available_bytes": 5775900672,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0031861870967741937,
+      "disk_queue": 0.0,
+      "pages_in_s": 132.0460762694417,
+      "frequency_percent": 61.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733945355488100,
+      "cpu_percent": 16.556728232189975,
+      "available_bytes": 5843152896,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009488828571428572,
+      "disk_queue": 0.0,
+      "pages_in_s": 105.79395153487447,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733946578803800,
+      "cpu_percent": 22.37017310252996,
+      "available_bytes": 5869387776,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0026358242424242423,
+      "disk_queue": 0.0,
+      "pages_in_s": 99.69129202284172,
+      "frequency_percent": 65.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733947612463400,
+      "cpu_percent": 46.67128987517337,
+      "available_bytes": 5963493376,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0017345142857142857,
+      "disk_queue": 0.0,
+      "pages_in_s": 830.6090871925597,
+      "frequency_percent": 81.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733948618673800,
+      "cpu_percent": 51.56494522691706,
+      "available_bytes": 6064029696,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0019302149122807017,
+      "disk_queue": 0.0,
+      "pages_in_s": 2600.845085897926,
+      "frequency_percent": 87.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733949633693300,
+      "cpu_percent": 37.0,
+      "available_bytes": 6070964224,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007470699999999999,
+      "disk_queue": 0.0,
+      "pages_in_s": 1006.8499291165828,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733950644811400,
+      "cpu_percent": 27.123928293063134,
+      "available_bytes": 6058917888,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0001488243006993007,
+      "disk_queue": 0.0,
+      "pages_in_s": 1051.3496355107175,
+      "frequency_percent": 85.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733951667652700,
+      "cpu_percent": 42.6605504587156,
+      "available_bytes": 6044528640,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00027264526315789474,
+      "disk_queue": 0.0,
+      "pages_in_s": 2517.3368746153114,
+      "frequency_percent": 87.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733952700486500,
+      "cpu_percent": 29.473684210526315,
+      "available_bytes": 6049697792,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00013214153846153847,
+      "disk_queue": 0.0,
+      "pages_in_s": 852.1657113695368,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733953808160400,
+      "cpu_percent": 23.80952380952381,
+      "available_bytes": 6044573696,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003282557142857143,
+      "disk_queue": 0.0,
+      "pages_in_s": 298.9043125119539,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733954955275000,
+      "cpu_percent": 18.814432989690722,
+      "available_bytes": 6012968960,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.008176145454545454,
+      "disk_queue": 1.0,
+      "pages_in_s": 237.92709547752884,
+      "frequency_percent": 65.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733955964775800,
+      "cpu_percent": 18.08960270498732,
+      "available_bytes": 6015954944,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.006113800000000001,
+      "disk_queue": 0.0,
+      "pages_in_s": 1084.4766681387396,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733957022413900,
+      "cpu_percent": 17.060931899641577,
+      "available_bytes": 6016929792,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0005895470588235294,
+      "disk_queue": 0.0,
+      "pages_in_s": 987.8203172803236,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733958079000600,
+      "cpu_percent": 16.69034090909091,
+      "available_bytes": 6011953152,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0019456204545454546,
+      "disk_queue": 0.0,
+      "pages_in_s": 576.4645156746759,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733959119964900,
+      "cpu_percent": 18.38733986435569,
+      "available_bytes": 5974564864,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0024310638888888885,
+      "disk_queue": 0.0,
+      "pages_in_s": 732.2351535719093,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733960158257600,
+      "cpu_percent": 18.663594470046082,
+      "available_bytes": 5972889600,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00399094358974359,
+      "disk_queue": 0.0,
+      "pages_in_s": 715.6455922684848,
+      "frequency_percent": 81.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733961166570600,
+      "cpu_percent": 21.25645438898451,
+      "available_bytes": 5983608832,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002803475,
+      "disk_queue": 0.0,
+      "pages_in_s": 1032.2606746760575,
+      "frequency_percent": 80.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733962264113700,
+      "cpu_percent": 19.877675840978593,
+      "available_bytes": 5987008512,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003783542857142857,
+      "disk_queue": 0.0,
+      "pages_in_s": 732.2475729043989,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733963279960300,
+      "cpu_percent": 19.700374531835205,
+      "available_bytes": 5980418048,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004075347619047619,
+      "disk_queue": 0.0,
+      "pages_in_s": 952.6124090031034,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733964314292600,
+      "cpu_percent": 15.937295885042456,
+      "available_bytes": 5944082432,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00016279372294372295,
+      "disk_queue": 0.0,
+      "pages_in_s": 1507.1598761490168,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733965364856800,
+      "cpu_percent": 19.60497439648866,
+      "available_bytes": 5909352448,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 3.624334975369458e-05,
+      "disk_queue": 0.0,
+      "pages_in_s": 11265.100493236212,
+      "frequency_percent": 65.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733966469714200,
+      "cpu_percent": 21.782178217821784,
+      "available_bytes": 5905608704,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0023608896551724134,
+      "disk_queue": 0.0,
+      "pages_in_s": 1534.537134712262,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733967535640500,
+      "cpu_percent": 21.43379663496708,
+      "available_bytes": 5900365824,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0035050360000000004,
+      "disk_queue": 0.0,
+      "pages_in_s": 416.91416065342156,
+      "frequency_percent": 78.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733968571970700,
+      "cpu_percent": 28.216123499142366,
+      "available_bytes": 5895118848,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00021623333333333335,
+      "disk_queue": 0.0,
+      "pages_in_s": 1233.7714848454314,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733969639926800,
+      "cpu_percent": 25.08169934640523,
+      "available_bytes": 5890592768,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004473428571428571,
+      "disk_queue": 0.0,
+      "pages_in_s": 1483.945118185696,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733970667837600,
+      "cpu_percent": 16.85323383084577,
+      "available_bytes": 5882150912,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0035363666666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 540.9738034408658,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733971685680800,
+      "cpu_percent": 29.012345679012345,
+      "available_bytes": 5892210688,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.006136192857142857,
+      "disk_queue": 0.0,
+      "pages_in_s": 658.4439142387612,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733972763257700,
+      "cpu_percent": 19.609375,
+      "available_bytes": 5869301760,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.01042565,
+      "disk_queue": 0.0,
+      "pages_in_s": 544.5438239500021,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733973797068500,
+      "cpu_percent": 18.725099601593627,
+      "available_bytes": 5875027968,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001494663698630137,
+      "disk_queue": 0.0,
+      "pages_in_s": 2453.3382412986725,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733974838217000,
+      "cpu_percent": 12.631578947368421,
+      "available_bytes": 5868269568,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00013575714285714286,
+      "disk_queue": 1.0,
+      "pages_in_s": 3417.948950044903,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733975874834300,
+      "cpu_percent": 19.52755905511811,
+      "available_bytes": 5868109824,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001394442307692308,
+      "disk_queue": 0.0,
+      "pages_in_s": 1100.9106682875108,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733976881120200,
+      "cpu_percent": 20.5233033524121,
+      "available_bytes": 5872037888,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00427427,
+      "disk_queue": 0.0,
+      "pages_in_s": 522.6884550243477,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733977900549900,
+      "cpu_percent": 17.665867306155075,
+      "available_bytes": 5875335168,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009463613636363637,
+      "disk_queue": 0.0,
+      "pages_in_s": 545.8551271406151,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733978982568000,
+      "cpu_percent": 14.666666666666666,
+      "available_bytes": 5870538752,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0016685857142857146,
+      "disk_queue": 0.0,
+      "pages_in_s": 743.6709954671571,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733980032445500,
+      "cpu_percent": 18.460388639760836,
+      "available_bytes": 5870817280,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.006148221428571429,
+      "disk_queue": 0.0,
+      "pages_in_s": 933.1163369226699,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733981113073200,
+      "cpu_percent": 16.772151898734176,
+      "available_bytes": 5868187648,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004889953846153846,
+      "disk_queue": 0.0,
+      "pages_in_s": 799.3325157655632,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733982140905800,
+      "cpu_percent": 14.657534246575343,
+      "available_bytes": 5864751104,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00668498125,
+      "disk_queue": 0.0,
+      "pages_in_s": 1599.0500414963717,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733983146165400,
+      "cpu_percent": 25.329566854990585,
+      "available_bytes": 5836595200,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00015815410557184752,
+      "disk_queue": 0.0,
+      "pages_in_s": 2334.3696595202,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733984155537100,
+      "cpu_percent": 17.145015105740182,
+      "available_bytes": 5845368832,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002158722,
+      "disk_queue": 0.0,
+      "pages_in_s": 1830.8253931519205,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733985188933400,
+      "cpu_percent": 13.962765957446809,
+      "available_bytes": 5847683072,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0022874105263157897,
+      "disk_queue": 0.0,
+      "pages_in_s": 661.8210416580115,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733986233156300,
+      "cpu_percent": 19.79969183359014,
+      "available_bytes": 5840187392,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00047797,
+      "disk_queue": 0.0,
+      "pages_in_s": 551.5509757320449,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733987265877400,
+      "cpu_percent": 18.330849478390462,
+      "available_bytes": 5820882944,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001203009756097561,
+      "disk_queue": 0.0,
+      "pages_in_s": 507.90385467100316,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733988390548600,
+      "cpu_percent": 19.718309859154928,
+      "available_bytes": 5823111168,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00117485,
+      "disk_queue": 0.0,
+      "pages_in_s": 337.0402424270882,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733989475678100,
+      "cpu_percent": 14.313471502590673,
+      "available_bytes": 5810958336,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0034277333333333332,
+      "disk_queue": 0.0,
+      "pages_in_s": 406.4688831479384,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733990591158000,
+      "cpu_percent": 13.97109428768066,
+      "available_bytes": 5820289024,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003386692682926829,
+      "disk_queue": 0.0,
+      "pages_in_s": 606.330992501049,
+      "frequency_percent": 80.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733991627224700,
+      "cpu_percent": 18.822553897180764,
+      "available_bytes": 5817704448,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0012898304347826086,
+      "disk_queue": 0.0,
+      "pages_in_s": 798.1085502903446,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733992648050600,
+      "cpu_percent": 16.178521617852162,
+      "available_bytes": 5816279040,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005199523076923077,
+      "disk_queue": 0.0,
+      "pages_in_s": 512.3880339073517,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733993688628400,
+      "cpu_percent": 21.36986301369863,
+      "available_bytes": 5829464064,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0024562944444444443,
+      "disk_queue": 0.0,
+      "pages_in_s": 2088.3925355295833,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733994721067600,
+      "cpu_percent": 16.268560361523562,
+      "available_bytes": 5825949696,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004579562162162163,
+      "disk_queue": 0.0,
+      "pages_in_s": 824.0817806751369,
+      "frequency_percent": 80.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733995781020000,
+      "cpu_percent": 17.223065250379364,
+      "available_bytes": 5829189632,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004038747619047619,
+      "disk_queue": 0.0,
+      "pages_in_s": 406.69432062232727,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733996844305000,
+      "cpu_percent": 18.046709129511676,
+      "available_bytes": 5831659520,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005144383333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 725.7564671528921,
+      "frequency_percent": 83.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733997888600600,
+      "cpu_percent": 18.311981914091938,
+      "available_bytes": 5827260416,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.000256425,
+      "disk_queue": 0.0,
+      "pages_in_s": 1301.7813441907,
+      "frequency_percent": 70.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733998895367300,
+      "cpu_percent": 24.1635687732342,
+      "available_bytes": 5800714240,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004279173333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 2566.793289833709,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791733999902139300,
+      "cpu_percent": 18.269947800149144,
+      "available_bytes": 5789728768,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0083666,
+      "disk_queue": 0.0,
+      "pages_in_s": 1389.3517854610443,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734000937086200,
+      "cpu_percent": 15.250696378830083,
+      "available_bytes": 5788934144,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0003586842105263158,
+      "disk_queue": 0.0,
+      "pages_in_s": 323.67140376674286,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734001972963100,
+      "cpu_percent": 20.03338898163606,
+      "available_bytes": 5784801280,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0002742,
+      "disk_queue": 0.0,
+      "pages_in_s": 955.4445331152732,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734002981182800,
+      "cpu_percent": 18.69918699186992,
+      "available_bytes": 5770637312,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00453041875,
+      "disk_queue": 0.0,
+      "pages_in_s": 718.2706423938811,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734003993672800,
+      "cpu_percent": 19.42215088282504,
+      "available_bytes": 5771112448,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.006618271428571429,
+      "disk_queue": 0.0,
+      "pages_in_s": 1258.376997895725,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734005009085400,
+      "cpu_percent": 15.565679574791192,
+      "available_bytes": 5762998272,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003626216666666666,
+      "disk_queue": 0.0,
+      "pages_in_s": 889.417176645146,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734006070076700,
+      "cpu_percent": 13.321799307958477,
+      "available_bytes": 5754175488,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00023863999999999998,
+      "disk_queue": 0.0,
+      "pages_in_s": 1140.7658913638272,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734007133122500,
+      "cpu_percent": 19.48955916473318,
+      "available_bytes": 5749837824,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005241325,
+      "disk_queue": 0.0,
+      "pages_in_s": 674.845645506778,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734008157100300,
+      "cpu_percent": 24.855967078189302,
+      "available_bytes": 5756465152,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007397509090909091,
+      "disk_queue": 0.0,
+      "pages_in_s": 1285.4679508712902,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734009177296700,
+      "cpu_percent": 20.202751629254163,
+      "available_bytes": 5746790400,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005469641666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 3527.5687829368358,
+      "frequency_percent": 70.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734010208568100,
+      "cpu_percent": 16.788856304985337,
+      "available_bytes": 5751570432,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00338945,
+      "disk_queue": 1.0,
+      "pages_in_s": 298.68911360611344,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734011236785100,
+      "cpu_percent": 20.85987261146497,
+      "available_bytes": 5755404288,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0027633567567567565,
+      "disk_queue": 0.0,
+      "pages_in_s": 926.5553685376409,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734012340352600,
+      "cpu_percent": 17.397454031117398,
+      "available_bytes": 5756166144,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004487,
+      "disk_queue": 0.0,
+      "pages_in_s": 614.9524881177211,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734013448355700,
+      "cpu_percent": 19.984447900466563,
+      "available_bytes": 5742010368,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005647913333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 1051.0737959363232,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734014526795300,
+      "cpu_percent": 14.453366275478691,
+      "available_bytes": 5738999808,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00441807619047619,
+      "disk_queue": 0.0,
+      "pages_in_s": 474.6337903661206,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734015716722600,
+      "cpu_percent": 17.466666666666665,
+      "available_bytes": 5733949440,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003087,
+      "disk_queue": 0.0,
+      "pages_in_s": 254.70279714107457,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734016741256300,
+      "cpu_percent": 18.75923190546529,
+      "available_bytes": 5736652800,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.000630201204819277,
+      "disk_queue": 0.0,
+      "pages_in_s": 208.81216613837515,
+      "frequency_percent": 83.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734017883046400,
+      "cpu_percent": 22.07278481012658,
+      "available_bytes": 5734092800,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004414726923076923,
+      "disk_queue": 0.0,
+      "pages_in_s": 486.39266137763576,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734019001678600,
+      "cpu_percent": 17.22397476340694,
+      "available_bytes": 5732642816,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007306025,
+      "disk_queue": 0.0,
+      "pages_in_s": 2615.7834713563225,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734020089749300,
+      "cpu_percent": 19.427710843373493,
+      "available_bytes": 5723762688,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.005873626923076923,
+      "disk_queue": 0.0,
+      "pages_in_s": 936.8837334642091,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734021192671800,
+      "cpu_percent": 24.175084175084177,
+      "available_bytes": 5698871296,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0011791253164556961,
+      "disk_queue": 0.0,
+      "pages_in_s": 845.001899894293,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734022220514700,
+      "cpu_percent": 18.70824053452116,
+      "available_bytes": 5701283840,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00048734517241379307,
+      "disk_queue": 0.0,
+      "pages_in_s": 587.7296451416847,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734023361699300,
+      "cpu_percent": 17.651052274270196,
+      "available_bytes": 5703045120,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00033917842105263155,
+      "disk_queue": 0.0,
+      "pages_in_s": 571.5451345774025,
+      "frequency_percent": 70.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734025381834200,
+      "cpu_percent": 17.193763919821826,
+      "available_bytes": 5703237632,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00046188247011952186,
+      "disk_queue": 2.0,
+      "pages_in_s": 209.3270491670639,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734026616363800,
+      "cpu_percent": 19.00739176346357,
+      "available_bytes": 5626605568,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0005794758241758242,
+      "disk_queue": 1.0,
+      "pages_in_s": 509.7329825765325,
+      "frequency_percent": 81.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734027725466300,
+      "cpu_percent": 19.097956307258634,
+      "available_bytes": 5615472640,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009364219512195121,
+      "disk_queue": 0.0,
+      "pages_in_s": 716.8768408292651,
+      "frequency_percent": 62.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734029151831800,
+      "cpu_percent": 18.311466058185967,
+      "available_bytes": 5621891072,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00018091875,
+      "disk_queue": 0.0,
+      "pages_in_s": 215.92407828986447,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734030221337900,
+      "cpu_percent": 17.722473604826547,
+      "available_bytes": 5623549952,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0020687285714285717,
+      "disk_queue": 1.0,
+      "pages_in_s": 299.1777100638894,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734031266893000,
+      "cpu_percent": 20.082530949105916,
+      "available_bytes": 5610180608,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0032469257142857142,
+      "disk_queue": 0.0,
+      "pages_in_s": 831.781232739942,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734032371589400,
+      "cpu_percent": 32.85612025769506,
+      "available_bytes": 5571457024,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003179234285714286,
+      "disk_queue": 0.0,
+      "pages_in_s": 2639.365277470179,
+      "frequency_percent": 78.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734033470591900,
+      "cpu_percent": 22.642857142857142,
+      "available_bytes": 5561987072,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004032666666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 1105.451028110365,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734034569435800,
+      "cpu_percent": 40.42553191489362,
+      "available_bytes": 5511438336,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00562445625,
+      "disk_queue": 0.0,
+      "pages_in_s": 2693.0883291063265,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734035585253600,
+      "cpu_percent": 47.890451517394524,
+      "available_bytes": 5506772992,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004320353333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 1685.3864597055385,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734036621222200,
+      "cpu_percent": 51.65319617927994,
+      "available_bytes": 5432180736,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0003455130952380952,
+      "disk_queue": 0.0,
+      "pages_in_s": 3931.1148902615278,
+      "frequency_percent": 86.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734037634530300,
+      "cpu_percent": 55.913978494623656,
+      "available_bytes": 5464080384,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00068856,
+      "disk_queue": 0.0,
+      "pages_in_s": 3527.4725599921876,
+      "frequency_percent": 86.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734038650533500,
+      "cpu_percent": 54.20200462606014,
+      "available_bytes": 5440380928,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0037197833333333335,
+      "disk_queue": 0.0,
+      "pages_in_s": 1676.2530975043492,
+      "frequency_percent": 81.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734039667169100,
+      "cpu_percent": 39.770114942528735,
+      "available_bytes": 5270016000,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0025572162790697675,
+      "disk_queue": 0.0,
+      "pages_in_s": 2230.71329619419,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734040671842300,
+      "cpu_percent": 17.412935323383085,
+      "available_bytes": 5275787264,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0023827611111111114,
+      "disk_queue": 0.0,
+      "pages_in_s": 2092.905706487042,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734041675979000,
+      "cpu_percent": 14.028776978417266,
+      "available_bytes": 5283389440,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.000458275,
+      "disk_queue": 0.0,
+      "pages_in_s": 1163.6992336209335,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734042681488600,
+      "cpu_percent": 28.31086439333862,
+      "available_bytes": 5240848384,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0005855857664233576,
+      "disk_queue": 0.0,
+      "pages_in_s": 2047.036911585006,
+      "frequency_percent": 85.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734043702378900,
+      "cpu_percent": 27.043544690603515,
+      "available_bytes": 5250109440,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009644161290322581,
+      "disk_queue": 0.0,
+      "pages_in_s": 520.2293790283486,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734044747036100,
+      "cpu_percent": 23.505572441742654,
+      "available_bytes": 5299412992,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009140122222222222,
+      "disk_queue": 0.0,
+      "pages_in_s": 1974.701423326115,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734045806390500,
+      "cpu_percent": 15.447630193095378,
+      "available_bytes": 5324857344,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004285142857142857,
+      "disk_queue": 0.0,
+      "pages_in_s": 2638.8723068000513,
+      "frequency_percent": 56.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734046868007900,
+      "cpu_percent": 19.606299212598426,
+      "available_bytes": 5347495936,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.000378525,
+      "disk_queue": 0.0,
+      "pages_in_s": 956.1529004356572,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734047902386100,
+      "cpu_percent": 17.388218594748047,
+      "available_bytes": 5377695744,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.002826957894736842,
+      "disk_queue": 0.0,
+      "pages_in_s": 381.77286814647624,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734049058362500,
+      "cpu_percent": 17.93594306049822,
+      "available_bytes": 5398216704,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003675855172413793,
+      "disk_queue": 1.0,
+      "pages_in_s": 350.52294994921743,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734050208158800,
+      "cpu_percent": 18.1631254283756,
+      "available_bytes": 5452120064,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0036427260869565216,
+      "disk_queue": 0.0,
+      "pages_in_s": 1103.0627738409883,
+      "frequency_percent": 74.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734051321318400,
+      "cpu_percent": 16.842847075405214,
+      "available_bytes": 5479137280,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0007723584269662922,
+      "disk_queue": 0.0,
+      "pages_in_s": 585.7374020641673,
+      "frequency_percent": 68.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734052397432000,
+      "cpu_percent": 17.58569299552906,
+      "available_bytes": 5474791424,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00024372413793103447,
+      "disk_queue": 0.0,
+      "pages_in_s": 358.3665023503643,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734053551827300,
+      "cpu_percent": 17.572692793931733,
+      "available_bytes": 5480378368,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0005196938775510205,
+      "disk_queue": 0.0,
+      "pages_in_s": 397.1649861424896,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734054730599200,
+      "cpu_percent": 16.26545217957059,
+      "available_bytes": 5498433536,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0011804515463917527,
+      "disk_queue": 0.0,
+      "pages_in_s": 274.4645646703094,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734055773212400,
+      "cpu_percent": 19.270833333333332,
+      "available_bytes": 5502005248,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007014016666666667,
+      "disk_queue": 0.0,
+      "pages_in_s": 259.8478001438656,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734056836529400,
+      "cpu_percent": 17.011019283746556,
+      "available_bytes": 5504192512,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0037702076923076923,
+      "disk_queue": 0.0,
+      "pages_in_s": 322.40781298466914,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734057883869000,
+      "cpu_percent": 15.466101694915254,
+      "available_bytes": 5493825536,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00044945,
+      "disk_queue": 1.0,
+      "pages_in_s": 797.2300747685189,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734058930923900,
+      "cpu_percent": 17.49813849590469,
+      "available_bytes": 5496487936,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0024807536585365855,
+      "disk_queue": 0.0,
+      "pages_in_s": 591.2496955398377,
+      "frequency_percent": 72.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734060008079800,
+      "cpu_percent": 20.791245791245792,
+      "available_bytes": 5496414208,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.008190550000000001,
+      "disk_queue": 0.0,
+      "pages_in_s": 696.5481171451099,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734061036119200,
+      "cpu_percent": 18.555900621118013,
+      "available_bytes": 5466550272,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.006394578571428571,
+      "disk_queue": 1.0,
+      "pages_in_s": 451.4414408454098,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734062135502500,
+      "cpu_percent": 20.928270042194093,
+      "available_bytes": 5464866816,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0018493,
+      "disk_queue": 0.0,
+      "pages_in_s": 675.3542833935843,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734063275473200,
+      "cpu_percent": 13.649677797305214,
+      "available_bytes": 5491064832,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0021609191780821916,
+      "disk_queue": 0.0,
+      "pages_in_s": 536.054199634292,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734064294218400,
+      "cpu_percent": 16.43379906852961,
+      "available_bytes": 5498482688,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.010770733333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 397.148630122308,
+      "frequency_percent": 78.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734065417812900,
+      "cpu_percent": 16.173285198555956,
+      "available_bytes": 5453922304,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00019417027027027027,
+      "disk_queue": 1.0,
+      "pages_in_s": 398.00431554209524,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734066666538700,
+      "cpu_percent": 19.041450777202073,
+      "available_bytes": 5469863936,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003414155172413793,
+      "disk_queue": 0.0,
+      "pages_in_s": 277.0158285723573,
+      "frequency_percent": 73.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734067714464100,
+      "cpu_percent": 23.932820153953813,
+      "available_bytes": 5468356608,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0038681739130434784,
+      "disk_queue": 0.0,
+      "pages_in_s": 454.95775187920447,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734068842833100,
+      "cpu_percent": 18.73177842565598,
+      "available_bytes": 5465112576,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00011019836065573771,
+      "disk_queue": 0.0,
+      "pages_in_s": 359.937151072626,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734069881705400,
+      "cpu_percent": 16.151685393258425,
+      "available_bytes": 5448601600,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00012751519434628977,
+      "disk_queue": 0.0,
+      "pages_in_s": 65.48247390475265,
+      "frequency_percent": 77.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734070944075000,
+      "cpu_percent": 19.90984222389181,
+      "available_bytes": 5432700928,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00018786153846153846,
+      "disk_queue": 0.0,
+      "pages_in_s": 90.24894042103388,
+      "frequency_percent": 81.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734072095455900,
+      "cpu_percent": 21.96132596685083,
+      "available_bytes": 5407313920,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004086335907335907,
+      "disk_queue": 0.0,
+      "pages_in_s": 124.31640106279221,
+      "frequency_percent": 76.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734073152394800,
+      "cpu_percent": 19.48148148148148,
+      "available_bytes": 5397487616,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009907691176470588,
+      "disk_queue": 0.0,
+      "pages_in_s": 1162.0881057727295,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734074171782600,
+      "cpu_percent": 28.858024691358025,
+      "available_bytes": 5382942720,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0045222,
+      "disk_queue": 0.0,
+      "pages_in_s": 3154.1498669820558,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734075229924400,
+      "cpu_percent": 21.44436256448047,
+      "available_bytes": 5346373632,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001624539344262295,
+      "disk_queue": 0.0,
+      "pages_in_s": 1858.181576318895,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734076298012600,
+      "cpu_percent": 18.12274368231047,
+      "available_bytes": 5350076416,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0028811260869565218,
+      "disk_queue": 0.0,
+      "pages_in_s": 954.9869700454293,
+      "frequency_percent": 66.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734077332099000,
+      "cpu_percent": 17.95275590551181,
+      "available_bytes": 5378338816,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0004952825278810408,
+      "disk_queue": 0.0,
+      "pages_in_s": 273.26746975759534,
+      "frequency_percent": 69.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734078422460000,
+      "cpu_percent": 18.21808510638298,
+      "available_bytes": 5332840448,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00021987500000000002,
+      "disk_queue": 0.0,
+      "pages_in_s": 487.8282264026417,
+      "frequency_percent": 79.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734079428111800,
+      "cpu_percent": 17.81150159744409,
+      "available_bytes": 5289803776,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.001043621212121212,
+      "disk_queue": 0.0,
+      "pages_in_s": 341.03844915201233,
+      "frequency_percent": 75.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734080435145800,
+      "cpu_percent": 17.28110599078341,
+      "available_bytes": 5266755584,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0040619407407407404,
+      "disk_queue": 0.0,
+      "pages_in_s": 478.5976017891209,
+      "frequency_percent": 62.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734081443226300,
+      "cpu_percent": 26.738794435857805,
+      "available_bytes": 5252857856,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0036082821428571428,
+      "disk_queue": 0.0,
+      "pages_in_s": 430.4485839580541,
+      "frequency_percent": 57.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734082450161100,
+      "cpu_percent": 20.60506950122649,
+      "available_bytes": 5255974912,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0028055,
+      "disk_queue": 0.0,
+      "pages_in_s": 589.9141952919881,
+      "frequency_percent": 58.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734083458594300,
+      "cpu_percent": 17.69059955588453,
+      "available_bytes": 5251792896,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0024618219512195123,
+      "disk_queue": 0.0,
+      "pages_in_s": 2086.3757580589486,
+      "frequency_percent": 71.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734084464681700,
+      "cpu_percent": 18.94904458598726,
+      "available_bytes": 5291503616,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004531433333333333,
+      "disk_queue": 0.0,
+      "pages_in_s": 2950.1483572752913,
+      "frequency_percent": 62.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734085473470600,
+      "cpu_percent": 17.29559748427673,
+      "available_bytes": 5330096128,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0037530550000000004,
+      "disk_queue": 0.0,
+      "pages_in_s": 446.15676104468497,
+      "frequency_percent": 50.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734086479066300,
+      "cpu_percent": 17.047970479704798,
+      "available_bytes": 5316620288,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.07579528571428572,
+      "disk_queue": 1.0,
+      "pages_in_s": 579.4833473582219,
+      "frequency_percent": 79.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734087484918900,
+      "cpu_percent": 21.715610510046368,
+      "available_bytes": 5345226752,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0009155099999999999,
+      "disk_queue": 0.0,
+      "pages_in_s": 2002.4524820413435,
+      "frequency_percent": 64.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734088490102900,
+      "cpu_percent": 16.967792615868028,
+      "available_bytes": 5351206912,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007437909090909091,
+      "disk_queue": 0.0,
+      "pages_in_s": 1452.1873771297794,
+      "frequency_percent": 60.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734089498161400,
+      "cpu_percent": 17.47826086956522,
+      "available_bytes": 5402759168,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0032251133333333335,
+      "disk_queue": 0.0,
+      "pages_in_s": 798.5322085238403,
+      "frequency_percent": 58.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734090505074100,
+      "cpu_percent": 14.621968616262482,
+      "available_bytes": 5482180608,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0026075,
+      "disk_queue": 0.0,
+      "pages_in_s": 952.496071077859,
+      "frequency_percent": 52.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734091513469500,
+      "cpu_percent": 17.537643932683793,
+      "available_bytes": 5553901568,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.004729314285714286,
+      "disk_queue": 0.0,
+      "pages_in_s": 2218.516650379032,
+      "frequency_percent": 52.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734092521848900,
+      "cpu_percent": 13.729508196721312,
+      "available_bytes": 5653635072,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.003328014285714286,
+      "disk_queue": 0.0,
+      "pages_in_s": 1903.1160227394103,
+      "frequency_percent": 62.0,
+      "phase": "comparison"
+    },
+    {
+      "wall_ns": 1791734093526102500,
+      "cpu_percent": 19.96370235934664,
+      "available_bytes": 5882273792,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00034816000000000003,
+      "disk_queue": 4.0,
+      "pages_in_s": 1380.2478172217284,
+      "frequency_percent": 50.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734094526937900,
+      "cpu_percent": 9.743202416918429,
+      "available_bytes": 5943902208,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.00153234406779661,
+      "disk_queue": 0.0,
+      "pages_in_s": 1231.9908762732446,
+      "frequency_percent": 45.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734095527375000,
+      "cpu_percent": 7.5905292479108635,
+      "available_bytes": 5946269696,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0055303,
+      "disk_queue": 0.0,
+      "pages_in_s": 822.3784463702333,
+      "frequency_percent": 53.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734096528142100,
+      "cpu_percent": 9.047619047619047,
+      "available_bytes": 5947207680,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0,
+      "disk_queue": 0.0,
+      "pages_in_s": 1661.013026059915,
+      "frequency_percent": 52.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734097529087600,
+      "cpu_percent": 20.28688524590164,
+      "available_bytes": 5949046784,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0025155333333333335,
+      "disk_queue": 0.0,
+      "pages_in_s": 621.2158392461196,
+      "frequency_percent": 63.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734098530164200,
+      "cpu_percent": 11.512134411947729,
+      "available_bytes": 5959356416,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0032947949999999997,
+      "disk_queue": 0.0,
+      "pages_in_s": 609.560933259773,
+      "frequency_percent": 54.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734099531093900,
+      "cpu_percent": 15.397350993377483,
+      "available_bytes": 5960163328,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0090418,
+      "disk_queue": 0.0,
+      "pages_in_s": 392.6019801125619,
+      "frequency_percent": 56.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734100531851900,
+      "cpu_percent": 15.207715133531158,
+      "available_bytes": 5939957760,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.007896663636363637,
+      "disk_queue": 0.0,
+      "pages_in_s": 2080.024600636775,
+      "frequency_percent": 65.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734101533227000,
+      "cpu_percent": 17.963111467522054,
+      "available_bytes": 5887963136,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0033809333333333336,
+      "disk_queue": 0.0,
+      "pages_in_s": 1471.628736343475,
+      "frequency_percent": 54.0,
+      "phase": "after"
+    },
+    {
+      "wall_ns": 1791734102533684800,
+      "cpu_percent": 16.168148746968473,
+      "available_bytes": 5872705536,
+      "total_bytes": 25480257536,
+      "counter_status": {
+        "disk_write_s": [
+          0,
+          0
+        ],
+        "disk_queue": [
+          0,
+          0
+        ],
+        "pages_in_s": [
+          0,
+          0
+        ],
+        "frequency_percent": [
+          0,
+          0
+        ]
+      },
+      "disk_write_s": 0.0016353222222222222,
+      "disk_queue": 0.0,
+      "pages_in_s": 1443.0351866741896,
+      "frequency_percent": 62.0,
+      "phase": "after"
+    }
+  ]
+}

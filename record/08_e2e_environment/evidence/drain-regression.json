@@ -1,0 +1,12 @@
+[
+  {
+    "label": "baseline",
+    "exit_code": -6,
+    "output": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  ready response waited until receive callback finished\n"
+  },
+  {
+    "label": "candidate",
+    "exit_code": 0,
+    "output": ""
+  }
+]
