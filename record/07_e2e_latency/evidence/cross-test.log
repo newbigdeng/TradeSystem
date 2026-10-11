@@ -1,0 +1,7 @@
+Test project /home/zjh/trade-measurements/07_e2e_latency/build-final
+    Start 26: network_flush_progress
+1/1 Test #26: network_flush_progress ...........   Passed    0.03 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.04 sec

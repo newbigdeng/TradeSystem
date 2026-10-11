@@ -1,0 +1,2 @@
+PASS send-only progress, exact short-write retry, EAGAIN retention, no receive callback, peer failure
+PASS later connection response flushed before earlier connection receive callback
