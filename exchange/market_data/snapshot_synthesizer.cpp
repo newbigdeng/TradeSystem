@@ -101,7 +101,7 @@ namespace Exchange {
     ASSERT(milliseconds>0 && milliseconds<=3600000,"TRADE_SNAPSHOT_MS out of bounds");
     const auto period=milliseconds*NANOS_TO_MILLIS;
     while(run_ || snapshot_md_updates_->peek()) {
-      for (auto market_update = snapshot_md_updates_->peek(); snapshot_md_updates_->size() && market_update; market_update = snapshot_md_updates_->peek()) {
+      for (auto market_update = snapshot_md_updates_->peek(); market_update; market_update = snapshot_md_updates_->peek()) {
         logger_.log("%:% %() % Processing %\n", __FILE__, __LINE__, __FUNCTION__, getCurrentTimeStr(),
                     market_update->toString().c_str());
 

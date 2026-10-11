@@ -144,3 +144,22 @@ if(BUILD_TESTING)
     set_tests_properties(measurement_${probe} PROPERTIES WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/measurement-smoke/${probe} TIMEOUT 90)
   endforeach()
 endif()
+
+# Fixed-capacity queue/pool contracts and FIFO backpressure regression.
+if(BUILD_TESTING)
+  add_executable(queue_pool_regression record/06_queue_pool/queue_pool_regression.cpp)
+  target_compile_definitions(queue_pool_regression PRIVATE EXPECT_POW2 EXPECT_COMPACT_POOL)
+  target_link_libraries(queue_pool_regression PRIVATE libcommon pthread)
+  foreach(probe IN ITEMS queue pool fifo)
+    add_test(NAME queue_pool_${probe} COMMAND queue_pool_regression ${probe})
+    set_tests_properties(queue_pool_${probe} PROPERTIES TIMEOUT 90)
+  endforeach()
+endif()
+
+# Flush pending responses without invoking receive callbacks.
+if(BUILD_TESTING)
+  add_executable(network_progress_test record/07_e2e_latency/network_progress_test.cpp)
+  target_link_libraries(network_progress_test PRIVATE libexchange libcommon pthread)
+  add_test(NAME network_flush_progress COMMAND network_progress_test flush)
+  set_tests_properties(network_flush_progress PROPERTIES TIMEOUT 30)
+endif()

@@ -10,6 +10,9 @@
 | 03 | [性能调优](03_performance_tuning/03_performance_tuning.md) | [修改前后](03_performance_tuning/03_source_changes.md) |
 | 04 | [源码修复核对](04_source_repairs/04_source_repairs.md) | 汇总已有修复，补充验收 |
 | 05 | [perf重新测量](05_perf_remeasurement/README.md) | 真实perf、队列单因素、批处理与容量验收 |
+| 06 | [队列、对象池与定序器](06_queue_pool/06_queue_pool.md) | [修改前后](06_queue_pool/06_source_changes.md) |
+
+| 07 | [端到端延迟排查与发送推进](07_e2e_latency/07_e2e_latency.md) | [修改前后](07_e2e_latency/07_source_changes.md)；含未采用候选和全部慢轮 |
 
 每项工作放在 `编号_工作` 目录，文件名不加日期。报告、回归工具和紧凑结果放在同一目录；日期、版本和验证范围写在正文。
 

@@ -44,13 +44,23 @@ void test() {
   auto extra=first.me_market_update_;extra.qty_=2;expected.push_back(extra);
   require_recovery(batch->hash==Common::bookHash(expected),"snapshot plus continuous incrementals rebuilt a different state");
   Trading::MarketRecovery bounded(10);inject(bounded,frames);require_recovery(bounded.overflows_>0&&bounded.cached()<=10&&!bounded.build(),"cache overflow was unbounded or marked live");
-  Common::LFQueue<E> output(74);require_recovery(output.try_push(first.me_market_update_)&&output.try_push(second.me_market_update_),"prefill failed");
+  // 128 槽中预占 54 槽，只剩 74；含 COMMIT 的 75 条恢复批次必须全部拒绝。
+  Common::LFQueue<E> output(128);
+  for(size_t i=0;i<54;++i)require_recovery(output.try_push(first.me_market_update_),"prefill failed");
   batch->events.push_back({T::RECOVERY_COMMIT});
-  require_recovery(!output.try_push_batch(batch->events)&&output.size()==2,"full output published a partial recovery");
-  E event;output.try_pop(event);output.try_pop(event);require_recovery(!output.try_push_batch(batch->events),"oversized batch accepted");
-  batch->events.pop_back();require_recovery(output.try_push_batch(batch->events)&&output.size()==74,"exact-capacity batch failed");
-  Common::LFQueue<int> wrapped(3);wrapped.try_push(1);wrapped.try_push(2);int n;wrapped.try_pop(n);
-  require_recovery(wrapped.try_push_batch({3,4}),"wrapped batch failed");for(int want:{2,3,4})require_recovery(wrapped.try_pop(n)&&n==want,"wrapped batch reordered");
+  require_recovery(!output.try_push_batch(batch->events)&&output.size()==54,"full output published a partial recovery");
+  E event;for(size_t i=0;i<54;++i)require_recovery(output.try_pop(event),"prefill drain failed");
+  require_recovery(!output.try_push_batch(std::vector<E>(129)),"oversized batch accepted");
+  require_recovery(output.try_push_batch(batch->events)&&output.size()==75,"complete recovery batch failed");
+  for(const auto& expected_event:batch->events){
+    require_recovery(output.try_pop(event)&&event.toString()==expected_event.toString(),"recovery batch reordered");
+  }
+  require_recovery(!output.peek(),"recovery output not drained");
+  require_recovery(output.try_push_batch(std::vector<E>(128))&&output.size()==128,"exact-capacity batch failed");
+  Common::LFQueue<int> wrapped(4);wrapped.try_push(1);wrapped.try_push(2);wrapped.try_push(3);int n;
+  wrapped.try_pop(n);wrapped.try_pop(n);
+  require_recovery(wrapped.try_push_batch({4,5,6}),"wrapped batch failed");
+  for(int want:{3,4,5,6})require_recovery(wrapped.try_pop(n)&&n==want,"wrapped batch reordered");
   const auto bytes=Common::Wire::encode(frames.back());U decoded;
   require_recovery(Common::Wire::decode(bytes.data(),decoded)&&decoded.snapshot_cycle_==1&&decoded.watermark_==42&&decoded.state_hash_==frames.back().state_hash_,"market metadata wire roundtrip failed");
 }

@@ -1,0 +1,454 @@
+[
+  {
+    "scenario": "controlled",
+    "version": "baseline",
+    "result": {
+      "config": {
+        "TRADE_SNAPSHOT_MS": "500",
+        "TRADE_RUN_SECONDS": "24",
+        "TRADE_RANDOM_ORDERS": "40",
+        "TRADE_RANDOM_DELAY_US": "100000"
+      },
+      "binary_dir": "/home/zjh/trade-measurements/06_queue_pool_review/build-final",
+      "started_ns": 1791699591007563839,
+      "client_exits": [
+        0,
+        0
+      ],
+      "server_exit": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-baseline/exchange/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 181,
+          "APPLY": 181,
+          "RESPONSE": 227
+        },
+        "distinct_response_ids": 227,
+        "received_count": 181,
+        "applied_count": 181,
+        "client_received_requests": {
+          "2": 93,
+          "1": 88
+        },
+        "client_matching_responses": {
+          "2": 114,
+          "1": 113
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "1:0": 0,
+          "1:1": 97,
+          "1:2": -16,
+          "1:3": -136,
+          "1:4": 31,
+          "1:5": 0,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 0,
+          "2:1": -97,
+          "2:2": 16,
+          "2:3": 136,
+          "2:4": -31,
+          "2:5": 0,
+          "2:6": -39,
+          "2:7": 0
+        },
+        "volume": {
+          "1:0": 56,
+          "1:1": 275,
+          "1:2": 16,
+          "1:3": 208,
+          "1:4": 85,
+          "1:5": 116,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 10,
+          "2:1": 141,
+          "2:2": 132,
+          "2:3": 136,
+          "2:4": 31,
+          "2:5": 70,
+          "2:6": 39,
+          "2:7": 0
+        },
+        "checkpoints": [
+          {
+            "client": 1,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-baseline/client_1/trading_account_1.journal"
+          },
+          {
+            "client": 2,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-baseline/client_2/trading_account_2.journal"
+          }
+        ],
+        "errors": [],
+        "consistent": true
+      },
+      "fill_response_count": 46,
+      "recovery_logs": {
+        "1": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ],
+        "2": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ]
+      },
+      "gateway_logs": {
+        "1": [
+          "GATEWAY STATS sent:88 received_frames:113 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ],
+        "2": [
+          "GATEWAY STATS sent:93 received_frames:114 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ]
+      },
+      "correctness_ok": true,
+      "ended_ns": 1791699619014157578
+    }
+  },
+  {
+    "scenario": "controlled",
+    "version": "final",
+    "result": {
+      "config": {
+        "TRADE_SNAPSHOT_MS": "500",
+        "TRADE_RUN_SECONDS": "24",
+        "TRADE_RANDOM_ORDERS": "40",
+        "TRADE_RANDOM_DELAY_US": "100000"
+      },
+      "binary_dir": "/home/zjh/trade-measurements/07_e2e_latency/build-final",
+      "started_ns": 1791699619015730059,
+      "client_exits": [
+        0,
+        0
+      ],
+      "server_exit": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-final/exchange/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 181,
+          "APPLY": 181,
+          "RESPONSE": 227
+        },
+        "distinct_response_ids": 227,
+        "received_count": 181,
+        "applied_count": 181,
+        "client_received_requests": {
+          "1": 88,
+          "2": 93
+        },
+        "client_matching_responses": {
+          "1": 113,
+          "2": 114
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "1:0": 0,
+          "1:1": 97,
+          "1:2": -16,
+          "1:3": -136,
+          "1:4": 31,
+          "1:5": 0,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 0,
+          "2:1": -97,
+          "2:2": 16,
+          "2:3": 136,
+          "2:4": -31,
+          "2:5": 0,
+          "2:6": -39,
+          "2:7": 0
+        },
+        "volume": {
+          "1:0": 56,
+          "1:1": 275,
+          "1:2": 16,
+          "1:3": 208,
+          "1:4": 85,
+          "1:5": 116,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 10,
+          "2:1": 141,
+          "2:2": 132,
+          "2:3": 136,
+          "2:4": 31,
+          "2:5": 70,
+          "2:6": 39,
+          "2:7": 0
+        },
+        "checkpoints": [
+          {
+            "client": 1,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-final/client_1/trading_account_1.journal"
+          },
+          {
+            "client": 2,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-controlled-final/client_2/trading_account_2.journal"
+          }
+        ],
+        "errors": [],
+        "consistent": true
+      },
+      "fill_response_count": 46,
+      "recovery_logs": {
+        "1": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ],
+        "2": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ]
+      },
+      "gateway_logs": {
+        "1": [
+          "GATEWAY STATS sent:88 received_frames:113 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ],
+        "2": [
+          "GATEWAY STATS sent:93 received_frames:114 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ]
+      },
+      "correctness_ok": true,
+      "ended_ns": 1791699646975078042
+    }
+  },
+  {
+    "scenario": "high",
+    "version": "baseline",
+    "result": {
+      "config": {
+        "TRADE_SNAPSHOT_MS": "500",
+        "TRADE_RUN_SECONDS": "8",
+        "TRADE_RANDOM_ORDERS": "80",
+        "TRADE_RANDOM_DELAY_US": "20000"
+      },
+      "binary_dir": "/home/zjh/trade-measurements/06_queue_pool_review/build-final",
+      "started_ns": 1791699646977416410,
+      "client_exits": [
+        0,
+        0
+      ],
+      "server_exit": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/business-high-baseline/exchange/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 351,
+          "APPLY": 351,
+          "RESPONSE": 489
+        },
+        "distinct_response_ids": 489,
+        "received_count": 351,
+        "applied_count": 351,
+        "client_received_requests": {
+          "2": 177,
+          "1": 174
+        },
+        "client_matching_responses": {
+          "2": 254,
+          "1": 235
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "1:0": -142,
+          "1:1": 150,
+          "1:2": -273,
+          "1:3": -196,
+          "1:4": 101,
+          "1:5": -78,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 142,
+          "2:1": -150,
+          "2:2": 273,
+          "2:3": 196,
+          "2:4": -101,
+          "2:5": 78,
+          "2:6": -39,
+          "2:7": 0
+        },
+        "volume": {
+          "1:0": 198,
+          "1:1": 328,
+          "1:2": 325,
+          "1:3": 296,
+          "1:4": 333,
+          "1:5": 116,
+          "1:6": 115,
+          "1:7": 0,
+          "2:0": 234,
+          "2:1": 416,
+          "2:2": 725,
+          "2:3": 374,
+          "2:4": 287,
+          "2:5": 190,
+          "2:6": 39,
+          "2:7": 128
+        },
+        "checkpoints": [
+          {
+            "client": 1,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-high-baseline/client_1/trading_account_1.journal"
+          },
+          {
+            "client": 2,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-high-baseline/client_2/trading_account_2.journal"
+          }
+        ],
+        "errors": [],
+        "consistent": true
+      },
+      "fill_response_count": 138,
+      "recovery_logs": {
+        "1": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ],
+        "2": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ]
+      },
+      "gateway_logs": {
+        "1": [
+          "GATEWAY STATS sent:174 received_frames:235 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ],
+        "2": [
+          "GATEWAY STATS sent:177 received_frames:254 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ]
+      },
+      "correctness_ok": true,
+      "ended_ns": 1791699658666662367
+    }
+  },
+  {
+    "scenario": "high",
+    "version": "final",
+    "result": {
+      "config": {
+        "TRADE_SNAPSHOT_MS": "500",
+        "TRADE_RUN_SECONDS": "8",
+        "TRADE_RANDOM_ORDERS": "80",
+        "TRADE_RANDOM_DELAY_US": "20000"
+      },
+      "binary_dir": "/home/zjh/trade-measurements/07_e2e_latency/build-final",
+      "started_ns": 1791699658668685117,
+      "client_exits": [
+        0,
+        0
+      ],
+      "server_exit": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/business-high-final/exchange/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 351,
+          "APPLY": 351,
+          "RESPONSE": 491
+        },
+        "distinct_response_ids": 491,
+        "received_count": 351,
+        "applied_count": 351,
+        "client_received_requests": {
+          "1": 173,
+          "2": 178
+        },
+        "client_matching_responses": {
+          "1": 237,
+          "2": 254
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "1:0": -142,
+          "1:1": 149,
+          "1:2": -295,
+          "1:3": -135,
+          "1:4": 69,
+          "1:5": -7,
+          "1:6": 39,
+          "1:7": 0,
+          "2:0": 142,
+          "2:1": -149,
+          "2:2": 295,
+          "2:3": 135,
+          "2:4": -69,
+          "2:5": 7,
+          "2:6": -39,
+          "2:7": 0
+        },
+        "volume": {
+          "1:0": 198,
+          "1:1": 327,
+          "1:2": 303,
+          "1:3": 235,
+          "1:4": 365,
+          "1:5": 187,
+          "1:6": 115,
+          "1:7": 0,
+          "2:0": 234,
+          "2:1": 415,
+          "2:2": 747,
+          "2:3": 459,
+          "2:4": 255,
+          "2:5": 203,
+          "2:6": 39,
+          "2:7": 128
+        },
+        "checkpoints": [
+          {
+            "client": 1,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-high-final/client_1/trading_account_1.journal"
+          },
+          {
+            "client": 2,
+            "healthy": true,
+            "unresolved": 0,
+            "path": "/home/zjh/trade-measurements/07_e2e_latency/business-high-final/client_2/trading_account_2.journal"
+          }
+        ],
+        "errors": [],
+        "consistent": true
+      },
+      "fill_response_count": 140,
+      "recovery_logs": {
+        "1": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ],
+        "2": [
+          "RECOVERY PUBLISHED watermark:0 hash:14695981039346656037 generation:1 events:9",
+          "RECOVERY COUNTERS gaps:0 duplicates:0 cache_overflow:0 bad_hash:0 recoveries:1 queue_full:0 high_watermark:9"
+        ]
+      },
+      "gateway_logs": {
+        "1": [
+          "GATEWAY STATS sent:173 received_frames:237 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ],
+        "2": [
+          "GATEWAY STATS sent:178 received_frames:254 pending:0 unsent_bytes:0 healthy:1 response_queue_full:0"
+        ]
+      },
+      "correctness_ok": true,
+      "ended_ns": 1791699670291704038
+    }
+  }
+]

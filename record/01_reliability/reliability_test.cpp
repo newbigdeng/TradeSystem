@@ -27,7 +27,7 @@ template<class T> bool pop(Common::LFQueue<T> &q, T &value) {
 #endif
 }
 void queueTest() {
-  for (size_t n : {1, 2, 3}) {
+  for (size_t n : {1, 2, 4}) {
     Common::LFQueue<uint64_t> q(n);
     for (size_t i=0; i<n; ++i) check(push(q, uint64_t(i)), "initial push failed");
     check(!push(q, uint64_t(999)), "full queue accepted and overwrote a message");
@@ -37,7 +37,7 @@ void queueTest() {
     uint64_t value; check(!pop(q,value), "empty pop succeeded");
   }
 #ifndef TRADE_BASELINE
-  Common::LFQueue<uint64_t> q(3);
+  Common::LFQueue<uint64_t> q(4);
   constexpr uint64_t count=1000000;
   std::thread producer([&] {
     for(uint64_t i=0;i<count;++i) {
@@ -53,7 +53,7 @@ void queueTest() {
   }
   producer.join();
   check(correct && q.size()==0, "million-message transfer lost, duplicated or reordered data");
-  check(q.full_count()>0 && q.high_watermark()<=3, "queue counters invalid");
+  check(q.full_count()>0 && q.high_watermark()<=4, "queue counters invalid");
 #endif
 }
 void tcpTest() {

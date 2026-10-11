@@ -1,0 +1,14 @@
+{
+  "configure": 0,
+  "build": 0,
+  "ctest": 0,
+  "binary_sha256": "f94347fa59bcda6aa2a87edbec88f3382ff1b28c88fa3131e106393b22ab4c94",
+  "stage1_binary_sha256": "f94347fa59bcda6aa2a87edbec88f3382ff1b28c88fa3131e106393b22ab4c94",
+  "asan_compile": 0,
+  "asan_run": 0,
+  "cross-build": 0,
+  "cross-test": 0,
+  "cross-asan-build": 0,
+  "cross-asan-run": 0,
+  "final_test_sha256": "d74fb42876786f9d331247dbba81c29e4e53c2dbbd49b94d6fa612b1a764e81b"
+}

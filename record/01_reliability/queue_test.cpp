@@ -4,7 +4,7 @@
 #include "common/logging.h"
 void require(bool value,const char *message) { if(!value) throw std::runtime_error(message); }
 int main() {
-  for(size_t capacity:{1,2,3}) {
+  for(size_t capacity:{1,2,4}) {
     Common::LFQueue<uint64_t> q(capacity);
     for(size_t i=0;i<capacity;++i) require(q.try_push(i),"initial push failed");
     require(!q.try_push(999),"full queue accepted a message");
@@ -12,7 +12,7 @@ int main() {
     uint64_t value=0; require(!q.try_pop(value),"empty pop succeeded");
   }
   for(int repeat=0;repeat<3;++repeat) {
-    Common::LFQueue<uint64_t> q(3); constexpr uint64_t count=1000000;
+    Common::LFQueue<uint64_t> q(4); constexpr uint64_t count=1000000;
     std::thread producer([&]{ for(uint64_t i=0;i<count;++i) {
       while(!q.try_push(i)) std::this_thread::yield();
       if(i%997==0) std::this_thread::yield();
@@ -20,7 +20,7 @@ int main() {
     bool ordered=true;
     for(uint64_t i=0;i<count;++i) {uint64_t value; while(!q.try_pop(value)) std::this_thread::yield(); ordered&=value==i;}
     producer.join(); require(ordered&&q.size()==0,"million-message transfer differs");
-    require(q.high_watermark()==3,"queue high watermark missing");
+    require(q.high_watermark()==4,"queue high watermark missing");
   }
   uint64_t dropped=0;
   {

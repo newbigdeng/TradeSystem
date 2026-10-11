@@ -110,7 +110,7 @@ void lifecycle_case() {
 }
 #ifndef TRADE_CONTROL_BASELINE
 void concurrent_case() {
-  Exchange::ClientRequestLFQueue requests(3);Exchange::ClientResponseLFQueue responses(3);Exchange::MEMarketUpdateLFQueue market(3);
+  Exchange::ClientRequestLFQueue requests(4);Exchange::ClientResponseLFQueue responses(4);Exchange::MEMarketUpdateLFQueue market(4);
   Common::TradeEngineCfgHashMap cfg{};for(auto& c:cfg)c={1,0,{1,1000000,-1000000}};
   Trading::TradeEngine engine(1,Common::AlgoType::RANDOM,cfg,&requests,&responses,&market);engine.setMarketTrusted(true);
   std::atomic<uint64_t> accepted{0};std::atomic<int> complete{0};uint64_t received=0;

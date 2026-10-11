@@ -1,0 +1,890 @@
+[
+  {
+    "mode": "plain",
+    "result": {
+      "config": {
+        "clients": 4,
+        "tickers": 8,
+        "seed": 20260928,
+        "requests": 256,
+        "mode": "open",
+        "rate": 50,
+        "timeout_s": 10,
+        "pause_ms": 0
+      },
+      "start_wall_ns": 1791687304416701866,
+      "server_cpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "generator_cpus": [
+        4
+      ],
+      "binary_sha256": "da75ab6c34f679c9d3ce7207d0a95a3555b33a46a3b9ef6ea24a54bd1f076aba",
+      "input_sha256": "bdb34303f5288f6577fd93c0e1c9c2ecf6925f49d35d70a34a784cd0229f5831",
+      "events_sha256": "dfeccd06bb976f50e73b937f5868c99c9c1295a115f2fdeebf343bf778fbe6ab",
+      "warmup": {
+        "observed_end_ns": 1377312031769,
+        "last_full_frame_sent_ns": 1377300123483,
+        "generated": 128,
+        "sent": 128,
+        "completed": 128,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 6400,
+        "received_bytes": 10112,
+        "observation_timeout_s": 5,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 128
+      },
+      "counts": {
+        "observed_end_ns": 1382449645751,
+        "last_full_frame_sent_ns": 1382438702011,
+        "generated": 256,
+        "sent": 256,
+        "completed": 256,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 12800,
+        "received_bytes": 20224,
+        "observation_timeout_s": 10,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 256
+      },
+      "statistics": {
+        "window_start_ns": 1377337227652,
+        "window_end_ns": 1382457227652,
+        "window_seconds": 5.12,
+        "total_rows": 256,
+        "cohort": {
+          "ACCEPTED": 128,
+          "CANCELED": 128,
+          "REJECTED": 0,
+          "TIMEOUT": 0,
+          "UNSENT": 0
+        },
+        "conservation_ok": true,
+        "window_counts": {
+          "offered": 256,
+          "sent": 256,
+          "completed": 256,
+          "accepted": 128,
+          "canceled": 128,
+          "rejected": 0
+        },
+        "window_rates_per_s": {
+          "offered": 50.0,
+          "sent": 50.0,
+          "completed": 50.0,
+          "accepted": 25.0,
+          "canceled": 25.0,
+          "rejected": 0.0
+        },
+        "send_lateness": {
+          "n": 256,
+          "p50_ns": 892325,
+          "p95_ns": 1820046,
+          "p99_ns": 2045920,
+          "max_ns": 2384903,
+          "mean_ns": 932996.5859375
+        },
+        "actual_send_to_response": {
+          "n": 256,
+          "p50_ns": 9493626,
+          "p95_ns": 12296100,
+          "p99_ns": 14231755,
+          "max_ns": 14593778,
+          "mean_ns": 9670139.0390625
+        },
+        "scheduled_to_response": {
+          "n": 256,
+          "p50_ns": 10362079,
+          "p95_ns": 13602194,
+          "p99_ns": 15116454,
+          "max_ns": 15232794,
+          "mean_ns": 10603135.625
+        },
+        "scheduled_to_response_by_kind": {
+          "NEW": {
+            "n": 128,
+            "p50_ns": 10614172,
+            "p95_ns": 13842038,
+            "p99_ns": 15116454,
+            "max_ns": 15232794,
+            "mean_ns": 10749671.09375
+          },
+          "CANCEL": {
+            "n": 128,
+            "p50_ns": 10180821,
+            "p95_ns": 13430565,
+            "p99_ns": 14628466,
+            "max_ns": 15212142,
+            "mean_ns": 10456600.15625
+          }
+        },
+        "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+        "latency_scope": "completed responses only",
+        "all_offered_p99_ns": 15116454,
+        "all_offered_p99_status": "observed"
+      },
+      "system_before": {
+        "cpu_ticks": [
+          96156,
+          17593,
+          70718,
+          884832,
+          8739,
+          0,
+          7229,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 11193,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "0.28 0.58 1.15 9/883 6833"
+      },
+      "system_after": {
+        "cpu_ticks": [
+          97488,
+          17647,
+          71357,
+          886659,
+          8849,
+          0,
+          7479,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 11449,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "0.74 0.67 1.18 8/878 6835"
+      },
+      "process_before": {
+        "cpu_ticks": 653,
+        "VmSize": "1514720 kB",
+        "VmHWM": "915640 kB",
+        "VmRSS": "915640 kB"
+      },
+      "process_after": {
+        "cpu_ticks": 2536,
+        "VmSize": "1514720 kB",
+        "VmHWM": "916344 kB",
+        "VmRSS": "916344 kB"
+      },
+      "clock_ticks_per_s": 100,
+      "inflight_at_window_end": 0,
+      "generator_scheduled_not_sent_at_window_end": 0,
+      "measurement_and_drain_seconds": 5.112418099,
+      "cpu_sample_start_ns": 1377314315693,
+      "cpu_sample_end_ns": 1382450881535,
+      "cpu_sample_seconds": 5.136565842,
+      "process_cpu_seconds_sampled": 18.83,
+      "process_cpu_percent_sampled": 366.5873382958185,
+      "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+      "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+      "exit_code": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/diagnostic-plain/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 384,
+          "APPLY": 384,
+          "RESPONSE": 384
+        },
+        "distinct_response_ids": 384,
+        "received_count": 384,
+        "applied_count": 384,
+        "client_received_requests": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "client_matching_responses": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "80:0": 0,
+          "80:1": 0,
+          "80:2": 0,
+          "80:3": 0,
+          "80:4": 0,
+          "80:5": 0,
+          "80:6": 0,
+          "80:7": 0,
+          "81:0": 0,
+          "81:1": 0,
+          "81:2": 0,
+          "81:3": 0,
+          "81:4": 0,
+          "81:5": 0,
+          "81:6": 0,
+          "81:7": 0,
+          "82:0": 0,
+          "82:1": 0,
+          "82:2": 0,
+          "82:3": 0,
+          "82:4": 0,
+          "82:5": 0,
+          "82:6": 0,
+          "82:7": 0,
+          "83:0": 0,
+          "83:1": 0,
+          "83:2": 0,
+          "83:3": 0,
+          "83:4": 0,
+          "83:5": 0,
+          "83:6": 0,
+          "83:7": 0
+        },
+        "volume": {},
+        "checkpoints": [],
+        "errors": [],
+        "consistent": true
+      },
+      "journal_sha256": "b121b1bd4f814aa65bfdfc8d451303c4a0155ba251dd830096a3a67cf8352f59",
+      "queue_final_and_highwater": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1153
+      ],
+      "log_dropped_records": {
+        "exchange_order_server.log": 0,
+        "exchange_main.log": 0,
+        "exchange_market_data_publisher.log": 0,
+        "exchange_matching_engine.log": 0,
+        "exchange_snapshot_synthesizer.log": 0
+      },
+      "correctness_ok": true,
+      "end_wall_ns": 1791687313428887783
+    }
+  },
+  {
+    "mode": "fsync",
+    "result": {
+      "config": {
+        "clients": 4,
+        "tickers": 8,
+        "seed": 20260928,
+        "requests": 256,
+        "mode": "open",
+        "rate": 50,
+        "timeout_s": 10,
+        "pause_ms": 0
+      },
+      "start_wall_ns": 1791687313432396202,
+      "server_cpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "generator_cpus": [
+        4
+      ],
+      "binary_sha256": "da75ab6c34f679c9d3ce7207d0a95a3555b33a46a3b9ef6ea24a54bd1f076aba",
+      "input_sha256": "bdb34303f5288f6577fd93c0e1c9c2ecf6925f49d35d70a34a784cd0229f5831",
+      "events_sha256": "2b723f05f7d78d9471b39e9ccad9e757a899abeb72a96e339a2e536b2a4cd7ad",
+      "warmup": {
+        "observed_end_ns": 1385901761245,
+        "last_full_frame_sent_ns": 1385893892363,
+        "generated": 128,
+        "sent": 128,
+        "completed": 128,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 6400,
+        "received_bytes": 10112,
+        "observation_timeout_s": 5,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 128
+      },
+      "counts": {
+        "observed_end_ns": 1391035711557,
+        "last_full_frame_sent_ns": 1391025910794,
+        "generated": 256,
+        "sent": 256,
+        "completed": 256,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 12800,
+        "received_bytes": 20224,
+        "observation_timeout_s": 10,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 256
+      },
+      "statistics": {
+        "window_start_ns": 1385925191260,
+        "window_end_ns": 1391045191260,
+        "window_seconds": 5.12,
+        "total_rows": 256,
+        "cohort": {
+          "ACCEPTED": 128,
+          "CANCELED": 128,
+          "REJECTED": 0,
+          "TIMEOUT": 0,
+          "UNSENT": 0
+        },
+        "conservation_ok": true,
+        "window_counts": {
+          "offered": 256,
+          "sent": 256,
+          "completed": 256,
+          "accepted": 128,
+          "canceled": 128,
+          "rejected": 0
+        },
+        "window_rates_per_s": {
+          "offered": 50.0,
+          "sent": 50.0,
+          "completed": 50.0,
+          "accepted": 25.0,
+          "canceled": 25.0,
+          "rejected": 0.0
+        },
+        "send_lateness": {
+          "n": 256,
+          "p50_ns": 897154,
+          "p95_ns": 1791278,
+          "p99_ns": 2226244,
+          "max_ns": 3541334,
+          "mean_ns": 893258.8671875
+        },
+        "actual_send_to_response": {
+          "n": 256,
+          "p50_ns": 8744121,
+          "p95_ns": 11722521,
+          "p99_ns": 30575703,
+          "max_ns": 56048570,
+          "mean_ns": 9180544.3671875
+        },
+        "scheduled_to_response": {
+          "n": 256,
+          "p50_ns": 9488818,
+          "p95_ns": 13637751,
+          "p99_ns": 30949768,
+          "max_ns": 57252943,
+          "mean_ns": 10073803.234375
+        },
+        "scheduled_to_response_by_kind": {
+          "NEW": {
+            "n": 128,
+            "p50_ns": 9396031,
+            "p95_ns": 12594574,
+            "p99_ns": 17254701,
+            "max_ns": 57252943,
+            "mean_ns": 10007608.625
+          },
+          "CANCEL": {
+            "n": 128,
+            "p50_ns": 9765595,
+            "p95_ns": 13797711,
+            "p99_ns": 30949768,
+            "max_ns": 37184063,
+            "mean_ns": 10139997.84375
+          }
+        },
+        "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+        "latency_scope": "completed responses only",
+        "all_offered_p99_ns": 30949768,
+        "all_offered_p99_status": "observed"
+      },
+      "system_before": {
+        "cpu_ticks": [
+          97862,
+          17921,
+          71737,
+          888254,
+          8904,
+          0,
+          7572,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 11597,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "1.24 0.77 1.21 10/874 6847"
+      },
+      "system_after": {
+        "cpu_ticks": [
+          99196,
+          18465,
+          72365,
+          889624,
+          8987,
+          0,
+          7816,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 11853,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "1.54 0.84 1.23 10/874 6847"
+      },
+      "process_before": {
+        "cpu_ticks": 644,
+        "VmSize": "1514740 kB",
+        "VmHWM": "915836 kB",
+        "VmRSS": "915836 kB"
+      },
+      "process_after": {
+        "cpu_ticks": 2537,
+        "VmSize": "1514740 kB",
+        "VmHWM": "916688 kB",
+        "VmRSS": "916688 kB"
+      },
+      "clock_ticks_per_s": 100,
+      "inflight_at_window_end": 0,
+      "generator_scheduled_not_sent_at_window_end": 0,
+      "measurement_and_drain_seconds": 5.110520297,
+      "cpu_sample_start_ns": 1385903469885,
+      "cpu_sample_end_ns": 1391036267320,
+      "cpu_sample_seconds": 5.132797435,
+      "process_cpu_seconds_sampled": 18.93,
+      "process_cpu_percent_sampled": 368.8047354239687,
+      "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+      "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+      "exit_code": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/diagnostic-fsync/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 384,
+          "APPLY": 384,
+          "RESPONSE": 384
+        },
+        "distinct_response_ids": 384,
+        "received_count": 384,
+        "applied_count": 384,
+        "client_received_requests": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "client_matching_responses": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "80:0": 0,
+          "80:1": 0,
+          "80:2": 0,
+          "80:3": 0,
+          "80:4": 0,
+          "80:5": 0,
+          "80:6": 0,
+          "80:7": 0,
+          "81:0": 0,
+          "81:1": 0,
+          "81:2": 0,
+          "81:3": 0,
+          "81:4": 0,
+          "81:5": 0,
+          "81:6": 0,
+          "81:7": 0,
+          "82:0": 0,
+          "82:1": 0,
+          "82:2": 0,
+          "82:3": 0,
+          "82:4": 0,
+          "82:5": 0,
+          "82:6": 0,
+          "82:7": 0,
+          "83:0": 0,
+          "83:1": 0,
+          "83:2": 0,
+          "83:3": 0,
+          "83:4": 0,
+          "83:5": 0,
+          "83:6": 0,
+          "83:7": 0
+        },
+        "volume": {},
+        "checkpoints": [],
+        "errors": [],
+        "consistent": true
+      },
+      "journal_sha256": "a4e77db6f2e8c86fa04b627894fcb7acb2cdd5bea2e68351fa878d9d07f194ca",
+      "queue_final_and_highwater": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1,
+        1153
+      ],
+      "log_dropped_records": {
+        "exchange_order_server.log": 0,
+        "exchange_main.log": 0,
+        "exchange_market_data_publisher.log": 0,
+        "exchange_matching_engine.log": 0,
+        "exchange_snapshot_synthesizer.log": 0
+      },
+      "correctness_ok": true,
+      "end_wall_ns": 1791687322031653589
+    }
+  },
+  {
+    "mode": "fdatasync",
+    "result": {
+      "config": {
+        "clients": 4,
+        "tickers": 8,
+        "seed": 20260928,
+        "requests": 256,
+        "mode": "open",
+        "rate": 50,
+        "timeout_s": 10,
+        "pause_ms": 0
+      },
+      "start_wall_ns": 1791687322038196768,
+      "server_cpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "generator_cpus": [
+        4
+      ],
+      "binary_sha256": "da75ab6c34f679c9d3ce7207d0a95a3555b33a46a3b9ef6ea24a54bd1f076aba",
+      "input_sha256": "bdb34303f5288f6577fd93c0e1c9c2ecf6925f49d35d70a34a784cd0229f5831",
+      "events_sha256": "476aa877b06d1c5566c46c7e9218d80e78a8a81e097e270de52c046dadc7f9aa",
+      "warmup": {
+        "observed_end_ns": 1394806920577,
+        "last_full_frame_sent_ns": 1394798081026,
+        "generated": 128,
+        "sent": 128,
+        "completed": 128,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 6400,
+        "received_bytes": 10112,
+        "observation_timeout_s": 5,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 128
+      },
+      "counts": {
+        "observed_end_ns": 1399943216459,
+        "last_full_frame_sent_ns": 1399931680477,
+        "generated": 256,
+        "sent": 256,
+        "completed": 256,
+        "unsent": 0,
+        "timeout": 0,
+        "partial_writes": 0,
+        "send_would_block": 0,
+        "unfinished_partial_frames": 0,
+        "sent_bytes": 12800,
+        "received_bytes": 20224,
+        "observation_timeout_s": 10,
+        "injected_generator_pause_ms": 0,
+        "unique_response_ids": 256
+      },
+      "statistics": {
+        "window_start_ns": 1394830965469,
+        "window_end_ns": 1399950965469,
+        "window_seconds": 5.12,
+        "total_rows": 256,
+        "cohort": {
+          "ACCEPTED": 128,
+          "CANCELED": 128,
+          "REJECTED": 0,
+          "TIMEOUT": 0,
+          "UNSENT": 0
+        },
+        "conservation_ok": true,
+        "window_counts": {
+          "offered": 256,
+          "sent": 256,
+          "completed": 256,
+          "accepted": 128,
+          "canceled": 128,
+          "rejected": 0
+        },
+        "window_rates_per_s": {
+          "offered": 50.0,
+          "sent": 50.0,
+          "completed": 50.0,
+          "accepted": 25.0,
+          "canceled": 25.0,
+          "rejected": 0.0
+        },
+        "send_lateness": {
+          "n": 256,
+          "p50_ns": 996346,
+          "p95_ns": 1959329,
+          "p99_ns": 2939356,
+          "max_ns": 3005039,
+          "mean_ns": 1029129.1015625
+        },
+        "actual_send_to_response": {
+          "n": 256,
+          "p50_ns": 9288416,
+          "p95_ns": 12387733,
+          "p99_ns": 18106280,
+          "max_ns": 34140948,
+          "mean_ns": 9667613.44140625
+        },
+        "scheduled_to_response": {
+          "n": 256,
+          "p50_ns": 10283539,
+          "p95_ns": 14115582,
+          "p99_ns": 19296471,
+          "max_ns": 37145987,
+          "mean_ns": 10696742.54296875
+        },
+        "scheduled_to_response_by_kind": {
+          "NEW": {
+            "n": 128,
+            "p50_ns": 9990399,
+            "p95_ns": 12904228,
+            "p99_ns": 14896129,
+            "max_ns": 15016648,
+            "mean_ns": 10247854.875
+          },
+          "CANCEL": {
+            "n": 128,
+            "p50_ns": 10566547,
+            "p95_ns": 14360980,
+            "p99_ns": 31959730,
+            "max_ns": 37145987,
+            "mean_ns": 11145630.2109375
+          }
+        },
+        "percentile_algorithm": "nearest rank: sorted[ceil(p*n)-1]",
+        "latency_scope": "completed responses only",
+        "all_offered_p99_ns": 19296471,
+        "all_offered_p99_status": "observed"
+      },
+      "system_before": {
+        "cpu_ticks": [
+          99602,
+          18908,
+          72741,
+          891282,
+          9038,
+          0,
+          7943,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 12001,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "1.54 0.84 1.23 8/875 6859"
+      },
+      "system_after": {
+        "cpu_ticks": [
+          100931,
+          19453,
+          73370,
+          892674,
+          9119,
+          0,
+          8180,
+          0,
+          0,
+          0
+        ],
+        "udp_system_counters": {
+          "InDatagrams": 12464,
+          "NoPorts": 40,
+          "InErrors": 0,
+          "OutDatagrams": 12257,
+          "RcvbufErrors": 0,
+          "SndbufErrors": 0,
+          "InCsumErrors": 0,
+          "IgnoredMulti": 36,
+          "MemErrors": 0
+        },
+        "loadavg": "1.90 0.93 1.26 11/872 6859"
+      },
+      "process_before": {
+        "cpu_ticks": 684,
+        "VmSize": "1514740 kB",
+        "VmHWM": "915580 kB",
+        "VmRSS": "915580 kB"
+      },
+      "process_after": {
+        "cpu_ticks": 2565,
+        "VmSize": "1514740 kB",
+        "VmHWM": "916300 kB",
+        "VmRSS": "916300 kB"
+      },
+      "clock_ticks_per_s": 100,
+      "inflight_at_window_end": 0,
+      "generator_scheduled_not_sent_at_window_end": 0,
+      "measurement_and_drain_seconds": 5.11225099,
+      "cpu_sample_start_ns": 1394808486852,
+      "cpu_sample_end_ns": 1399943807228,
+      "cpu_sample_seconds": 5.135320376,
+      "process_cpu_seconds_sampled": 18.81,
+      "process_cpu_percent_sampled": 366.28678685576904,
+      "cpu_scope": "all child threads; coarse /proc ticks; bracketed resource sampling includes presend wait and drain",
+      "filesystem": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/sda2 ext4   rw,relatime\n",
+      "exit_code": 0,
+      "reconciliation": {
+        "journal": "/home/zjh/trade-measurements/07_e2e_latency/diagnostic-fdatasync/exchange_orders.journal",
+        "counts": {
+          "RECEIVED": 384,
+          "APPLY": 384,
+          "RESPONSE": 384
+        },
+        "distinct_response_ids": 384,
+        "received_count": 384,
+        "applied_count": 384,
+        "client_received_requests": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "client_matching_responses": {
+          "80": 96,
+          "81": 96,
+          "82": 96,
+          "83": 96
+        },
+        "unapplied_requests": [],
+        "live_orders": [],
+        "positions": {
+          "80:0": 0,
+          "80:1": 0,
+          "80:2": 0,
+          "80:3": 0,
+          "80:4": 0,
+          "80:5": 0,
+          "80:6": 0,
+          "80:7": 0,
+          "81:0": 0,
+          "81:1": 0,
+          "81:2": 0,
+          "81:3": 0,
+          "81:4": 0,
+          "81:5": 0,
+          "81:6": 0,
+          "81:7": 0,
+          "82:0": 0,
+          "82:1": 0,
+          "82:2": 0,
+          "82:3": 0,
+          "82:4": 0,
+          "82:5": 0,
+          "82:6": 0,
+          "82:7": 0,
+          "83:0": 0,
+          "83:1": 0,
+          "83:2": 0,
+          "83:3": 0,
+          "83:4": 0,
+          "83:5": 0,
+          "83:6": 0,
+          "83:7": 0
+        },
+        "volume": {},
+        "checkpoints": [],
+        "errors": [],
+        "consistent": true
+      },
+      "journal_sha256": "b121b1bd4f814aa65bfdfc8d451303c4a0155ba251dd830096a3a67cf8352f59",
+      "queue_final_and_highwater": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1153
+      ],
+      "log_dropped_records": {
+        "exchange_order_server.log": 0,
+        "exchange_main.log": 0,
+        "exchange_market_data_publisher.log": 0,
+        "exchange_matching_engine.log": 0,
+        "exchange_snapshot_synthesizer.log": 0
+      },
+      "correctness_ok": true,
+      "end_wall_ns": 1791687330927195186
+    }
+  }
+]
