@@ -35,7 +35,7 @@ TradeSystem 是一个面向 Linux 的 C++20 模拟交易系统，由模拟交易
 
 图中的示意队列为 A → B → C。撤掉 B 时，索引找到 B，连接 A 与 C，再回收 B 的槽；随后加入 D，队列成为 A → C → D，原有订单的先后顺序保持。
 
-**这套设计的代价。** 主实现的价档索引查找为 O(log P)，其中 P 是活动价档数；插入新价档仍需沿链寻找位置，索引容器也可能动态分配内存。对象池减少订单和价档节点的分配，整体耗时仍由负载与测量决定。仓库还保留以完整价格键建立 `unordered_map` 索引的对照实现，性能比较见 [03 调优记录](record/03_performance_tuning/03_performance_tuning.md)。
+**这套设计的代价。** 主实现的价档索引查找为 O(log P)，其中 P 是活动价档数；插入新价档仍需沿链寻找位置，索引容器也可能动态分配内存。对象池减少订单和价档节点的分配，整体耗时仍由负载与测量决定。仓库还保留以完整价格键建立 `unordered_map` 索引的对照实现，性能比较见 [03 调优记录](record/03_logging_and_latency.md)。
 
 实现入口：[节点与索引类型](exchange/matcher/me_order.h)、[中心簿](exchange/matcher/me_order_book.h)、[撮合处理](exchange/matcher/me_order_book.cpp)、[对象池](common/mem_pool.h)。
 
@@ -55,10 +55,10 @@ TradeSystem 是一个面向 Linux 的 C++20 模拟交易系统，由模拟交易
 | --- | --- | --- |
 | 有界 SPSC 消息队列 | 跨线程交接与容量约束 | acquire/release 交接槽位所有权，满队列返回失败；适用于单生产者、单消费者。见 [LFQueue](common/lf_queue.h)。 |
 | 保留 TCP 发送进度 | 短写或暂时不可写时保存尾部 | 按实际发送字节推进，完整帧进入缓冲后才出队。见 [TCPSocket](common/tcp_socket.cpp)。 |
-| 完整批次的行情恢复 | 避免策略使用部分重建的盘口 | 检查周期、水位、序号与哈希；本地核验后恢复新单。见 [恢复验收](record/01_reliability/01_reliability.md)。 |
-| 线程所有权与排空 | 让停止和资源释放有顺序 | 停新输入、按依赖排空、join 工作线程。见 [线程工具](common/thread_utils.h)及 [可靠性记录](record/01_reliability/01_reliability.md)。 |
-| 关键审计与诊断日志分开 | 使交易事件可对账，性能观测有清晰范围 | 关键审计逐条持久化，工具支持只读对账；自动崩溃重放尚未实现。见 [可靠性记录](record/01_reliability/01_reliability.md)。 |
-| 逐请求的外部测量 | 把生成器迟到、请求往返和窗口吞吐分开 | 固定输入、多轮测量、保留慢轮与未完成请求。见 [测量口径](record/02_reproducible_measurement/02_reproducible_measurement.md)。 |
+| 完整批次的行情恢复 | 避免策略使用部分重建的盘口 | 检查周期、水位、序号与哈希；本地核验后恢复新单。见 [恢复验收](record/01_reliability.md)。 |
+| 线程所有权与排空 | 让停止和资源释放有顺序 | 停新输入、按依赖排空、join 工作线程。见 [线程工具](common/thread_utils.h)及 [可靠性记录](record/01_reliability.md)。 |
+| 关键审计与诊断日志分开 | 使交易事件可对账，性能观测有清晰范围 | 关键审计逐条持久化，工具支持只读对账；自动崩溃重放尚未实现。见 [可靠性记录](record/01_reliability.md)。 |
+| 逐请求的外部测量 | 把生成器迟到、请求往返和窗口吞吐分开 | 固定输入、多轮测量、保留慢轮与未完成请求。见 [测量口径](record/02_measurement.md)。 |
 
 ## 技术栈 / Tech Stack
 
@@ -73,9 +73,9 @@ TradeSystem 是一个面向 Linux 的 C++20 模拟交易系统，由模拟交易
 
 ## 已完成的改造
 
-- [组播接口选择](record/00_multicast_interface/00_multicast_interface.md)：明确收发接口，验证增量与快照组播路径。
-- [可靠性改造](record/01_reliability/01_reliability.md)：有界队列、TCP 背压与部分发送、完整价格键、协议与会话校验、在途风控、行情恢复、线程排空及持久审计。
-- [可复现测量](record/02_reproducible_measurement/02_reproducible_measurement.md)：修正基准计数与计时口径，核对业务输出，保存固定输入和逐条请求样本，分别运行开环、闭环与容量实验。
+- [组播接口选择](record/01_reliability.md)：明确收发接口，验证增量与快照组播路径。
+- [可靠性改造](record/01_reliability.md)：有界队列、TCP 背压与部分发送、完整价格键、协议与会话校验、在途风控、行情恢复、线程排空及持久审计。
+- [可复现测量](record/02_measurement.md)：修正基准计数与计时口径，核对业务输出，保存固定输入和逐条请求样本，分别运行开环、闭环与容量实验。
 
 这是模拟环境。持久审计支持事后对账；已有审计文件会阻止直接复用该运行目录，进程崩溃后的自动重放和继续交易尚未实现。
 
@@ -89,7 +89,8 @@ benchmarks/   微基准程序
 notebooks/    已清除运行输出的性能分析 notebook
 scripts/      构建与示例运行脚本
 assets/       系统总览、订单簿与客户端设计图
-record/       按编号归档的报告、测试和测量工具
+record/       合并后的 Markdown 修复与性能报告
+tests/        正式回归与测量支持代码
 ```
 
 ## 构建与运行 / Build & Run
@@ -118,14 +119,9 @@ run_dir="$(mktemp -d)"
 
 ## 性能测量
 
-```bash
-python3 record/02_reproducible_measurement/run_measurements.py \
-  --build build/release --output "$HOME/trade-measurements/new-batch"
-```
+组件基准和正式回归支持代码保留在 `benchmarks/` 与 `tests/`。历史批次驱动和逐请求样本已独立归档，报告按[测量口径](record/02_measurement.md)解释输入、窗口、对账和分位数。
 
-正式测量要求源码已提交、Release 构建且结果目录不存在。默认预热一次、独立测量五次，保留每轮的吞吐、P50/P95/P99、最大值、请求完整性和资源记录。测量使用独立负载生成器；具体边界、环境和结果见 [02 测量报告](record/02_reproducible_measurement/02_reproducible_measurement.md)。
-
-2026-10-06 新增[perf重新测量报告](record/05_perf_remeasurement/README.md)：实际采集软件事件与调用栈，完成队列索引/布局/批量对照和独立容量验收。保留逐记录fsync的loopback NEW/CANCEL场景下，50请求/秒通过五个64秒窗口（P99中位15.649 ms）及追加304秒观察（P99 18.156 ms）；100请求/秒未通过独立容量验收。该档位不是生产最大容量，组件收益不等于业务收益。05采用固定提交加归档冻结补丁复现，公开报告与数值汇总，默认实现不随实验结果自动切换。
+最新队列和对象池对照有组件收益，整链仍受同步审计、排队和环境影响；[组件与发送](record/05_components_and_response.md)和[环境诊断](record/06_latency_and_environment.md)保留全部核心结论，包括慢轮和未采用候选。
 
 ## 来源与许可 / Attribution
 

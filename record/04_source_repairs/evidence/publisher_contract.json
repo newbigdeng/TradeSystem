@@ -1,7 +1,0 @@
-{
-  "copy_before_pop": true,
-  "snapshot_uses_local_copy": true,
-  "post_release_dereferences": 0,
-  "source_sha256": "5f21ba956108fe139f10dbdd05c710d278452c7154e07b7b719e8b0d297c3f93",
-  "scope": "static source contract, not an instrumented production scheduling trace"
-}

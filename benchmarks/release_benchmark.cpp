@@ -1,7 +1,7 @@
 #include "common/mem_pool.h"
 #include "common/opt_mem_pool.h"
 #include "exchange/market_data/market_update.h"
-#include "record/02_reproducible_measurement/benchmark_support.h"
+#include "tests/02_reproducible_measurement/benchmark_support.h"
 #include <array>
 
 template<class Pool> void benchmark(const std::string& name) {

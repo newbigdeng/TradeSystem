@@ -1,23 +1,18 @@
-# 修复与优化记录
+# 修复与性能记录
 
-先读主报告：问题是什么、为什么、怎么改、测试结果如何。需要具体代码时再打开“源码对照”，点击对应问题展开。
+按问题到结果阅读。每篇把现象、定位过程、改动和验证放在一起，原来的“主报告/源码对照”已合并。
 
-| 编号 | 主报告 | 源码细节 |
+| 顺序 | 报告 | 核心结果 |
 |---|---|---|
-| 00 | [组播接口](00_multicast_interface/00_multicast_interface.md) | [修改前后](00_multicast_interface/00_source_changes.md) |
-| 01 | [可靠性改造](01_reliability/01_reliability.md) | [修改前后](01_reliability/01_source_changes.md) |
-| 02 | [测量口径](02_reproducible_measurement/02_reproducible_measurement.md) | [修改前后](02_reproducible_measurement/02_source_changes.md) |
-| 03 | [性能调优](03_performance_tuning/03_performance_tuning.md) | [修改前后](03_performance_tuning/03_source_changes.md) |
-| 04 | [源码修复核对](04_source_repairs/04_source_repairs.md) | 汇总已有修复，补充验收 |
-| 05 | [perf重新测量](05_perf_remeasurement/README.md) | 真实perf、队列单因素、批处理与容量验收 |
-| 06 | [队列、对象池与定序器](06_queue_pool/06_queue_pool.md) | [修改前后](06_queue_pool/06_source_changes.md) |
-| 07 | [端到端延迟排查与发送推进](07_e2e_latency/07_e2e_latency.md) | [修改前后](07_e2e_latency/07_source_changes.md)；含未采用候选和全部慢轮 |
-| 08 | [整链延迟与运行环境](08_e2e_environment/08_e2e_environment.md) | 逐笔审计分段、宿主采样、索引对照；回报推进候选尚未采用 |
+| 1 | [可靠性](01_reliability.md) | 修复组播接口、消息交付、订单和恢复边界；补足确定性反例 |
+| 2 | [测量方法](02_measurement.md) | 修正计数与计时，建立开环、逐请求记录和窗口统计 |
+| 3 | [日志与慢请求](03_logging_and_latency.md) | 确认诊断成本，追到秒级排队；仍有未解决慢轮 |
+| 4 | [perf 与容量](04_perf_and_capacity.md) | 实际软件采样、单因素对照；50/s 历史档通过、100/s 未通过 |
+| 5 | [组件与回报发送](05_components_and_response.md) | 队列/池组件收益；定序与发送推进修复；整链未稳定提速 |
+| 6 | [审计与运行环境](06_latency_and_environment.md) | 三次 fsync、回报等待、后台索引与存储波动的逐项诊断 |
 
-每项工作放在 `编号_工作` 目录，文件名不加日期。报告、回归工具和紧凑结果放在同一目录；日期、版本和验证范围写在正文。
+当前源码包含 `aa94289` 的组件与发送改动；`4d02ed6` 补充验证材料，`b5eec22` 记录后续诊断。进一步的逐帧优先回报候选未采用。保留 10 月 10 日停机待确认请求的历史失败，其根因仍待定位。
 
-修改生产实现时，先保存基准，每次只改一项，验证正确性后再用相同条件复测。慢轮、失败与性能成本均保留；不把业务通过写成所有性能门槛通过。
+record 只保存 Markdown。构建所需的正式回归与测量支持代码迁入 `tests/`，原始结果、图表和批次驱动先在虚拟机完整归档，再从当前公开目录移除；旧提交仍保留历史。报告中的测试数与性能数据属于当时实验，本次整理没有重新执行全量回归或性能测试。
 
-JSON、CSV 和图表保留原始结论。运行日志、审计文件、大样本及构建留在独立资料目录。03 计时配置、快照改造和实验源码已随 995bdca 推送；历史报告仍保留测量当时的冻结身份。
-
-2026-10-06 的05重新测量公开报告、数值汇总和图表；既有候选补丁、实验源码、原始perf与逐请求数据保留在测量归档，可按固定提交复现。默认交易实现未切换为实验候选。
+教材原始架构与个人修复分别介绍；本项目仍为模拟交易原型，生产接入、自动崩溃重放与长期容量另需验证。

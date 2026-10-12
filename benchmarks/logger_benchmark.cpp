@@ -1,6 +1,6 @@
 #include "common/logging.h"
 #include "common/opt_logging.h"
-#include "record/02_reproducible_measurement/benchmark_support.h"
+#include "tests/02_reproducible_measurement/benchmark_support.h"
 #include <iterator>
 
 template<class Logger> void benchmark(const std::string& name,const std::vector<std::string>& input) {
