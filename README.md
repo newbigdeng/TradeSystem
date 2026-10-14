@@ -91,7 +91,7 @@ third_party/  固定版本的 Glaze 头文件和许可
 exchange/     订单服务器、撮合引擎、行情发布与快照合成
 trading/      行情接收、订单网关、交易引擎和示例策略
 benchmarks/   微基准程序
-notebooks/    已清除运行输出的性能分析 notebook
+notebooks/    按实验目录分析诊断日志、组件 CSV 和逐请求数据
 scripts/      构建与示例运行脚本
 assets/       系统总览、订单簿与客户端设计图
 record/       修复与性能报告，以及对应的定向测试和基准
@@ -161,6 +161,8 @@ bash scripts/run_benchmarks.sh                        # 当前组件的 7 轮测
 ## 性能测量
 
 组件基准和回归支持代码位于 `benchmarks/`、`tests/` 及本轮 `record/07_queue_pool_consumer/`。历史批次驱动和逐请求样本已独立归档，报告按[测量口径](record/02_measurement.md)解释输入、窗口、对账和分位数。
+
+[性能 notebook](notebooks/README.md) 使用 `TRADE_ANALYSIS_DIR` 选择一次实验目录，分别读取组件 CSV、逐请求 CSV 与诊断日志。它保留完整慢样本，不用固定 CPU 主频换算 TSC，也不把无请求 ID 的相邻 TTT 行当作链路延迟；默认关闭诊断采样时会明确提示无记录。
 
 策略多态以可维护性为目标。分派、策略回调、行情接收、价档插入、队列和消费端分别测量；交易所订单往返另做固定输入配对对照，详见[本次记录](record/07_book_recovery.md)。队列整窗均值和消费批次平均耗时的分位数分别标注，不能混作单请求网络延迟。
 
