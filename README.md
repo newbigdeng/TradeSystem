@@ -145,7 +145,16 @@ client_run_dir="$(mktemp -d)"
 
 原客户端 `CLIENT_ID ALGO [五项品种参数]...` 仍可使用，它覆盖 JSON 中对应值；网络配置始终来自 JSON。`TRADE_RUN_SECONDS`、`TRADE_RANDOM_ORDERS`、`TRADE_RANDOM_DELAY_US` 的环境变量优先于 JSON `runtime`，在启动工作线程前统一校验。TCP 客户端的源地址由系统路由选择，组播通过配置网卡选择收发接口。
 
-项目也提供 `scripts/` 下的示例脚本。运行过程中产生的 `*.log`、构建目录和 HTML 分析报告不会提交到 Git。
+脚本入口已同步上述构建目录与 JSON 配置，可使用：
+
+```bash
+bash scripts/no_clean_build.sh                        # Release 增量构建
+bash scripts/no_clean_build.sh debug                  # Debug 增量构建
+TRADE_RANDOM_ORDERS=100 bash scripts/run_exchange_and_clients.sh 5 RANDOM
+bash scripts/run_benchmarks.sh                        # 当前组件的 7 轮测量
+```
+
+联合脚本只增量构建两个主程序，检查配置并确认本次交易所监听后启动客户端，默认运行 10 秒；每次创建独立运行目录，保留日志与审计，只停止自己启动的 PID。单独客户端默认读取 JSON 的策略和参数；不再使用脚本中的硬编码品种配置。基准脚本复用已有组件程序，不表示整条订单链或旧／新源码对照。自定义配置、目录和期限见 [脚本说明](scripts/README.md)。运行生成的 `*.log`、构建目录和 HTML 分析报告不会提交到 Git。
 
 每次运行使用独立目录保存日志与审计文件。客户端完成初始快照验证后才开始交易；上例将快照间隔设为 200 ms，便于快速演示。结束时使用 `Ctrl+C` 触发排空和停机；历史审计文件应先完成对账，再由操作者归档。
 
