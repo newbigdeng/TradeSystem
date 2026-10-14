@@ -1,0 +1,19 @@
+{
+  "client_id": 1,
+  "market_data": {
+    "interface": "lo",
+    "incremental": { "address": "233.252.14.3", "port": 20001 },
+    "snapshot": { "address": "233.252.14.1", "port": 20000 }
+  },
+  "tcp": { "address": "127.0.0.1", "port": 12345 },
+  "strategy": {
+    "type": "MAKER",
+    "default_parameters": {
+      "clip": 10,
+      "threshold": 1.0,
+      "risk": { "max_order_size": 100, "max_position": 1000, "max_loss": -1000000.0 }
+    },
+    "tickers": []
+  },
+  "runtime": { "run_seconds": 0, "random_orders": 10000, "random_delay_us": 20000 }
+}

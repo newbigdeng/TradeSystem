@@ -1,0 +1,8 @@
+{
+  "market_data": {
+    "interface": "lo",
+    "incremental": { "address": "233.252.14.3", "port": 20001 },
+    "snapshot": { "address": "233.252.14.1", "port": 20000 }
+  },
+  "tcp": { "address": "127.0.0.1", "port": 12345 }
+}

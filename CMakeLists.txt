@@ -26,6 +26,14 @@ link_libraries(trade_build_options)
 
 
 
+# Glaze 只供启动配置与配置测试使用；保留上游头文件和许可，离线构建。
+add_library(trade_config INTERFACE)
+target_include_directories(trade_config SYSTEM INTERFACE ${PROJECT_SOURCE_DIR}/third_party/glaze/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/config)
+foreach(config_name IN ITEMS exchange client)
+  configure_file(config/${config_name}.json ${CMAKE_CURRENT_BINARY_DIR}/config/${config_name}.json COPYONLY)
+endforeach()
+
 add_subdirectory(common)
 add_subdirectory(exchange)
 add_subdirectory(trading)
@@ -41,10 +49,10 @@ include_directories(${PROJECT_SOURCE_DIR}/exchange)
 include_directories(${PROJECT_SOURCE_DIR}/trading)
 
 add_executable(exchange_main exchange/exchange_main.cpp)
-target_link_libraries(exchange_main PUBLIC ${LIBS})
+target_link_libraries(exchange_main PUBLIC ${LIBS} trade_config)
 
 add_executable(trading_main trading/trading_main.cpp)
-target_link_libraries(trading_main PUBLIC ${LIBS})
+target_link_libraries(trading_main PUBLIC ${LIBS} trade_config)
 
 add_executable(logger_benchmark benchmarks/logger_benchmark.cpp)
 target_link_libraries(logger_benchmark PUBLIC ${LIBS})
@@ -55,7 +63,7 @@ target_link_libraries(release_benchmark PUBLIC ${LIBS})
 add_executable(hash_benchmark benchmarks/hash_benchmark.cpp)
 target_link_libraries(hash_benchmark PUBLIC ${LIBS})
 
-# Exercise both market-data groups on the configured interface, without root.
+# 在指定接口验证两路行情组播，无需 root。
 include(CTest)
 if(BUILD_TESTING)
   add_executable(multicast_interface_test tests/00_multicast_interface/multicast_interface_test.cpp)
@@ -145,7 +153,7 @@ if(BUILD_TESTING)
   endforeach()
 endif()
 
-# Fixed-capacity queue/pool contracts and FIFO backpressure regression.
+# 固定容量队列、对象池契约及 FIFO 背压测试。
 if(BUILD_TESTING)
   add_executable(queue_pool_regression tests/06_queue_pool/queue_pool_regression.cpp)
   target_compile_definitions(queue_pool_regression PRIVATE EXPECT_POW2 EXPECT_COMPACT_POOL)
@@ -156,10 +164,102 @@ if(BUILD_TESTING)
   endforeach()
 endif()
 
-# Flush pending responses without invoking receive callbacks.
+# 不触发接收回调，单独推进积压回报的发送。
 if(BUILD_TESTING)
   add_executable(network_progress_test tests/07_e2e_latency/network_progress_test.cpp)
   target_link_libraries(network_progress_test PRIVATE libexchange libcommon pthread)
   add_test(NAME network_flush_progress COMMAND network_progress_test flush)
   set_tests_properties(network_flush_progress PROPERTIES TIMEOUT 30)
+endif()
+
+# 恢复批次应用完成后才开放策略；过期标记不能重新启用旧行情。
+if(BUILD_TESTING)
+  add_test(NAME reliability_recovery_apply COMMAND control_probe recovery)
+  set_tests_properties(reliability_recovery_apply PROPERTIES TIMEOUT 30)
+  add_executable(book_recovery_benchmark tests/08_book_recovery/optimization_benchmark.cpp)
+  target_link_libraries(book_recovery_benchmark PRIVATE libexchange libcommon pthread)
+  add_executable(recovery_commit_benchmark tests/08_book_recovery/commit_benchmark.cpp)
+  target_compile_definitions(recovery_commit_benchmark PRIVATE TRADE_SIMPLE_RECOVERY)
+  target_link_libraries(recovery_commit_benchmark PRIVATE libtrading libexchange libcommon pthread)
+endif()
+
+if(BUILD_TESTING)
+  add_executable(wire_decode_benchmark tests/08_book_recovery/wire_decode_benchmark.cpp)
+  target_link_libraries(wire_decode_benchmark PRIVATE libcommon pthread)
+endif()
+
+# 启动配置契约：必填项、数值范围、网卡、策略及两路组播。
+if(BUILD_TESTING)
+  add_executable(runtime_config_test tests/09_runtime_config/config_test.cpp)
+  target_link_libraries(runtime_config_test PRIVATE trade_config pthread)
+  add_test(NAME runtime_config_contract COMMAND runtime_config_test
+    ${PROJECT_SOURCE_DIR}/config/exchange.json ${PROJECT_SOURCE_DIR}/config/client.json)
+  set_tests_properties(runtime_config_contract PROPERTIES TIMEOUT 30)
+endif()
+
+# 策略事件语义与分派方式对照；性能基准不加入自动回归。
+if(BUILD_TESTING)
+  add_executable(strategy_behavior_test tests/09_runtime_config/strategy_behavior_test.cpp)
+  target_link_libraries(strategy_behavior_test PRIVATE libtrading libexchange libcommon pthread)
+  add_test(NAME strategy_behavior COMMAND strategy_behavior_test)
+  set_tests_properties(strategy_behavior PROPERTIES TIMEOUT 30)
+  add_executable(strategy_dispatch_benchmark tests/09_runtime_config/dispatch_benchmark.cpp
+    tests/09_runtime_config/dispatch_factory.cpp)
+  target_compile_options(strategy_dispatch_benchmark PRIVATE -fno-lto)
+  target_link_options(strategy_dispatch_benchmark PRIVATE -fno-lto)
+endif()
+
+# 通道边界：坏周期快照不打断实时流，快照控制帧不能进入增量队列。
+if(BUILD_TESTING)
+  add_executable(recovery_channel_test tests/08_book_recovery/recovery_channel_test.cpp)
+  target_link_libraries(recovery_channel_test PRIVATE libtrading libexchange libcommon pthread)
+  add_test(NAME recovery_channel COMMAND recovery_channel_test)
+  set_tests_properties(recovery_channel PROPERTIES TIMEOUT 30)
+  add_executable(client_book_benchmark tests/08_book_recovery/client_book_benchmark.cpp)
+  target_link_libraries(client_book_benchmark PRIVATE libtrading libexchange libcommon pthread)
+endif()
+
+
+# 无锁队列定向契约与语义检查；性能基准不加入自动回归。
+if(BUILD_TESTING)
+  add_executable(queue_capacity_contract record/07_queue_pool_consumer/capacity_contract.cpp)
+  target_link_libraries(queue_capacity_contract PRIVATE libcommon pthread)
+  add_test(NAME queue_capacity_contract COMMAND queue_capacity_contract)
+  set_tests_properties(queue_capacity_contract PROPERTIES TIMEOUT 10)
+
+  add_executable(queue_semantics_test record/07_queue_pool_consumer/queue_semantics.cpp)
+  target_link_libraries(queue_semantics_test PRIVATE libcommon pthread)
+  add_test(NAME queue_semantics COMMAND queue_semantics_test)
+  file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/queue-semantics)
+  set_tests_properties(queue_semantics PROPERTIES
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/queue-semantics TIMEOUT 60)
+
+  add_executable(queue_hotpath_benchmark record/07_queue_pool_consumer/queue_benchmark.cpp)
+  target_link_libraries(queue_hotpath_benchmark PRIVATE libcommon pthread)
+endif()
+
+# 消费状态、错误退出、定序背压和日志字节契约；基准不加入自动回归。
+if(BUILD_TESTING)
+  add_executable(consumer_hotpath_test record/07_queue_pool_consumer/consumer_regression_test.cpp)
+  target_link_libraries(consumer_hotpath_test PRIVATE libexchange libtrading libcommon pthread)
+  add_test(NAME consumer_hotpath_contract COMMAND consumer_hotpath_test)
+  file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/consumer-hotpath)
+  set_tests_properties(consumer_hotpath_contract PROPERTIES
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/consumer-hotpath TIMEOUT 90)
+  add_executable(consumer_hotpath_benchmark record/07_queue_pool_consumer/consumer_benchmark.cpp)
+  target_link_libraries(consumer_hotpath_benchmark PRIVATE libexchange libtrading libcommon pthread)
+  add_executable(pool_layout_benchmark record/07_queue_pool_consumer/pool_benchmark.cpp)
+  target_link_libraries(pool_layout_benchmark PRIVATE libcommon pthread)
+endif()
+
+# 交易引擎真实行情消费：合法簿状态、恢复标记与非法品种仍明确失败。
+if(BUILD_TESTING)
+  add_executable(trade_guard_contract_test record/07_queue_pool_consumer/trade_guard_regression.cpp)
+  target_link_libraries(trade_guard_contract_test PRIVATE libtrading libexchange libcommon pthread)
+  add_test(NAME trade_engine_consumer_contract COMMAND trade_guard_contract_test)
+  file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/trade-guard)
+  set_tests_properties(trade_engine_consumer_contract PROPERTIES
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/trade-guard TIMEOUT 90)
+  add_executable(trade_guard_benchmark record/07_queue_pool_consumer/trade_guard_benchmark.cpp)
+  target_link_libraries(trade_guard_benchmark PRIVATE libtrading libexchange libcommon pthread)
 endif()

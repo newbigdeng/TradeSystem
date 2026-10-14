@@ -1,10 +1,9 @@
 #pragma once
 #include <mutex>
 #include "common/order_protocol.h"
-#include "common/book_hash.h"
 #include "common/critical_journal.h"
 
-#include <functional>
+#include <memory>
 
 #include "common/thread_utils.h"
 #include "common/time_utils.h"
@@ -23,144 +22,148 @@
 #include "order_manager.h"
 #include "risk_manager.h"
 
-#include "market_maker.h"
-#include "liquidity_taker.h"
+#include "strategy.h"
 
 namespace Trading {
-  class TradeEngine {
-  public:
-    TradeEngine(Common::ClientId client_id,
-                AlgoType algo_type,
-                const TradeEngineCfgHashMap &ticker_cfg,
-                Exchange::ClientRequestLFQueue *client_requests,
-                Exchange::ClientResponseLFQueue *client_responses,
-                Exchange::MEMarketUpdateLFQueue *market_updates);
+class TradeEngine {
+ public:
+  TradeEngine(Common::ClientId client_id, AlgoType algo_type,
+              const TradeEngineCfgHashMap& ticker_cfg,
+              Exchange::ClientRequestLFQueue* client_requests,
+              Exchange::ClientResponseLFQueue* client_responses,
+              Exchange::MEMarketUpdateLFQueue* market_updates,
+              std::unique_ptr<Strategy> strategy = {});
 
-    ~TradeEngine();
+  ~TradeEngine();
 
-    /// Start and stop the trade engine main thread.
-    auto start() -> void {
-      run_ = true;
-      worker_.reset(Common::createAndStartThread(-1, "Trading/TradeEngine", [this] { run(); }));
-    }
+  /// 启动或停止交易引擎线程。
+  auto start() -> void {
+    run_ = true;
+    worker_.reset(Common::createAndStartThread(-1, "Trading/TradeEngine", [this] { run(); }));
+  }
 
-    auto stop() -> void {
-      admitting_.store(false,std::memory_order_release);run_=false;
-      if(worker_ && worker_->joinable())worker_->join();
-      logger_.log("TRADE STATS accepted:% rejected:% duplicates:% queue_full:% high_watermark:%\n",accepted_requests_,rejected_requests_,duplicate_responses_,outgoing_ogw_requests_->full_count(),outgoing_ogw_requests_->high_watermark());
-      logger_.log("POSITIONS\n%\n",position_keeper_.toString());
-    }
-    void quiesce();
-    void writeCheckpoint(Common::CriticalJournal&,uint64_t epoch,bool healthy);
+  auto stop() -> void {
+    admitting_.store(false, std::memory_order_release);
+    run_ = false;
+    if (worker_ && worker_->joinable())
+      worker_->join();
+    logger_.log("TRADE STATS accepted:% rejected:% duplicates:% queue_full:% high_watermark:%\n",
+                accepted_requests_, rejected_requests_, duplicate_responses_,
+                outgoing_ogw_requests_->full_count(), outgoing_ogw_requests_->high_watermark());
+    logger_.log("POSITIONS\n%\n", position_keeper_.toString());
+  }
 
-    /// Main loop for this thread - processes incoming client responses and market data updates which in turn may generate client requests.
-    auto run() noexcept -> void;
+  void quiesce();
+  void writeCheckpoint(Common::CriticalJournal&, uint64_t epoch, bool healthy);
 
-    /// Write a client request to the lock free queue for the order server to consume and send to the exchange.
-    auto sendClientRequest(const Exchange::MEClientRequest *client_request) noexcept -> bool;
+  /// 消费客户回报和行情事件，驱动策略产生新请求。
+  auto run() noexcept -> void;
 
-    /// Process changes to the order book - updates the position keeper, feature engine and informs the trading algorithm about the update.
-    auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *book) noexcept -> void;
+  /// 将请求提交到网关队列，由网关发送给交易所。
+  auto sendClientRequest(const Exchange::MEClientRequest* client_request) noexcept -> bool;
 
-    /// Process trade events - updates the  feature engine and informs the trading algorithm about the trade event.
-    auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void;
+  /// 订单簿变化时更新持仓和特征，并通知策略。
+  auto onOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook* book) noexcept
+      -> void;
 
-    /// Process client responses - updates the position keeper and informs the trading algorithm about the response.
-    auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void;
+  /// 成交事件更新特征，并通知策略。
+  auto onTradeUpdate(const Exchange::MEMarketUpdate* market_update, MarketOrderBook* book) noexcept
+      -> void;
 
-    /// Function wrappers to dispatch order book updates, trade events and client responses to the trading algorithm.
-    std::function<void(TickerId ticker_id, Price price, Side side, MarketOrderBook *book)> algoOnOrderBookUpdate_;
-    std::function<void(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book)> algoOnTradeUpdate_;
-    std::function<void(const Exchange::MEClientResponse *client_response)> algoOnOrderUpdate_;
+  /// 客户回报更新持仓，并通知策略。
+  auto onOrderUpdate(const Exchange::MEClientResponse* client_response) noexcept -> void;
 
-    auto initLastEventTime() {
-      last_event_time_ = Common::getCurrentNanos();
-    }
+  auto initLastEventTime() {
+    last_event_time_ = Common::getCurrentNanos();
+  }
 
-    auto silentSeconds() {
-      return (Common::getCurrentNanos() - last_event_time_.load()) / NANOS_TO_SECS;
-    }
+  auto silentSeconds() {
+    return (Common::getCurrentNanos() - last_event_time_.load()) / NANOS_TO_SECS;
+  }
 
-    void setMarketTrusted(bool trusted) noexcept {market_trusted_.store(trusted,std::memory_order_release);}
-    std::atomic<bool>& marketTrust() noexcept {return market_trusted_;}
-    std::atomic<uint64_t>& marketGeneration() noexcept {return market_generation_;}
-    void setOrderSession(std::atomic<bool>* state) noexcept {order_session_=state;}
-    const PositionInfo* positionInfo(TickerId ticker) const {return position_keeper_.getPositionInfo(ticker);}
-    auto clientId() const {
-      return client_id_;
-    }
+  // 测量程序的直接控制入口；正常运行通过恢复结束标记推进已应用代次。
+  void setMarketTrusted(bool trusted) noexcept {
+    applied_generation_.store(trusted ? market_generation_.load(std::memory_order_acquire) : 0,
+                              std::memory_order_release);
+  }
 
-    /// Deleted default, copy & move constructors and assignment-operators.
-    TradeEngine() = delete;
+  // 只有已完整应用的代次等于当前代次，策略才能使用行情。
+  // 先读已应用代次，再读当前代次；旧标记无法覆盖新的失效状态。
+  bool marketReady() const noexcept {
+    const auto applied = applied_generation_.load(std::memory_order_acquire);
+    return applied == market_generation_.load(std::memory_order_acquire);
+  }
 
-    TradeEngine(const TradeEngine &) = delete;
+  std::atomic<uint64_t>& marketGeneration() noexcept {
+    return market_generation_;
+  }
 
-    TradeEngine(const TradeEngine &&) = delete;
+  void setOrderSession(std::atomic<bool>* state) noexcept {
+    order_session_ = state;
+  }
 
-    TradeEngine &operator=(const TradeEngine &) = delete;
+  const PositionInfo* positionInfo(TickerId ticker) const {
+    return position_keeper_.getPositionInfo(ticker);
+  }
 
-    TradeEngine &operator=(const TradeEngine &&) = delete;
+  auto clientId() const {
+    return client_id_;
+  }
 
-  private:
-    /// This trade engine's ClientId.
-    const ClientId client_id_;
+  /// 禁止默认构造、复制和移动，避免重复拥有资源。
+  TradeEngine() = delete;
 
-    /// Hash map container from TickerId -> MarketOrderBook.
-    MarketOrderBookHashMap ticker_order_book_;
+  TradeEngine(const TradeEngine&) = delete;
 
-    /// Lock free queues.
-    /// One to publish outgoing client requests to be consumed by the order gateway and sent to the exchange.
-    /// Second to consume incoming client responses from, written to by the order gateway based on data received from the exchange.
-    /// Third to consume incoming market data updates from, written to by the market data consumer based on data received from the exchange.
-    Exchange::ClientRequestLFQueue *outgoing_ogw_requests_ = nullptr;
-    Exchange::ClientResponseLFQueue *incoming_ogw_responses_ = nullptr;
-    Exchange::MEMarketUpdateLFQueue *incoming_md_updates_ = nullptr;
+  TradeEngine(const TradeEngine&&) = delete;
 
-    std::atomic<Nanos> last_event_time_{0};
-    std::atomic<bool> run_{false};
-    std::unique_ptr<std::thread> worker_;
-    std::mutex state_mutex_;
-    std::atomic<bool> admitting_{true};
-    std::atomic<bool> market_trusted_{false};
-    std::atomic<uint64_t> market_generation_{0};
-    std::atomic<bool>* order_session_=nullptr;
-    bool reconciled_=true;
-    uint64_t last_response_id_=0,accepted_requests_=0,rejected_requests_=0,duplicate_responses_=0;
+  TradeEngine& operator=(const TradeEngine&) = delete;
 
-    std::string time_str_;
-    Logger logger_;
+  TradeEngine& operator=(const TradeEngine&&) = delete;
 
-    /// Feature engine for the trading algorithms.
-    FeatureEngine feature_engine_;
+ private:
+  /// 本交易引擎的客户端 ID。
+  const ClientId client_id_;
 
-    /// Position keeper to track position, pnl and volume.
-    PositionKeeper position_keeper_;
+  /// 按品种 ID 索引的行情订单簿数组。
+  MarketOrderBookHashMap ticker_order_book_;
 
-    /// Order manager to simplify the task of managing orders for the trading algorithms.
-    OrderManager order_manager_;
+  /// 跨线程交接请求、回报和行情的无锁队列。
+  /// 发布客户请求，供订单网关发送给交易所。
+  /// 消费订单网关从交易所接收的客户回报。
+  /// 消费行情接收器从交易所接收的行情事件。
+  Exchange::ClientRequestLFQueue* outgoing_ogw_requests_ = nullptr;
+  Exchange::ClientResponseLFQueue* incoming_ogw_responses_ = nullptr;
+  Exchange::MEMarketUpdateLFQueue* incoming_md_updates_ = nullptr;
 
-    /// Risk manager to track and perform pre-trade risk checks.
-    RiskManager risk_manager_;
+  std::atomic<Nanos> last_event_time_{0};
+  std::atomic<bool> run_{false};
+  std::unique_ptr<std::thread> worker_;
+  std::mutex state_mutex_;
+  std::atomic<bool> admitting_{true};
+  std::atomic<uint64_t> market_generation_{1};  // 0 保留为尚未应用。
+  std::atomic<uint64_t> applied_generation_{0};
+  std::atomic<bool>* order_session_ = nullptr;
+  bool reconciled_ = true;
+  uint64_t last_response_id_ = 0, accepted_requests_ = 0, rejected_requests_ = 0,
+           duplicate_responses_ = 0;
 
-    /// Market making or liquidity taking algorithm instance - only one of these is created in a single trade engine instance.
-    MarketMaker *mm_algo_ = nullptr;
-    LiquidityTaker *taker_algo_ = nullptr;
+  std::string time_str_;
+  Logger logger_;
 
-    /// Default methods to initialize the function wrappers.
-    auto defaultAlgoOnOrderBookUpdate(TickerId ticker_id, Price price, Side side, MarketOrderBook *) noexcept -> void {
-      logger_.log("%:% %() % ticker:% price:% side:%\n", __FILE__, __LINE__, __FUNCTION__,
-                  Common::getCurrentTimeStr(), ticker_id, Common::priceToString(price).c_str(),
-                  Common::sideToString(side).c_str());
-    }
+  /// 计算策略使用的行情特征。
+  FeatureEngine feature_engine_;
 
-    auto defaultAlgoOnTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *) noexcept -> void {
-      logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
-                  market_update->toString().c_str());
-    }
+  /// 跟踪持仓、盈亏和成交量。
+  PositionKeeper position_keeper_;
 
-    auto defaultAlgoOnOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void {
-      logger_.log("%:% %() % %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(),
-                  client_response->toString().c_str());
-    }
-  };
+  /// 统一管理策略订单。
+  OrderManager order_manager_;
+
+  /// 执行报单前风险检查。
+  RiskManager risk_manager_;
+
+  // 策略在启动时确定；交易线程独占调用，不在运行中替换。
+  std::unique_ptr<Strategy> strategy_;
+};
 }

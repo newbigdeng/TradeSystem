@@ -5,69 +5,71 @@
 #include "market_data/snapshot_synthesizer.h"
 
 namespace Exchange {
-  class MarketDataPublisher {
-  public:
-    MarketDataPublisher(MEMarketUpdateLFQueue *market_updates, const std::string &iface,
-                        const std::string &snapshot_ip, int snapshot_port,
-                        const std::string &incremental_ip, int incremental_port);
+class MarketDataPublisher {
+ public:
+  MarketDataPublisher(MEMarketUpdateLFQueue* market_updates, const std::string& iface,
+                      const std::string& snapshot_ip, int snapshot_port,
+                      const std::string& incremental_ip, int incremental_port);
 
-    ~MarketDataPublisher() {
-      stop();
+  ~MarketDataPublisher() {
+    stop();
 
-  delete snapshot_synthesizer_;
-      snapshot_synthesizer_ = nullptr;
-    }
+    delete snapshot_synthesizer_;
+    snapshot_synthesizer_ = nullptr;
+  }
 
-    /// Start and stop the market data publisher main thread, as well as the internal snapshot synthesizer thread.
-    auto start() {
-      run_ = true;
+  // 启动或停止行情发布线程及其快照合成线程。
 
-      worker_.reset(Common::createAndStartThread(-1, "Exchange/MarketDataPublisher", [this]() { run(); }));
+  auto start() {
+    run_ = true;
 
-      snapshot_synthesizer_->start();
-    }
+    worker_.reset(
+        Common::createAndStartThread(-1, "Exchange/MarketDataPublisher", [this]() { run(); }));
 
-    auto stop() -> void {
-      run_=false;
-      if(worker_ && worker_->joinable())worker_->join();
+    snapshot_synthesizer_->start();
+  }
 
-      snapshot_synthesizer_->stop();
-    }
+  auto stop() -> void {
+    run_ = false;
+    if (worker_ && worker_->joinable())
+      worker_->join();
 
-    /// Main run loop for this thread - consumes market updates from the lock free queue from the matching engine, publishes them on the incremental multicast stream and forwards them to the snapshot synthesizer.
-    auto run() noexcept -> void;
+    snapshot_synthesizer_->stop();
+  }
 
-    // Deleted default, copy & move constructors and assignment-operators.
-    MarketDataPublisher() = delete;
+  // 从撮合队列取行情，发布增量组播，再交给快照合成器。
 
-    MarketDataPublisher(const MarketDataPublisher &) = delete;
+  auto run() noexcept -> void;
 
-    MarketDataPublisher(const MarketDataPublisher &&) = delete;
+  // 禁止默认构造、复制和移动，避免重复拥有资源。
+  MarketDataPublisher() = delete;
+  MarketDataPublisher(const MarketDataPublisher&) = delete;
+  MarketDataPublisher(const MarketDataPublisher&&) = delete;
+  MarketDataPublisher& operator=(const MarketDataPublisher&) = delete;
+  MarketDataPublisher& operator=(const MarketDataPublisher&&) = delete;
 
-    MarketDataPublisher &operator=(const MarketDataPublisher &) = delete;
+ private:
+  /// 增量行情的下一条序号。
+  size_t next_inc_seq_num_ = 1;
 
-    MarketDataPublisher &operator=(const MarketDataPublisher &&) = delete;
+  /// 接收撮合引擎行情的无锁队列。
+  MEMarketUpdateLFQueue* outgoing_md_updates_ = nullptr;
 
-  private:
-    /// Sequencer number tracker on the incremental market data stream.
-    size_t next_inc_seq_num_ = 1;
+  // 向快照合成器转发增量行情的无锁队列。
 
-    /// Lock free queue from which we consume market data updates sent by the matching engine.
-    MEMarketUpdateLFQueue *outgoing_md_updates_ = nullptr;
+  MDPMarketUpdateLFQueue snapshot_md_updates_;
 
-    /// Lock free queue on which we forward the incremental market data updates to send to the snapshot synthesizer.
-    MDPMarketUpdateLFQueue snapshot_md_updates_;
+  std::atomic<bool> run_{false};
+  std::unique_ptr<std::thread> worker_;
 
-    std::atomic<bool> run_{false};
-    std::unique_ptr<std::thread> worker_;
+  std::string time_str_;
+  Logger logger_;
 
-    std::string time_str_;
-    Logger logger_;
+  /// 增量行情的组播 socket。
+  Common::McastSocket incremental_socket_;
 
-    /// Multicast socket to represent the incremental market data stream.
-    Common::McastSocket incremental_socket_;
+  // 定期合成并发布完整订单簿快照。
 
-    /// Snapshot synthesizer which synthesizes and publishes limit order book snapshots on the snapshot multicast stream.
-    SnapshotSynthesizer *snapshot_synthesizer_ = nullptr;
-  };
+  SnapshotSynthesizer* snapshot_synthesizer_ = nullptr;
+};
 }

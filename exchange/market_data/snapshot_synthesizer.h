@@ -14,59 +14,63 @@
 using namespace Common;
 
 namespace Exchange {
-  class SnapshotSynthesizer {
-  public:
-    SnapshotSynthesizer(MDPMarketUpdateLFQueue *market_updates, const std::string &iface,
-                        const std::string &snapshot_ip, int snapshot_port);
+class SnapshotSynthesizer {
+ public:
+  SnapshotSynthesizer(MDPMarketUpdateLFQueue* market_updates, const std::string& iface,
+                      const std::string& snapshot_ip, int snapshot_port);
 
-    ~SnapshotSynthesizer();
+  ~SnapshotSynthesizer();
 
-    /// Start and stop the snapshot synthesizer thread.
-    auto start() -> void;
+  /// 启动或停止快照合成线程。
+  auto start() -> void;
 
-    auto stop() -> void;
+  auto stop() -> void;
 
-    /// Process an incremental market update and update the limit order book snapshot.
-    void addToSnapshot(const MDPMarketUpdate *market_update);
+  /// 应用增量行情，更新快照中的订单状态。
+  void addToSnapshot(const MDPMarketUpdate* market_update);
 
-    /// Publish a full snapshot cycle on the snapshot multicast stream.
-    void publishSnapshot();
+  /// 向快照组播发布一个完整周期。
+  void publishSnapshot();
 
-    /// Main method for this thread - processes incremental updates from the market data publisher, updates the snapshot and publishes the snapshot periodically.
-    auto run() -> void;
+  // 消费增量、更新存量状态，并定期发布完整快照。
 
-    /// Deleted default, copy & move constructors and assignment-operators.
-    SnapshotSynthesizer() = delete;
+  auto run() -> void;
 
-    SnapshotSynthesizer(const SnapshotSynthesizer &) = delete;
+  /// 禁止默认构造、复制和移动，避免重复拥有资源。
+  SnapshotSynthesizer() = delete;
 
-    SnapshotSynthesizer(const SnapshotSynthesizer &&) = delete;
+  SnapshotSynthesizer(const SnapshotSynthesizer&) = delete;
 
-    SnapshotSynthesizer &operator=(const SnapshotSynthesizer &) = delete;
+  SnapshotSynthesizer(const SnapshotSynthesizer&&) = delete;
 
-    SnapshotSynthesizer &operator=(const SnapshotSynthesizer &&) = delete;
+  SnapshotSynthesizer& operator=(const SnapshotSynthesizer&) = delete;
 
-  private:
-    /// Lock free queue containing incremental market data updates coming in from the market data publisher.
-    MDPMarketUpdateLFQueue *snapshot_md_updates_ = nullptr;
+  SnapshotSynthesizer& operator=(const SnapshotSynthesizer&&) = delete;
 
-    Logger logger_;
+ private:
+  // 接收行情发布器增量的无锁队列。
 
-    std::atomic<bool> run_{false};
-    std::unique_ptr<std::thread> worker_;
+  MDPMarketUpdateLFQueue* snapshot_md_updates_ = nullptr;
 
-    std::string time_str_;
+  Logger logger_;
 
-    /// Multicast socket for the snapshot multicast stream.
-    McastSocket snapshot_socket_;
+  std::atomic<bool> run_{false};
+  std::unique_ptr<std::thread> worker_;
 
-    /// Hash map from TickerId -> Full limit order book snapshot containing information for every live order.
-    std::array<std::array<MEMarketUpdate *, ME_MAX_ORDER_IDS>, ME_MAX_TICKERS> ticker_orders_;
-    uint64_t last_inc_seq_num_ = 0;
-    uint64_t snapshot_cycle_=Common::getCurrentNanos();
-    Nanos last_snapshot_time_ = 0;
+  std::string time_str_;
 
-    /// Memory pool to manage MEMarketUpdate messages for the orders in the snapshot limit order books.
-    MemPool<MEMarketUpdate> order_pool_;
-  };
+  /// 快照行情的组播 socket。
+  McastSocket snapshot_socket_;
+
+  // 按品种 ID 管理存量挂单；每个品种内按订单 ID 查找。
+
+  std::array<std::array<MEMarketUpdate*, ME_MAX_ORDER_IDS>, ME_MAX_TICKERS> ticker_orders_;
+  uint64_t last_inc_seq_num_ = 0;
+  uint64_t snapshot_cycle_ = Common::getCurrentNanos();
+  Nanos last_snapshot_time_ = 0;
+
+  // 保存快照存量订单的行情对象池。
+
+  MemPool<MEMarketUpdate> order_pool_;
+};
 }

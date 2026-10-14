@@ -5,11 +5,12 @@
 #include "common/mcast_socket.h"
 
 namespace {
-void require(bool ok, const char *message) {
-  if (!ok) throw std::runtime_error(message);
+void require(bool ok, const char* message) {
+  if (!ok)
+    throw std::runtime_error(message);
 }
 
-void checkStream(Common::Logger &logger, const std::string &group) {
+void checkStream(Common::Logger& logger, const std::string& group) {
   Common::McastSocket receiver(logger);
   receiver.init(group, "lo", 0, true);
   require(receiver.join(group), "could not join multicast on lo");
@@ -20,7 +21,7 @@ void checkStream(Common::Logger &logger, const std::string &group) {
 
   sockaddr_in bound{};
   socklen_t bound_len = sizeof(bound);
-  require(getsockname(receiver.socket_fd_, reinterpret_cast<sockaddr *>(&bound), &bound_len) == 0,
+  require(getsockname(receiver.socket_fd_, reinterpret_cast<sockaddr*>(&bound), &bound_len) == 0,
           "getsockname failed");
   Common::McastSocket sender(logger);
   sender.init(group, "lo", ntohs(bound.sin_port), false);
@@ -32,13 +33,14 @@ void checkStream(Common::Logger &logger, const std::string &group) {
 
   bool received = false;
   const std::string payload = "multicast-interface-regression";
-  receiver.recv_callback_ = [&](Common::McastSocket *socket) {
+  receiver.recv_callback_ = [&](Common::McastSocket* socket) {
     received = socket->next_rcv_valid_index_ == payload.size() &&
                std::memcmp(socket->inbound_data_.data(), payload.data(), payload.size()) == 0;
     socket->next_rcv_valid_index_ = 0;
   };
   require(::send(sender.socket_fd_, payload.data(), payload.size(), 0) ==
-          static_cast<ssize_t>(payload.size()), "multicast send failed");
+              static_cast<ssize_t>(payload.size()),
+          "multicast send failed");
   const auto deadline = std::chrono::steady_clock::now() + std::chrono::seconds(3);
   while (!received && std::chrono::steady_clock::now() < deadline) {
     receiver.sendAndRecv();
@@ -49,19 +51,19 @@ void checkStream(Common::Logger &logger, const std::string &group) {
   require(received, "configured loopback multicast did not reach receiver");
   std::cout << "PASS " << group << " sender=127.0.0.1 receiver=lo payload verified\n";
 }
-} // namespace
+}
 
-int main(int argc, char **) {
+int main(int argc, char**) {
   Common::Logger logger("multicast_interface_test.log");
   if (argc > 1) {
     Common::McastSocket invalid(logger);
     invalid.init("233.252.14.3", "no-such-iface", 20001, false);
-    return 0; // The invalid interface must terminate initialization with failure.
+    return 0;  // 无效接口必须使初始化失败。
   }
   try {
     checkStream(logger, "233.252.14.3");
     checkStream(logger, "233.252.14.1");
-  } catch (const std::exception &error) {
+  } catch (const std::exception& error) {
     std::cerr << "FAIL: " << error.what() << '\n';
     return 1;
   }

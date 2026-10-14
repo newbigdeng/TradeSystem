@@ -1,0 +1,116 @@
+{
+  "50": {
+    "old": {
+      "rounds": 7,
+      "passed_rounds": 7,
+      "failed_rounds": [],
+      "n": 256,
+      "p50_ns": 9826382,
+      "p95_ns": 13218683,
+      "p99_ns": 17889785,
+      "max_ns": 21997496,
+      "mean_ns": 10293291.48828125
+    },
+    "new": {
+      "rounds": 7,
+      "passed_rounds": 7,
+      "failed_rounds": [],
+      "n": 256,
+      "p50_ns": 10417177,
+      "p95_ns": 13425335,
+      "p99_ns": 15632797,
+      "max_ns": 19416884,
+      "mean_ns": 10634735.50390625
+    },
+    "paired_p50_ratios": [
+      {
+        "round": 0,
+        "ratio": 0.8649545544004875
+      },
+      {
+        "round": 1,
+        "ratio": 1.179854961215742
+      },
+      {
+        "round": 2,
+        "ratio": 1.0712204537834815
+      },
+      {
+        "round": 3,
+        "ratio": 0.894769169316309
+      },
+      {
+        "round": 4,
+        "ratio": 1.0756688806850183
+      },
+      {
+        "round": 5,
+        "ratio": 1.1223767811998353
+      },
+      {
+        "round": 6,
+        "ratio": 1.2237748978511291
+      }
+    ],
+    "paired_p50_ratio_median": 1.0756688806850183,
+    "new_faster_rounds": 2,
+    "inputs_equal": true
+  },
+  "500": {
+    "old": {
+      "rounds": 7,
+      "passed_rounds": 7,
+      "failed_rounds": [],
+      "n": 256,
+      "p50_ns": 1382837655,
+      "p95_ns": 1846078748,
+      "p99_ns": 1928509121,
+      "max_ns": 1933049474,
+      "mean_ns": 1387649676.453125
+    },
+    "new": {
+      "rounds": 7,
+      "passed_rounds": 7,
+      "failed_rounds": [],
+      "n": 256,
+      "p50_ns": 1496509844,
+      "p95_ns": 2095994492,
+      "p99_ns": 2119971807,
+      "max_ns": 2125920659,
+      "mean_ns": 1534321081.8515625
+    },
+    "paired_p50_ratios": [
+      {
+        "round": 0,
+        "ratio": 1.2135005953593334
+      },
+      {
+        "round": 1,
+        "ratio": 1.6258626595133607
+      },
+      {
+        "round": 2,
+        "ratio": 1.135594107422195
+      },
+      {
+        "round": 3,
+        "ratio": 0.9308310310703585
+      },
+      {
+        "round": 4,
+        "ratio": 1.2625113042802996
+      },
+      {
+        "round": 5,
+        "ratio": 0.9571911143828377
+      },
+      {
+        "round": 6,
+        "ratio": 1.0164530481214893
+      }
+    ],
+    "paired_p50_ratio_median": 1.135594107422195,
+    "new_faster_rounds": 2,
+    "inputs_equal": true
+  }
+}

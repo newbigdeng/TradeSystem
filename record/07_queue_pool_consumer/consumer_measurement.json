@@ -1,0 +1,331 @@
+{
+  "verified_on": "2026-10-14",
+  "metric": "batch mean ns/unit distribution; median across seven rounds; not network RTT",
+  "adopted": [
+    "lazy_assert",
+    "fifo_single"
+  ],
+  "rejected": [
+    "logger_move"
+  ],
+  "comparisons": {
+    "lazy_assert": {
+      "snapshot": {
+        "baseline_p50_ns": 1423.05,
+        "candidate_p50_ns": 16.3424,
+        "baseline_p99_ns": 1992.04,
+        "candidate_p99_ns": 68.7253,
+        "paired_median_ratio": 0.011485049717156812,
+        "candidate_faster_pairs": 7,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 1059.67,
+            "new_p50_ns": 16.332,
+            "ratio": 0.015412345352798512
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 1307.51,
+            "new_p50_ns": 16.3385,
+            "ratio": 0.0124958891327791
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 1461.73,
+            "new_p50_ns": 16.3424,
+            "ratio": 0.011180176913657107
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 1598.62,
+            "new_p50_ns": 16.3411,
+            "ratio": 0.010222003978431399
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 1423.05,
+            "new_p50_ns": 16.3438,
+            "ratio": 0.011485049717156812
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 1509.67,
+            "new_p50_ns": 16.3451,
+            "ratio": 0.010826935687931798
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 1388.57,
+            "new_p50_ns": 16.3503,
+            "ratio": 0.011774919521522143
+          }
+        ]
+      },
+      "response": {
+        "baseline_p50_ns": 6769.7,
+        "candidate_p50_ns": 6554.69,
+        "baseline_p99_ns": 13425.4,
+        "candidate_p99_ns": 12998.1,
+        "paired_median_ratio": 0.9577671208056436,
+        "candidate_faster_pairs": 5,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 6843.72,
+            "new_p50_ns": 6554.69,
+            "ratio": 0.9577671208056436
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 8092.53,
+            "new_p50_ns": 6921.08,
+            "ratio": 0.8552430451292735
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 7866.5,
+            "new_p50_ns": 6363.7,
+            "ratio": 0.808962054280811
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 6471.17,
+            "new_p50_ns": 6575.22,
+            "ratio": 1.016079008896382
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 6643.38,
+            "new_p50_ns": 6612.97,
+            "ratio": 0.9954225108303304
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 6769.7,
+            "new_p50_ns": 6356.8,
+            "ratio": 0.9390076369706192
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 6406.72,
+            "new_p50_ns": 6518.55,
+            "ratio": 1.0174551096348834
+          }
+        ]
+      }
+    },
+    "fifo_single": {
+      "fifo_singleton": {
+        "baseline_p50_ns": 24925,
+        "candidate_p50_ns": 24649,
+        "baseline_p99_ns": 136644,
+        "candidate_p99_ns": 139131,
+        "paired_median_ratio": 0.9893155526992288,
+        "candidate_faster_pairs": 5,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 25883,
+            "new_p50_ns": 24669,
+            "ratio": 0.9530966271297763
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 24925,
+            "new_p50_ns": 24446,
+            "ratio": 0.9807823470411233
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 24896,
+            "new_p50_ns": 24630,
+            "ratio": 0.9893155526992288
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 24710,
+            "new_p50_ns": 24946,
+            "ratio": 1.0095507891541886
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 24934,
+            "new_p50_ns": 24649,
+            "ratio": 0.9885698243362477
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 23849,
+            "new_p50_ns": 23797,
+            "ratio": 0.9978196150782004
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 25264,
+            "new_p50_ns": 26856,
+            "ratio": 1.0630145661811272
+          }
+        ]
+      },
+      "fifo_batch": {
+        "baseline_p50_ns": 5688.11,
+        "candidate_p50_ns": 5374.17,
+        "baseline_p99_ns": 11316.6,
+        "candidate_p99_ns": 12261,
+        "paired_median_ratio": 0.9865895701735726,
+        "candidate_faster_pairs": 6,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 5688.11,
+            "new_p50_ns": 5611.83,
+            "ratio": 0.9865895701735726
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 5762.12,
+            "new_p50_ns": 5599.25,
+            "ratio": 0.9717343616585562
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 5747.31,
+            "new_p50_ns": 5268.42,
+            "ratio": 0.916675801374904
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 5751.69,
+            "new_p50_ns": 5682.77,
+            "ratio": 0.9880174348756627
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 5408.39,
+            "new_p50_ns": 5374.17,
+            "ratio": 0.9936727935670319
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 5502.31,
+            "new_p50_ns": 4976.44,
+            "ratio": 0.9044274132137228
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 5139.64,
+            "new_p50_ns": 5263.2,
+            "ratio": 1.0240405942828679
+          }
+        ]
+      }
+    },
+    "logger_move": {
+      "response": {
+        "baseline_p50_ns": 6485.45,
+        "candidate_p50_ns": 6660.34,
+        "baseline_p99_ns": 16020.4,
+        "candidate_p99_ns": 13712.6,
+        "paired_median_ratio": 1.0092561040482926,
+        "candidate_faster_pairs": 3,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 6469.34,
+            "new_p50_ns": 6392.53,
+            "ratio": 0.988127073240856
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 6467.92,
+            "new_p50_ns": 6875.7,
+            "ratio": 1.0630465435565066
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 6778.77,
+            "new_p50_ns": 6695.31,
+            "ratio": 0.9876880318995924
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 7306.52,
+            "new_p50_ns": 7184.95,
+            "ratio": 0.9833614360872206
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 6485.45,
+            "new_p50_ns": 6545.48,
+            "ratio": 1.0092561040482926
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 6508.91,
+            "new_p50_ns": 6660.34,
+            "ratio": 1.0232650320867858
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 6416.53,
+            "new_p50_ns": 6635.55,
+            "ratio": 1.0341337140167661
+          }
+        ]
+      },
+      "fifo_batch": {
+        "baseline_p50_ns": 5751.56,
+        "candidate_p50_ns": 5760.61,
+        "baseline_p99_ns": 11523.5,
+        "candidate_p99_ns": 12115.8,
+        "paired_median_ratio": 0.9913045596258768,
+        "candidate_faster_pairs": 4,
+        "pairs": [
+          {
+            "pair": 0,
+            "old_p50_ns": 5776.16,
+            "new_p50_ns": 5806.12,
+            "ratio": 1.005186836929725
+          },
+          {
+            "pair": 1,
+            "old_p50_ns": 5612.12,
+            "new_p50_ns": 6050.17,
+            "ratio": 1.0780542825171238
+          },
+          {
+            "pair": 2,
+            "old_p50_ns": 5765.92,
+            "new_p50_ns": 5650.38,
+            "ratio": 0.9799615672780753
+          },
+          {
+            "pair": 3,
+            "old_p50_ns": 5937.67,
+            "new_p50_ns": 5760.61,
+            "ratio": 0.9701802222083746
+          },
+          {
+            "pair": 4,
+            "old_p50_ns": 5713.98,
+            "new_p50_ns": 5502.67,
+            "ratio": 0.9630187715042756
+          },
+          {
+            "pair": 5,
+            "old_p50_ns": 5751.56,
+            "new_p50_ns": 5783.7,
+            "ratio": 1.0055880491553595
+          },
+          {
+            "pair": 6,
+            "old_p50_ns": 5747.84,
+            "new_p50_ns": 5697.86,
+            "ratio": 0.9913045596258768
+          }
+        ]
+      }
+    }
+  }
+}

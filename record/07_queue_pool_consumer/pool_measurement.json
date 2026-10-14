@@ -1,0 +1,212 @@
+{
+  "me_order/reuse": {
+    "capacity": 1,
+    "cycles": 3072,
+    "pairs_per_round": 25165824,
+    "old_p50_median_ns": 14.0461,
+    "new_p50_median_ns": 14.5471,
+    "paired_p50_ratio_median": 1.0356387712241484,
+    "new_faster_pairs": 0,
+    "old_p99_median_ns": 64.6532,
+    "new_p99_median_ns": 77.295,
+    "minimum_window_ns": 324379602,
+    "paired_ratios": [
+      1.0358015109547782,
+      1.0355472337517178,
+      1.0355106660118296,
+      1.0356570712500623,
+      1.0355902283469052,
+      1.0356387712241484,
+      1.035953040345719
+    ]
+  },
+  "me_order/random": {
+    "capacity": 65536,
+    "cycles": 80,
+    "pairs_per_round": 5242880,
+    "old_p50_median_ns": 64.2985,
+    "new_p50_median_ns": 61.3715,
+    "paired_p50_ratio_median": 1.0059512835206086,
+    "new_faster_pairs": 3,
+    "old_p99_median_ns": 135.344,
+    "new_p99_median_ns": 101.775,
+    "minimum_window_ns": 282753247,
+    "paired_ratios": [
+      1.1318491100103423,
+      1.3877027162959128,
+      1.1238640607494086,
+      0.9520865223826219,
+      0.8832979469978114,
+      1.0059512835206086,
+      0.9452807201023965
+    ]
+  },
+  "market_order/reuse": {
+    "capacity": 1,
+    "cycles": 3328,
+    "pairs_per_round": 27262976,
+    "old_p50_median_ns": 11.0378,
+    "new_p50_median_ns": 12.9915,
+    "paired_p50_ratio_median": 1.177000851618982,
+    "new_faster_pairs": 0,
+    "old_p99_median_ns": 54.3572,
+    "new_p99_median_ns": 93.4183,
+    "minimum_window_ns": 301246783,
+    "paired_ratios": [
+      1.177464508004385,
+      1.1733516956446892,
+      1.1731898238747553,
+      1.1773765412525707,
+      1.1777101338986429,
+      1.177000851618982,
+      1.174843541974224
+    ]
+  },
+  "market_order/random": {
+    "capacity": 65536,
+    "cycles": 112,
+    "pairs_per_round": 7340032,
+    "old_p50_median_ns": 48.5484,
+    "new_p50_median_ns": 52.923,
+    "paired_p50_ratio_median": 1.0936402185503271,
+    "new_faster_pairs": 3,
+    "old_p99_median_ns": 89.3724,
+    "new_p99_median_ns": 91.1295,
+    "minimum_window_ns": 347662393,
+    "paired_ratios": [
+      1.0936402185503271,
+      1.3981548281780651,
+      0.9915069616386378,
+      1.1120261657501505,
+      1.3876662303355451,
+      0.9692101078511342,
+      0.8601622329705765
+    ]
+  },
+  "me_level/reuse": {
+    "capacity": 1,
+    "cycles": 5632,
+    "pairs_per_round": 46137344,
+    "old_p50_median_ns": 9.86926,
+    "new_p50_median_ns": 10.2034,
+    "paired_p50_ratio_median": 1.0339216435263756,
+    "new_faster_pairs": 0,
+    "old_p99_median_ns": 41.3916,
+    "new_p99_median_ns": 46.8959,
+    "minimum_window_ns": 255034818,
+    "paired_ratios": [
+      1.0339216435263756,
+      1.0338535360648113,
+      2.4797915724902904,
+      1.033969071120209,
+      1.0335013551508396,
+      1.033984458919907,
+      1.0339073040937214
+    ]
+  },
+  "me_level/random": {
+    "capacity": 65536,
+    "cycles": 112,
+    "pairs_per_round": 7340032,
+    "old_p50_median_ns": 45.8363,
+    "new_p50_median_ns": 48.7731,
+    "paired_p50_ratio_median": 1.0701434585959089,
+    "new_faster_pairs": 2,
+    "old_p99_median_ns": 73.1833,
+    "new_p99_median_ns": 85.1889,
+    "minimum_window_ns": 312970812,
+    "paired_ratios": [
+      1.0701434585959089,
+      0.9658692257202997,
+      1.1741994852481974,
+      1.3550737813833136,
+      0.864283967550211,
+      1.003201100378255,
+      1.435491084577071
+    ]
+  },
+  "market_level/reuse": {
+    "capacity": 1,
+    "cycles": 3328,
+    "pairs_per_round": 27262976,
+    "old_p50_median_ns": 9.8689,
+    "new_p50_median_ns": 10.2039,
+    "paired_p50_ratio_median": 1.0341699915783542,
+    "new_faster_pairs": 0,
+    "old_p99_median_ns": 54.9329,
+    "new_p99_median_ns": 37.3945,
+    "minimum_window_ns": 228996061,
+    "paired_ratios": [
+      1.0341699915783542,
+      1.0339048653512177,
+      1.0343299953569756,
+      1.0341780745574483,
+      1.0338434042191031,
+      1.0343345507699448,
+      1.033731953916313
+    ]
+  },
+  "market_level/random": {
+    "capacity": 65536,
+    "cycles": 96,
+    "pairs_per_round": 6291456,
+    "old_p50_median_ns": 52.3456,
+    "new_p50_median_ns": 49.2424,
+    "paired_p50_ratio_median": 1.0711812063764081,
+    "new_faster_pairs": 3,
+    "old_p99_median_ns": 115.378,
+    "new_p99_median_ns": 95.3631,
+    "minimum_window_ns": 226619580,
+    "paired_ratios": [
+      1.166833552526702,
+      1.0711812063764081,
+      0.7043614466871764,
+      1.5241302162631918,
+      1.1069278029098912,
+      0.8389455525355851,
+      0.7946770208487655
+    ]
+  },
+  "market_update/reuse": {
+    "capacity": 1,
+    "cycles": 2816,
+    "pairs_per_round": 23068672,
+    "old_p50_median_ns": 12.2078,
+    "new_p50_median_ns": 13.1182,
+    "paired_p50_ratio_median": 1.0746225866432941,
+    "new_faster_pairs": 0,
+    "old_p99_median_ns": 55.9954,
+    "new_p99_median_ns": 36.5707,
+    "minimum_window_ns": 215622550,
+    "paired_ratios": [
+      1.5702238079792412,
+      1.0750524383848976,
+      1.0738522790575744,
+      1.0748034076015727,
+      1.0742925011262645,
+      1.074575271547699,
+      1.0746225866432941
+    ]
+  },
+  "market_update/random": {
+    "capacity": 65536,
+    "cycles": 112,
+    "pairs_per_round": 7340032,
+    "old_p50_median_ns": 48.4861,
+    "new_p50_median_ns": 48.6359,
+    "paired_p50_ratio_median": 1.0484061947900614,
+    "new_faster_pairs": 2,
+    "old_p99_median_ns": 98.0544,
+    "new_p99_median_ns": 95.1016,
+    "minimum_window_ns": 294328763,
+    "paired_ratios": [
+      1.0801990356552387,
+      1.0484061947900614,
+      0.9639128023816921,
+      0.9593046833716343,
+      1.001493306604571,
+      1.1323802079358827,
+      1.1581520393195284
+    ]
+  }
+}

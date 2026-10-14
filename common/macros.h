@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string_view>
 
-/// Branch prediction hints.
+/// 分支预测提示。
 #define LIKELY(x) __builtin_expect(!!(x), 1)
 #define UNLIKELY(x) __builtin_expect(!!(x), 0)
 
@@ -18,7 +18,7 @@ inline auto ASSERT(bool cond, std::string_view msg) noexcept {
   }
 }
 
-inline auto FATAL(const std::string &msg) noexcept {
+inline auto FATAL(const std::string& msg) noexcept {
   std::cerr << "FATAL : " << msg << std::endl;
 
   exit(EXIT_FAILURE);

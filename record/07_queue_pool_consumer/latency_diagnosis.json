@@ -1,0 +1,331 @@
+{
+  "boundary": "external TCP completed request frame sent -> validated exchange ACCEPTED/CANCELED response; excludes client strategy, gateway and market-data consumer",
+  "verdict": {
+    "business_correctness": "passed within tested boundary",
+    "end_to_end_improvement": "not demonstrated; both rates have worse paired P50 median",
+    "new_regression_cause": "not isolated by current data",
+    "cpu_only_optimization_scope": "does not measure or eliminate synchronous journal flush, shared lock waiting, kernel scheduling or socket delivery"
+  },
+  "before_after": {
+    "rounds": 28,
+    "pairs_each_rate": 7,
+    "input_bytes_identical": true,
+    "formal_completed": 7168,
+    "warmup_completed": 3584,
+    "business_passed_rounds": 28,
+    "timeouts": 0,
+    "rejections": 0,
+    "log_dropped_total": 0,
+    "all_final_queues_empty": true,
+    "journal_phase_counts_each_run": {
+      "RECEIVED": 384,
+      "APPLY": 384,
+      "RESPONSE": 384
+    },
+    "journal_records_including_header_each_run": 1153,
+    "queue_capacity": 262144,
+    "request_high_watermark_max": 249,
+    "full_count_captured": false,
+    "system_steal_ticks_total": 0,
+    "rates": {
+      "50": {
+        "old_p50_median_ms": 9.826382,
+        "new_p50_median_ms": 10.417177,
+        "old_p99_median_ms": 17.889785,
+        "new_p99_median_ms": 15.632797,
+        "paired_new_over_old_p50_ratio_median": 1.0756688806850183,
+        "paired_p50_change_pct_median": 7.566888068501831,
+        "new_faster_pairs": 2,
+        "old": {
+          "window_completed": {
+            "median": 256,
+            "min": 256,
+            "max": 256
+          },
+          "inflight_at_window_end": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "request_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "response_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "md_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "measurement_and_drain_s": {
+            "median": 5.110912461,
+            "min": 5.107576137,
+            "max": 5.116912087
+          },
+          "process_cpu_pct": {
+            "median": 361.65540071381764,
+            "min": 353.40664442197317,
+            "max": 367.6172492978422
+          },
+          "system_iowait_pct": {
+            "median": 3.2427277062470194,
+            "min": 2.598950882212685,
+            "max": 4.0913415794481445
+          },
+          "cpu_some_elapsed_pct": {
+            "median": 3.5949301886483953,
+            "min": 3.2269587240740956,
+            "max": 4.1326315150192094
+          },
+          "io_some_elapsed_pct": {
+            "median": 2.796941223852853,
+            "min": 2.1203207543737754,
+            "max": 3.7612078496162376
+          },
+          "send_lateness_p50_ms": {
+            "median": 0.849366,
+            "min": 0.749253,
+            "max": 0.869087
+          }
+        },
+        "new": {
+          "window_completed": {
+            "median": 256,
+            "min": 256,
+            "max": 256
+          },
+          "inflight_at_window_end": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "request_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "response_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "md_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "measurement_and_drain_s": {
+            "median": 5.110637362,
+            "min": 5.109354132,
+            "max": 5.116556422
+          },
+          "process_cpu_pct": {
+            "median": 359.34516339898613,
+            "min": 353.25712337341844,
+            "max": 363.9406957062128
+          },
+          "system_iowait_pct": {
+            "median": 3.565446279014118,
+            "min": 2.973358705994291,
+            "max": 3.78698224852071
+          },
+          "cpu_some_elapsed_pct": {
+            "median": 3.4184841822003267,
+            "min": 3.289569512541853,
+            "max": 3.907702060761247
+          },
+          "io_some_elapsed_pct": {
+            "median": 2.9264899407062446,
+            "min": 2.677399519936459,
+            "max": 3.3433205455432393
+          },
+          "send_lateness_p50_ms": {
+            "median": 0.82932,
+            "min": 0.814551,
+            "max": 0.919707
+          }
+        }
+      },
+      "500": {
+        "old_p50_median_ms": 1382.837655,
+        "new_p50_median_ms": 1496.509844,
+        "old_p99_median_ms": 1928.509121,
+        "new_p99_median_ms": 2119.971807,
+        "paired_new_over_old_p50_ratio_median": 1.135594107422195,
+        "paired_p50_change_pct_median": 13.559410742219491,
+        "new_faster_pairs": 2,
+        "old": {
+          "window_completed": {
+            "median": 4,
+            "min": 0,
+            "max": 10
+          },
+          "inflight_at_window_end": {
+            "median": 252,
+            "min": 246,
+            "max": 255
+          },
+          "request_high": {
+            "median": 236,
+            "min": 213,
+            "max": 249
+          },
+          "response_high": {
+            "median": 14,
+            "min": 7,
+            "max": 27
+          },
+          "md_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "measurement_and_drain_s": {
+            "median": 2.407198604,
+            "min": 1.899345289,
+            "max": 2.645805463
+          },
+          "process_cpu_pct": {
+            "median": 280.78209564040066,
+            "min": 275.49736241636424,
+            "max": 302.35777206104774
+          },
+          "system_iowait_pct": {
+            "median": 6.902086677367576,
+            "min": 6.407766990291262,
+            "max": 7.339449541284404
+          },
+          "cpu_some_elapsed_pct": {
+            "median": 3.0700523303449043,
+            "min": 2.3599329934362836,
+            "max": 3.7811676778104206
+          },
+          "io_some_elapsed_pct": {
+            "median": 3.8697991339296554,
+            "min": 3.6307248395883756,
+            "max": 4.260782791158699
+          },
+          "send_lateness_p50_ms": {
+            "median": 0.909393,
+            "min": 0.823582,
+            "max": 1.044523
+          }
+        },
+        "new": {
+          "window_completed": {
+            "median": 4,
+            "min": 0,
+            "max": 4
+          },
+          "inflight_at_window_end": {
+            "median": 252,
+            "min": 252,
+            "max": 256
+          },
+          "request_high": {
+            "median": 212,
+            "min": 200,
+            "max": 249
+          },
+          "response_high": {
+            "median": 30,
+            "min": 7,
+            "max": 43
+          },
+          "md_high": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "measurement_and_drain_s": {
+            "median": 2.59916038,
+            "min": 2.241640851,
+            "max": 2.890699721
+          },
+          "process_cpu_pct": {
+            "median": 281.2975001133558,
+            "min": 272.37325660332067,
+            "max": 306.54500264376327
+          },
+          "system_iowait_pct": {
+            "median": 6.933744221879815,
+            "min": 6.7073170731707314,
+            "max": 7.498856881572931
+          },
+          "cpu_some_elapsed_pct": {
+            "median": 2.9736399245751297,
+            "min": 2.7176751813119804,
+            "max": 3.2397251355313155
+          },
+          "io_some_elapsed_pct": {
+            "median": 4.112621660789121,
+            "min": 3.298582274398508,
+            "max": 4.85253769917086
+          },
+          "send_lateness_p50_ms": {
+            "median": 0.950688,
+            "min": 0.856675,
+            "max": 1.019093
+          }
+        }
+      }
+    }
+  },
+  "same_binary_calibration": {
+    "rate_per_s": 500,
+    "pairs": 7,
+    "passed_rounds": 14,
+    "input_bytes_identical": true,
+    "same_binary_path_all_runs": true,
+    "a_p50_median_ms": 1371.09184,
+    "b_p50_median_ms": 1211.301789,
+    "a_p99_median_ms": 1880.760316,
+    "b_p99_median_ms": 1642.933624,
+    "paired_b_over_a_ratio_median": 0.9169684918486031,
+    "paired_b_over_a_change_pct_median": -8.303150815139693,
+    "paired_b_over_a_change_pct_min": -38.057002068330526,
+    "paired_b_over_a_change_pct_max": 17.520911910309756,
+    "paired_b_over_a_ratios": [
+      0.8807465297614032,
+      1.1752091191030976,
+      1.1404909475867728,
+      0.9549233098783522,
+      0.7937309188037313,
+      0.6194299793166947,
+      0.9169684918486031
+    ],
+    "interpretation": "same code can vary substantially under repeated runs; this does not establish that the new code has no regression or that host hardware performance degraded"
+  },
+  "source_byte_equality": {
+    "common/critical_journal.h": true,
+    "common/logging.h": true,
+    "common/mem_pool.h": true,
+    "common/tcp_socket.cpp": true,
+    "common/tcp_server.cpp": true,
+    "exchange/order_server/order_server.cpp": true,
+    "exchange/matcher/matching_engine.cpp": true,
+    "exchange/matcher/me_order_book.cpp": true,
+    "exchange/matcher/me_order_book.h": true,
+    "common/types.h": true
+  },
+  "measurement_scope_notes": {
+    "pressure": "whole VM PSI totals before and after run, includes process startup, warmup and shutdown; elapsed percentages are global run observations, not request or fsync timing",
+    "process_cpu": "coarse process /proc ticks during measurement plus drain, all server threads, one fully occupied logical CPU is 100 percent",
+    "system_cpu": "whole VM aggregate /proc CPU tick deltas during measurement plus drain; includes unrelated processes",
+    "queue": "only request/response/market-data high-water and final occupancy captured; full_count not collected for these queues",
+    "journal": "reconciliation counts are persisted records, not syscall tracing; each record executes fsync in the unchanged source, retries may add syscalls",
+    "missing": "no per-stage request timestamps, no per-thread scheduler off-CPU traces, no per-fsync timing, no host CPU or host disk timeline"
+  },
+  "limitations": [
+    "No per-request stage timestamps",
+    "No per-fsync latency trace",
+    "No per-thread scheduler wait trace",
+    "No simultaneous host CPU or disk timeline",
+    "Full-count counters for production queues were not captured"
+  ]
+}
